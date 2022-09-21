@@ -35,17 +35,17 @@ export const signIn = ({username, password }) => {
 
 export const authenticate = (data, next) => {
     cookies.set('data', data, {path: '/'});
-    // window
-    //     .location
-    //     .reload();
+    window
+        .location
+        .reload();
     next();
 };
 
 export const logOut = next => {
     cookies.remove('data', {path: '/'})
-    window
-        .location
-        .reload();
+    // window
+    //     .location
+    //     .reload();
 
 };
 
