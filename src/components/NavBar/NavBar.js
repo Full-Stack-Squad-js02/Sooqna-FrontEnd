@@ -76,6 +76,8 @@ console.log('jjj', search)
             <Button variant="contained" onClick={() => navigate('/signup')}>Sign Up</Button>
             <Button variant="outlined" onClick={() => navigate('/signin')}>Sign In</Button>
             <Button variant="outlined" onClick={handleLogOut}>Log Out</Button>
+            <Button variant="outlined" onClick={() => navigate('/product')}>add product</Button>
+
         </Box>
 
     )

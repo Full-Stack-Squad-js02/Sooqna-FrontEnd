@@ -21,7 +21,9 @@ function App() {
                     <Route path='/signin' element={<Signin/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
                     {/* <Route exact path="/contact" element={<Contact />} /> */}
+                    
                 </Routes>
+                
             </BrowserRouter>
             {/* <Header/> */}
         </div>
