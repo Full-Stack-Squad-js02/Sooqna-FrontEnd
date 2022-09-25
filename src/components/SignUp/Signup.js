@@ -13,6 +13,7 @@ function Signup() {
   adress: '',
   });
 
+
   const { username, email, password, phonenumber, adress, error } = data;
   
   const handleChange = name => event => {

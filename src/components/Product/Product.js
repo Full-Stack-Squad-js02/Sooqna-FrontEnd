@@ -10,21 +10,22 @@ export default function CreateItem() {
         description: '',
         price: '',
         quantity: '',
-        color:'',
+        color: '',
         categories: [
-             'ELECTRONICS', 'GAMES', 'FASHION'
+            'ELECTRONICS', 'GAMES', 'FASHION'
         ],
         title: '',
         image: '',
         description: '',
-        quantity:'' ,
-        color:'',
+        quantity: '',
+        color: '',
         loading: false,
         error: '',
         createdProduct: '',
         redirectToProfile: false
     });
     const {user, token} = isAuthenticated();
+    // console.log(user)
     const {
         title,
         description,
@@ -51,13 +52,14 @@ export default function CreateItem() {
 
     const clickSubmit = event => {
         event.preventDefault();
+        // console.log('pppppp',event)
         setItem({
             ...item,
             error: '',
             loading: true
         });
-
-        createItem(user._id, token, item).then(data => {
+        // console.log('lllllll',item)
+        createItem(user.id, token, item).then(data => {
             if (data.error) {
                 setItem({
                     ...item,
@@ -71,7 +73,7 @@ export default function CreateItem() {
                     image: '',
                     price: '',
                     category: '',
-                    color:'',
+                    color: '',
                     quantity: '',
                     loading: false,
                     createdProduct: data.data.name
@@ -86,18 +88,6 @@ export default function CreateItem() {
     const newItemForm = () => (
         <div className="container">
             <form className="mb-3" onSubmit={clickSubmit}>
-                {/* <div className="form-group">
-                    <label className="text-muted">Image</label>
-                    <FileBase64
-                        required
-                        type="file"
-                        multiple={false}
-                        onDone={({base64}) => setItem({
-                        ...item,
-                        image: base64
-                    })}/>
-                </div> */}
-
                 <div className="form-group">
                     <label className="text-muted">title</label>
                     <input
@@ -158,7 +148,20 @@ export default function CreateItem() {
                         className="form-control"
                         value={quantity}/>
                 </div>
-
+                <div className="form-group">
+                    <label className="text-muted">Image</label>
+                    <FileBase64
+                        required
+                        type="file"
+                        multiple={false}
+              onDone={({ base64 }) => {
+                console.log(base64)
+                setItem({
+                        ...item,
+                        image: base64
+                    })}}/>
+                </div>
+                {/*
                 <div className="form-group">
                     <label className="text-muted">image</label>
                     <input
@@ -167,7 +170,7 @@ export default function CreateItem() {
                         type="text"
                         className="form-control"
                         value={image}/>
-                  </div>
+                  </div> */}
                 <button className="btn btn-outline-primary">Create Item</button>
             </form>
         </div>

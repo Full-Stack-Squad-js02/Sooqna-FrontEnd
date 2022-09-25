@@ -14,6 +14,7 @@ export default function NavBar() {
         seSearch] = useState({input: '', filteredBy: ''});
 
     const navigate = useNavigate();
+    
     const [value,
         setValue] = React.useState('one');
 

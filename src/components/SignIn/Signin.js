@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import {signIn,authenticate,isAuthenticated} from '../../auth/index' 
 
-function Signup() {
+function SignIn() {
 
   const [data, setData] = useState({
   username: '',
@@ -68,4 +68,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignIn;
