@@ -25,8 +25,8 @@ function App() {
                     {/* <Route exact path="/contact" element={<Contact />} /> */}
                 </Routes>
                 {/* <SlideShow /> */}
-                < Home />
-                    {/* <ProductCard/> */}
+                {/* < Home /> */}
+                    <ProductCard/>
                 
             </BrowserRouter>
             {/* <Header/> */}
