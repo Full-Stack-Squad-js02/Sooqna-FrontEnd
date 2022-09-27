@@ -7,12 +7,12 @@ function HomeCard() {
     const navigate = useNavigate();
     return (
         <Card style={{
-            width: '18rem',
+            width: '24rem',
             margin:'25px'
         }}>
             <Card.Img
                 variant="top"
-                src="https://image.shutterstock.com/image-photo/black-large-heavy-thick-metal-600w-1081705028.jpg"/>
+                src="https://source.unsplash.com/random?product"/>
             <Card.Body>
                 <Card.Title>Product Name</Card.Title>
                 <Card.Text>
