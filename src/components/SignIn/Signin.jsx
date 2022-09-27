@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import {useNavigate} from 'react-router-dom';
 import { signIn, authenticate, isAuthenticated } from "../../auth/index";
 import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBIcon, MDBInput } from "mdb-react-ui-kit";
 
@@ -11,6 +12,8 @@ function SignIn() {
   });
 
   const { username, password } = data;
+
+  const navigate = useNavigate();
 
   const handleChange = (name) => (event) => {
     setData({
@@ -90,7 +93,7 @@ function SignIn() {
               </a>
               <p className="mb-5 pb-lg-2" style={{ color: "#393f81" }}>
                 Don't have an account?{" "}
-                <a href="#!" style={{ color: "#393f81" }}>
+                <a href="#!" style={{ color: "#393f81" }} onClick={() => navigate('/signup')}>
                   Register here
                 </a>
               </p>
