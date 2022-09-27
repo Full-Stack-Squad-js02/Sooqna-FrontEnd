@@ -12,10 +12,7 @@ import {BsSearch} from "react-icons/bs";
 import {logOut, isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
 import Logo from '../../Assests/Sooqna.svg'
-// import './Navbar.css';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import './Navbar.css';
 
 function NavBar() {
     const [search,
@@ -44,7 +41,7 @@ function NavBar() {
                     style={{
                     width: '5rem',
                     height: 'auto',
-                    marginRight: '18rem'
+                    marginRight: '16rem'
                     }} />
                 {/* Tabs */}
                 <Navbar.Brand href="/" style={{ color:'white' }}>Home</Navbar.Brand>
@@ -106,23 +103,6 @@ function NavBar() {
                                 Price
                             </NavDropdown.Item>
                         </NavDropdown>
-
-                        <Dropdown>
-                            <Dropdown.Toggle style={{ color: 'white' }} variant="dark">
-                                {filter}
-                            </Dropdown.Toggle>
-
-                            <Dropdown.Menu variant="dark">
-                                <Dropdown.Item href="#/action-1" active>
-                                    Action
-                                </Dropdown.Item>
-                                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                <Dropdown.Divider />
-                                <Dropdown.Item href="#/action-4">Separated link</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-
                     </Nav >
                     {/* Search */}
                     <Form className="d-flex">
@@ -139,38 +119,30 @@ function NavBar() {
                         }}/>
                         <BsSearch
                             style={{
-                            width: '10rem',
+                            width: '7rem',
                             height: '2rem',
                             color: 'white'
                         }}
                             onClick={() => {
                             searchBy(search)
-                            }} />
+                            }}  />
                         {!isAuthenticated()?
                         <React.Fragment>
                         <Button
                             variant="outline-warning"
                             style={{
-                            margin: '0 1rem 0 4rem'
+                            margin: '0 1rem 0 4rem',    
+                            whiteSpace: 'nowrap'
                         }}
-                            onClick={() => navigate('/signin')}>SignIn</Button>
-                        <Button variant="outline-warning" onClick={() => navigate('/signup')}>SignUp</Button>
+                            onClick={() => navigate('/signin')}>Sign In</Button>
+                                <Button variant="outline-warning" style={{whiteSpace: 'nowrap'}}
+                                    onClick={() => navigate('/signup')}>Sign Up</Button>
                          </React.Fragment>
                             :
                             <React.Fragment>
-                            <Button variant="outline-success" onClick={handleLogOut}>LogOut</Button>
+                                <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button>
                             <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button>
                          </React.Fragment>}
-                           
-                        {/* <Button
-                            variant="outline-warning"
-                            style={{
-                            marginLeft: '4rem'
-                        }}
-                            onClick={() => navigate('/signin')}>SignIn</Button>
-                        <Button variant="outline-warning" onClick={() => navigate('/signup')}>SignUp</Button> */}
-                        {/* <Button variant="outline-success" onClick={handleLogOut}>LogOut</Button>
-                        <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
                     </Form>
                 </Navbar.Collapse>
             </Container>
