@@ -1,8 +1,10 @@
 // import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import {Card , Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
+import {useNavigate} from 'react-router-dom';
 
 function HomeCard() {
+    const navigate = useNavigate();
     return (
         <Card style={{
             width: '18rem',
@@ -19,7 +21,7 @@ function HomeCard() {
                 </Card.Text>
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
                 <Card.Title>Price</Card.Title>
-                {/* <Button variant="primary">Go somewhere</Button> */}
+                <Button variant="primary" onClick={() => navigate('/viewdetails')}>View Details</Button>
             </Card.Body>
         </Card>
     );
