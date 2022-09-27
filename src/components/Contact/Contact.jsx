@@ -31,7 +31,7 @@ export default function Contact() {
             <MDBIcon fab icon='twitter' />
           </MDBBtn>
 
-          <MDBBtn
+          {/* <MDBBtn
             floating
             className='m-1'
             style={{ backgroundColor: '#dd4b39' }}
@@ -39,7 +39,7 @@ export default function Contact() {
             role='button'
           >
             <MDBIcon fab icon='google' />
-          </MDBBtn>
+          </MDBBtn> */}
           <MDBBtn
             floating
             className='m-1'
@@ -50,7 +50,7 @@ export default function Contact() {
             <MDBIcon fab icon='instagram' />
           </MDBBtn>
 
-          <MDBBtn
+          {/* <MDBBtn
             floating
             className='m-1'
             style={{ backgroundColor: '#0082ca' }}
@@ -58,9 +58,9 @@ export default function Contact() {
             role='button'
           >
             <MDBIcon fab icon='linkedin-in' />
-          </MDBBtn>
+          </MDBBtn> */}
 
-          < MDBBtn
+          {/* < MDBBtn
             floating
             className='m-1'
             style={{ backgroundColor: '#333333' }}
@@ -68,7 +68,7 @@ export default function Contact() {
             role='button'
           >
             <MDBIcon fab icon='github' />
-          </MDBBtn>
+          </MDBBtn> */}
         </section>
       </MDBContainer>
       {/* <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
