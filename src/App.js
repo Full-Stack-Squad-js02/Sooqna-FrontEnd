@@ -9,6 +9,7 @@ import Product from './components/Product/Product';
 import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
 
+
 function App() {
     return (
         <div className="App">
@@ -20,7 +21,7 @@ function App() {
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
-                    {/* <Route exact path="/contact" element={<Contact />} /> */}
+                    <Route exact path='/contact' element={<Contact/>} />
                 </Routes>
             </BrowserRouter>
             {/* <Header/> */}
