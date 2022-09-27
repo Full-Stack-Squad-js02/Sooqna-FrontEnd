@@ -13,6 +13,7 @@ import AboutPage from './components/About/About';
 import NavBar from './components/NavBar/NavBar';
 // import Bar from './components/NavBar/Bar';
 
+
 function App() {
     return (
         <div className="App">
@@ -24,13 +25,17 @@ function App() {
                     {/* <Route path='/' element={< Ab />}/> */}
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
+                    <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
+                    {/* <Route path='/contact' element={<Contact/>} /> */}
                     <Route path='/viewdetails' element={<ProductCard/>}/>
-                    <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>} />
-                    {/* <Route exact path="/contact" element={<Contact />} /> */}
+                
                 </Routes>
+                <Contact/>
                 {/* <SlideShow /> */}
                 {/* < Home /> */}
-                {/* <ProductCard/> */}
+                    {/* <ProductCard/> */}
+                
+                    
                 {/* <AboutPage/> */}
             </BrowserRouter>
             {/* <Header/> */}
