@@ -24,9 +24,9 @@ function App() {
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>} />
                     {/* <Route exact path="/contact" element={<Contact />} /> */}
                 </Routes>
-                {/* <SlideShow /> */}
-                {/* < Home /> */}
-                    <ProductCard/>
+                <SlideShow />
+                < Home />
+                    {/* <ProductCard/> */}
                 
             </BrowserRouter>
             {/* <Header/> */}
