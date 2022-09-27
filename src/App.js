@@ -1,6 +1,5 @@
 import './App.css';
 // import Header from './components/Header/Header';
-import NavBar from './components/NavBar/NavBar';
 import Signup from './components/SignUp/Signup';
 import Signin from './components/SignIn/Signin';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -10,12 +9,16 @@ import Product from './components/Product/Product';
 import ProductCard from './components/Product/productCard';
 import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
+import AboutPage from './components/About/About';
+import NavBar from './components/NavBar/NavBar';
+// import Bar from './components/NavBar/Bar';
 
 function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                <NavBar /> 
+                {/* <Bar/> */}
+                <NavBar/> 
                 <Routes>
                     {/* <Route path='/' element={< Home />}/> */}
                     {/* <Route path='/' element={< Ab />}/> */}
@@ -26,8 +29,8 @@ function App() {
                 </Routes>
                 {/* <SlideShow /> */}
                 < Home />
-                    {/* <ProductCard/> */}
-                
+                {/* <ProductCard/> */}
+                {/* <AboutPage/> */}
             </BrowserRouter>
             {/* <Header/> */}
         </div>
