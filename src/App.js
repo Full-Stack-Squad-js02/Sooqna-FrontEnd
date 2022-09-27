@@ -20,15 +20,16 @@ function App() {
                 {/* <Bar/> */}
                 <NavBar/> 
                 <Routes>
-                    {/* <Route path='/' element={< Home />}/> */}
+                    <Route path='/' element={< Home />}/>
                     {/* <Route path='/' element={< Ab />}/> */}
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
+                    <Route path='/viewdetails' element={<ProductCard/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>} />
                     {/* <Route exact path="/contact" element={<Contact />} /> */}
                 </Routes>
                 {/* <SlideShow /> */}
-                < Home />
+                {/* < Home /> */}
                 {/* <ProductCard/> */}
                 {/* <AboutPage/> */}
             </BrowserRouter>
