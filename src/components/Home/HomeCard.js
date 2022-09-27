@@ -1,5 +1,5 @@
 // import Button from 'react-bootstrap/Button';
-import {Card , Button } from 'react-bootstrap/Card';
+import {Card , Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
 import {useNavigate} from 'react-router-dom';
 
