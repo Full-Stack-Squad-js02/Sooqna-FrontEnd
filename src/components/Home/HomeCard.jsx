@@ -1,15 +1,13 @@
 // import Button from 'react-bootstrap/Button';
 import {Card , Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import './Home.css';
 
 function HomeCard() {
     const navigate = useNavigate();
     return (
-        <Card style={{
-            width: '24rem',
-            margin:'25px'
-        }}>
+        <Card id='homeCard'>
             <Card.Img
                 variant="top"
                 src="https://source.unsplash.com/random?product"/>
