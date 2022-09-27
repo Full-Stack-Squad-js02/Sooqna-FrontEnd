@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
@@ -17,10 +18,13 @@
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
     "react-file-base64": "^1.0.3",
+    "react-icons": "^4.4.0",
     "react-router-dom": "^6.4.0",
     "react-scripts": "5.0.1",
     "react-slideshow-image": "^4.0.5",
+    "styled-components": "^5.3.5",
     "universal-cookie": "^4.0.4",
+    "utils": "^0.3.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,5 +50,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
   }
 }
