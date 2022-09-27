@@ -2,6 +2,12 @@ import React, {useState, useEffect} from 'react';
 import FileBase64 from 'react-file-base64';
 import {isAuthenticated} from '../../auth/index';
 import {createItem} from '../../api/api'
+import 'bootstrap/dist/css/bootstrap.css';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { MDBCardImage , MDBCol} from "mdb-react-ui-kit";
+
+
 
 export default function CreateItem() {
     const [item,
@@ -25,7 +31,6 @@ export default function CreateItem() {
         redirectToProfile: false
     });
     const {user, token} = isAuthenticated();
-    // console.log(user)
     const {
         title,
         description,
@@ -85,72 +90,95 @@ export default function CreateItem() {
         });
     };
 
+
+
+
     const newItemForm = () => (
-        <div className="container">
-            <form className="mb-3" onSubmit={clickSubmit}>
-                <div className="form-group">
-                    <label className="text-muted">title</label>
-                    <input
+  
+    <div style={{ display: 'block', 
+                  width: 700, 
+                  padding: 30 }}>
+                    
+                
+                    
+      <h5 style={{ color: "#4051a5" }}>Add Product to Sooqna </h5>
+
+      
+      <Form className="mb-3" onSubmit={clickSubmit}>
+      <Form.Group>
+          <Form.Label style={{ color: "#4051a5" }}>title</Form.Label>
+                         <input
                         required
+                        type="text" 
+                        placeholder="Enter your Product name"
                         onChange={handleChange('title')}
-                        type="text"
                         className="form-control"
                         value={title}/>
-                </div>
+        </Form.Group>
 
-                <div className="form-group">
-                    <label className="text-muted">Description</label>
-                    <textarea
+        <Form.Group>
+          <Form.Label style={{ color: "#4051a5" }}>Product description</Form.Label>
+          <input
                         required
+                        placeholder="Enter your description" 
                         onChange={handleChange('description')}
                         className="form-control"
                         value={description}/>
-                </div>
+        </Form.Group>
+        <Form.Group>
+      <br/>
 
-                <div className="form-group">
-                    <label className="text-muted">Price</label>
-                    <input
-                        required
-                        onChange={handleChange('price')}
-                        type="number"
-                        className="form-control"
-                        value={price}/>
-                </div>
-
-                <div className="form-group">
-                    <label className="text-muted">color</label>
-                    <input
-                        required
-                        onChange={handleChange('color')}
-                        type="text"
-                        className="form-control"
-                        value={color}/>
-                </div>
-
-                <div className="form-group">
-                    <label className="text-muted">Category</label>
-                    <select onChange={handleChange('category')} className="form-control">
-                        <option>Please select</option>
-                        {categories && categories.map((c, i) => (
+ <Form.Select aria-label="Default select example">
+      <option style={{ color: "#4051a5" }}>Select category</option>
+      {categories && categories.map((c, i) => (
                             <option key={i} value={c}>
                                 {c}
                             </option>
                         ))}
-                    </select>
-                </div>
+    </Form.Select>
+                    <br/>
+                        
+        </Form.Group>
+        <Form.Group>
+          <Form.Label style={{ color: "#4051a5" }}>Price</Form.Label>
+          <input
+          type="number"
+           placeholder="Enter product price" 
+                        required
+                        onChange={handleChange('price')}
+                        className="form-control"
+                        value={price}/>
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <Form.Label style={{ color: "#4051a5" }}>Product Color:</Form.Label>
+                        <input
+                        type="text" 
+                        placeholder="Enter product's color"
+                        required
+                        onChange={handleChange('color')}
+                        className="form-control"
+                        value={color}/>
 
-                <div className="form-group">
-                    <label className="text-muted">quantity</label>
-                    <input
+        </Form.Group>
+        <br/>
+        <Form.Group>
+          <Form.Label style={{ color: "#4051a5" }}>Quantity:</Form.Label>
+          <input
+          type="number" 
+          placeholder="Enter quantity" 
                         required
                         onChange={handleChange('quantity')}
-                        type="number"
                         className="form-control"
                         value={quantity}/>
-                </div>
-                <div className="form-group">
-                    <label className="text-muted">Image</label>
-                    <FileBase64
+        </Form.Group>
+
+<br/>
+       
+        <Form.Group>
+          <Form.Label style={{ color: "#4051a5" }}>Image</Form.Label>
+        
+          <FileBase64
                         required
                         type="file"
                         multiple={false}
@@ -160,59 +188,59 @@ export default function CreateItem() {
                         ...item,
                         image: base64
                     })}}/>
-                </div>
-                {/*
-                <div className="form-group">
-                    <label className="text-muted">image</label>
-                    <input
-                        required
-                        onChange={handleChange('image')}
-                        type="text"
-                        className="form-control"
-                        value={image}/>
-                  </div> */}
-                <button className="btn btn-outline-primary">Create Item</button>
-            </form>
-        </div>
-    );
+        </Form.Group>
+        <br/>
+        <Button variant="outline-warning" style={{marginLeft: '4rem'}}>Submit Form</Button>
 
-    const showError = () => (
-        <div
-            className="alert alert-danger"
-            style={{
-            display: error
-                ? ''
-                : 'none'
-        }}>
-            {error}
-        </div>
-    );
+        
+      </Form>
 
-    const showSuccess = () => (
-        <div
-            className="alert alert-info"
-            style={{
-            display: createdProduct
-                ? ''
-                : 'none'
-        }}>
-            <h2>{`${createdProduct}`}
-                is created!</h2>
-        </div>
-    );
+      <img
+          className="d-block w-100 h-1"
+          src="https://cdn.learnwoo.com/wp-content/uploads/2016/11/Adding-Products_Cropped.png"
+          alt="First slide"
+        />
 
-    const showLoading = () => loading && (
-        <div className="alert alert-success">
-            <h2>Loading...</h2>
-        </div>
-    );
+    </div>
 
-    return (
-        <div>
-            {showLoading()}
-            {showSuccess()}
-            {showError()}
-            {newItemForm()}
-        </div>
-    );
+
+  );
+  
+  const showSuccess = () => (
+    <div
+        className="alert alert-info"
+        style={{
+        display: createdProduct
+            ? ''
+            : 'none'
+    }}>
+        <h2>{`${createdProduct}`}
+            is created!</h2>
+    </div>
+);
+const showError = () => (
+    <div
+        className="alert alert-danger"
+        style={{
+        display: error
+            ? ''
+            : 'none'
+    }}>
+        {error}
+    </div>
+);
+const showLoading = () => loading && (
+    <div className="alert alert-success">
+        <h2>Loading...</h2>
+    </div>
+);
+
+return (
+    <div>
+        {showLoading()}
+        {showSuccess()}
+        {showError()}
+        {newItemForm()}
+    </div>
+);
 };
