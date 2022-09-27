@@ -5,7 +5,8 @@ import Rating from '@mui/material/Rating';
 function HomeCard() {
     return (
         <Card style={{
-            width: '18rem'
+            width: '18rem',
+            margin:'25px'
         }}>
             <Card.Img
                 variant="top"

@@ -3,8 +3,8 @@
     flex: auto;
     /* background-color: black; */
 }
-/* #search{
-    display: flex;
-    flex: auto;
-} */
+navbar {
+    margin-right: 4rem;
+    color: brown;
+}
 
