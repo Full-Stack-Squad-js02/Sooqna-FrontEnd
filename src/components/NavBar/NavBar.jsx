@@ -44,9 +44,9 @@ function NavBar() {
                     marginRight: '16rem'
                     }} />
                 {/* Tabs */}
-                <Navbar.Brand href="/">Home</Navbar.Brand>
-                <Navbar.Brand href="/about" >About</Navbar.Brand>
-                <Navbar.Brand href="/contact" >Contact Us</Navbar.Brand>
+                <Navbar.Brand href="/" style={{ color:'white' }}>Home</Navbar.Brand>
+                <Navbar.Brand href="/about" style={{ color: 'white' }}>About</Navbar.Brand>
+                <Navbar.Brand href="/" style={{ color: 'white' }}>Contact Us</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
