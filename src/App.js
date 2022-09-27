@@ -27,7 +27,7 @@ function App() {
                 
                 </Routes>
                 {/* <SlideShow /> */}
-                < Home />
+                {/* < Home /> */}
                     {/* <ProductCard/> */}
                 
             </BrowserRouter>
