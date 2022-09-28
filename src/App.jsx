@@ -6,6 +6,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Product from './components/Product/CreateProductForm';
 import MyProduct from './components/myProduct/myProducts';
+import MyCart from './components/Cart/myCart';
 import ProductCard from './components/Product/SingleProductPage';
 import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
@@ -32,6 +33,7 @@ function App() {
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
                     <Route path='/contact' element={<Contact/>} />
                     <Route path='/myproducts' element={<MyProduct/>} />
+                    <Route path='/myCart' element={<MyCart/>} />
                     <Route path='/viewdetails' element={<ProductCard/>}/>
                     <Route path='/userinfo' element={<UserInfo/>}/>
                     <Route path='/setting' element={<Setting/>}/>
