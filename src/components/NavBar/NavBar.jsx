@@ -147,7 +147,7 @@ function NavBar() {
                             <React.Fragment>
                                 {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
                             {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
-                                <BsFillCartFill style={{
+                                <BsFillCartFill onClick={() => { navigate('/myCart')}} style={{
                                     color: 'white' ,
                                     height: 'auto',
                                     width: '4rem',

@@ -17,7 +17,7 @@ function MyProductCard() {
                 </Card.Text>
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
                 <Card.Title>Price</Card.Title>
-                <Button variant="primary">Update</Button> <Button variant="primary">Delete</Button>
+                <Button variant="warning">Update</Button> <Button variant="danger">Delete</Button>
             </Card.Body>
         </Card>
 );

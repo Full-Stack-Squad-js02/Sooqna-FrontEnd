@@ -50,23 +50,6 @@ function SignIn() {
   };
 
   return (
-    // <Form onSubmit={handleSubmit}>
-
-    //   <Form.Group className="mb-3" controlId="formBasicEmail">
-    //     <Form.Label>User Name</Form.Label>
-    //     <Form.Control type="text" placeholder="Enter your name" value={username} onChange={handleChange('username')} />
-    //   </Form.Group>
-
-    //   <Form.Group className="mb-3" controlId="formBasicPassword">
-    //     <Form.Label>Password</Form.Label>
-    //     <Form.Control type="password" placeholder="Password" value={password} onChange={handleChange('password')}  />
-    //   </Form.Group>
-
-    //   <Button variant="primary" type="submit">
-    //     Sign In
-    //   </Button>
-    // </Form>
-
     <MDBContainer className="my-5" >
       <MDBCard>
         <MDBRow className="g-0">
