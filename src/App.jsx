@@ -11,6 +11,7 @@ import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
 import AboutPage from './components/About/About';
 import NavBar from './components/NavBar/NavBar';
+import WishlistCard from './components/Wishlist/WishlistCard';
 // import Bar from './components/NavBar/Bar';
 
 
@@ -28,6 +29,7 @@ function App() {
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
                     {/* <Route path='/contact' element={<Contact/>} /> */}
                     <Route path='/viewdetails' element={<ProductCard/>}/>
+                    <Route path='/Wishlist' element={<WishlistCard/>}/>
                 
                 </Routes>
                 <Contact/>
