@@ -24,7 +24,7 @@ export const searchBy = async ({input,filteredBy}) => {
 
 export const createItem = async (userId,token, data) => {
     console.log(userId,token,data)
-    const result = await axios.post(`http://localhost:3002/product`, data, {
+    const result = await axios.post(`https://sooqna.herokuapp.com/product`, data, {
         headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${token}`
