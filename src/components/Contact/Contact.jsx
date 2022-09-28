@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
-import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon,MDBBtn } from 'mdb-react-ui-kit';
+import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
+// import './Contact.css'
 
 export default function Contact() {
   return (
     <MDBFooter style={{ backgroundColor: '#003566' }} className='text-center text-lg-start text-white'>
+    
       <MDBContainer className='p-4 pb-0'>
         <section className='mb-4'>
         <div className='me-5 d-none d-lg-block'>

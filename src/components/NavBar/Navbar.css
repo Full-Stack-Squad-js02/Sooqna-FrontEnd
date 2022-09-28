@@ -26,3 +26,11 @@ navbar {
 .navbar-light .navbar-brand:hover {
     color: #ffc300;
 }
+
+svg{
+    color:white;
+}
+svg:hover{
+    color:#ffc300;
+    cursor: pointer;
+}

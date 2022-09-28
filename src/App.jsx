@@ -4,14 +4,19 @@ import Signup from './components/SignUp/Signup';
 import Signin from './components/SignIn/Signin';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from './components/Home/Home';
-import SlideShow from './components/Home/SlideShow';
-import Product from './components/Product/Product';
-import ProductCard from './components/Product/productCard';
+import Product from './components/Product/CreateProductForm';
+import MyProduct from './components/myProduct/myProducts';
+import MyCart from './components/Cart/myCart';
+import ProductCard from './components/Product/SingleProductPage';
 import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
 import AboutPage from './components/About/About';
 import NavBar from './components/NavBar/NavBar';
-import WishlistCard from './components/Wishlist/WishlistCard';
+import Wishlist from './components/Wishlist/Wishlist';
+import UserInfo from './components/UserProfile/UserInfo';
+import Setting from './components/UserProfile/Setting';
+import UserPage from './components/UserPage/UserPage';
+import MyOrders from './components/Orders/MyOrders';
 // import Bar from './components/NavBar/Bar';
 
 
@@ -23,21 +28,25 @@ function App() {
                 <NavBar/> 
                 <Routes>
                     <Route path='/' element={< Home />}/>
-                    {/* <Route path='/' element={< Ab />}/> */}
+                    <Route path='/about' element={< AboutPage />}/>
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
-                    {/* <Route path='/contact' element={<Contact/>} /> */}
+                    <Route path='/contact' element={<Contact/>} />
+                    <Route path='/myproducts' element={<MyProduct/>} />
+                    <Route path='/myCart' element={<MyCart/>} />
                     <Route path='/viewdetails' element={<ProductCard/>}/>
-                    <Route path='/Wishlist' element={<WishlistCard/>}/>
+                    <Route path='/Wishlist' element={<Wishlist/>}/>
                 
+                    <Route path='/userinfo' element={<UserInfo/>}/>
+                    <Route path='/setting' element={<Setting/>}/>
+                    <Route path='/user' element={<UserPage/>}/>
+                    <Route path='/myorders' element={<MyOrders/>}/>
                 </Routes>
                 <Contact/>
                 {/* <SlideShow /> */}
                 {/* < Home /> */}
-                    {/* <ProductCard/> */}
-                
-                    
+                {/* <ProductCard/> */}
                 {/* <AboutPage/> */}
             </BrowserRouter>
             {/* <Header/> */}
