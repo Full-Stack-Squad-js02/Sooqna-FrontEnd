@@ -9,9 +9,9 @@ import {
     NavDropdown
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
-import { CgShoppingCart} from "react-icons/cg";
+// import { CgShoppingCart} from "react-icons/cg";
 import { MdOutlineFavorite } from "react-icons/md";
-import {logOut, isAuthenticated} from '../../auth';
+import { isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
 import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
@@ -25,10 +25,10 @@ function NavBar() {
 
     const navigate = useNavigate();
 
-    function handleLogOut() {
-        logOut();
-        navigate('/')
-    }
+    // function handleLogOut() {
+    //     logOut();
+    //     navigate('/')
+    // }
     // console.log('jjj', search)
     // console.log('uuuu', isAuthenticated())
 
@@ -151,7 +151,6 @@ function NavBar() {
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
-                                // onMouseOver:"this.style.color='#0F0'"
                                 }} />
                                 <MdOutlineFavorite style={{
                                     color: 'white' ,
