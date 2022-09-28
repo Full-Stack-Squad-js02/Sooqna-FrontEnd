@@ -8,6 +8,7 @@ import './product.css'
 function MyProducts() {
 return(
 <>
+<h1 style={{marginTop:"3rem"}}>My Product</h1>
 <Container fluid='sm' style={{ margin: '2rem' }}>
 <Row xs="4">
     <Col><MyProductCard/></Col>
