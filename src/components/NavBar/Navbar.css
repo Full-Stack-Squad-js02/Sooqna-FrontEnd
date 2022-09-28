@@ -27,9 +27,9 @@ navbar {
     color: #ffc300;
 }
 
-*, ::after, ::before:hover {
-    color:white;
-}
+/* *, ::after, ::before {
+    color:black;
+} */
 *, ::after, ::before:hover {
     color: #ffc300;
 }

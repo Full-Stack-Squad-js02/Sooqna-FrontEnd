@@ -13,6 +13,8 @@ import AboutPage from './components/About/About';
 import NavBar from './components/NavBar/NavBar';
 import UserInfo from './components/UserProfile/UserInfo';
 import Setting from './components/UserProfile/Setting';
+import UserPage from './components/UserPage/UserPage';
+import MyOrders from './components/Orders/MyOrders';
 // import Bar from './components/NavBar/Bar';
 
 
@@ -33,6 +35,8 @@ function App() {
                     <Route path='/viewdetails' element={<ProductCard/>}/>
                     <Route path='/userinfo' element={<UserInfo/>}/>
                     <Route path='/setting' element={<Setting/>}/>
+                    <Route path='/user' element={<UserPage/>}/>
+                    <Route path='/myorders' element={<MyOrders/>}/>
                 </Routes>
                 <Contact/>
                 {/* <SlideShow /> */}
