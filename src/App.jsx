@@ -4,8 +4,8 @@ import Signup from './components/SignUp/Signup';
 import Signin from './components/SignIn/Signin';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from './components/Home/Home';
-import SlideShow from './components/Home/SlideShow';
 import Product from './components/Product/CreateProductForm';
+import MyProduct from './components/myProduct/myProducts';
 import ProductCard from './components/Product/SingleProductPage';
 import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
@@ -29,6 +29,7 @@ function App() {
                     <Route path='/signin' element={<Signin/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
                     <Route path='/contact' element={<Contact/>} />
+                    <Route path='/MyProduct' element={<MyProduct/>} />
                     <Route path='/viewdetails' element={<ProductCard/>}/>
                     <Route path='/userinfo' element={<UserInfo/>}/>
                     <Route path='/setting' element={<Setting/>}/>
