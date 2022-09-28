@@ -151,7 +151,7 @@ function NavBar() {
                                     width: '4rem',
                                     margin: '0 5px',
                                 }} />
-                                <MdOutlineFavorite style={{
+                                <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px'}} />

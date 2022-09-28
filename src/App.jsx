@@ -12,6 +12,7 @@ import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
 import AboutPage from './components/About/About';
 import NavBar from './components/NavBar/NavBar';
+import Wishlist from './components/Wishlist/Wishlist';
 import UserInfo from './components/UserProfile/UserInfo';
 import Setting from './components/UserProfile/Setting';
 import UserPage from './components/UserPage/UserPage';
@@ -36,6 +37,8 @@ function App() {
                     <Route path='/myproducts' element={<MyProduct/>} />
                     <Route path='/myCart' element={<MyCart/>} />
                     <Route path='/viewdetails' element={<ProductCard/>}/>
+                    <Route path='/Wishlist' element={<Wishlist/>}/>
+                
                     <Route path='/userinfo' element={<UserInfo/>}/>
                     <Route path='/setting' element={<Setting/>}/>
                     <Route path='/user' element={<UserPage/>}/>
