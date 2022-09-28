@@ -5,8 +5,6 @@ import Rating from '@mui/material/Rating';
 function MyProductCard() {
   
     return (
-
-      
         <Card id='productCard'>
             <Card.Img
                 variant="top"
@@ -20,16 +18,9 @@ function MyProductCard() {
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
                 <Card.Title>Price</Card.Title>
                 <Button variant="primary">Update</Button> <Button variant="primary">Delete</Button>
-
-
             </Card.Body>
         </Card>
-     
-   
-
-
 );
-  
 }
 
 export default MyProductCard;

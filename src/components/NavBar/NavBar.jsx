@@ -9,8 +9,9 @@ import {
     NavDropdown
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
-// import { CgShoppingCart} from "react-icons/cg";
 import { MdOutlineFavorite } from "react-icons/md";
+import { FaUserAlt } from "react-icons/fa";
+// import { CgShoppingCart} from "react-icons/cg";
 import { isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
 import Logo from '../../Assests/Sooqna.svg'
@@ -157,7 +158,13 @@ function NavBar() {
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px'}} />
-                                <UserDropdownList/>
+                                <FaUserAlt onClick={() => { navigate('/user')}} style={{
+                                    color: 'white',
+                                    height: 'auto',
+                                    width: '4rem',
+                                    margin: '0 5px'
+                                }} />
+                                <UserDropdownList />
                          </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>
