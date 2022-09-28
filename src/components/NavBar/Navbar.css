@@ -27,9 +27,10 @@ navbar {
     color: #ffc300;
 }
 
-/* *, ::after, ::before {
-    color:black;
-} */
-*, ::after, ::before:hover {
-    color: #ffc300;
+svg{
+    color:white;
+}
+svg:hover{
+    color:#ffc300;
+    cursor: pointer;
 }

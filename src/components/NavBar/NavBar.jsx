@@ -125,7 +125,6 @@ function NavBar() {
                         style={{
                             width: '7rem',
                             height: '2rem',
-                            color: 'white',
                             marginRight: '7rem',
                         }}
                             onClick={() => {
@@ -148,18 +147,15 @@ function NavBar() {
                                 {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
                             {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
                                 <BsFillCartFill style={{
-                                    color: 'white' ,
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
                                 }} />
                                 <MdOutlineFavorite style={{
-                                    color: 'white' ,
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px'}} />
-                                <FaUserAlt onClick={() => { navigate('/user')}} style={{
-                                    color: 'white',
+                                <FaUserAlt onClick={() => { navigate('/user') }} style={{
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px'

@@ -1,11 +1,13 @@
 import React from 'react';
 import {Card , Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
+import '../Home/Home.css';
+
 
 function MyProductCard() {
   
     return (
-        <Card id='productCard'>
+        <Card id='Card'>
             <Card.Img
                 variant="top"
                 src="https://source.unsplash.com/random?product"/>
