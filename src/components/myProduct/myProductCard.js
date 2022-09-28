@@ -1,18 +1,16 @@
-// import Button from 'react-bootstrap/Button';
+import React from 'react';
 import {Card , Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
-import {useNavigate} from 'react-router-dom';
 
-function HomeCard() {
-    const navigate = useNavigate();
+function MyProductCard() {
+  
     return (
-        <Card style={{
-            width: '18rem',
-            margin:'25px'
-        }}>
+
+      
+        <Card id='productCard'>
             <Card.Img
                 variant="top"
-                src="https://image.shutterstock.com/image-photo/black-large-heavy-thick-metal-600w-1081705028.jpg"/>
+                src="https://source.unsplash.com/random?product"/>
             <Card.Body>
                 <Card.Title>Product Name</Card.Title>
                 <Card.Text>
@@ -21,10 +19,17 @@ function HomeCard() {
                 </Card.Text>
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
                 <Card.Title>Price</Card.Title>
-                <Button variant="primary" onClick={() => navigate('/viewdetails')}>View Details</Button>
+                <Button variant="primary">Update</Button> <Button variant="primary">Delete</Button>
+
+
             </Card.Body>
         </Card>
-    );
+     
+   
+
+
+);
+  
 }
 
-export default HomeCard;
+export default MyProductCard;

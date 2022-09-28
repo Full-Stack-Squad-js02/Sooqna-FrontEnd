@@ -29,6 +29,7 @@ function SignIn() {
     event.preventDefault();
     signIn(data).then((data) => {
       if (data.error) {
+        console.log('ERROR');
         setData({
           ...data,
           error: data.error,
@@ -39,6 +40,7 @@ function SignIn() {
           ...data,
           // success: true
         });
+        navigate('/');
         authenticate(data);
         // console.log(data);
         event.target.reset();

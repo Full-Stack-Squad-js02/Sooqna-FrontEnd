@@ -1,10 +1,10 @@
 import axios from 'axios'
-// export const getAllProducts = (input,filterdBy) => {
-//     let url = `https://sooqna.herokuapp.com/search${filterdBy}?${filterdBy}=${input}`
-//         return fetch(url, {method: "GET"}).then(response => {
-//         return response.json();
-//     }).catch(err => console.log(err));
-// }
+export const getAllProducts = async () => {
+    let url = `https://sooqna.herokuapp.com/product`
+    const result = await axios.get(url, {});
+    console.log('sssssssss',result.data)
+    return result.data;
+}
 export const searchBy = async ({input,filteredBy}) => {
     console.log(input, filteredBy)
     // let url = `https://sooqna.herokuapp.com/search${filteredBy}?${filteredBy}=${input}`
@@ -18,7 +18,7 @@ export const searchBy = async ({input,filteredBy}) => {
     // }).catch(err => console.log(err));
     
     const result = await axios.get(`https://sooqna.herokuapp.com/search${filteredBy}?${filteredBy}=${input}`, {});
-    console.log('00000000000',result.data)
+    // console.log('00000000000',result.data)
     return result.data;
 }
 
