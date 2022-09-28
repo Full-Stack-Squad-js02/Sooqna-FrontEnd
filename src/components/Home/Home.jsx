@@ -10,12 +10,13 @@ import { getAllProducts } from '../../api/api';
 function OrderingExample() {
     const [products, setProducts] = useState([]);
     // const x = getAllProducts();
-    console.log('oooooo', products);
     // console.log('oooooo',getAllProducts());
     //	true | "sm" | "md" | "lg" | "xl" | "xxl"
     useEffect(() => {
+        console.log('oooooo', products);
+
         setProducts(getAllProducts());
-    }, [products])
+    }, [])
     return (
         <>
             <SlideShow />
