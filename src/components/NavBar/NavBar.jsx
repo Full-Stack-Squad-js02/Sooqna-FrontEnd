@@ -8,11 +8,14 @@ import {
     Navbar,
     NavDropdown
 } from 'react-bootstrap';
-import {BsSearch} from "react-icons/bs";
+import { BsSearch, BsFillCartFill } from "react-icons/bs";
+import { CgShoppingCart} from "react-icons/cg";
+import { MdOutlineFavorite } from "react-icons/md";
 import {logOut, isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
 import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
+import UserDropdownList from '../UserProfile/Dropdown';
 
 function NavBar() {
     const [search,
@@ -41,12 +44,12 @@ function NavBar() {
                     style={{
                     width: '5rem',
                     height: 'auto',
-                    marginRight: '16rem'
+                    marginRight: '4rem'
                     }} />
                 {/* Tabs */}
                 <Navbar.Brand href="/" style={{ color:'white' }}>Home</Navbar.Brand>
                 <Navbar.Brand href="/about" style={{ color: 'white' }}>About</Navbar.Brand>
-                <Navbar.Brand href="/" style={{ color: 'white' }}>Contact Us</Navbar.Brand>
+                <Navbar.Brand href="/contact" style={{ color: 'white' }}>Contact Us</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -118,10 +121,11 @@ function NavBar() {
                             })
                         }}/>
                         <BsSearch
-                            style={{
+                        style={{
                             width: '7rem',
                             height: '2rem',
-                            color: 'white'
+                            color: 'white',
+                            marginRight: '7rem',
                         }}
                             onClick={() => {
                             searchBy(search)
@@ -140,8 +144,21 @@ function NavBar() {
                          </React.Fragment>
                             :
                             <React.Fragment>
-                                <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button>
-                            <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button>
+                                {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
+                            {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
+                                <BsFillCartFill style={{
+                                    color: 'white' ,
+                                    height: 'auto',
+                                    width: '4rem',
+                                    margin: '0 5px',
+                                // onMouseOver:"this.style.color='#0F0'"
+                                }} />
+                                <MdOutlineFavorite style={{
+                                    color: 'white' ,
+                                    height: 'auto',
+                                    width: '4rem',
+                                    margin: '0 5px'}} />
+                                <UserDropdownList/>
                          </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>

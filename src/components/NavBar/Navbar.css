@@ -26,3 +26,10 @@ navbar {
 .navbar-light .navbar-brand:hover {
     color: #ffc300;
 }
+
+*, ::after, ::before:hover {
+    color:white;
+}
+*, ::after, ::before:hover {
+    color: #ffc300;
+}

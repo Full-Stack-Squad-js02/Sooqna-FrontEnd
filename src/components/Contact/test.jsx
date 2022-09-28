@@ -5,7 +5,7 @@ import {
     MDBCol,
     MDBRow,
     MDBIcon,
-    MDBtn
+    MDBBtn
 } from 'mdb-react-ui-kit';
 
 export default function App() {

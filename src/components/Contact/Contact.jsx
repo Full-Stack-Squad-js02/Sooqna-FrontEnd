@@ -1,10 +1,12 @@
 /* eslint-disable react/jsx-no-undef */
 import React from 'react';
-import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon,MDBBtn } from 'mdb-react-ui-kit';
+import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
+// import './Contact.css'
 
 export default function Contact() {
   return (
-    <MDBFooter bgColor='dark' className='text-center text-lg-start text-muted'>
+    <MDBFooter style={{
+      backgroundColor: '#003566', color:'white' }} className='text-center text-lg-start text-muted'>
       <MDBContainer className='p-4 pb-0'>
         <section className='mb-4'>
         <div className='me-5 d-none d-lg-block'>
@@ -31,7 +33,7 @@ export default function Contact() {
             <MDBIcon fab icon='twitter' />
           </MDBBtn>
 
-          <MDBBtn
+          {/* <MDBBtn
             floating
             className='m-1'
             style={{ backgroundColor: '#dd4b39' }}
@@ -39,7 +41,7 @@ export default function Contact() {
             role='button'
           >
             <MDBIcon fab icon='google' />
-          </MDBBtn>
+          </MDBBtn> */}
           <MDBBtn
             floating
             className='m-1'
@@ -50,7 +52,7 @@ export default function Contact() {
             <MDBIcon fab icon='instagram' />
           </MDBBtn>
 
-          <MDBBtn
+          {/* <MDBBtn
             floating
             className='m-1'
             style={{ backgroundColor: '#0082ca' }}
@@ -58,9 +60,9 @@ export default function Contact() {
             role='button'
           >
             <MDBIcon fab icon='linkedin-in' />
-          </MDBBtn>
+          </MDBBtn> */}
 
-          < MDBBtn
+          {/* < MDBBtn
             floating
             className='m-1'
             style={{ backgroundColor: '#333333' }}
@@ -68,7 +70,7 @@ export default function Contact() {
             role='button'
           >
             <MDBIcon fab icon='github' />
-          </MDBBtn>
+          </MDBBtn> */}
         </section>
       </MDBContainer>
       {/* <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
