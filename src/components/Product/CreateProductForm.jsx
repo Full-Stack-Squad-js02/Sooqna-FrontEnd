@@ -6,106 +6,107 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 
-// export default function CreateItem() {
-//     const [item,
-//         setItem] = useState({
-//         title: '',
-//         description: '',
-//         price: '',
-//         quantity: '',
-//         color: '',
-//         categories: [
-//             'ELECTRONICS', 'GAMES', 'FASHION'
-//         ],
-//         title: '',
-//         image: '',
-//         description: '',
-//         quantity: '',
-//         color: '',
-//         loading: false,
-//         error: '',
-//         createdProduct: '',
-//         redirectToProfile: false
-//     });
-//     const {user, token} = isAuthenticated();
-//     const {
-//         title,
-//         description,
-//         price,
-//         categories,
-//         quantity,
-//         image,
-//         color,
-//         loading,
-//         error,
-//         createdProduct,
-//         redirectToProfile
-//     } = item;
+export default function CreateItem() {
+    const [item,
+        setItem] = useState({
+        title: '',
+        description: '',
+        price: '',
+        quantity: '',
+        color: '',
+        categories: [
+            'ELECTRONICS', 'GAMES', 'FASHION'
+        ],
+        title: '',
+        image: '',
+        description: '',
+        quantity: '',
+        color: '',
+        loading: false,
+        error: '',
+        createdProduct: '',
+        redirectToProfile: false
+    });
+    const {user, token} = isAuthenticated();
+    const {
+        title,
+        description,
+        price,
+        categories,
+        quantity,
+        image,
+        color,
+        loading,
+        error,
+        createdProduct,
+        redirectToProfile
+    } = item;
 
-//     const handleChange = name => event => {
-//         const value = event.target.value;
-//         setItem({
-//             ...item,
-//             [name]: value,
-//             loading: false,
-//             createdProduct: ''
-//         });
-//     };
+    const handleChange = name => event => {
+        const value = event.target.value;
+        setItem({
+            ...item,
+            [name]: value,
+            loading: false,
+            createdProduct: ''
+        });
+    };
 
-//     const clickSubmit = event => {
-//         event.preventDefault();
-//         // console.log('pppppp',event)
-//         setItem({
-//             ...item,
-//             error: '',
-//             loading: true
-//         });
-//         // console.log('lllllll',item)
-//         createItem(user.id, token, item).then(data => {
-//             if (data.error) {
-//                 setItem({
-//                     ...item,
-//                     error: data.error
-//                 });
-//             } else {
-//                 setItem({
-//                     ...item,
-//                     title: '',
-//                     description: '',
-//                     image: '',
-//                     price: '',
-//                     category: '',
-//                     color: '',
-//                     quantity: '',
-//                     loading: false,
-//                     createdProduct: data.data.name
-//                 });
-//             }
-//             window
-//                 .location
-//                 .reload();
-//         });
-//     };
+    const clickSubmit = event => {
+        event.preventDefault();
+        setItem({
+            ...item,
+            error: '',
+            loading: true
+        });
+        createItem(user.id, token, item).then(data => {
+            if (data.error) {
+                setItem({
+                    ...item,
+                    error: data.error
+                });
+            } else {
+                setItem({
+                    ...item,
+                    title: '',
+                    description: '',
+                    image: '',
+                    price: '',
+                    category: '',
+                    color: '',
+                    quantity: '',
+                    loading: false,
+                    createdProduct: data.data.name
+                });
+            }
+            window
+                .location
+                .reload();
+        });
+    };
 
- function BasicExample() {
+const  BasicExample=()=> {
   return (
     <div style={{display:'flex'}}>
     <Form style={{width: "30rem" , margin: "7rem"}}>
 
-      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Group className="mb-3" controlId="title">
         <Form.Label>Product </Form.Label>
-        <Form.Control type="text" />
+        <Form.Control type="text"
+        value={title}onChange={handleChange("title")} />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword" style={{height:'5rem'}}>
+      <Form.Group className="mb-3" controlId="description" style={{height:'5rem'}}>
         <Form.Label>Description</Form.Label>
-        <Form.Control type="text" />
+        <Form.Control type="text"
+        value={description}onChange={handleChange("description")} />
       </Form.Group>
 
      
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3" controlId="color">
         <Form.Label>Color</Form.Label>
-        <Form.Control type="text" />
+        <Form.Control type="text" 
+        value={color}onChange={handleChange("color")}/>
       </Form.Group>
 
 
@@ -113,24 +114,26 @@ import Button from 'react-bootstrap/Button';
 
       <Form.Select aria-label="Default select example" style={{width: '30rem', height: '2.5rem'}}>
        <option style={{ color: "#4051a5" }}>Select category</option>
-       {/* {categories && categories.map((c, i) => (
+       {categories && categories.map((c, i) => (
                              <option key={i} value={c}>
                                  {c}
                              </option>
-                         ))} */}
+                         ))}
      </Form.Select>
 
      <br/>
      <br/>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3" controlId="price">
         <Form.Label>Price</Form.Label>
-        <Form.Control type="number" />
+        <Form.Control type="number" 
+        value={price}onChange={handleChange("price")}/>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
+      <Form.Group className="mb-3" controlId="quantity">
         <Form.Label>Quantity</Form.Label>
-        <Form.Control type="number" />
+        <Form.Control type="number"
+        value={quantity}onChange={handleChange("quantity")} />
       </Form.Group>
 
       <Form.Group>
@@ -141,17 +144,17 @@ import Button from 'react-bootstrap/Button';
                          required
                          type="file"
                          multiple={false}
-              //  onDone={({ base64 }) => {
-              //    console.log(base64)
-                //  setItem({
-                //          ...item,
-                    //      image: base64
-                    //  })}}
+                onDone={({ base64 }) => {
+                 console.log(base64)
+                  setItem({
+                         ...item,
+                         image: base64
+                     })}}
                      />
          </Form.Group>
          <br/>
          <br/>
-      <Button variant="warning" type="submit">
+      <Button variant="warning" type="submit" onClick={clickSubmit}>
         Create Product
       </Button>
     </Form>
@@ -172,43 +175,42 @@ import Button from 'react-bootstrap/Button';
 
 
 
-// const showSuccess = () => (
-//       <div
-//           className="alert alert-info"
-//           style={{
-//           display: createdProduct
-//               ? ''
-//               : 'none'
-//       }}>
-//           <h2>{`${createdProduct}`}
-//               is created!</h2>
-//       </div>
-//   );
-//   const showError = () => (
-//       <div
-//           className="alert alert-danger"
-//           style={{
-//           display: error
-//               ? ''
-//               : 'none'
-//       }}>
-//           {error}
-//       </div>
-//   );
-//   const showLoading = () => loading && (
-//       <div className="alert alert-success">
-//           <h2>Loading...</h2>
-//       </div>
-//   );
+const showSuccess = () => (
+      <div
+          className="alert alert-info"
+          style={{
+          display: createdProduct
+              ? ''
+              : 'none'
+      }}>
+          <h2>{`${createdProduct}`}
+              is created!</h2>
+      </div>
+  );
+  const showError = () => (
+      <div
+          className="alert alert-danger"
+          style={{
+          display: error
+              ? ''
+              : 'none'
+      }}>
+          {error}
+      </div>
+  );
+  const showLoading = () => loading && (
+      <div className="alert alert-success">
+          <h2>Loading...</h2>
+      </div>
+  );
   
-//   return (
-//       <div>
-//           {showLoading()}
-//           {showSuccess()}
-//           {showError()}
-//          <div style={{display:'flex'}}>{newItemForm()}</div> 
-//       </div>
-//   );
-// }
+  return (
+      <div>
+          {showLoading()}
+          {showSuccess()}
+          {showError()}
+         <div style={{display:'flex'}}>{BasicExample()}</div> 
+      </div>
+  );
+}
   
-export default BasicExample ;
