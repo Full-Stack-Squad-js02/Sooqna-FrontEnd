@@ -40,7 +40,7 @@ function SignIn() {
           ...data,
           // success: true
         });
-        navigate('/');
+        navigate('/user');
         authenticate(data);
         // console.log(data);
         event.target.reset();
