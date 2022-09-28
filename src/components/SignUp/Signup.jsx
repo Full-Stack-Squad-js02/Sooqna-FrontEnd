@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { signUp } from "../../auth/index";
-// import './sinup.css';
 import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBCol, MDBRow, MDBInput, MDBCheckbox, MDBIcon } from "mdb-react-ui-kit";
 
 function Signup() {
@@ -89,9 +88,9 @@ function Signup() {
         <MDBCardBody className="p-5 text-center" >
           <h2 className="fw-bold mb-5">Sign up now</h2>
 
-          <MDBInput wrapperClass="mb-4" placeholder="Full Name" id="form1" type="text" value={username} onChange={handleChange("username")} />
-          <MDBInput wrapperClass="mb-4" placeholder="example@gmail.com" id="form1" type="email" value={email} onChange={handleChange("email")} />
-          <MDBInput wrapperClass="mb-4" placeholder="Password" id="form1" type="password" value={password} onChange={handleChange("password")} />
+          <MDBInput wrapperClass="mb-4" type="text" placeholder="Full Name" id="form1" value={username} onChange={handleChange("username")} />
+          <MDBInput wrapperClass="mb-4" type="email" placeholder="example@gmail.com" id="form1" value={email} onChange={handleChange("email")} />
+          <MDBInput wrapperClass="mb-4" type="password" placeholder="Password" id="form1" value={password} onChange={handleChange("password")} />
           <MDBInput wrapperClass="mb-4" type="text" placeholder="07********" value={phonenumber} onChange={handleChange("phonenumber")} id="form1" />
           <MDBInput wrapperClass="mb-4" type="text" placeholder="Enter Your Address" value={adress} onChange={handleChange('adress')} id="form1" />
 
@@ -99,7 +98,7 @@ function Signup() {
             <MDBCheckbox name="flexCheck" value="" id="flexCheckDefault" label="Subscribe to our newsletter" />
           </div> */}
 
-          <MDBBtn className="w-100 mb-4" size="md" variant="primary" type="submit" onClick={handleSubmit} >
+          <MDBBtn className="w-100 mb-4" color="dark" size="md" variant="primary" type="submit" onClick={handleSubmit} >
             sign up
           </MDBBtn>
 

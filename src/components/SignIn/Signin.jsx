@@ -85,7 +85,7 @@ function SignIn() {
               <MDBInput wrapperClass="mb-4" placeholder="User Name" type="text" size="lg" value={username} onChange={handleChange("username")} />
               <MDBInput wrapperClass="mb-4" placeholder="Password" type="password" size="lg" value={password} onChange={handleChange("password")} />
 
-              <MDBBtn className="mb-4 px-5" color="dark" size="lg" variant="primary" type="submit" onClick={handleSubmit}>
+              <MDBBtn className="mb-4 px-5" size="lg" variant="primary" type="submit" onClick={handleSubmit}>
                 Login
               </MDBBtn>
               <a className="small text-muted" href="#!">
