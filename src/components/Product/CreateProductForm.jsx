@@ -4,9 +4,10 @@ import {isAuthenticated} from '../../auth/index';
 import {createItem} from '../../api/api'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function CreateItem() {
+    const navigate = useNavigate();
     const [item,
         setItem] = useState({
         title: '',
@@ -154,9 +155,8 @@ const  BasicExample=()=> {
          </Form.Group>
          <br/>
          <br/>
-      <Button variant="warning" type="submit" onClick={clickSubmit}>
-        Create Product
-      </Button>
+      <Button variant="success" type="submit" onClick={clickSubmit}>Create Product</Button> {' '}
+        <Button variant="danger" type="submit" onClick={() => { navigate('/user') }}> Cancel</Button>
     </Form>
     <div>
     <img
