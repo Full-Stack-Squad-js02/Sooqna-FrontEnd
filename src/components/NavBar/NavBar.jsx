@@ -48,9 +48,9 @@ function NavBar() {
                     marginRight: '4rem'
                     }} />
                 {/* Tabs */}
-                <Navbar.Brand href="/" style={{ color:'white' }}>Home</Navbar.Brand>
-                <Navbar.Brand href="/about" style={{ color: 'white' }}>About</Navbar.Brand>
-                <Navbar.Brand href="/contact" style={{ color: 'white' }}>Contact Us</Navbar.Brand>
+                <Navbar.Brand href="/">Home</Navbar.Brand>
+                <Navbar.Brand href="/about">About</Navbar.Brand>
+                <Navbar.Brand href="/contact">Contact Us</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -144,10 +144,9 @@ function NavBar() {
                          </React.Fragment>
                             :
                             <React.Fragment>
-                                {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
+                            {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
                             {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
                             <BsFillCartFill onClick={() => { navigate('/myCart')}} style={{
-                                    color: 'white' ,
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',

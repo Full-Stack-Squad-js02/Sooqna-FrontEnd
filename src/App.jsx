@@ -1,5 +1,5 @@
 import './App.css';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 import Signup from './components/SignUp/Signup';
 import Signin from './components/SignIn/Signin';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -27,6 +27,7 @@ function App() {
                 <NavBar/> 
                 <Routes>
                     <Route path='/' element={< Home />}/>
+                    <Route path='/star' element={< Header />}/>
                     <Route path='/about' element={< AboutPage />}/>
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>

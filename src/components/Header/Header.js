@@ -1,6 +1,12 @@
-import React from 'react'
-import Logo from '../../Assests/sooqna-logo.png';
+// import React from 'react'
+// import Rating from '@mui/material/Rating';
 
-export default function Header() {
-    return (<img src={Logo} alt='Loading' width="150" height="150" />)
-}
+// export default function Header() {
+//     return (
+//         <Rating name="half-rating-read" defaultValue={2.5} />
+//     )
+// }
+
+ 
+
+
