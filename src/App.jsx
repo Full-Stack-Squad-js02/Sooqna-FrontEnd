@@ -17,6 +17,7 @@ import UserInfo from './components/UserProfile/UserInfo';
 import Setting from './components/UserProfile/Setting';
 import UserPage from './components/UserPage/UserPage';
 import MyOrders from './components/Orders/MyOrders';
+import UpdateProduct from './components/Product/UpdateProduct'
 
 function App() {
     return (
@@ -38,6 +39,7 @@ function App() {
                     <Route path='/setting' element={<Setting/>}/>
                     <Route path='/user' element={<UserPage/>}/>
                     <Route path='/myorders' element={<MyOrders/>}/>
+                    <Route path='/updateproduct' element={<UpdateProduct/>}/>
                 </Routes>
                 <Contact/>
             </BrowserRouter>

@@ -2,10 +2,11 @@ import React from 'react';
 import {Card , Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
 import '../Home/Home.css';
+import { useNavigate } from 'react-router-dom';
 
 
 function MyProductCard() {
-  
+    const navigate = useNavigate();
     return (
         <Card id='Card'>
             <Card.Img
@@ -19,7 +20,7 @@ function MyProductCard() {
                 </Card.Text>
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
                 <Card.Title>Price</Card.Title>
-                <Button variant="warning">Update</Button> <Button variant="danger">Delete</Button>
+                <Button variant="warning"onClick={() => { navigate('/updateproduct')}}>Update</Button> <Button variant="danger">Delete</Button>
             </Card.Body>
         </Card>
 );
