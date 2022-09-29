@@ -17,6 +17,7 @@ function MyCart() {
         </Row>
       </Container>
       <Button style={{ marginBottom: "2rem", width: "11rem", height: "3.5rem", fontSize: "1.5rem" }} variant="success">Create Order</Button>
+      <h2>Total Price</h2>
     </>
   );
 }
