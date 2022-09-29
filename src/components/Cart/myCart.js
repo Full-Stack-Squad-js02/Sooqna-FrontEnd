@@ -3,7 +3,6 @@ import MyCartCard from "./myCartCard";
 import { Container, Button, PageHeader } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import "./cart.css";
 
 function MyCart() {
   return (
