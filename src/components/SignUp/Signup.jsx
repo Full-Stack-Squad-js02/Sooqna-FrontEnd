@@ -4,8 +4,12 @@ import Form from "react-bootstrap/Form";
 import { signUp } from "../../auth/index";
 import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBCol, MDBRow, MDBInput, MDBCheckbox, MDBIcon } from "mdb-react-ui-kit";
 import LoginLogo from '../../Assests/logo.png';
+import { useNavigate } from 'react-router-dom';
+
 
 function Signup() {
+
+  const navigate = useNavigate();
   const [data, setData] = useState({
     username: "",
     email: "",
@@ -43,6 +47,7 @@ function Signup() {
         });
         console.log(data);
         event.target.reset();
+        navigate('/signin');
       }
     });
   };

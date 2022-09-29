@@ -1,5 +1,5 @@
 import './App.css';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 import Signup from './components/SignUp/Signup';
 import Signin from './components/SignIn/Signin';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -17,37 +17,29 @@ import UserInfo from './components/UserProfile/UserInfo';
 import Setting from './components/UserProfile/Setting';
 import UserPage from './components/UserPage/UserPage';
 import MyOrders from './components/Orders/MyOrders';
-// import Bar from './components/NavBar/Bar';
-
 
 function App() {
     return (
         <div className="App">
             <BrowserRouter>
-                {/* <Bar/> */}
                 <NavBar/> 
                 <Routes>
                     <Route path='/' element={< Home />}/>
+                    <Route path='/star' element={< Header />}/>
                     <Route path='/about' element={< AboutPage />}/>
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
-                    <Route path='/contact' element={<Contact/>} />
                     <Route path='/myproducts' element={<MyProduct/>} />
                     <Route path='/myCart' element={<MyCart/>} />
                     <Route path='/viewdetails' element={<ProductCard/>}/>
                     <Route path='/Wishlist' element={<Wishlist/>}/>
-                
                     <Route path='/userinfo' element={<UserInfo/>}/>
                     <Route path='/setting' element={<Setting/>}/>
                     <Route path='/user' element={<UserPage/>}/>
                     <Route path='/myorders' element={<MyOrders/>}/>
                 </Routes>
                 <Contact/>
-                {/* <SlideShow /> */}
-                {/* < Home /> */}
-                {/* <ProductCard/> */}
-                {/* <AboutPage/> */}
             </BrowserRouter>
             {/* <Header/> */}
         </div>
