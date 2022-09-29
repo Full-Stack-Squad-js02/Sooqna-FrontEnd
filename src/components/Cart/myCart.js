@@ -8,7 +8,7 @@ import "./cart.css";
 function MyCart() {
   return (
     <>
-      <h1 style={{marginTop:"3rem"}}>My Cart</h1>
+      <h1 style={{ marginTop: "3rem" }}>My Cart</h1>
       <Container fluid="sm" style={{ margin: "2rem" }}>
         <Row xs="4">
           <Col><MyCartCard /></Col>
