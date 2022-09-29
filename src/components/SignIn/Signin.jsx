@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import { signIn, authenticate, isAuthenticated } from "../../auth/index";
 import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBCardImage, MDBRow, MDBCol, MDBIcon, MDBInput } from "mdb-react-ui-kit";
 import LoginLogo from '../../Assests/logo.png';
+// import Swal from 'sweetalert2'
 
 function SignIn() {
   const [data, setData] = useState({
@@ -15,6 +16,18 @@ function SignIn() {
   const { username, password } = data;
 
   const navigate = useNavigate();
+
+  // const Toast = Swal.mixin({
+  //   toast: true,
+  //   position: 'top-end',
+  //   showConfirmButton: false,
+  //   timer: 3000,
+  //   timerProgressBar: true,
+  //   didOpen: (toast) => {
+  //     toast.addEventListener('mouseenter', Swal.stopTimer)
+  //     toast.addEventListener('mouseleave', Swal.resumeTimer)
+  //   }
+  // })
 
   const handleChange = (name) => (event) => {
     setData({
@@ -40,7 +53,11 @@ function SignIn() {
         setData({
           ...data,
           // success: true
-        });
+        })
+        // Toast.fire({
+        //   icon: 'success',
+        //   title: 'Signed in successfully'
+        // })
         navigate('/');
         authenticate(data);
         // console.log(data);
