@@ -1,7 +1,11 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import Rating from "@mui/material/Rating";
+<<<<<<< HEAD
 import '../Home/Home.css';
+=======
+import IncDecCounter from "./Counter";
+>>>>>>> staging
 
 function MyCartCard() {
   return (
@@ -10,11 +14,11 @@ function MyCartCard() {
       <Card.Body>
         <Card.Title>Product Name</Card.Title>
         <Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-        <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
+        <IncDecCounter/>
         <Card.Title>Price</Card.Title>
         <Button variant="danger">Delete</Button>
       </Card.Body>
-    </Card>
+    </Card >
   );
 }
 
