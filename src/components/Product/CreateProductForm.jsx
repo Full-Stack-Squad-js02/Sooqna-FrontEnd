@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import FileBase64 from 'react-file-base64';
 import {isAuthenticated} from '../../auth/index';
 import {createItem} from '../../api/api'
 import Form from 'react-bootstrap/Form';
@@ -16,9 +15,10 @@ export default function CreateItem() {
         quantity: '',
         color: '',
         categories: [
-            'ELECTRONICS', 'GAMES', 'FASHION'
+            'ELECTRONICS', 'GAMES', 'FASHION' , 'CARS' , 'Toys' , 'Home' , 'Books' , 'PETS' , 'FOOD' , 'OTHER'
         ],
-        title: '',
+
+ title: '',
         image: '',
         description: '',
         quantity: '',
@@ -137,22 +137,11 @@ const  BasicExample=()=> {
         value={quantity}onChange={handleChange("quantity")} />
       </Form.Group>
 
-      <Form.Group>
-
-           <Form.Label style={{ color: "#4051a5" }}>Image</Form.Label>
-        
-           <FileBase64
-                         required
-                         type="file"
-                         multiple={false}
-                onDone={({ base64 }) => {
-                 console.log(base64)
-                  setItem({
-                         ...item,
-                         image: base64
-                     })}}
-                     />
-         </Form.Group>
+      <Form.Group className="mb-3" controlId="image">
+        <Form.Label>Image</Form.Label>
+        <Form.Control type="text" 
+        value={image}onChange={handleChange("image")}/>
+      </Form.Group>
          <br/>
          <br/>
       <Button variant="success" type="submit" onClick={clickSubmit}>Create Product</Button> {' '}
