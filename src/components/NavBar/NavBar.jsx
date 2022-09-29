@@ -50,7 +50,7 @@ function NavBar() {
                 {/* Tabs */}
                 <Navbar.Brand href="/">Home</Navbar.Brand>
                 <Navbar.Brand href="/about">About</Navbar.Brand>
-                <Navbar.Brand href="/contact">Contact Us</Navbar.Brand>
+                <Navbar.Brand href="#contact" style={{ scrollBehavior: 'smooth' }}>Contact Us</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav

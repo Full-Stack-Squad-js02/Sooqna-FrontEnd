@@ -6,13 +6,19 @@
 }
 
 #Card {
-    width: 21rem;
+    width: 25rem;
     margin: 25px 0;
+    max-width: 18rem;
 }
 
 #Card:hover {
     cursor: pointer;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+
+.card-img-top {
+    max-height: 19rem;
+    max-width: 18rem;
 }
 
 .card-img-top:hover {

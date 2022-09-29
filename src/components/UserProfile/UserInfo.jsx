@@ -20,7 +20,7 @@ import {
 export default function UserInfo() {
     return (
         <section style={{ backgroundColor: '#eee' }}>
-            <MDBContainer className="py-5">
+            <MDBContainer className="py-5" >
                 <MDBRow>
                     <MDBCol>
                         <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
@@ -35,8 +35,8 @@ export default function UserInfo() {
                     </MDBCol>
                 </MDBRow>
 
-                <MDBRow>
-                    <MDBCol lg="4">
+                {/* <MDBRow> */}
+                    {/* <MDBCol lg="4">
                         <MDBCard className="mb-4">
                             <MDBCardBody className="text-center">
                                 <MDBCardImage
@@ -80,8 +80,8 @@ export default function UserInfo() {
                                 </MDBListGroup>
                             </MDBCardBody>
                         </MDBCard>
-                    </MDBCol>
-                    <MDBCol lg="8">
+                    </MDBCol> */}
+                    {/* <MDBCol lg="8"> */}
                         <MDBCard className="mb-4">
                             <MDBCardBody>
                                 <MDBRow>
@@ -104,19 +104,19 @@ export default function UserInfo() {
                                 <hr />
                                 <MDBRow>
                                     <MDBCol sm="3">
-                                        <MDBCardText>Phone</MDBCardText>
+                                        <MDBCardText>Password</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">(097) 234-5678</MDBCardText>
+                                        <MDBCardText className="text-muted">********</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
                                 <hr />
                                 <MDBRow>
                                     <MDBCol sm="3">
-                                        <MDBCardText>Mobile</MDBCardText>
+                                        <MDBCardText>Phone</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">(098) 765-4321</MDBCardText>
+                                        <MDBCardText className="text-muted">(097) 234-5678</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
                                 <hr />
@@ -131,8 +131,48 @@ export default function UserInfo() {
                             </MDBCardBody>
                         </MDBCard>
 
-                        <MDBRow>
+                        {/* <MDBRow> */}
                             <MDBCol md="6">
+                    <MDBCard className="mb-4 mb-md-0" style={{
+                        width: '69.5rem',
+                        margin: '0 -1rem'
+                    }}>
+                        <MDBCardBody style={{
+                            width: '35rem',
+                            margin: '1rem 17rem',
+}}>
+                            <MDBCardText className="mb-4 font-italic me-1" style={{ fontSize: '2rem' }}>
+                                {/* <span className="text-primary font-italic me-1">assigment</span> */}
+                                Analysis</MDBCardText>
+                                        <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Posted Products</MDBCardText>
+                                        <MDBProgress className="rounded">
+                                            <MDBProgressBar width={80} valuemin={0} valuemax={100} />
+                                        </MDBProgress>
+
+                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Website Markup</MDBCardText>
+                                        <MDBProgress className="rounded">
+                                            <MDBProgressBar width={72} valuemin={0} valuemax={100} />
+                                        </MDBProgress>
+
+                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>One Page</MDBCardText>
+                                        <MDBProgress className="rounded">
+                                            <MDBProgressBar width={89} valuemin={0} valuemax={100} />
+                                        </MDBProgress>
+
+                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Mobile Template</MDBCardText>
+                                        <MDBProgress className="rounded">
+                                            <MDBProgressBar width={55} valuemin={0} valuemax={100} />
+                                        </MDBProgress>
+
+                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Backend API</MDBCardText>
+                                        <MDBProgress className="rounded">
+                                            <MDBProgressBar width={66} valuemin={0} valuemax={100} />
+                                        </MDBProgress>
+                                    </MDBCardBody>
+                                </MDBCard>
+                            </MDBCol>
+
+                            {/* <MDBCol md="6">
                                 <MDBCard className="mb-4 mb-md-0">
                                     <MDBCardBody>
                                         <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">assigment</span> Project Status</MDBCardText>
@@ -162,42 +202,10 @@ export default function UserInfo() {
                                         </MDBProgress>
                                     </MDBCardBody>
                                 </MDBCard>
-                            </MDBCol>
-
-                            <MDBCol md="6">
-                                <MDBCard className="mb-4 mb-md-0">
-                                    <MDBCardBody>
-                                        <MDBCardText className="mb-4"><span className="text-primary font-italic me-1">assigment</span> Project Status</MDBCardText>
-                                        <MDBCardText className="mb-1" style={{ fontSize: '.77rem' }}>Web Design</MDBCardText>
-                                        <MDBProgress className="rounded">
-                                            <MDBProgressBar width={80} valuemin={0} valuemax={100} />
-                                        </MDBProgress>
-
-                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Website Markup</MDBCardText>
-                                        <MDBProgress className="rounded">
-                                            <MDBProgressBar width={72} valuemin={0} valuemax={100} />
-                                        </MDBProgress>
-
-                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>One Page</MDBCardText>
-                                        <MDBProgress className="rounded">
-                                            <MDBProgressBar width={89} valuemin={0} valuemax={100} />
-                                        </MDBProgress>
-
-                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Mobile Template</MDBCardText>
-                                        <MDBProgress className="rounded">
-                                            <MDBProgressBar width={55} valuemin={0} valuemax={100} />
-                                        </MDBProgress>
-
-                                        <MDBCardText className="mt-4 mb-1" style={{ fontSize: '.77rem' }}>Backend API</MDBCardText>
-                                        <MDBProgress className="rounded">
-                                            <MDBProgressBar width={66} valuemin={0} valuemax={100} />
-                                        </MDBProgress>
-                                    </MDBCardBody>
-                                </MDBCard>
-                            </MDBCol>
-                        </MDBRow>
-                    </MDBCol>
-                </MDBRow>
+                            </MDBCol> */}
+                        {/* </MDBRow> */}
+                    {/* </MDBCol> */}
+                {/* </MDBRow> */}
             </MDBContainer>
         </section>
     );
