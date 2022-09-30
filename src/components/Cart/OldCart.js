@@ -1,11 +1,11 @@
 import React from "react";
 import MyCartCard from "./myCartCard";
-import { Container, Button, PageHeader } from "react-bootstrap";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import "./cart.css";
+import { Container, Button, Row,Col } from "react-bootstrap";
+import {useNavigate} from 'react-router-dom';
 
 function MyCart() {
+  const navigate = useNavigate();
+
   return (
     <>
       <h1 style={{ marginTop: "3rem" }}>My Cart</h1>
@@ -17,7 +17,7 @@ function MyCart() {
           <Col><MyCartCard /></Col>
         </Row>
       </Container>
-      <Button style={{ marginBottom: "2rem", width: "11rem", height: "3.5rem", fontSize: "1.5rem" }} variant="success">Create Order</Button>
+      <Button style={{ marginBottom: "2rem", width: "11rem", height: "3.5rem", fontSize: "1.5rem" }} variant="dark" onClick={()=>{navigate('/orderform')}}>Create Order</Button>
       <h2>Total Price</h2>
     </>
   );

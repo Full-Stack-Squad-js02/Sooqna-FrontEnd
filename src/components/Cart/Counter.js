@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Button from "./CounterButton";
-import "./cart.css";
+import "./Counter.css";
 
 export default function Counter() {
     const [count, setCount] = useState(1);

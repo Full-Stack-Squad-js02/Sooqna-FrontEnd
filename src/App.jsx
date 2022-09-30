@@ -6,13 +6,13 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from './components/Home/Home';
 import Product from './components/Product/CreateProductForm';
 import MyProduct from './components/myProduct/myProducts';
-import MyCart from './components/Cart/myCart';
+import Wishlist from './components/Wishlist/Wishlist';
+import MyCart from './components/Cart/Cart';
 import ProductCard from './components/Product/SingleProductPage';
 import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
 import AboutPage from './components/About/About';
 import NavBar from './components/NavBar/NavBar';
-import Wishlist from './components/Wishlist/Wishlist';
 import UserInfo from './components/UserProfile/UserInfo';
 import Setting from './components/UserProfile/Setting';
 import UserPage from './components/UserPage/UserPage';
@@ -41,11 +41,8 @@ function App() {
                     <Route path='/setting' element={<Setting/>}/>
                     <Route path='/user' element={<UserPage/>}/>
                     <Route path='/myorders' element={<MyOrders/>}/>
-
                     <Route path='/orderform' element={<OrderForm/>}/>
-
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
-
                 </Routes>
                 <Contact/>
             </BrowserRouter>
