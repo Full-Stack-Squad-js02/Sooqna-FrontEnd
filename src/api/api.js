@@ -11,15 +11,6 @@ export const getAllProducts = async () => {
 
 export const searchBy = async ({ input, filteredBy }) => {
     console.log(input, filteredBy)
-    // let url = `https://sooqna.herokuapp.com/search${filteredBy}?${filteredBy}=${input}`
-    // return await fetch(url, {
-    //     method: "GET"
-    // }).then(response => {
-    //     console.log('11111111111',response)
-    //     let x= response.json();
-    //     console.log('00000000000',x)
-    //     return x
-    // }).catch(err => console.log(err));
 
     const result = await axios.get(`https://sooqna.herokuapp.com/search${filteredBy}?${filteredBy}=${input}`, {});
     // console.log('00000000000',result.data)
@@ -53,8 +44,58 @@ export const createItem = async (userId, token, data) => {
 
 export const removeFromFavorite = (id, token) => {
     // console.log(favouriteId, userId, token)
-    return fetch(`https://sooqna.herokuapp.com/wishlist/:${id}`, {
+    return fetch(`https://sooqna.herokuapp.com/wishlist/${id}`, {
         method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    }).then(response => {
+        return response.json();
+    }).catch(err => {
+        console.log(err);
+    })
+}
+
+export const addToCart = async (itemId, token) => {
+    console.log("eeeeeeee", itemId, token)
+    return fetch(`https://sooqna.herokuapp.com/addtocart/${itemId}`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+export const addToFavourite = (itemId, token) => {
+    return fetch(`https://sooqna.herokuapp.com/addtowishlist/${itemId}`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+}
+
+export const getAllCart = async (token) => {
+
+    let url = `https://sooqna.herokuapp.com/cart`
+    const result = await axios.get(url, {
         headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${token}`
@@ -70,17 +111,35 @@ export const removeFromFavorite = (id, token) => {
 
 export const moveToCart = async (itemId, token) => {
     console.log("eeeeeeee", itemId, token)
-    return fetch(`https://sooqna.herokuapp.com/productfromwishlisttocart/${itemId}`, {
-        method: 'POST',
-        headers: {
-            Authorization: `Bearer ${token}`
-        },
-    })
-        .then((response) => response.json())
-        .then((result) => {
-            console.log('Success:', result);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
+    // return fetch(`https://sooqna.herokuapp.com/productfromwishlisttocart/${itemId}`, {
+    //     method: 'POST',
+    //     headers: {
+    //         Authorization: `Bearer ${token}`
+    //     },
+    // })
+    //     .then((response) => response.json())
+    //     .then((result) => {
+    //         console.log('Success:', result);
+    //     })
+    //     .catch((error) => {
+    //         console.error('Error:', error);
+    //     });
+    // console.log('sssssssss', result.data)
+    // return result.data;
 }
+
+export const getAllwishlest = async (token) => {
+    let url = `https://sooqna.herokuapp.com/wishlist`
+    const result = await axios.get(url, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};

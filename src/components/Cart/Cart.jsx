@@ -11,12 +11,39 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import React from "react";
+import React, {useState ,useEffect} from 'react';
 import Counter from "./Counter";
 import Swal from 'sweetalert2';
 import './Cart.css';
+import {isAuthenticated} from '../../auth';
+import { getAllCart } from "../../api/api";
 
 export default function Cart() {
+    const {token} = isAuthenticated();
+    const [items,
+        setItems] = useState([]);
+    const [error,
+        setError] = useState('');
+    
+    const loadItems = async () => {
+        await getAllCart(token).then(data => {
+            if (data.error) {
+                setError(data.error);
+            } else {
+                console.log(data)
+                setItems(data);
+            }
+        });
+    };
+
+    console.log('iiiiiiii',items);
+    
+    useEffect(() => {
+        loadItems()
+    }, [ loadItems]);
+
+
+
 
     function handleConfirmOrder(){
         Swal.fire({
@@ -59,18 +86,21 @@ export default function Cart() {
 
                                             <hr className="my-4" />
 
+                                            {items?
+                                            items.map((item,idx)=>{
+                                                return(
                                             <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
                                                 <MDBCol md="2" lg="2" xl="2">
                                                     <MDBCardImage
-                                                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                                                        fluid className="rounded-3" alt="Cotton T-shirt" />
+                                                        src={item.image}
+                                                        fluid className="rounded-3" alt="loading" />
                                                 </MDBCol>
                                                 <MDBCol md="3" lg="3" xl="3">
                                                     <MDBTypography tag="h6" className="text-muted">
-                                                        Shirt
+                                                    {item.title}
                                                     </MDBTypography>
                                                     <MDBTypography tag="h6" className="text-black mb-0">
-                                                        Cotton T-shirt
+                                                    {item.description}
                                                     </MDBTypography>
                                                 </MDBCol>
                                                  <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
@@ -87,7 +117,7 @@ export default function Cart() {
                                                 </MDBCol>
                                                 <MDBCol md="3" lg="2" xl="2" className="text-end">
                                                     <MDBTypography tag="h6" className="mb-0">
-                                                        € 44.00
+                                                    {item.price}
                                                     </MDBTypography>
                                                 </MDBCol>
                                                 <MDBCol md="1" lg="1" xl="1" className="text-end">
@@ -96,6 +126,9 @@ export default function Cart() {
                                                     </a>
                                                 </MDBCol>
                                             </MDBRow>
+                                                )
+                                            })
+                                            :null}
 
                                             {/* <hr className="my-4" />
 

@@ -13,34 +13,35 @@ import {
 } from "mdb-react-ui-kit";
 import { removeFromFavorite, moveToCart } from "../../api/api";
 import { isAuthenticated } from '../../auth';
-import React, {useState ,useEffect} from 'react';
+// import React, {useState ,useEffect} from 'react';
 
 export default function Wishlist(product) {
     const {token} = isAuthenticated();
-    const [items, setItems] = useState([]);
-    const [error, setError] = useState('');
+    // const [items, setItems] = useState([]);
+    // const [error, setError] = useState('');
 
-    const loadItems = async () => {
-        await moveToCart(token).then(data => {
-            if (data.error) {
-                setError(data.error);
-            } else {
-                console.log(data)
-                setItems(data);
-            }
-        });
-    };
+    // const loadItems = async () => {
+    //     await moveToCart(token).then(data => {
+    //         if (data.error) {
+    //             setError(data.error);
+    //         } else {
+    //             console.log(data)
+    //             setItems(data);
+    //         }
+    //     });
+    // };
 
-    console.log('iiiiiiii',token, items);
+    // console.log('iiiiiiii',token, items);
 
-    useEffect(() => {
-        loadItems()
-    }, [ loadItems]);
+    // useEffect(() => {
+    //     loadItems()
+    // }, [ loadItems]);
 
     const {id,title,price,color,image}=product;
+    console.log(product);
     const dispatch = useDispatch;
     const deleteItemHandle = ()=> {
-        dispatch(removeFromFavorite(id,token))
+        // dispatch(removeFromFavorite(id,token))
     }
     return (
         <section className="h-100" style={{ backgroundColor: "#eee", margin: '-13px 13rem' }}>
