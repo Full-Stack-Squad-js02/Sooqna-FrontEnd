@@ -19,12 +19,17 @@ import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 
 function NavBar() {
+    // console.log('iiiiiii', x);
     const [search,
         seSearch] = useState({input: '', filteredBy: ''});
     const [filter,
         setFilter] = useState('Filtered By')
 
     const navigate = useNavigate();
+
+    // const x =async  () => {
+    //     await searchBy();
+    // }
 
     // function handleLogOut() {
     //     logOut();

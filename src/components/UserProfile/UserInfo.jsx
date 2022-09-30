@@ -6,18 +6,21 @@ import {
     MDBCard,
     MDBCardText,
     MDBCardBody,
-    MDBCardImage,
-    MDBBtn,
+    // MDBCardImage,
+    // MDBBtn,
     MDBBreadcrumb,
     MDBBreadcrumbItem,
     MDBProgress,
     MDBProgressBar,
-    MDBIcon,
-    MDBListGroup,
-    MDBListGroupItem
+    // MDBIcon,
+    // MDBListGroup,
+    // MDBListGroupItem
 } from 'mdb-react-ui-kit';
+import { userInfo } from '../../auth';
 
 export default function UserInfo() {
+    // console.log(userInfo());
+    const user= userInfo();
     return (
         <section style={{ backgroundColor: '#eee' }}>
             <MDBContainer className="py-5" >
@@ -89,7 +92,7 @@ export default function UserInfo() {
                                         <MDBCardText>Full Name</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                                        <MDBCardText className="text-muted">{user.username}</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
                                 <hr />
@@ -98,25 +101,24 @@ export default function UserInfo() {
                                         <MDBCardText>Email</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">example@example.com</MDBCardText>
+                                <MDBCardText className="text-muted">{user.email}</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
-                                <hr />
-                                <MDBRow>
+                                {/* <MDBRow>
                                     <MDBCol sm="3">
                                         <MDBCardText>Password</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">********</MDBCardText>
+                                <MDBCardText className="text-muted" type='password'>{user.password}</MDBCardText>
                                     </MDBCol>
-                                </MDBRow>
+                                </MDBRow> */}
                                 <hr />
                                 <MDBRow>
                                     <MDBCol sm="3">
                                         <MDBCardText>Phone</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">(097) 234-5678</MDBCardText>
+                                <MDBCardText className="text-muted">{user.phonenumber}</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
                                 <hr />
@@ -125,7 +127,7 @@ export default function UserInfo() {
                                         <MDBCardText>Address</MDBCardText>
                                     </MDBCol>
                                     <MDBCol sm="9">
-                                        <MDBCardText className="text-muted">Bay Area, San Francisco, CA</MDBCardText>
+                                <MDBCardText className="text-muted">{user.adress}</MDBCardText>
                                     </MDBCol>
                                 </MDBRow>
                             </MDBCardBody>

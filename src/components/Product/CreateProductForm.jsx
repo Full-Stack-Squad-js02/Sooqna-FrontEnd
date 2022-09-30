@@ -18,7 +18,7 @@ export default function CreateItem() {
             'ELECTRONICS', 'GAMES', 'FASHION' , 'CARS' , 'Toys' , 'Home' , 'Books' , 'PETS' , 'FOOD' , 'OTHER'
         ],
 
- title: '',
+        title: '',
         image: '',
         description: '',
         quantity: '',

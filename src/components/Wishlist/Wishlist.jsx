@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     // MDBBtn,
     MDBCard,
@@ -13,6 +13,7 @@ import {
 } from "mdb-react-ui-kit";
 
 export default function Wishlist() {
+    const [deleteItem, setDeleteItem]=useState(true)
     return (
         <section className="h-100" style={{ backgroundColor: "#eee", margin: '-13px 13rem' }}>
             <MDBContainer className="py-5 h-100">
@@ -31,23 +32,23 @@ export default function Wishlist() {
                                 </p>
                             </div> */}
                         </div>
-
-                        <MDBCard className="rounded-3 mb-4">
-                            <MDBCardBody className="p-4">
-                                <MDBRow className="justify-content-between align-items-center">
-                                    <MDBCol md="2" lg="2" xl="2">
-                                        <MDBCardImage className="rounded-3" fluid
-                                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                                            alt="Cotton T-shirt" />
-                                    </MDBCol>
-                                    <MDBCol md="3" lg="3" xl="3">
-                                        <p className="lead fw-normal mb-2">Basic T-shirt</p>
-                                        <p>
-                                            {/* <span className="text-muted">Size: </span>M{" "} */}
-                                            <span className="text-muted">Color: </span>Grey
-                                        </p>
-                                    </MDBCol>
-                                    {/* <MDBCol md="3" lg="3" xl="2"
+                        {deleteItem ? 
+                            <MDBCard className="rounded-3 mb-4">
+                                <MDBCardBody className="p-4">
+                                    <MDBRow className="justify-content-between align-items-center">
+                                        <MDBCol md="2" lg="2" xl="2">
+                                            <MDBCardImage className="rounded-3" fluid
+                                                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                                                alt="Cotton T-shirt" />
+                                        </MDBCol>
+                                        <MDBCol md="3" lg="3" xl="3">
+                                            <p className="lead fw-normal mb-2">Basic T-shirt</p>
+                                            <p>
+                                                {/* <span className="text-muted">Size: </span>M{" "} */}
+                                                <span className="text-muted">Color: </span>Grey
+                                            </p>
+                                        </MDBCol>
+                                        {/* <MDBCol md="3" lg="3" xl="2"
                                         className="d-flex align-items-center justify-content-around">
                                         <MDBBtn color="link" className="px-2">
                                             <MDBIcon fas icon="minus" />
@@ -59,24 +60,27 @@ export default function Wishlist() {
                                             <MDBIcon fas icon="plus" />
                                         </MDBBtn>
                                     </MDBCol> */}
-                                    <MDBCol md="3" lg="2" xl="2" className="offset-lg-1">
-                                        <MDBTypography tag="h5" className="mb-0">
-                                            $499.00
-                                        </MDBTypography>
-                                    </MDBCol>
-                                    <MDBCol md="1" lg="1" xl="1" className="text-end">
-                                        <a href="#!" className="text-danger" >
-                                            <MDBIcon fas icon="cart-plus text-danger" size="lg" />
-                                        </a>
-                                    </MDBCol>
-                                    <MDBCol md="1" lg="1" xl="1" className="text-end">
-                                        <a href="#!" className="text-danger" >
-                                            <MDBIcon fas icon="trash text-danger" size="lg" />
-                                        </a>
-                                    </MDBCol>
-                                </MDBRow>
-                            </MDBCardBody>
-                        </MDBCard>
+                                        <MDBCol md="3" lg="2" xl="2" className="offset-lg-1">
+                                            <MDBTypography tag="h5" className="mb-0">
+                                                $499.00
+                                            </MDBTypography>
+                                        </MDBCol>
+                                        <MDBCol md="1" lg="1" xl="1" className="text-end">
+                                            <a href="#!" className="text-danger" >
+                                                <MDBIcon fas icon="cart-plus text-danger" size="lg" />
+                                            </a>
+                                        </MDBCol>
+                                        <MDBCol md="1" lg="1" xl="1" className="text-end">
+                                            <a href="#!" className="text-danger" >
+                                                <MDBIcon onClick={() => { setDeleteItem(false) }} fas icon="trash text-danger" size="lg" />
+                                            </a>
+                                        </MDBCol>
+                                    </MDBRow>
+                                </MDBCardBody>
+                            </MDBCard>
+                            : null}
+
+                        
 
                         {/* <MDBCard className="rounded-3 mb-4">
                             <MDBCardBody className="p-4">

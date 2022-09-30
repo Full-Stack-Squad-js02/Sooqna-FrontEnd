@@ -17,7 +17,10 @@ export const signUp = (data) => {
     })
 }
 
-export const signIn = ({username, password }) => {
+export const signIn = ({
+    username,
+    password
+}) => {
     console.log(username, password)
     let url = "https://sooqna.herokuapp.com/signin";
     return fetch(url, {
@@ -34,7 +37,9 @@ export const signIn = ({username, password }) => {
 
 
 export const authenticate = (data, next) => {
-    cookies.set('data', data, {path: '/'});
+    cookies.set('data', data, {
+        path: '/'
+    });
     window
         .location
         .reload();
@@ -42,7 +47,9 @@ export const authenticate = (data, next) => {
 };
 
 export const logOut = next => {
-    cookies.remove('data', {path: '/'})
+    cookies.remove('data', {
+        path: '/'
+    })
     // window
     //     .location
     //     .reload();
@@ -58,4 +65,32 @@ export const isAuthenticated = () => {
     } else {
         return false;
     }
+};
+
+export const userInfo = () => {
+    if (cookies.get('data') === 'undefined') {
+        return null;
+    }
+    if (cookies.get('data')) {
+        let userInfo = cookies.get('data')
+        // console.log('tttttt',userInfo);
+        return userInfo.user;
+    } else {
+        return null;
+    }
+};
+
+export const updateUserInfo = (data) => {
+    console.log(data);
+    return fetch('https://sooqna.herokuapp.com/updateprofile', {
+            method: 'PUT',
+            body: data
+        })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 };
