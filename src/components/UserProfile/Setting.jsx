@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     MDBCol,
     MDBContainer,
@@ -14,13 +14,44 @@ import {
     MDBProgressBar,
     MDBIcon,
     MDBListGroup,
-    MDBListGroupItem
+    MDBListGroupItem,
+    MDBInput
 } from 'mdb-react-ui-kit';
+import { userInfo, updateUserInfo } from '../../auth';
 
 export default function Setting() {
+    const user = userInfo();
+    const [updateInfo, setUpdateInfo] = useState({
+        username: "",
+        email: "",
+        password: "",
+        phonenumber: "",
+        adress: "",
+    })
+    const { username, email, password, phonenumber, adress } = updateInfo;
+
+    const handleChange = (name) => (event) => {
+        setUpdateInfo({
+            ...updateInfo,
+            error: false,
+            // success:false,
+            [name]: event.target.value,
+        });
+    };
+//   console.log(username, email, password, phonenumber, adress);
+    
+    
+    const handleClick = (event) => {
+        event.preventDefault();
+        // console.log("00000000000000000");
+        updateUserInfo(updateInfo);
+        // event.target.reset();
+    };
+
     return (
         <section style={{
-            backgroundColor: '#eee'
+            backgroundColor: '#eee',
+            margin:'-1rem 0'
         }}>
             <MDBContainer className="py-5">
                 <MDBRow>
@@ -43,7 +74,7 @@ export default function Setting() {
                                 <MDBCardText>Full Name</MDBCardText>
                             </MDBCol>
                             <MDBCol sm="9">
-                                <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                                <MDBInput placeholder={user.username}  onChange={ handleChange("username")}></MDBInput >
                             </MDBCol>
                         </MDBRow>
                         <hr/>
@@ -52,7 +83,7 @@ export default function Setting() {
                                 <MDBCardText>Email</MDBCardText>
                             </MDBCol>
                             <MDBCol sm="9">
-                                <MDBCardText className="text-muted">example@example.com</MDBCardText>
+                                <MDBInput placeholder={user.email} onChange={handleChange("email") }></MDBInput >
                             </MDBCol>
                         </MDBRow>
                         <hr/>
@@ -61,7 +92,7 @@ export default function Setting() {
                                 <MDBCardText>Password</MDBCardText>
                             </MDBCol>
                             <MDBCol sm="9">
-                                <MDBCardText className="text-muted">********</MDBCardText>
+                                <MDBInput type='password' placeholder='********' onChange={handleChange("password") }></MDBInput >
                             </MDBCol>
                         </MDBRow>
                         <hr/>
@@ -70,7 +101,7 @@ export default function Setting() {
                                 <MDBCardText>Phone</MDBCardText>
                             </MDBCol>
                             <MDBCol sm="9">
-                                <MDBCardText className="text-muted">(097) 234-5678</MDBCardText>
+                                <MDBInput placeholder={user.phonenumber} onChange={handleChange("phonenumber") }></MDBInput >
                             </MDBCol>
                         </MDBRow>
                         <hr/>
@@ -79,9 +110,16 @@ export default function Setting() {
                                 <MDBCardText>Address</MDBCardText>
                             </MDBCol>
                             <MDBCol sm="9">
-                                <MDBCardText className="text-muted">Bay Area, San Francisco, CA</MDBCardText>
+                                <MDBInput placeholder={user.adress} onChange={handleChange("adress") }></MDBInput >
                             </MDBCol>
                         </MDBRow>
+                        {/* <MDBRow>
+                            <MDBCol sm="11"> */}
+                        <MDBBtn className='mx-5 mt-5' color='dark' onClick={handleClick}>
+                            Save 
+                        </MDBBtn>
+                            {/* </MDBCol>
+                        </MDBRow> */}
                     </MDBCardBody>
                 </MDBCard>
             </MDBContainer>
