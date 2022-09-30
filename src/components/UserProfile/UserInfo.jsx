@@ -19,7 +19,7 @@ import {
 import { userInfo } from '../../auth';
 
 export default function UserInfo() {
-    // console.log(userInfo());
+    console.log(userInfo());
     const user= userInfo();
     return (
         <section style={{ backgroundColor: '#eee' }}>

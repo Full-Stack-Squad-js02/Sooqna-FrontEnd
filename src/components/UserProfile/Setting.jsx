@@ -21,20 +21,19 @@ import { userInfo, updateUserInfo } from '../../auth';
 
 export default function Setting() {
     const user = userInfo();
+    // console.log('uuuuuuiiiiiiiii',user);
     const [updateInfo, setUpdateInfo] = useState({
-        username: "",
-        email: "",
-        password: "",
-        phonenumber: "",
-        adress: "",
+        username: user.username,
+        email: user.email,
+        password: user.password,
+        phonenumber: user.phonenumber,
+        adress: user.adress,
     })
     const { username, email, password, phonenumber, adress } = updateInfo;
 
     const handleChange = (name) => (event) => {
         setUpdateInfo({
             ...updateInfo,
-            error: false,
-            // success:false,
             [name]: event.target.value,
         });
     };
@@ -43,8 +42,8 @@ export default function Setting() {
     
     const handleClick = (event) => {
         event.preventDefault();
-        // console.log("00000000000000000");
-        updateUserInfo(updateInfo);
+        // console.log("00000000000000000", user.token);
+        updateUserInfo(updateInfo, user.token);
         // event.target.reset();
     };
 

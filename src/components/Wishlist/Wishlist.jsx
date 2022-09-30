@@ -13,7 +13,7 @@ import {
 } from "mdb-react-ui-kit";
 
 export default function Wishlist() {
-    const [deleteItem, setDeleteItem]=useState(true)
+    const [deleteItem, setDeleteItem] = useState(true);
     return (
         <section className="h-100" style={{ backgroundColor: "#eee", margin: '-13px 13rem' }}>
             <MDBContainer className="py-5 h-100">

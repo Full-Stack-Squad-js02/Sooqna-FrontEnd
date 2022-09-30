@@ -80,10 +80,13 @@ export const userInfo = () => {
     }
 };
 
-export const updateUserInfo = (data) => {
-    console.log(data);
+export const updateUserInfo = (data,token) => {
+    // console.log('mmmmmmmmmmh',data);
     return fetch('https://sooqna.herokuapp.com/updateprofile', {
             method: 'PUT',
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
             body: data
         })
         .then((response) => response.json())
