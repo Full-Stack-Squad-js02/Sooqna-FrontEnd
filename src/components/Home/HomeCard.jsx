@@ -6,6 +6,8 @@ import {useNavigate} from 'react-router-dom';
 import {isAuthenticated} from '../../auth';
 import {BsCartPlus} from "react-icons/bs";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
+import {getOneProducts} from '../../api/api'
+// import { MDBRipple } from 'mdb-react-ui-kit';
 import { addToFavourite ,removeFromFavourite, addToCart , removeFromCart} from '../../api/api';
 
 
@@ -34,7 +36,10 @@ export default function HomeCard ({ product }) {
                         < MdOutlineFavoriteBorder className="icons"onClick={()=>addToFavourite(product.id,token)}/>
                         <BsCartPlus className="icons" onClick={()=>addToCart(product.id,token)}/>
                     </>
-                    : <Button variant="primary" onClick={() => navigate('/viewdetails')}>View Details</Button>}
+                    : <Button variant="primary" onClick={() => {
+                        getOneProducts(product.id);
+                        navigate('/viewdetails')
+                        }}>View Details</Button>}
             </Card.Body>
             </Card>
         </>

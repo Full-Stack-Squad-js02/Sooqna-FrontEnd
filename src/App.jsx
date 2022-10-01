@@ -18,7 +18,7 @@ import Setting from './components/UserProfile/Setting';
 import UserPage from './components/UserPage/UserPage';
 import MyOrders from './components/Orders/MyOrders';
 import OrderForm from './components/Orders/OrderForm';
-
+import ProductDetails from './components/Product/ProductDetails';
 import UpdateProduct from './components/Product/UpdateProduct'
 
 function App() {
@@ -42,6 +42,7 @@ function App() {
                     <Route path='/user' element={<UserPage/>}/>
                     <Route path='/myorders' element={<MyOrders/>}/>
                     <Route path='/orderform' element={<OrderForm/>}/>
+                    <Route path='/product/:id' element={<ProductDetails/>}/>
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
                 </Routes>
                 <Contact/>

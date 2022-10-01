@@ -24,7 +24,7 @@ function OrderForm() {
             width: '24rem',
             margin: '4rem 34rem'
         }}>
-            <Form.Label htmlFor="inputPassword5">Your Address</Form.Label>
+            <Form.Label htmlFor="address">Your Address</Form.Label>
             <Form.Control type="text" // id="inputPassword5"
                 // aria-describedby="passwordHelpBlock"
             />
@@ -36,7 +36,7 @@ function OrderForm() {
             <br />
             {showAdress ?
                 <> 
-            <Form.Label htmlFor="inputPassword5">Another Address</Form.Label>
+            <Form.Label htmlFor="another address">Another Address</Form.Label>
             <Form.Control type="text"
             // id="inputPassword5"
             // aria-describedby="passwordHelpBlock"
@@ -44,7 +44,7 @@ function OrderForm() {
             </> 
              : null} 
 
-            <Form.Label htmlFor="inputPassword5">Paymant Method</Form.Label>
+            <Form.Label htmlFor="payment method">Paymant Method</Form.Label>
             <Form.Control type="text" // id="inputPassword5"
                 // aria-describedby="passwordHelpBlock"
             />
