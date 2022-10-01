@@ -1,4 +1,5 @@
 // import Button from 'react-bootstrap/Button';
+import React, {useState} from 'react';
 import {Card, Button} from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
 import {useNavigate} from 'react-router-dom';
@@ -7,14 +8,22 @@ import {BsCartPlus} from "react-icons/bs";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import {getOneProducts} from '../../api/api'
 // import { MDBRipple } from 'mdb-react-ui-kit';
+import { addToFavourite ,removeFromFavourite, addToCart , removeFromCart} from '../../api/api';
+
+
 import './Home.css';
 
-function HomeCard({ product }) {
+
+
+
+
+export default function HomeCard ({ product }) {
     const navigate = useNavigate();
-    console.log('ccccc', product);
+     const {user, token} = isAuthenticated();
+    // console.log(product);
     return (
         <>
-        <Card onClick={() => navigate('/viewdetails')} id='Card'>
+        <Card id='Card'>
                 <Card.Img variant="top" src={product.image}/>
             <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
@@ -24,8 +33,8 @@ function HomeCard({ product }) {
                 
                 {isAuthenticated()?
                     <>
-                        < MdOutlineFavoriteBorder className="icons"/>
-                        <BsCartPlus className="icons"/>
+                        < MdOutlineFavoriteBorder className="icons"onClick={()=>addToFavourite(product.id,token)}/>
+                        <BsCartPlus className="icons" onClick={()=>addToCart(product.id,token)}/>
                     </>
                     : <Button variant="primary" onClick={() => {
                         getOneProducts(product.id);
@@ -35,6 +44,5 @@ function HomeCard({ product }) {
             </Card>
         </>
     );
-}
-
-export default HomeCard;
+                }
+            
