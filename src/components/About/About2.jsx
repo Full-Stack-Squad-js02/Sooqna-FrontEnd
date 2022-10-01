@@ -24,40 +24,21 @@ export default function App() {
 <MDBRow>
   
     <MDBCol xl={4} className='mb-4'>
-  <img src={require('./AboutAssets/about.png')} 
+  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJt7NZZNmzLt0l0-h0gpBUZm-I_8n0HNUyeRL4a2DLIs-76_5PTWi7CA2J0XpIHIqKN6E&usqp=CAU'
   style={{
-    width:'500px',
-    height:'500px'
-  }}
+    width:'401px',
+    height:'340px',
+    margin: '2rem 2rem' 
+}}
   /> 
   </MDBCol>
   <MDBCol xl={5}>
-  <h1
+  {/* <h1
   Class="cl"
-  >Who We are</h1>
-  <span><p>We are Full Stack Squad its consists of 5 developers working on this Page.</p>
-
-    <p>You can browse through all the products displayed on our page.</p>
+  >Who We are</h1> */}
+  <br/>
+  <br/>
   
-<p>you can go to the <a href="!#">contact</a> page if you have any comment or note!</p>
-  </span>
-  </MDBCol>
-  
-  
-  
-
-</MDBRow>
-
-
-{/* <div class="container">
-  <img src="https://placekitten.com/g/300/300" /> 
-<div>  <h1>{text} </h1>
-</div>
-  <div>
-  <p>Bnan Fuad Mohammad Zahran</p>
-  </div>
-</div> */}
-
   <div className='profile-details-role'>
                       <span className='primary-text'>
                           {" "}
@@ -66,22 +47,47 @@ export default function App() {
                             <Typical
                             loop={Infinity}
                             steps={[
-                                "Welcome to our page.",
+                                "Welcome To Our Website",
                                 3000,
-                                "We Here you!",
+                                "Full Stack Squad",
                                 3000,
-                                "Contact with us to if you need the site.",
+                                // "Contact with us to if you need the site.",
                                 3000,
-                                "We have a multi services.",
+                                // "We have a multi services.",
                                 3000,
                             ]}
                             />
                           </h1>
-                          <span className='profile-role-tagline'>
+                          {/* <span className='profile-role-tagline'>
                               You Can see the group of the Developer that build this site and you can able to contact with him!
-                          </span>
+                          </span> */}
+
                       </span>
+
                   </div>
+
+  <div className="font-loader"></div>
+<div style={{fontFamily: 'Cursive', fontSize:'22px' }}>
+  <span ><p>Nowadays, if you’re selling or buying anything—whether that’s sneakers, salad dressing, or something in between—you need to hop on board the ecommerce website train.</p>
+  <br/>
+
+    <p>This Multi-Store website offers the chance for buyers to explore variety of products, and sellers to build their brands and connect with more customers. </p>
+  
+{/* <p>you can go to the <a href="!#">contact</a> page if you have any comment or note!</p> */}
+  </span>
+  </div>
+  </MDBCol>
+  
+  
+  
+
+</MDBRow>
+
+
+<br/>
+<br/>
+
+ 
 <div class="col d-flex justify-content-center">
     <MDBRow>
        <MDBCol xl={4} >
@@ -164,10 +170,10 @@ export default function App() {
                     className="rounded-circle"
                     fluid
                     style={{
-                    width: '100px'
+                    width: '90px'
                 }}/></div>
             
-            <MDBTypography tag="h4">Shams Sarayrah</MDBTypography>
+            <MDBTypography tag="h4">Shams Alsaraireh</MDBTypography>
             <MDBCardText className="text-muted mb-4">
                 @Full Stack Developer
                 <span className="mx-2">|</span>
