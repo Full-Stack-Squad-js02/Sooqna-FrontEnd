@@ -26,11 +26,12 @@ export default function Cart() {
         setError] = useState('');
     
     const loadItems = async () => {
+        //get all products
         await getAllCart(token).then(data => {
             if (data.error) {
                 setError(data.error);
             } else {
-                console.log(data)
+                console.log(data);
                 setItems(data);
             }
         });
@@ -40,10 +41,8 @@ export default function Cart() {
     
     useEffect(() => {
         loadItems()
+        //filter all products on cart id
     }, [ loadItems]);
-
-
-
 
     function handleConfirmOrder(){
         Swal.fire({

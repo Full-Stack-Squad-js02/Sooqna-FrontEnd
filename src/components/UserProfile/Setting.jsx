@@ -17,19 +17,24 @@ import {
     MDBListGroupItem,
     MDBInput
 } from 'mdb-react-ui-kit';
-import { userInfo, updateUserInfo } from '../../auth';
+import { logOut, updateUserInfo, isAuthenticated } from '../../auth';
 
 export default function Setting() {
-    const user = userInfo();
-    // console.log('uuuuuuiiiiiiiii',user);
+
+    // const userData = userInfo();
+
+    const { user } = isAuthenticated();
+
+    // console.log('uuuuuuiiiiiiiii', user);
+    
     const [updateInfo, setUpdateInfo] = useState({
         username: user.username,
         email: user.email,
-        password: user.password,
         phonenumber: user.phonenumber,
+        password: user.password,
         adress: user.adress,
     })
-    const { username, email, password, phonenumber, adress } = updateInfo;
+    const { username, email, phonenumber, password,  adress } = updateInfo;
 
     const handleChange = (name) => (event) => {
         setUpdateInfo({
@@ -38,13 +43,13 @@ export default function Setting() {
         });
     };
 //   console.log(username, email, password, phonenumber, adress);
+  console.log(updateInfo);
     
     
     const handleClick = (event) => {
         event.preventDefault();
-        // console.log("00000000000000000", user.token);
-        updateUserInfo(updateInfo, user.token);
-        // event.target.reset();
+        // await updateUserInfo(updateInfo, user.token);
+        // logOut();
     };
 
     return (
