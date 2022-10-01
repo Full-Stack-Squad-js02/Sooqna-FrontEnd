@@ -18,7 +18,7 @@ export default function CreateItem() {
             'ELECTRONICS', 'GAMES', 'FASHION' , 'CARS' , 'Toys' , 'Home' , 'Books' , 'PETS' , 'FOOD' , 'OTHER'
         ],
 
- title: '',
+        title: '',
         image: '',
         description: '',
         quantity: '',
@@ -88,9 +88,18 @@ export default function CreateItem() {
 
 const  BasicExample=()=> {
   return (
-    <div style={{display:'flex'}}>
-    <Form style={{width: "30rem" , margin: "7rem"}}>
+      <div style={{ display: 'flex' }}>
+          
+          <div>
+              <img
+                  className="d-block w-100 h-1"
+                  src="https://cdn.learnwoo.com/wp-content/uploads/2016/11/Adding-Products_Cropped.png"
+                  alt="First slide"
+                  style={{ marginTop: '6.5rem' }}
+              />
+          </div>
 
+    <Form style={{width: "30rem" , margin: "7rem"}}>
       <Form.Group className="mb-3" controlId="title">
         <Form.Label>Product </Form.Label>
         <Form.Control type="text"
@@ -147,14 +156,6 @@ const  BasicExample=()=> {
       <Button variant="success" type="submit" onClick={clickSubmit}>Create Product</Button> {' '}
         <Button variant="danger" type="submit" onClick={() => { navigate('/user') }}> Cancel</Button>
     </Form>
-    <div>
-    <img
-              className="d-block w-100 h-1"
-              src="https://cdn.learnwoo.com/wp-content/uploads/2016/11/Adding-Products_Cropped.png"
-              alt="First slide"
-              style={{marginTop:'6.5rem'}}
-              />
-              </div>
     </div>
 
   );

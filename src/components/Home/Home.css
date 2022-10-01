@@ -1,5 +1,5 @@
 .container {
-    margin: 0 13rem;
+margin: 13px 3rem 13px 5rem;
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
@@ -7,7 +7,7 @@
 
 #Card {
     width: 25rem;
-    margin: 25px 0;
+    margin: 25px 30px; 
     max-width: 18rem;
 }
 

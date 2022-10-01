@@ -7,60 +7,43 @@ import Col from 'react-bootstrap/Col';
 import './Home.css'
 import { getAllProducts } from '../../api/api';
 
-function OrderingExample() {
-    const [products, setProducts] = useState([]);
-    // const x = getAllProducts();
-    // console.log('oooooo',getAllProducts());
-    //	true | "sm" | "md" | "lg" | "xl" | "xxl"
-    useEffect(() => {
-        console.log('oooooo', products);
+function Home() {
 
-        setProducts(getAllProducts());
-    }, [])
+    const [products,
+        setProducts] = useState('');
+    const [error,
+        setError] = useState('');
+
+    const loadItems = async () => {
+        await getAllProducts().then(data => {
+            if (data.error) {
+                setError(data.error);
+            } else {
+                setProducts(data);
+            }
+        });
+    };
+
+    useEffect(() => {
+        // console.log('iiiiiiii', products);
+        loadItems()
+    }, []);
+
     return (
         <>
             <SlideShow />
-            {/* {products ? products.map(() => { <h2>HI</h2> } ):null} */}
-            <Container fluid='sm' style={{ margin: '2rem' }}>
-                <Row xs="4">
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                </Row>
-                <Row xs="4">
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                </Row>
-                <Row xs="4">
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                </Row>
-                <Row xs="4">
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                </Row>
-                <Row xs="4">
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                </Row>
-                <Row xs="4">
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                    <Col><HomeCard/></Col>
-                </Row>
+            <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem'}} >
+             <Row xs="4">
+                {products ? products.map((product,idx) => {
+                    return (
+                        <HomeCard product={product} />
+                )
+            }):null}
+             </Row>
+
             </Container>
         </>
     );
 }
 
-export default OrderingExample;
+export default Home;
