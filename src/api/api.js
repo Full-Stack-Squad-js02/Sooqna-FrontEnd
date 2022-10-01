@@ -1,5 +1,6 @@
 // import cookie from 'react-cookies';
 import axios from 'axios';
+import { NavItem } from 'react-bootstrap';
 
 
 export const getAllProducts = async () => {
@@ -9,6 +10,15 @@ export const getAllProducts = async () => {
     return result.data;
 }
 
+export const getOneProducts = async (itemId) => {
+    console.log('ppppppppppppppppppppp',itemId);
+    let url = `https://sooqna.herokuapp.com/product/${itemId}`
+    const result = await axios.get(url, {});
+    console.log('sssssssss',result.data)
+    return result.data;
+}
+
+// export const searchBy = async ({input,filteredBy}) => {
 export const searchBy = async ({ input, filteredBy }) => {
     console.log(input, filteredBy)
 
