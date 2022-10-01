@@ -11,7 +11,7 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import { removeFromFavorite, moveToCart } from "../../api/api";
+import { removeFromFavorite, moveFromWishlistToCart } from "../../api/api";
 import { isAuthenticated } from '../../auth';
 // import React, {useState ,useEffect} from 'react';
 
@@ -86,7 +86,7 @@ export default function Wishlist(product) {
 
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
                                             <a href="#!" className="text-danger" >
-                                                <MDBIcon onClick={() => { moveToCart() }} fas icon="cart-plus text-danger" size="lg" />
+                                            <MDBIcon onClick={() => { moveFromWishlistToCart() }} fas icon="cart-plus text-danger" size="lg" />
                                             </a>
                                         </MDBCol>
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
