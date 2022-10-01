@@ -4,10 +4,12 @@ import {
     NavDropdown
 } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { logOut} from '../../auth';
+import { logOut } from '../../auth';
+import { isAuthenticated } from '../../auth';
 
 export default function UserDropdownList() {
-
+    const { user } = isAuthenticated()
+    console.log(user);
     const navigate = useNavigate();
 
     function handleLogOut() {
@@ -22,7 +24,7 @@ export default function UserDropdownList() {
             }}
             navbarScroll>
             <NavDropdown
-                title='Hi , User'
+                title={`Hi , ${user.username}`}
                 id="navbarScrollingDropdown"
                 // style={{
                 //     marginLeft: '6rem',

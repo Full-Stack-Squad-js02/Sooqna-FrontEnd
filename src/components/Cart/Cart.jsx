@@ -16,34 +16,46 @@ import Counter from "./Counter";
 import Swal from 'sweetalert2';
 import './Cart.css';
 import {isAuthenticated} from '../../auth';
-import { getAllCart } from "../../api/api";
+import { getAllCart, getProductsById } from "../../api/api";
 
 export default function Cart() {
-    const {token} = isAuthenticated();
-    const [items,
-        setItems] = useState([]);
-    const [error,
-        setError] = useState('');
+
+    const { token } = isAuthenticated();
+    
+    const [items, setItems] = useState([]);
+    
+    const [products, setProducts] = useState([]);
+    
+    const [itemsIds, setItemsIds] = useState([]);
+    
+    const [error,setError] = useState('');
+    
     
     const loadItems = async () => {
-        await getAllCart(token).then(data => {
-            if (data.error) {
-                setError(data.error);
-            } else {
-                console.log(data)
-                setItems(data);
-            }
+        let itemsInCart = await getAllCart(token);
+        // console.log(itemsInCart);
+        setItems(itemsInCart);
+        let Ids = items.map((e) => {
+            return e.product_id;
         });
+        setItemsIds(Ids);
     };
 
-    console.log('iiiiiiii',items);
+    const arrayOfProducts = async () => {
+        let productsInCart = await getProductsById(itemsIds);
+        // console.log('MMMMMMh', productsInCart)
+        setProducts(productsInCart);
+    };
     
+    
+    // getProductsById(itemsIds);
+    
+    // console.log('iiiiiiii', products);
+
     useEffect(() => {
-        loadItems()
-    }, [ loadItems]);
-
-
-
+        // loadItems();
+        // arrayOfProducts();
+    }, []);
 
     function handleConfirmOrder(){
         Swal.fire({
@@ -86,9 +98,16 @@ export default function Cart() {
 
                                             <hr className="my-4" />
 
-                                            {items?
-                                            items.map((item,idx)=>{
-                                                return(
+                                            {products ? products.map((e) => {
+                                                return (
+                                                    <h1>{e.title}</h1>
+                                                )
+                                            })
+                                            
+                                            : null
+                                            }
+
+                                            {items ? items.map((item) => {
                                             <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
                                                 <MDBCol md="2" lg="2" xl="2">
                                                     <MDBCardImage
@@ -126,9 +145,8 @@ export default function Cart() {
                                                     </a>
                                                 </MDBCol>
                                             </MDBRow>
-                                                )
-                                            })
-                                            :null}
+                                            }):null}
+                                            
 
                                             {/* <hr className="my-4" />
 

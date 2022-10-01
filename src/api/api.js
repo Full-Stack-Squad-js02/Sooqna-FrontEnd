@@ -1,7 +1,7 @@
-import cookie from 'react-cookies';
 import axios from 'axios';
-import { NavItem } from 'react-bootstrap';
 
+
+/*-----------------------------------------------PRODUCT-------------------------------------------- */
 
 export const getAllProducts = async () => {
     let url = `https://sooqna.herokuapp.com/product`
@@ -15,15 +15,6 @@ export const getOneProducts = async (itemId) => {
     let url = `https://sooqna.herokuapp.com/product/${itemId}`
     const result = await axios.get(url, {});
     console.log('sssssssss',result.data)
-    return result.data;
-}
-
-// export const searchBy = async ({input,filteredBy}) => {
-export const searchBy = async ({ input, filteredBy }) => {
-    console.log(input, filteredBy)
-
-    const result = await axios.get(`https://sooqna.herokuapp.com/search${filteredBy}?${filteredBy}=${input}`, {});
-    // console.log('00000000000',result.data)
     return result.data;
 }
 
@@ -52,6 +43,81 @@ export const createItem = async (userId, token, data) => {
     // });
 }
 
+export const getProductsById = async (productsIds) => {
+    // console.log('ppppppppppppppppppppp', productsIds);
+    
+    let url = `https://sooqna.herokuapp.com/product`
+    // let products = []
+    // const async products = await () => { 
+    //      productsIds.map(async (itemId) => {
+    //         url = `https://sooqna.herokuapp.com/product/${itemId}`
+    //         let result = await axios.get(url, {});
+    //             console.log('QQQQQQQQQQ',result.data)
+    //             return result.data;
+    //         })
+    // }
+
+    const products = await Promise.all(productsIds.map(async (itemId) => {
+	 url = `https://sooqna.herokuapp.com/product/${itemId}`
+            let result = await axios.get(url, {});
+                // console.log('QQQQQQQQQQ',result.data)
+                return result.data;
+    }));
+    // console.log('sssssssss',products);
+        // console.log('sssssssss',products)
+    return products;
+
+}
+
+
+/*-----------------------------------------------SEARCH-------------------------------------------- */
+
+export const searchBy = async ({ input, filteredBy }) => {
+    console.log(input, filteredBy)
+    
+    const result = await axios.get(`https://sooqna.herokuapp.com/search${filteredBy}?${filteredBy}=${input}`, {});
+    // console.log('00000000000',result.data)
+    return result.data;
+}
+
+
+/*-----------------------------------------------WISHLIST-------------------------------------------- */
+
+export const getAllwishlest = async (token) => {
+    let url = `https://sooqna.herokuapp.com/wishlist`
+    const result = await axios.get(url, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => {
+            console.log(err);
+        });
+};
+
+
+export const addToFavourite = (itemId, token) => {
+    return fetch(`https://sooqna.herokuapp.com/addtowishlist/${itemId}`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+        
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+};
+
+
 export const removeFromFavorite = (id, token) => {
     // console.log(favouriteId, userId, token)
     return fetch(`https://sooqna.herokuapp.com/wishlist/${id}`, {
@@ -65,7 +131,25 @@ export const removeFromFavorite = (id, token) => {
     }).catch(err => {
         console.log(err);
     })
-}
+};
+
+
+
+/*-----------------------------------------------CART-------------------------------------------- */
+
+export const getAllCart = async (token) => {
+
+    let url = `https://sooqna.herokuapp.com/cart`
+
+    const result = await axios.get(url, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    })
+    // console.log('RRRRRRRRRR',result);
+    return result.data;
+};
 
 export const addToCart = async (itemId, token) => {
     console.log("eeeeeeee", itemId, token)
@@ -83,43 +167,13 @@ export const addToCart = async (itemId, token) => {
         .catch((error) => {
             console.error('Error:', error);
         });
-}
+    }
+    
+    
+    
+/*-----------------------------------------------SHOPPING-------------------------------------------- */
 
-export const addToFavourite = (itemId, token) => {
-    return fetch(`https://sooqna.herokuapp.com/addtowishlist/${itemId}`, {
-        method: 'POST',
-        headers: {
-            Authorization: `Bearer ${token}`
-        },
-
-    })
-        .then((response) => response.json())
-        .then((result) => {
-            console.log('Success:', result);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-}
-
-export const getAllCart = async (token) => {
-
-    let url = `https://sooqna.herokuapp.com/cart`
-    const result = await axios.get(url, {
-        headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`
-        }
-    })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => {
-            console.log(err);
-        });
-};
-
-export const moveToCart = async (itemId, token) => {
+export const moveFromWishlistToCart = async (itemId, token) => {
     console.log("eeeeeeee", itemId, token)
     // return fetch(`https://sooqna.herokuapp.com/productfromwishlisttocart/${itemId}`, {
     //     method: 'POST',
@@ -137,19 +191,3 @@ export const moveToCart = async (itemId, token) => {
     // console.log('sssssssss', result.data)
     // return result.data;
 }
-
-export const getAllwishlest = async (token) => {
-    let url = `https://sooqna.herokuapp.com/wishlist`
-    const result = await axios.get(url, {
-        headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`
-        }
-    })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => {
-            console.log(err);
-        });
-};

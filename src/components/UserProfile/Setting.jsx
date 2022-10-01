@@ -17,35 +17,39 @@ import {
     MDBListGroupItem,
     MDBInput
 } from 'mdb-react-ui-kit';
-import { userInfo, updateUserInfo } from '../../auth';
+import { logOut, updateUserInfo, isAuthenticated } from '../../auth';
 
 export default function Setting() {
-    const user = userInfo();
+
+    // const userData = userInfo();
+
+    const { user } = isAuthenticated();
+
+    // console.log('uuuuuuiiiiiiiii', user);
+    
     const [updateInfo, setUpdateInfo] = useState({
-        username: "",
-        email: "",
-        password: "",
-        phonenumber: "",
-        adress: "",
+        username: user.username,
+        email: user.email,
+        phonenumber: user.phonenumber,
+        password: user.password,
+        adress: user.adress,
     })
-    const { username, email, password, phonenumber, adress } = updateInfo;
+    const { username, email, phonenumber, password,  adress } = updateInfo;
 
     const handleChange = (name) => (event) => {
         setUpdateInfo({
             ...updateInfo,
-            error: false,
-            // success:false,
             [name]: event.target.value,
         });
     };
 //   console.log(username, email, password, phonenumber, adress);
+  console.log(updateInfo);
     
     
     const handleClick = (event) => {
         event.preventDefault();
-        // console.log("00000000000000000");
-        updateUserInfo(updateInfo);
-        // event.target.reset();
+        // await updateUserInfo(updateInfo, user.token);
+        // logOut();
     };
 
     return (

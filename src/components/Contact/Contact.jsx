@@ -6,45 +6,7 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-re
 export default function Contact() {
   return (
     <MDBFooter id='contact' style={{ backgroundColor: '#003566' }} className='text-center text-lg-start text-white'>
-    
       <MDBContainer className='p-4 pb-0'>
-        <section>
-        <div className='me-5 d-none d-lg-block'>
-          <span>Get connected with us on social media :</span>
-          </div>
-          <br />
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#3b5998' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='facebook-f' />
-          </MDBBtn>
-
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#55acee' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='twitter' />
-          </MDBBtn>
-
-          <MDBBtn
-            floating
-            className='m-1'
-            style={{ backgroundColor: '#ac2bac' }}
-            href='#!'
-            role='button'
-          >
-            <MDBIcon fab icon='instagram' />
-          </MDBBtn>
-        </section>
-      </MDBContainer>
-
       <section className=''>
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
@@ -75,9 +37,50 @@ export default function Contact() {
                 <MDBIcon icon="print" className="me-3" /> +96270000000
               </p> */}
             </MDBCol>
+
+            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4' style={{ textAlign: 'initial'}}>
+
+              <section>
+                <div className='me-5 d-none d-lg-block'>
+                  <span>Get connected with us on social media :</span>
+                </div>
+                <br />
+                <MDBBtn
+                  floating
+                  className='m-1'
+                  style={{ backgroundColor: '#3b5998' }}
+                  href='#!'
+                  role='button'
+                >
+                  <MDBIcon fab icon='facebook-f' />
+                </MDBBtn>
+
+                <MDBBtn
+                  floating
+                  className='m-1'
+                  style={{ backgroundColor: '#55acee' }}
+                  href='#!'
+                  role='button'
+                >
+                  <MDBIcon fab icon='twitter' />
+                </MDBBtn>
+
+                <MDBBtn
+                  floating
+                  className='m-1'
+                  style={{ backgroundColor: '#ac2bac' }}
+                  href='#!'
+                  role='button'
+                >
+                  <MDBIcon fab icon='instagram' />
+                </MDBBtn>
+              </section>
+        </MDBCol>
+
           </MDBRow>
         </MDBContainer>
       </section>
+            </MDBContainer>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         <span>© 2021 Copyright : </span>
