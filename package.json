@@ -58,5 +58,17 @@
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.16",
     "tailwindcss": "^3.1.8"
-  }
+  },
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Full-Stack-Squad-js02/Sooqna-FrontEnd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Full-Stack-Squad-js02/Sooqna-FrontEnd/issues"
+  },
+  "homepage": "https://github.com/Full-Stack-Squad-js02/Sooqna-FrontEnd#readme"
 }
