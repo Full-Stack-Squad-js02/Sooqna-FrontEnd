@@ -17,7 +17,7 @@ import Counter from "./Counter";
 import Swal from 'sweetalert2';
 import './Cart.css';
 import { isAuthenticated } from '../../auth';
-import { getAllCart, getProductsById } from "../../api/api";
+import { getAllCart, getProductsById ,removeOneFromCart } from "../../api/api";
 
 export default function Cart() {
 
@@ -38,10 +38,14 @@ export default function Cart() {
         let productsInCart = await getProductsById(Ids);
         setProducts(productsInCart);
     };
-
+    
+    // console.log('ITEMS',items);
+    // console.log('products',products);
     useEffect(() => {
         cartItems();
     }, []);
+
+    
     
     function handleConfirmOrder() {
         Swal.fire({
@@ -84,7 +88,7 @@ export default function Cart() {
 
                                             <hr className="my-4" />
 
-                                            {products ? products.map((item) => {
+                                            {products ? products.map((item,idx) => {
                                                 return (
                                                     <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
                                                         <MDBCol md="2" lg="2" xl="2">
@@ -117,9 +121,13 @@ export default function Cart() {
                                                                 {item.price}
                                                             </MDBTypography>
                                                         </MDBCol>
-                                                        <MDBCol md="1" lg="1" xl="1" className="text-end">
+                                                        <MDBCol md="1" lg="1" xl="1" className="text-end" key={idx}>
                                                             <a href="#!" className="text-muted">
-                                                                <MDBIcon fas icon="times" />
+                                                                <MDBIcon  onClick={() => {
+                                                                    removeOneFromCart(items[idx].id,token)
+                                                                    // console.log("id",items[idx].id) 
+                                                                     navigate('/mycart')
+                                                                 }} fas icon="times"/>
                                                             </a>
                                                         </MDBCol>
                                                     </MDBRow>
@@ -129,9 +137,7 @@ export default function Cart() {
                                                 : null
                                             }
 
-                                            {items ? items.map((item) => {
-
-                                            }) : null}
+                                        
 
 
                                             {/* <hr className="my-4" />
