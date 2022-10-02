@@ -95,7 +95,7 @@ export default function Wishlist(product) {
 
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
                                             <a href="#!" className="text-danger" >
-                                            <MDBIcon onClick={() => { moveFromWishlistToCart() }} fas icon="cart-plus text-danger" size="lg" />
+                                            <MDBIcon onClick={() => { moveFromWishlistToCart(item.id,token) }} fas icon="cart-plus text-danger" size="lg" />
                                             </a>
                                         </MDBCol>
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
