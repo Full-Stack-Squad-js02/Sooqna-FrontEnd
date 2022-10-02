@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// let url = 'http://localhost:3000'
-let url = 'https://sooqna.herokuapp.com'
+let url = 'http://localhost:3000'
+// let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -240,6 +240,17 @@ export const removeOneFromCart = async(id, token) => {
     // return result
 
 
-
+export const createOrder = async (order, token) => { 
+    console.log('OOOOOOOOOOo',order, token);
+    const result = await axios.post(`${url}/submitorder`, order, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(order)
+    });
+    console.log('uuuuuuuu', result)
+    // return result
+}
 
 
