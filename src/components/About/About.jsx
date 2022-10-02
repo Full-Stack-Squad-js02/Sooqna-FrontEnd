@@ -1,24 +1,14 @@
 import React from 'react';
 import AboutCard from './AboutCard';
+import APP from './About2'
 
 export default function About() {
   return (
     <>
-    <div>
-      <AboutCard/>
-    </div>
-    <div>
-      <AboutCard/>
-    </div>
-    <div>
-      <AboutCard/>
-    </div>
-    <div>
-      <AboutCard/>
-    </div>
-    <div>
-      <AboutCard/>
-    </div>
+  <div>
+   <APP/> 
+  </div>
+  
     </>
   );
 }

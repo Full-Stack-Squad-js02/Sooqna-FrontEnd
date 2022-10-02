@@ -5,7 +5,8 @@ import {
     MDBTypography
 } from 'mdb-react-ui-kit';
 
-export default function AboutCard() {
+
+ export default function AboutCard() {
     return (
         <div>
             <div className="mt-3 mb-4">
@@ -24,5 +25,6 @@ export default function AboutCard() {
                 <a href="#!">mdbootstrap.com</a>
             </MDBCardText>
         </div>
-    );
+    )
 }
+
