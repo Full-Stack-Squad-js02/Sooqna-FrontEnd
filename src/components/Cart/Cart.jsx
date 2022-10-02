@@ -88,7 +88,7 @@ export default function Cart() {
                                                 {/* <MDBTypography className="mb-0 text-muted">
                                                     3 items
                                                 </MDBTypography> */}
-                                                <i class="fas fa-trash" ></i>
+                                                <i onClick={() => { removeAllCart(token) }} class="fas fa-trash" ></i>
                                             </div>
 
                                             <hr className="my-4" />
