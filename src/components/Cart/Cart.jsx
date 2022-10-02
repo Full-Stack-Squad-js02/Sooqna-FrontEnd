@@ -32,17 +32,20 @@ export default function Cart() {
     const cartItems = async () => {
         let itemsInCart = await getAllCart(token);
         setItems(itemsInCart);
-        let Ids = itemsInCart.map((e) => {
-            if (e.product_id) {
-                return e.product_id;
-            }
-        });
-        let productsInCart = await getProductsById(Ids);
-        setProducts(productsInCart);
+        if (itemsInCart.length != 0) {
+            let Ids = itemsInCart.map((e) => {
+                if (e.product_id) {
+                    return e.product_id;
+                }
+            });
+            let productsInCart = await getProductsById(Ids);
+            setProducts(productsInCart);
+        }
     };
     
     // console.log('ITEMS',items);
     // console.log('products',products);
+    
     useEffect(() => {
         cartItems();
     }, []);
@@ -246,7 +249,7 @@ export default function Cart() {
                                                 <MDBTypography tag="h5" className="text-uppercase">
                                                     items :
                                                 </MDBTypography>
-                                                <MDBTypography tag="h5">10</MDBTypography>
+                                                <MDBTypography tag="h5">{products.length}</MDBTypography>
                                             </div>
 
                                             <MDBTypography tag="h5" className="text-uppercase mb-3">
@@ -256,7 +259,7 @@ export default function Cart() {
                                             <div className="mb-4 pb-2">
                                                 <select className="select p-2 rounded bg-grey" style={{ width: "100%" }}>
                                                     {/* <option value="1">Standard-Delivery- €5.00</option> */}
-                                                    <option value="2">Chash On Delivery</option>
+                                                    <option value="2">Cash On Delivery</option>
                                                     <option value="3">VISA Card</option>
                                                     {/* <option value="4">Four</option> */}
                                                 </select>
@@ -264,7 +267,7 @@ export default function Cart() {
 
                                             <MDBTypography tag="h5" className="text-uppercase mb-3">
                                                 another address
-                                            </MDBTypography>
+                                            </MDBTypography> 
 
                                             <div className="mb-5">
                                                 <MDBInput size="lg" label="Enter Another Address" />
@@ -276,7 +279,8 @@ export default function Cart() {
                                                 <MDBTypography tag="h5" className="text-uppercase">
                                                     Total price
                                                 </MDBTypography>
-                                                <MDBTypography tag="h5">€ 137.00</MDBTypography>
+                                                <MDBTypography tag="h5">{products.reduce((acc, cv) => {
+                                                    return acc + parseInt(cv.price)}, 0)} $</MDBTypography>
                                             </div>
 
                                             <MDBBtn color="dark" block size="lg" onClick={handleConfirmOrder}>

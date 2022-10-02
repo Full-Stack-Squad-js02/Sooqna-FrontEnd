@@ -28,15 +28,14 @@ export default function Wishlist(product) {
         // console.log('11111', itemsInWishlist)
         setItems(itemsInWishlist);
         // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist.length)
-        let Ids = itemsInWishlist.map((e) => {
-            if (e.product_id) {
-                return e.product_id;
-            }
-        });
-        // console.log('2222222', Ids)
-        let productsInWishlist = await getProductsById(Ids);
-        // console.log('3333333', productsInWishlist)
-        setProducts(productsInWishlist);
+         if(itemsInWishlist.length != 0){
+            let Ids = itemsInWishlist.map((e) => {
+                    return e.product_id;
+            });
+                let productsInWishlist = await getProductsById(Ids);
+                setProducts(productsInWishlist);
+                // console.log('3333333', productsInWishlist)
+        }
     };
     
     // console.log('444444444', products)

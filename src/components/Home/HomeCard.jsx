@@ -33,13 +33,14 @@ export default function HomeCard({ product }) {
                     <>
                             {isFav?
                                 < MdOutlineFavorite className="icons" onClick={() => {
+                                    // console.log('FAVVVVVVVVVV');
+                                    // addToFavourite(product.id, token)
                                     setIsFav(false)
-                                    addToFavourite(product.id, token)
                                 }} />
                                 :
                                 < MdOutlineFavoriteBorder className="icons" onClick={() => {
+                                    addToFavourite(product.id, token)
                                     setIsFav(true)
-                                    // addToFavourite(product.id, token)
                                 }} />
                            }
 

@@ -1,6 +1,8 @@
 import axios from 'axios';
 
+// let url = 'http://localhost:3000'
 let url = 'https://sooqna.herokuapp.com'
+
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
 export const getAllProducts = async () => {
@@ -113,7 +115,8 @@ export const getAllWishlist= async (token) => {
 
 
 export const addToFavourite = (itemId, token) => {
-   console.log("222222")
+//    console.log("222222")
+    // console.log('GGGGGGGGG',itemId, token);
     return fetch(`${url}/addtowishlist/${itemId}`, {
 
         method: 'POST',
@@ -122,7 +125,10 @@ export const addToFavourite = (itemId, token) => {
         },
         
     })
-        .then((response) => response.json())
+    .then((response) => {
+            console.log('response',response);
+            response.json()
+        })
         .then((result) => {
             console.log('Success:', result);
         })
