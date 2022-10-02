@@ -44,27 +44,13 @@ export const createItem = async (userId, token, data) => {
 }
 
 export const getProductsById = async (productsIds) => {
-    // console.log('ppppppppppppppppppppp', productsIds);
-    
-    let url = `https://sooqna.herokuapp.com/product`
-    // let products = []
-    // const async products = await () => { 
-    //      productsIds.map(async (itemId) => {
-    //         url = `https://sooqna.herokuapp.com/product/${itemId}`
-    //         let result = await axios.get(url, {});
-    //             console.log('QQQQQQQQQQ',result.data)
-    //             return result.data;
-    //         })
-    // }
 
+    let url = `https://sooqna.herokuapp.com/product`
     const products = await Promise.all(productsIds.map(async (itemId) => {
 	 url = `https://sooqna.herokuapp.com/product/${itemId}`
             let result = await axios.get(url, {});
-                // console.log('QQQQQQQQQQ',result.data)
                 return result.data;
     }));
-    // console.log('sssssssss',products);
-        // console.log('sssssssss',products)
     return products;
 
 }
@@ -83,21 +69,35 @@ export const searchBy = async ({ input, filteredBy }) => {
 
 /*-----------------------------------------------WISHLIST-------------------------------------------- */
 
-export const getAllwishlest = async (token) => {
+export const getAllWishlist= async (token) => {
+
     let url = `https://sooqna.herokuapp.com/wishlist`
+
     const result = await axios.get(url, {
         headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${token}`
         }
     })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => {
-            console.log(err);
-        });
+    // console.log('RRRRRRRRRR',result);
+    return result.data;
 };
+
+// export const getAllwishlest = async (token) => {
+//     let url = `https://sooqna.herokuapp.com/wishlist`
+//     const result = await axios.get(url, {
+//         headers: {
+//             Accept: 'application/json',
+//             Authorization: `Bearer ${token}`
+//         }
+//     })
+//         .then(response => {
+//             return response.json();
+//         })
+//         .catch(err => {
+//             console.log(err);
+//         });
+// };
 
 
 export const addToFavourite = (itemId, token) => {
