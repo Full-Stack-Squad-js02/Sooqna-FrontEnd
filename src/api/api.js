@@ -10,6 +10,18 @@ export const getAllProducts = async () => {
     return result.data;
 }
 
+export const getAllProductPostedByUser = async (userId,token) => {
+    let url = `https://sooqna.herokuapp.com/product/user/${userId}`
+    const result = await axios.get(url, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    });
+    console.log('sssssssss', result.data);
+    return result.data;
+}
+
 export const getOneProducts = async (itemId) => {
     console.log('ppppppppppppppppppppp',itemId);
     let url = `https://sooqna.herokuapp.com/product/${itemId}`

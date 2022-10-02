@@ -1,5 +1,5 @@
 import React from 'react';
-import Typical from 'react-typical'
+// import Typical from 'react-typical'
 import styles from "./About.css"
 import {
   MDBCard,
@@ -61,7 +61,7 @@ export default function App() {
   <div className='profile-details-role'>
                       <span className='primary-text'>
                           {" "}
-                          <h1>
+                          {/* <h1>
                             {" "}
                             <Typical
                             loop={Infinity}
@@ -76,7 +76,7 @@ export default function App() {
                                 3000,
                             ]}
                             />
-                          </h1>
+                          </h1> */}
                           <span className='profile-role-tagline'>
                               You Can see the group of the Developer that build this site and you can able to contact with him!
                           </span>

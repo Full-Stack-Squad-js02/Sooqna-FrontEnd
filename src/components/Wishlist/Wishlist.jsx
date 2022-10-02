@@ -23,13 +23,15 @@ export default function Wishlist(product) {
 
     const [products, setProducts] = useState([]);
 
-    const cartItems = async () => {
+    const wislistItems = async () => {
         let itemsInWishlist = await getAllWishlist(token);
         // console.log('11111', itemsInWishlist)
         setItems(itemsInWishlist);
-        // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist)
+        // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist.length)
         let Ids = itemsInWishlist.map((e) => {
-            return e.product_id;
+            if (e.product_id) {
+                return e.product_id;
+            }
         });
         // console.log('2222222', Ids)
         let productsInWishlist = await getProductsById(Ids);
@@ -39,7 +41,7 @@ export default function Wishlist(product) {
     
     // console.log('444444444', products)
     useEffect(() => {
-        cartItems();
+        wislistItems();
     }, []);
 
 

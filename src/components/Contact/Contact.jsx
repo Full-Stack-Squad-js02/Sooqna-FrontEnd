@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <MDBFooter id='contact' style={{ backgroundColor: '#003566' }} className='text-center text-lg-start text-white'>
       <MDBContainer className='p-4 pb-0'>
-      <section className=''>
+        <section style={{margin: '-65px 92px'}}>
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
@@ -42,7 +42,7 @@ export default function Contact() {
 
               <section>
                 <div className='me-5 d-none d-lg-block'>
-                  <span>Get connected with us on social media :</span>
+                  <span>Social Media :</span>
                 </div>
                 <br />
                 <MDBBtn
