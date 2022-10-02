@@ -6,7 +6,8 @@ import {
     Container,
     Nav,
     Navbar,
-    NavDropdown
+    NavDropdown , 
+    Popover
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
@@ -149,13 +150,19 @@ function NavBar() {
                          </React.Fragment>
                             :
                             <React.Fragment>
+
+
                             {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
                             {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
                             <BsFillCartFill onClick={() => { navigate('/myCart')}} style={{
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
-                                }} />
+                                }} 
+
+                                />
+
+                                
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
