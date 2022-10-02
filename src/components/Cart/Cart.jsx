@@ -17,22 +17,40 @@ import Counter from "./Counter";
 import Swal from 'sweetalert2';
 import './Cart.css';
 import { isAuthenticated } from '../../auth';
-import { getAllCart, getProductsById ,removeOneFromCart } from "../../api/api";
+import { getAllCart, getProductsById, removeOneFromCart, createOrder } from "../../api/api";
 
 export default function Cart() {
 
     const navigate = useNavigate();
 
-    const { token } = isAuthenticated();
+    const { user ,token } = isAuthenticated();
 
     const [items, setItems] = useState([]);
 
     const [products, setProducts] = useState([]);
 
+    const [order, setOrder] = useState({
+        payment_method: "cash on delivery",
+        adress: user.adress
+    })
+
+    const { payment_method, adress } = order;
+
+    // console.log(order);
+    // console.log({ payment_method, adress });
+    
+    const handleChange = (prop) => (event) => {
+        setOrder({
+            ...order,
+            [prop]: event.target.value,
+        });
+    };
+
+
     const cartItems = async () => {
         let itemsInCart = await getAllCart(token);
         setItems(itemsInCart);
-        if (itemsInCart.length != 0) {
+        if (itemsInCart.length !== 0) {
             let Ids = itemsInCart.map((e) => {
                 if (e.product_id) {
                     return e.product_id;
@@ -46,12 +64,6 @@ export default function Cart() {
     // console.log('ITEMS',items);
     // console.log('products',products);
     
-    useEffect(() => {
-        cartItems();
-    }, []);
-
-    
-    
     function handleConfirmOrder() {
         Swal.fire({
             title: 'Do you want to confirm your Order?',
@@ -62,12 +74,20 @@ export default function Cart() {
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
+                createOrder(order, token)
                 Swal.fire('Perfect', '', 'success')
             } else if (result.isDenied) {
                 Swal.fire('Order calnceled', '', 'info')
             }
         })
     }
+
+    useEffect(() => {
+        cartItems();
+    }, []);
+
+    
+    
 
     return (
         <section  style={{ backgroundColor: "#eee", margin: '-1.5rem 0 1.5rem 0 ' }}>
@@ -91,7 +111,7 @@ export default function Cart() {
                                                 <i class="fas fa-trash"></i>
                                             </div>
 
-                                            <hr className="my-4" />
+                                            <hr style={{ margin: '0 29rem' }} />
 
                                             {products ? products.map((item,idx) => {
                                                 return (
@@ -139,7 +159,7 @@ export default function Cart() {
                                                 )
                                             })
 
-                                                : null
+                                                : <div ></div>
                                             }
 
                                         
@@ -257,10 +277,10 @@ export default function Cart() {
                                             </MDBTypography>
 
                                             <div className="mb-4 pb-2">
-                                                <select className="select p-2 rounded bg-grey" style={{ width: "100%" }}>
+                                                <select className="select p-2 rounded bg-grey" style={{ width: "100%" }} onChange={handleChange('payment_method')}>
                                                     {/* <option value="1">Standard-Delivery- €5.00</option> */}
-                                                    <option value="2">Cash On Delivery</option>
-                                                    <option value="3">VISA Card</option>
+                                                    <option value="Cash On Delivery">Cash On Delivery</option>
+                                                    <option value="VISA Card">VISA Card</option>
                                                     {/* <option value="4">Four</option> */}
                                                 </select>
                                             </div>
@@ -270,7 +290,7 @@ export default function Cart() {
                                             </MDBTypography> 
 
                                             <div className="mb-5">
-                                                <MDBInput size="lg" label="Enter Another Address" />
+                                                <MDBInput size="lg" label="Enter Another Address" onChange={handleChange('adress')} />
                                             </div>
 
                                             <hr className="my-4" />
@@ -283,7 +303,10 @@ export default function Cart() {
                                                     return acc + parseInt(cv.price)}, 0)} $</MDBTypography>
                                             </div>
 
-                                            <MDBBtn color="dark" block size="lg" onClick={handleConfirmOrder}>
+                                            <MDBBtn color="dark" block size="lg" onClick={() => {
+                                                handleConfirmOrder()
+                                                // createOrder(order, token)
+                                            }}>
                                                 Confirm Order
                                             </MDBBtn>
                                         </div>
