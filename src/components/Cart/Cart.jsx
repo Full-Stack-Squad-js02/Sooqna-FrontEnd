@@ -33,7 +33,9 @@ export default function Cart() {
         let itemsInCart = await getAllCart(token);
         setItems(itemsInCart);
         let Ids = itemsInCart.map((e) => {
-            return e.product_id;
+            if (e.product_id) {
+                return e.product_id;
+            }
         });
         let productsInCart = await getProductsById(Ids);
         setProducts(productsInCart);
@@ -100,9 +102,9 @@ export default function Cart() {
                                                             <MDBTypography tag="h6" className="text-muted">
                                                                 {item.title}
                                                             </MDBTypography>
-                                                            <MDBTypography tag="h6" className="text-black mb-0">
+                                                            {/* <MDBTypography tag="h6" className="text-black mb-0">
                                                                 {item.description}
-                                                            </MDBTypography>
+                                                            </MDBTypography> */}
                                                         </MDBCol>
                                                         <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
                                                             {/* <Counter/> */}

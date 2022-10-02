@@ -1,12 +1,24 @@
 import axios from 'axios';
 
-let url = 'http://localhost:3000'
+let url = 'https://sooqna.herokuapp.com'
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
 export const getAllProducts = async () => {
     // let url = `https://sooqna.herokuapp.com/product`
     const result = await axios.get(`${url}/product`, {});
     console.log('sssssssss', result.data)
+    return result.data;
+}
+
+export const getAllProductPostedByUser = async (userId,token) => {
+    let url = `https://sooqna.herokuapp.com/product/user/${userId}`
+    const result = await axios.get(url, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    });
+    console.log('sssssssss', result.data);
     return result.data;
 }
 
