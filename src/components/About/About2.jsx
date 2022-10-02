@@ -24,10 +24,10 @@ export default function App() {
 <MDBRow>
   
     <MDBCol xl={4} className='mb-4'>
-  <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJt7NZZNmzLt0l0-h0gpBUZm-I_8n0HNUyeRL4a2DLIs-76_5PTWi7CA2J0XpIHIqKN6E&usqp=CAU'
+  <img src={require('./AboutAssets/about.png')} 
   style={{
-    width:'401px',
-    height:'340px',
+    width:'500px',
+    height:'500px',
     margin: '2rem 2rem' 
 }}
   /> 
@@ -47,7 +47,7 @@ export default function App() {
                             <Typical
                             loop={Infinity}
                             steps={[
-                                "Welcome To Our Website",
+                                "Welcome To Sooqna Website",
                                 3000,
                                 "Full Stack Squad",
                                 3000,
