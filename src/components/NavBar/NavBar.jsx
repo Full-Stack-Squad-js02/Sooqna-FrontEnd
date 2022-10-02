@@ -12,6 +12,7 @@ import {
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
 import { FaUserAlt } from "react-icons/fa";
+import { IoNotificationsSharp } from "react-icons/io5";
 // import { CgShoppingCart} from "react-icons/cg";
 import { isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
@@ -21,6 +22,7 @@ import UserDropdownList from '../UserProfile/Dropdown';
 
 function NavBar() {
     // console.log('iiiiiii', x);
+    const { user } = isAuthenticated();
     const [search,
         seSearch] = useState({input: '', filteredBy: ''});
     const [filter,
@@ -149,13 +151,12 @@ function NavBar() {
                                     onClick={() => navigate('/signup')}>Sign Up</Button>
                          </React.Fragment>
                             :
-                            <React.Fragment>
-
-
+                            user.role !== 'admin' ?
+                                <React.Fragment>
                             {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
                             {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
                             <BsFillCartFill onClick={() => { navigate('/myCart')}} style={{
-                                    height: 'auto',
+                                height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
                                 }} 
@@ -173,7 +174,15 @@ function NavBar() {
                                     margin: '0 5px'
                                 }} />
                                 <UserDropdownList />
-                         </React.Fragment>}
+                                </React.Fragment> :
+                                <React.Fragment >
+                                    <UserDropdownList style={{ margin: '0 0rem 0 15rem'}} />
+                                    <IoNotificationsSharp onClick={() => { navigate('/') }} style={{
+                                        height: 'auto',
+                                        width: '4rem',
+                                        margin: '0 5px',
+                                    }} /> 
+                                </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>
             </Container>

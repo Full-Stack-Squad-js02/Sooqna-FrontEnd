@@ -257,7 +257,18 @@ export const removeOneFromCart = async(id, token) => {
     // return result
 
 
-
+export const createOrder = async (order, token) => { 
+    console.log('OOOOOOOOOOo',order, token);
+    const result = await axios.post(`${url}/submitorder`, order, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(order)
+    });
+    console.log('uuuuuuuu', result)
+    // return result
+}
 
 
     export const removeAllCart = async(token) => {
