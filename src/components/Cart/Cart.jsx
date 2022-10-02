@@ -11,53 +11,39 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import React, {useState ,useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Counter from "./Counter";
 import Swal from 'sweetalert2';
 import './Cart.css';
-import {isAuthenticated} from '../../auth';
+import { isAuthenticated } from '../../auth';
 import { getAllCart, getProductsById } from "../../api/api";
 
 export default function Cart() {
 
+    const navigate = useNavigate();
+
     const { token } = isAuthenticated();
-    
+
     const [items, setItems] = useState([]);
-    
+
     const [products, setProducts] = useState([]);
-    
-    const [itemsIds, setItemsIds] = useState([]);
-    
-    const [error,setError] = useState('');
-    
-    
-    const loadItems = async () => {
+
+    const cartItems = async () => {
         let itemsInCart = await getAllCart(token);
-        // console.log(itemsInCart);
         setItems(itemsInCart);
-        let Ids = items.map((e) => {
+        let Ids = itemsInCart.map((e) => {
             return e.product_id;
         });
-        setItemsIds(Ids);
-    };
-
-    const arrayOfProducts = async () => {
-        let productsInCart = await getProductsById(itemsIds);
-        // console.log('MMMMMMh', productsInCart)
+        let productsInCart = await getProductsById(Ids);
         setProducts(productsInCart);
     };
-    
-    
-    // getProductsById(itemsIds);
-    
-    // console.log('iiiiiiii', products);
 
     useEffect(() => {
-        // loadItems();
-        // arrayOfProducts();
+        cartItems();
     }, []);
-
-    function handleConfirmOrder(){
+    
+    function handleConfirmOrder() {
         Swal.fire({
             title: 'Do you want to confirm your Order?',
             showDenyButton: true,
@@ -75,7 +61,7 @@ export default function Cart() {
     }
 
     return (
-        <section className="h-100 h-custom" style={{ backgroundColor: "#eee", margin: '-1.5rem 0 1.5rem 0 '}}>
+        <section  style={{ backgroundColor: "#eee", margin: '-1.5rem 0 1.5rem 0 ' }}>
             <MDBContainer className="py-5 h-100">
                 <MDBRow className="justify-content-center align-items-center h-100"
                     style={{ margin: '0px -16rem 0rem 0' }}
@@ -98,55 +84,55 @@ export default function Cart() {
 
                                             <hr className="my-4" />
 
-                                            {products ? products.map((e) => {
+                                            {products ? products.map((item) => {
                                                 return (
-                                                    <h1>{e.title}</h1>
+                                                    <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
+                                                        <MDBCol md="2" lg="2" xl="2">
+                                                            <MDBCardImage
+                                                                src={item.image}
+                                                                fluid className="rounded-3" alt="loading" />
+                                                        </MDBCol>
+                                                        <MDBCol md="3" lg="3" xl="3">
+                                                            <MDBTypography tag="h6" className="text-muted">
+                                                                {item.title}
+                                                            </MDBTypography>
+                                                            <MDBTypography tag="h6" className="text-black mb-0">
+                                                                {item.description}
+                                                            </MDBTypography>
+                                                        </MDBCol>
+                                                        <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
+                                                            {/* <Counter/> */}
+                                                            <MDBBtn color="link" className="px-2">
+                                                                <MDBIcon fas icon="minus" />
+                                                            </MDBBtn>
+
+                                                            <MDBInput type="number" min="0" defaultValue={1} size="sm" />
+
+                                                            <MDBBtn color="link" className="px-2">
+                                                                <MDBIcon fas icon="plus" />
+                                                            </MDBBtn>
+                                                        </MDBCol>
+                                                        <MDBCol md="3" lg="2" xl="2" className="text-end">
+                                                            <MDBTypography tag="h6" className="mb-0">
+                                                                {item.price}
+                                                            </MDBTypography>
+                                                        </MDBCol>
+                                                        <MDBCol md="1" lg="1" xl="1" className="text-end">
+                                                            <a href="#!" className="text-muted">
+                                                                <MDBIcon fas icon="times" />
+                                                            </a>
+                                                        </MDBCol>
+                                                    </MDBRow>
                                                 )
                                             })
-                                            
-                                            : null
+
+                                                : null
                                             }
 
                                             {items ? items.map((item) => {
-                                            <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
-                                                <MDBCol md="2" lg="2" xl="2">
-                                                    <MDBCardImage
-                                                        src={item.image}
-                                                        fluid className="rounded-3" alt="loading" />
-                                                </MDBCol>
-                                                <MDBCol md="3" lg="3" xl="3">
-                                                    <MDBTypography tag="h6" className="text-muted">
-                                                    {item.title}
-                                                    </MDBTypography>
-                                                    <MDBTypography tag="h6" className="text-black mb-0">
-                                                    {item.description}
-                                                    </MDBTypography>
-                                                </MDBCol>
-                                                 <MDBCol md="3" lg="3" xl="3" className="d-flex align-items-center">
-                                                {/* <Counter/> */}
-                                                    <MDBBtn color="link" className="px-2">
-                                                        <MDBIcon fas icon="minus" />
-                                                    </MDBBtn>
 
-                                                    <MDBInput type="number" min="0" defaultValue={1} size="sm" />
+                                            }) : null}
 
-                                                    <MDBBtn color="link" className="px-2">
-                                                        <MDBIcon fas icon="plus" />
-                                                    </MDBBtn> 
-                                                </MDBCol>
-                                                <MDBCol md="3" lg="2" xl="2" className="text-end">
-                                                    <MDBTypography tag="h6" className="mb-0">
-                                                    {item.price}
-                                                    </MDBTypography>
-                                                </MDBCol>
-                                                <MDBCol md="1" lg="1" xl="1" className="text-end">
-                                                    <a href="#!" className="text-muted">
-                                                        <MDBIcon fas icon="times" />
-                                                    </a>
-                                                </MDBCol>
-                                            </MDBRow>
-                                            }):null}
-                                            
 
                                             {/* <hr className="my-4" />
 
@@ -229,7 +215,9 @@ export default function Cart() {
                                             <hr className="my-4" />
 
                                             <div className="pt-5">
-                                                <MDBTypography tag="h6" className="mb-0">
+                                                <MDBTypography tag="h6" className="mb-0" onClick={() => {
+                                                    navigate('/');
+                                                }}>
                                                     <MDBCardText tag="a" href="#!" className="text-body">
                                                         <MDBIcon fas icon="long-arrow-alt-left me-2" /> Back
                                                         to shop
