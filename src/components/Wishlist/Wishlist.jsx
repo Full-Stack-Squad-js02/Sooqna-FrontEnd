@@ -1,4 +1,4 @@
-// import {useDispatch} from 'react-redux';
+import React, {useState ,useEffect} from 'react';
 import {
     // MDBBtn,
     MDBCard,
@@ -11,31 +11,37 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import { removeFromFavorite, moveFromWishlistToCart } from "../../api/api";
+import { removeFromFavorite, moveFromWishlistToCart, getProductsById, getAllWishlist } from "../../api/api";
 import { isAuthenticated } from '../../auth';
-// import React, {useState ,useEffect} from 'react';
+// import {useDispatch} from 'react-redux';
 
 export default function Wishlist(product) {
-    const {token} = isAuthenticated();
-    // const [items, setItems] = useState([]);
-    // const [error, setError] = useState('');
 
-    // const loadItems = async () => {
-    //     await moveToCart(token).then(data => {
-    //         if (data.error) {
-    //             setError(data.error);
-    //         } else {
-    //             console.log(data)
-    //             setItems(data);
-    //         }
-    //     });
-    // };
+    const { token } = isAuthenticated();
 
-    // console.log('iiiiiiii',token, items);
+    const [items, setItems] = useState([]);
 
-    // useEffect(() => {
-    //     loadItems()
-    // }, [ loadItems]);
+    const [products, setProducts] = useState([]);
+
+    const cartItems = async () => {
+        let itemsInWishlist = await getAllWishlist(token);
+        // console.log('11111', itemsInWishlist)
+        setItems(itemsInWishlist);
+        // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist)
+        let Ids = itemsInWishlist.map((e) => {
+            return e.product_id;
+        });
+        // console.log('2222222', Ids)
+        let productsInWishlist = await getProductsById(Ids);
+        // console.log('3333333', productsInWishlist)
+        setProducts(productsInWishlist);
+    };
+    
+    // console.log('444444444', products)
+    useEffect(() => {
+        cartItems();
+    }, []);
+
 
     const {id,title,price,color,image}=product;
     console.log(product);
@@ -61,13 +67,15 @@ export default function Wishlist(product) {
                                 </p>
                             </div> */}
                         </div>
-
+                        {products ? 
+                            products.map((item) => {
+                                return (
                             <MDBCard className="rounded-3 mb-4">
                                 <MDBCardBody className="p-4">
                                     <MDBRow className="justify-content-between align-items-center">
                                         <MDBCol md="2" lg="2" xl="2">
                                             <MDBCardImage className="rounded-3" fluid
-                                                src={`${image}`}
+                                                        src={`${item.image}`}
                                                 // alt="Cotton T-shirt" 
                                                 />
                                         </MDBCol>
@@ -75,12 +83,12 @@ export default function Wishlist(product) {
                                             <p className="lead fw-normal mb-2">{title}</p>
                                             <p>
                                                 {/* <span className="text-muted">Size: </span>M{" "} */}
-                                                <span className="text-muted">Color: </span>{color}
+                                                        <span className="text-muted">Color: </span>{item.color}
                                             </p>
                                         </MDBCol>
                                         <MDBCol md="3" lg="2" xl="2" className="offset-lg-1">
                                             <MDBTypography tag="h5" className="mb-0">
-                                                {price}
+                                                        {`${item.price}$`}
                                             </MDBTypography>
                                         </MDBCol>
 
@@ -97,6 +105,9 @@ export default function Wishlist(product) {
                                     </MDBRow>
                                 </MDBCardBody>
                             </MDBCard>
+                                )
+                            })
+                        : null}
 
 
             

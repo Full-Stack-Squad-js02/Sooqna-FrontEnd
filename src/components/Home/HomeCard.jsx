@@ -5,22 +5,20 @@ import Rating from '@mui/material/Rating';
 import {useNavigate} from 'react-router-dom';
 import {isAuthenticated} from '../../auth';
 import {BsCartPlus} from "react-icons/bs";
-import { MdOutlineFavoriteBorder } from "react-icons/md";
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import {getOneProducts} from '../../api/api'
 // import { MDBRipple } from 'mdb-react-ui-kit';
 import { addToFavourite ,removeFromFavourite, addToCart , removeFromCart} from '../../api/api';
-
-
 import './Home.css';
 
-
-
-
-
-export default function HomeCard ({ product }) {
+export default function HomeCard({ product }) {
+    
     const navigate = useNavigate();
-     const {user, token} = isAuthenticated();
+    const [isFav,setIsFav]=useState(false)
+    const { user, token } = isAuthenticated();
+    
     // console.log(product);
+
     return (
         <>
         <Card id='Card'>
@@ -29,11 +27,22 @@ export default function HomeCard ({ product }) {
                     <Card.Title>{product.title}</Card.Title>
                     <Card.Text>{product.description}</Card.Text>
                 <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
-                    <Card.Title>Price : {product.price }</Card.Title>
+                    <Card.Title>Price : {product.price}$</Card.Title>
                 
                 {isAuthenticated()?
                     <>
-                        < MdOutlineFavoriteBorder className="icons"onClick={()=>addToFavourite(product.id,token)}/>
+                            {isFav?
+                                < MdOutlineFavorite className="icons" onClick={() => {
+                                    setIsFav(false)
+                                    addToFavourite(product.id, token)
+                                }} />
+                                :
+                                < MdOutlineFavoriteBorder className="icons" onClick={() => {
+                                    setIsFav(true)
+                                    // addToFavourite(product.id, token)
+                                }} />
+                           }
+
                         <BsCartPlus className="icons" onClick={()=>addToCart(product.id,token)}/>
                     </>
                     : <Button variant="primary" onClick={() => {
