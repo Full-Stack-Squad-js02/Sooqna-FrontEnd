@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-let url = 'http://localhost:3000'
-// let url = 'https://sooqna.herokuapp.com'
+// let url = 'http://localhost:3000'
+let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -195,7 +195,25 @@ export const addToCart = async (itemId, token) => {
 /*-----------------------------------------------SHOPPING-------------------------------------------- */
 
 export const moveFromWishlistToCart = async (itemId, token) => {
-    console.log("eeeeeeee", itemId, token)
+
+
+    return fetch(`${url}/productfromwishlisttocart/${itemId}`, {
+        method: 'POST',
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            console.log('Success:', result);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    // console.log("eeeeeeee", itemId, token)
     // return fetch(`https://sooqna.herokuapp.com/productfromwishlisttocart/${itemId}`, {
     //     method: 'POST',
     //     headers: {
@@ -211,7 +229,6 @@ export const moveFromWishlistToCart = async (itemId, token) => {
     //     });
     // console.log('sssssssss', result.data)
     // return result.data;
-}
 
 
 
@@ -254,3 +271,19 @@ export const createOrder = async (order, token) => {
 }
 
 
+    export const removeAllCart = async(token) => {
+        // console.log("eeeeeeeee",id," ",token)
+        
+            return fetch(`${url}/cart`, {
+                method: 'DELETE',
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(response => {
+                // console.log('gggggggg',response)
+                return response.json();
+            }).catch(err => {
+                // console.log("hhhhhhhhh",err);
+            })
+        };

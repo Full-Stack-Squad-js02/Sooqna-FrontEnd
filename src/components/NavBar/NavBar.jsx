@@ -6,7 +6,8 @@ import {
     Container,
     Nav,
     Navbar,
-    NavDropdown
+    NavDropdown , 
+    Popover
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
@@ -158,7 +159,11 @@ function NavBar() {
                                 height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
-                                }} />
+                                }} 
+
+                                />
+
+                                
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
