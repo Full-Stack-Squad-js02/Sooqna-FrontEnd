@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-let url = 'http://localhost:3000'
-// let url = 'https://sooqna.herokuapp.com'
+// let url = 'http://localhost:3000'
+let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -115,8 +115,10 @@ export const getAllWishlist= async (token) => {
 
 
 export const addToFavourite = (itemId, token) => {
-    console.log('GGGGGGGGG',itemId, token);
+//    console.log("222222")
+    // console.log('GGGGGGGGG',itemId, token);
     return fetch(`${url}/addtowishlist/${itemId}`, {
+
         method: 'POST',
         headers: {
             Authorization: `Bearer ${token}`
@@ -136,22 +138,23 @@ export const addToFavourite = (itemId, token) => {
 };
 
 
-export const removeFromFavorite = (id, token) => {
-    // console.log(favouriteId, userId, token)
-    return fetch(`${url}/wishlist/${id}`, {
-        method: 'DELETE',
-        headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`
-        }
-    }).then(response => {
-        return response.json();
-    }).catch(err => {
-        console.log(err);
-    })
-};
-
-
+export const removeOneFromWishList = async(id, token) => {
+    // console.log("eeeeeeeee",id," ",token)
+    
+        return fetch(`${url}/wishlist/${id}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            // console.log('gggggggg',response)
+            return response.json();
+        }).catch(err => {
+            // console.log("hhhhhhhhh",err);
+        })
+    };
+        
 
 /*-----------------------------------------------CART-------------------------------------------- */
 
@@ -213,7 +216,7 @@ export const moveFromWishlistToCart = async (itemId, token) => {
 
 
 export const removeOneFromCart = async(id, token) => {
-console.log("eeeeeeeee",id," ",token)
+// console.log("eeeeeeeee",id," ",token)
 
     return fetch(`${url}/cart/${id}`, {
         method: 'DELETE',
@@ -222,10 +225,10 @@ console.log("eeeeeeeee",id," ",token)
             Authorization: `Bearer ${token}`
         }
     }).then(response => {
-        console.log('gggggggg',response)
+        // console.log('gggggggg',response)
         return response.json();
     }).catch(err => {
-        console.log("hhhhhhhhh",err);
+        // console.log("hhhhhhhhh",err);
     })
 };
     // const result = await axios.delete(`https://sooqna.herokuapp.com/cart/${id}`, {

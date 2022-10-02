@@ -11,7 +11,7 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import { removeFromFavorite, moveFromWishlistToCart, getProductsById, getAllWishlist } from "../../api/api";
+import { removeOneFromWishList, moveFromWishlistToCart, getProductsById, getAllWishlist } from "../../api/api";
 import { isAuthenticated } from '../../auth';
 // import {useDispatch} from 'react-redux';
 
@@ -69,7 +69,7 @@ export default function Wishlist(product) {
                             </div> */}
                         </div>
                         {products ? 
-                            products.map((item) => {
+                            products.map((item,idx) => {
                                 return (
                             <MDBCard className="rounded-3 mb-4">
                                 <MDBCardBody className="p-4">
@@ -100,7 +100,7 @@ export default function Wishlist(product) {
                                         </MDBCol>
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
                                             <a href="#!" className="text-danger" >
-                                                <MDBIcon onClick={() => { deleteItemHandle() }} fas icon="trash text-danger" size="lg" />
+                                                <MDBIcon onClick={() => { removeOneFromWishList(items[idx].id,token) }} fas icon="trash text-danger" size="lg" />
                                             </a>
                                         </MDBCol>
                                     </MDBRow>
