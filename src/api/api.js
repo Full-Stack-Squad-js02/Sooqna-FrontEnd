@@ -11,8 +11,8 @@ export const getAllProducts = async () => {
 }
 
 export const getAllProductPostedByUser = async (userId,token) => {
-    let url = `https://sooqna.herokuapp.com/product/user/${userId}`
-    const result = await axios.get(url, {
+    // let url = `https://sooqna.herokuapp.com/product/user/${userId}`
+    const result = await axios.get(`${url}/product/user/${userId}`, {
         headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${token}`
@@ -113,7 +113,9 @@ export const getAllWishlist= async (token) => {
 
 
 export const addToFavourite = (itemId, token) => {
+   console.log("222222")
     return fetch(`${url}/addtowishlist/${itemId}`, {
+
         method: 'POST',
         headers: {
             Authorization: `Bearer ${token}`
@@ -133,7 +135,7 @@ export const addToFavourite = (itemId, token) => {
 export const removeOneFromWishList = async(id, token) => {
     // console.log("eeeeeeeee",id," ",token)
     
-        return fetch(`${url}//wishlist/${id}`, {
+        return fetch(`${url}/wishlist/${id}`, {
             method: 'DELETE',
             headers: {
                 Accept: 'application/json',
