@@ -1,7 +1,11 @@
 import React from 'react';
 import { MDBListGroup, MDBListGroupItem, MDBBadge } from 'mdb-react-ui-kit';
+import { createOrder } from '../../api/api'
 
 export default function OneOrder() {
+
+  // console.log(createOrder());
+
   return (
     <MDBListGroup style={{ minWidth: '22rem', margin:'2rem 0', alignItems:'center' }} light>
       <MDBListGroupItem className='d-flex justify-content-between align-items-center w-50 mx-5 my-3'>
