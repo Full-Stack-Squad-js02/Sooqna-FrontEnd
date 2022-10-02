@@ -25,7 +25,7 @@ function Home() {
     };
 
     useEffect(() => {
-        // console.log('iiiiiiii', products);
+        console.log('iiiiiiii', products);
         loadItems()
     }, []);
 

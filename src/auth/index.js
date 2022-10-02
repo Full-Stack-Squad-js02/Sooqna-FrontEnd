@@ -1,11 +1,12 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
+let url = 'https://sooqna.herokuapp.com'
 
 
 export const signUp = (data) => {
     // console.log(data);
-    return fetch(`https://sooqna.herokuapp.com/signup`, {
+    return fetch(`${url}/signup`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -24,8 +25,8 @@ export const signIn = ({
     password
 }) => {
     console.log(username, password)
-    let url = "https://sooqna.herokuapp.com/signin";
-    return fetch(url, {
+    // let url = `${url}/signin`;
+    return fetch(`${url}/signin`, {
         method: 'POST',
         headers: {
             "Authorization": "Basic " + btoa(username + ":" + password)
@@ -81,8 +82,8 @@ export const userInfo = async (token) => {
     //     return null;
     // }
 
-    let url = `https://sooqna.herokuapp.com/userinfo`
-    const result = await axios.get(url, {
+    // let url = `${url}/userinfo`
+    const result = await axios.get(`${url}/userinfo`, {
         headers: {
             Authorization: `Bearer ${token}`
         }
@@ -116,8 +117,8 @@ export const updateUserInfo = async (data,token) => {
     //         console.error('Error:', error);
     //     });
 
-    let url = `https://sooqna.herokuapp.com/updateprofile`
-    const result = await axios.put(url,data,{
+    // let url = `${url}/updateprofile`
+    const result = await axios.put(`${url}/updateprofile`,data,{
         headers: {
             Authorization: `Bearer ${token}`
         },
