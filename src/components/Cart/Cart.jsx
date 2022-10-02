@@ -32,17 +32,20 @@ export default function Cart() {
     const cartItems = async () => {
         let itemsInCart = await getAllCart(token);
         setItems(itemsInCart);
-        let Ids = itemsInCart.map((e) => {
-            if (e.product_id) {
-                return e.product_id;
-            }
-        });
-        let productsInCart = await getProductsById(Ids);
-        setProducts(productsInCart);
+        if (itemsInCart.length != 0) {
+            let Ids = itemsInCart.map((e) => {
+                if (e.product_id) {
+                    return e.product_id;
+                }
+            });
+            let productsInCart = await getProductsById(Ids);
+            setProducts(productsInCart);
+        }
     };
     
     // console.log('ITEMS',items);
     // console.log('products',products);
+    
     useEffect(() => {
         cartItems();
     }, []);

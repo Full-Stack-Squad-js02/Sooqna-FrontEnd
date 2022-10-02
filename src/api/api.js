@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-let url = 'https://sooqna.herokuapp.com'
+let url = 'http://localhost:3000'
+// let url = 'https://sooqna.herokuapp.com'
+
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
 export const getAllProducts = async () => {
@@ -11,8 +13,8 @@ export const getAllProducts = async () => {
 }
 
 export const getAllProductPostedByUser = async (userId,token) => {
-    let url = `https://sooqna.herokuapp.com/product/user/${userId}`
-    const result = await axios.get(url, {
+    // let url = `https://sooqna.herokuapp.com/product/user/${userId}`
+    const result = await axios.get(`${url}/product/user/${userId}`, {
         headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${token}`
@@ -113,6 +115,7 @@ export const getAllWishlist= async (token) => {
 
 
 export const addToFavourite = (itemId, token) => {
+    console.log('GGGGGGGGG',itemId, token);
     return fetch(`${url}/addtowishlist/${itemId}`, {
         method: 'POST',
         headers: {
@@ -120,7 +123,10 @@ export const addToFavourite = (itemId, token) => {
         },
         
     })
-        .then((response) => response.json())
+    .then((response) => {
+            console.log('response',response);
+            response.json()
+        })
         .then((result) => {
             console.log('Success:', result);
         })

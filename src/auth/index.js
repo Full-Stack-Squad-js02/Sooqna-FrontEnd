@@ -1,7 +1,9 @@
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
-let url = 'https://sooqna.herokuapp.com'
+
+let url = 'http://localhost:3000'
+// let url = 'https://sooqna.herokuapp.com'
 
 
 export const signUp = (data) => {
