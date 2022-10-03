@@ -26,7 +26,7 @@ export default function Wishlist(product) {
 
     const wislistItems = async () => {
         let itemsInWishlist = await getAllWishlist(token);
-        console.log('11111', itemsInWishlist)
+        // console.log('11111', itemsInWishlist)
         setItems(itemsInWishlist);
         // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist.length)
          if(itemsInWishlist.length !== 0){
@@ -46,7 +46,7 @@ export default function Wishlist(product) {
 
 
     const {id,title,price,color,image}=product;
-    console.log(product);
+    // console.log(product);
     // const dispatch = useDispatch;
     const deleteItemHandle = ()=> {
         // dispatch(removeFromFavorite(id,token))

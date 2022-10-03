@@ -104,7 +104,7 @@ export const userInfo = async (token) => {
 };
 
 export const updateUserInfo = async (data,token) => {
-    console.log(data);
+    // console.log(data);
     // return fetch('https://sooqna.herokuapp.com/updateprofile', {
     //         method: 'PUT',
     //         headers: {

@@ -43,7 +43,7 @@ export default function Setting() {
         });
     };
 //   console.log(username, email, password, phonenumber, adress);
-  console.log(updateInfo);
+//   console.log(updateInfo);
     
     
     const handleClick = (event) => {
