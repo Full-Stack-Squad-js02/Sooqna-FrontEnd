@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {
     Form,
@@ -20,26 +20,46 @@ import { IoNotificationsSharp } from "react-icons/io5";
 // import { CgShoppingCart} from "react-icons/cg";
 import { isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
+import { getAllCart, getProductsById} from "../../api/api";
 import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 
 function NavBar({ setSearchData }) {
 
-    const { user } = isAuthenticated();
-    const [search,
-        seSearch] = useState({input: '', filteredBy: 'name'});
-    const [filter,
-        setFilter] = useState('Filtered By')
+    const { user,token } = isAuthenticated();
+    const [search, seSearch] = useState({input: '', filteredBy: 'name'});
+    const [filter, setFilter] = useState('Filtered By')
+
+    const [items, setItems] = useState([]);
+    const [products, setProducts] = useState([]);
 
     const navigate = useNavigate();
 
 
     const searchItems =async  () => {
         let items = await searchBy(search);
-        console.log('pppppp',items)
+        // console.log('pppppp',items)
         setSearchData(items)
     }
+
+    const cartItems = async () => {
+        let itemsInCart = await getAllCart(token);
+        setItems(itemsInCart);
+        if (itemsInCart.length !== 0) {
+            let Ids = itemsInCart.map((e,idx) => {
+                if (e.product_id) {
+                    return e.product_id;
+                }
+            });
+            let productsInCart = await getProductsById(Ids);
+            setProducts(productsInCart);
+        }
+    };
+    
+    useEffect(() => {
+        cartItems();
+    }, [products]);
 
     return (
         <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
@@ -178,10 +198,9 @@ function NavBar({ setSearchData }) {
                                 height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
-                                }} 
-                                />
-
-                                
+                                }}/>
+                                {/* <div>{products.length}</div> */}
+                                <i style={{marginLeft: '-4px',color: 'red',fontWeight: 'bolder'}}>{products.length}</i>
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
