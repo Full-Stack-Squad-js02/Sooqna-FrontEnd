@@ -2,11 +2,16 @@ import React from 'react';
 import {Card , Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
 import { useNavigate } from 'react-router-dom';
+import { removeOneMyProduct } from '../../api/api';
+import { isAuthenticated } from '../../auth';
+
+
 import '../Home/Home.css';
 
 
 function MyProductCard(item) {
-    // console.log(item.item);
+    const { token } = isAuthenticated();
+
     const navigate = useNavigate();
     return (
         <Card id='Card' style={{background:'whitesmoke'}}>
@@ -22,7 +27,7 @@ function MyProductCard(item) {
             </Card.Body>
             <Card.Footer>
                 <Card.Title>Price</Card.Title>
-                <Button variant="warning"onClick={() => { navigate('/updateproduct')}}>Update</Button> <Button variant="danger">Delete</Button>
+                <Button variant="warning"onClick={() => { navigate('/updateproduct')}}>Update</Button> <Button variant="danger" onClick={() => {removeOneMyProduct(item.item.id,token) }}>Delete</Button>
             </Card.Footer>
             
         </Card>
