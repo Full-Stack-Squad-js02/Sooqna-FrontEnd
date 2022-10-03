@@ -21,14 +21,15 @@ export default function HomeCard({ product }) {
 
     return (
         <>
-        <Card id='Card'>
-                <Card.Img variant="top" src={product.image}/>
+        <Card id='Card' style={{background:'whitesmoke'}}>
+                <Card.Img variant="top" src={product.image} style={{height:'11.5rem',width:'97%'}}/>
             <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
                     <Card.Text>{product.description}</Card.Text>
-                <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
+            </Card.Body>
+                <Card.Footer>
+                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
                     <Card.Title>Price : {product.price}$</Card.Title>
-                
                 {isAuthenticated()?
                     <>
                             {isFav?
@@ -50,7 +51,7 @@ export default function HomeCard({ product }) {
                         getOneProducts(product.id);
                         navigate('/viewdetails')
                         }}>View Details</Button>}
-            </Card.Body>
+                        </Card.Footer>
             </Card>
         </>
     );
