@@ -1,33 +1,32 @@
-import React, { useEffect, useState } from 'react';
-import HomeCard from './HomeCard';
-import SlideShow from './SlideShow';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import './Home.css'
-import {getAllProducts} from '../../api/api';
+import React, { useEffect, useState } from "react";
+import HomeCard from "./HomeCard";
+import SlideShow from "./SlideShow";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import "./Home.css";
+import { getAllProducts } from "../../api/api";
 
 function Home({ searchData }) {
+    
+  const [products, setProducts] = useState("");
+  const [error, setError] = useState("");
 
-    const [products,
-        setProducts] = useState('');
-    const [error,
-        setError] = useState('');
+  const loadItems = async () => {
+    await getAllProducts().then((data) => {
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setProducts(data);
+      }
+    });
+  };
 
-    const loadItems = async () => {
-        await getAllProducts().then(data => {
-            if (data.error) {
-                setError(data.error);
-            } else {
-                setProducts(data);
-            }
-        });
-    };
+  useEffect(() => {
+    console.log("iiiiiiii", products);
+    loadItems();
+  }, []);
 
-    useEffect(() => {
-        console.log('iiiiiiii', products);
-        loadItems()
-    }, []);
 
     return (
         <>
@@ -56,6 +55,4 @@ function Home({ searchData }) {
     );
 }
 
-
-
-export default Home ; 
+export default Home;
