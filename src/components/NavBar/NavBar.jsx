@@ -156,7 +156,6 @@ function NavBar({ setSearchData }) {
                                     width: '4rem',
                                     margin: '0 5px',
                                 }} 
-
                                 />
 
                                     <i data-count="3" className="fa fa-shopping-cart fa-5x fa-border icon-grey badge"></i>
@@ -173,7 +172,7 @@ function NavBar({ setSearchData }) {
                                 </React.Fragment> :
                                 <React.Fragment >
                                     <UserDropdownList style={{ margin: '0 0rem 0 15rem'}} />
-                                    <IoNotificationsSharp onClick={() => { navigate('/') }} style={{
+                                    <IoNotificationsSharp onClick={() => { navigate('/approveorders') }} style={{
                                         height: 'auto',
                                         width: '4rem',
                                         margin: '0 5px',

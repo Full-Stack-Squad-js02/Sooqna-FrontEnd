@@ -21,6 +21,7 @@ import OrderForm from './components/Orders/OrderForm';
 import ProductDetails from './components/Product/ProductDetails';
 import UpdateProduct from './components/Product/UpdateProduct'
 import { useState, useEffect } from 'react';
+import SubmitOrder from './components/Admin/SumbitOrder';
 // import { io } from "socket.io-client";
 
 function App() {
@@ -62,6 +63,9 @@ function App() {
                     <Route path='/orderform' element={<OrderForm/>}/>
                     {/* <Route path='/product/:id' element={<ProductDetails/>}/> */}
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
+                    <Route path='/approveorders' element={<SubmitOrder/>}/>
+
+                    
                 </Routes>
                 <Contact/>
             </BrowserRouter>
