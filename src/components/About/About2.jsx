@@ -88,11 +88,11 @@ export default function App() {
 <br/>
 
  
-<div class="col d-flex justify-content-center">
+<div className="col d-flex justify-content-center">
     <MDBRow>
        <MDBCol xl={4} >
         <MDBCard>
-            <div class="col d-flex justify-content-center">
+            <div className="col d-flex justify-content-center">
         <MDBCardImage
                     src={require('./AboutAssets/bnan.png')}
                     className="rounded-circle"
@@ -145,7 +145,7 @@ export default function App() {
       </MDBCol>} */}
       <MDBCol xl={4} className='mb-4'>
       <MDBCard>
-            <div class="col d-flex justify-content-center">
+              <div className="col d-flex justify-content-center">
         <MDBCardImage
                     src={require('./AboutAssets/Esraa.png')}
                     className="rounded-circle"
@@ -164,7 +164,7 @@ export default function App() {
       </MDBCol>
       <MDBCol xl={4} className='mb-4'>
       <MDBCard>
-            <div class="col d-flex justify-content-center">
+              <div className="col d-flex justify-content-center">
         <MDBCardImage
                     src={require('./AboutAssets/shams.png')}
                     className="rounded-circle"
@@ -182,10 +182,10 @@ export default function App() {
         </MDBCard>
       </MDBCol>
       
-      <div class="col d-flex justify-content-center">
+          <div className="col d-flex justify-content-center">
       <MDBCol xl={4} className='mb-4'>
       <MDBCard>
-            <div class="col d-flex justify-content-center">
+                <div className="col d-flex justify-content-center">
         <MDBCardImage
                     src={require('./AboutAssets/Ahmad.png')}
                     className="rounded-circle"
@@ -207,7 +207,7 @@ export default function App() {
     //   style={{}}
       className='mb-4'>
         <MDBCard>
-            <div class="col d-flex justify-content-center">
+                <div className="col d-flex justify-content-center">
         <MDBCardImage
                     src={require('./AboutAssets/suhaib.png')}
                     className="rounded-circle"
@@ -230,14 +230,14 @@ export default function App() {
     
     <MDBTypography tag="h4">Coming Soon!</MDBTypography>
     
-    <div class="ticker-container">
-   <div class="ticker-tape">
-      <div class="slide-track">
-         <div class="slide"><img class="alignnone size-full wp-image-13024" src={require('./AboutAssets/visa.png')}alt="" width="250" height="60" /></div>
-         <div class="slide"><img class="alignnone size-medium wp-image-13023" src={require('./AboutAssets/master.png')} alt="" width="250" height="60" /></div>
-         <div class="slide"><img class="alignnone size-medium wp-image-13022" src={require('./AboutAssets/google.png')} alt="" width="250" height="60" /></div>
-         <div class="slide"><img class="alignnone size-medium wp-image-13021" src={require('./AboutAssets/cliq.png')} alt="" width="250" height="60" /></div>
-         <div class="slide"><img class="alignnone size-full wp-image-13020" src={require('./AboutAssets/paypal.png')} alt="" width="250" height="60" /></div>
+    <div className="ticker-container">
+   <div className="ticker-tape">
+      <div className="slide-track">
+         <div className="slide"><img className="alignnone size-full wp-image-13024" src={require('./AboutAssets/visa.png')}alt="" width="250" height="60" /></div>
+         <div className="slide"><img className="alignnone size-medium wp-image-13023" src={require('./AboutAssets/master.png')} alt="" width="250" height="60" /></div>
+         <div className="slide"><img className="alignnone size-medium wp-image-13022" src={require('./AboutAssets/google.png')} alt="" width="250" height="60" /></div>
+         <div className="slide"><img className="alignnone size-medium wp-image-13021" src={require('./AboutAssets/cliq.png')} alt="" width="250" height="60" /></div>
+         <div className="slide"><img className="alignnone size-full wp-image-13020" src={require('./AboutAssets/paypal.png')} alt="" width="250" height="60" /></div>
          
       </div>
    </div>

@@ -17,7 +17,7 @@ import Counter from "./Counter";
 import Swal from 'sweetalert2';
 import './Cart.css';
 import { isAuthenticated } from '../../auth';
-import { getAllCart, getProductsById, removeOneFromCart, createOrder , removeAllCart} from "../../api/api";
+import { getAllCart, getProductsById, removeOneFromCart, submitOrder , removeAllCart} from "../../api/api";
 
 export default function Cart() {
 
@@ -28,6 +28,7 @@ export default function Cart() {
     const [items, setItems] = useState([]);
 
     const [products, setProducts] = useState([]);
+    
 
     const [order, setOrder] = useState({
         payment_method: "cash on delivery",
@@ -51,7 +52,7 @@ export default function Cart() {
         let itemsInCart = await getAllCart(token);
         setItems(itemsInCart);
         if (itemsInCart.length !== 0) {
-            let Ids = itemsInCart.map((e) => {
+            let Ids = itemsInCart.map((e,idx) => {
                 if (e.product_id) {
                     return e.product_id;
                 }
@@ -63,18 +64,24 @@ export default function Cart() {
     
     // console.log('ITEMS',items);
     // console.log('products',products);
+
+    // const createOrder = async () => {
+    //     let submittedOrder = await submitOrder(order, token);
+    //     // setO(submittedOrder);
+    // }
     
-    function handleConfirmOrder() {
+    function handleSubmitOrder() {
         Swal.fire({
-            title: 'Do you want to confirm your Order?',
+            title: 'Do you want to Submit your Order?',
             showDenyButton: true,
             // showCancelButton: true,
-            confirmButtonText: 'Confirm',
-            denyButtonText: `Cancel`,
+            confirmButtonText: 'Yes',
+            denyButtonText: `No`,
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                createOrder(order, token)
+                // console.log('MMMMMMMMMMMMMM',submitOrder(order, token))
+                submitOrder(order, token)
                 Swal.fire('Perfect', '', 'success')
             } else if (result.isDenied) {
                 Swal.fire('Order calnceled', '', 'info')
@@ -84,7 +91,7 @@ export default function Cart() {
 
     useEffect(() => {
         cartItems();
-    }, []);
+    }, [products]);
 
     
     
@@ -108,14 +115,14 @@ export default function Cart() {
                                                 {/* <MDBTypography className="mb-0 text-muted">
                                                     3 items
                                                 </MDBTypography> */}
-                                                <i onClick={() => { removeAllCart(token) }} class="fas fa-trash" style={{cursor: 'pointer'}} ></i>
+                                                <i onClick={() => { removeAllCart(token) }} className="fas fa-trash" style={{cursor: 'pointer'}} ></i>
                                             </div>
 
                                             <hr style={{ margin: '0 29rem' }} />
 
                                             {products ? products.map((item,idx) => {
                                                 return (
-                                                    <MDBRow className="mb-4 d-flex justify-content-between align-items-center">
+                                                    <MDBRow className="mb-4 d-flex justify-content-between align-items-center" key={idx}>
                                                         <MDBCol md="2" lg="2" xl="2">
                                                             <MDBCardImage
                                                                 src={item.image}
@@ -304,10 +311,10 @@ export default function Cart() {
                                             </div>
 
                                             <MDBBtn color="dark" block size="lg" onClick={() => {
-                                                handleConfirmOrder()
-                                                // createOrder(order, token)
+                                                handleSubmitOrder()
+                                                // submitOrder(order, token)
                                             }}>
-                                                Confirm Order
+                                                Submit Order
                                             </MDBBtn>
                                         </div>
                                     </MDBCol>
