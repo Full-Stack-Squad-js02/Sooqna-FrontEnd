@@ -25,10 +25,10 @@ export default function Wishlist(product) {
 
     const wislistItems = async () => {
         let itemsInWishlist = await getAllWishlist(token);
-        // console.log('11111', itemsInWishlist)
+        console.log('11111', itemsInWishlist)
         setItems(itemsInWishlist);
         // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist.length)
-         if(itemsInWishlist.length != 0){
+         if(itemsInWishlist.length !== 0){
             let Ids = itemsInWishlist.map((e) => {
                     return e.product_id;
             });
@@ -95,7 +95,7 @@ export default function Wishlist(product) {
 
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
                                             <a href="#!" className="text-danger" >
-                                            <MDBIcon onClick={() => { moveFromWishlistToCart() }} fas icon="cart-plus text-danger" size="lg" />
+                                            <MDBIcon onClick={() => { moveFromWishlistToCart(item.id,token) }} fas icon="cart-plus text-danger" size="lg" />
                                             </a>
                                         </MDBCol>
                                         <MDBCol md="1" lg="1" xl="1" className="text-end">
