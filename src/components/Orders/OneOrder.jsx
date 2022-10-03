@@ -11,11 +11,11 @@ export default function OneOrder() {
 
   const orderDetails = async () => {
     let x = await getAllOrdersForUser(token);
-    console.log('RRRRRRRR', x)
+    // console.log('RRRRRRRR', x)
     setOrders(x)
   }
   
-  console.log('LLLLLLLLLLLLL', orders)
+  // console.log('LLLLLLLLLLLLL', orders)
   useEffect(() => {
     orderDetails()
   }, [orders])

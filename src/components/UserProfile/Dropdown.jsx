@@ -9,7 +9,7 @@ import { isAuthenticated } from '../../auth';
 
 export default function UserDropdownList() {
     const { user } = isAuthenticated()
-    console.log(user);
+    // console.log(user);
     const navigate = useNavigate();
 
     function handleLogOut() {

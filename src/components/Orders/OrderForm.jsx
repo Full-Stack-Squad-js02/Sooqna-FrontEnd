@@ -17,7 +17,7 @@ function OrderForm() {
             text: 'Your Order is Confirmed',
         })
     }
-    console.log(showAdress);
+    // console.log(showAdress);
     return (
         <div
             style={{

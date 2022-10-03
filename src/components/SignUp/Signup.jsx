@@ -43,7 +43,7 @@ function Signup() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("00000000000000000");
+    // console.log("00000000000000000");
     signUp(data).then((data) => {
       if (data.error) {
         setData({
@@ -60,7 +60,7 @@ function Signup() {
           icon: "success",
           title: "Signed Up successfully",
         });
-        console.log(data);
+        // console.log(data);
         navigate("/signin");
         event.target.reset();
       }
