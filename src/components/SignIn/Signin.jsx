@@ -3,12 +3,27 @@ import { useNavigate } from "react-router-dom";
 import { signIn, authenticate } from "../../auth/index";
 import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBInput } from "mdb-react-ui-kit";
 import LoginLogo from "../../Assests/LOG_IN-LOGO3.png";
+import { useEffect } from "react";
+import Swal from "sweetalert2";
 // import Swal from 'sweetalert2';
 
 function SignIn() {
   const [data, setData] = useState({
     username: "",
     password: "",
+    error:''
+  });
+
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
   });
 
   const { username, password } = data;
@@ -38,17 +53,13 @@ function SignIn() {
     });
   };
   // console.log(username, email, password, phoneNumber, adress);
-
+  // console.log(data.error)
   const handleSubmit = (event) => {
     event.preventDefault();
-    signIn(data).then((data) => {
+    signIn(data)
+    .then((data) => {
       if (data.error) {
-        console.log("ERROR");
-        setData({
-          ...data,
-          error: data.error,
-          // success: false
-        });
+
       } else {
         setData({
           ...data,
@@ -63,8 +74,28 @@ function SignIn() {
         // console.log(data);
         event.target.reset();
       }
-    });
+    }).catch((error)=>{
+      console.log('zzzzzz');
+      Toast.fire({
+        icon: "error",
+        title: "Username or Password is invailed",
+      });
+
+
+      console.log("ERROR");
+      setData({
+        ...data,
+        error: error,
+        // success: false
+      });
+    })
   };
+
+  
+
+ 
+
+
 
   return (
     <MDBContainer className="my-5">
