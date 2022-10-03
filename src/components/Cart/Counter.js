@@ -15,7 +15,7 @@ export default function Counter() {
     };
     return (
         <div className="app">
-            <div class="buttons">
+            <div className="buttons">
                 <Button title={"-"} action={decrementCount} /><span>{count}</span><Button title={"+"} action={incrementCount} />
             </div>
         </div>

@@ -33,19 +33,21 @@ function Home({ searchData }) {
             <SlideShow />
             <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
                 <Row>
-                    {searchData.length ? searchData.map((product, i) => {
+            {searchData.length ? searchData.map((product, idx) => {
                         return (
-                            <HomeCard product={product} />
+                            <HomeCard product={product} key={idx} />
                         )
                     })
-                        : <h2>No Matching Items</h2>}
+              :null
+              // < h2 > No Matching Items</h2>
+              }
                 </Row>
                 <hr/>
                 <Row xs="4">
                     
                 {products ? products.map((product,idx) => {
                     return (
-                        <HomeCard product={product} />
+                      <HomeCard product={product} key={idx} />
                         )
                     }):null}
              </Row>

@@ -28,7 +28,7 @@ export default function HomeCard({ product }) {
                     <Card.Text>{product.description}</Card.Text>
             </Card.Body>
                 <Card.Footer>
-                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
+                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
                     <Card.Title>Price : {product.price}$</Card.Title>
                 {isAuthenticated()?
                     <>

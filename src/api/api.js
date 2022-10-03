@@ -61,12 +61,13 @@ export const getProductsById = async (productsIds) => {
 
     // let url = `https://sooqna.herokuapp.com/product`
     const products = await Promise.all(productsIds.map(async (itemId) => {
-	//  url = `${url}/product/${itemId}`
-            let result = await axios.get( `${url}/product/${itemId}`, {});
-                return result.data;
+        //  url = `${url}/product/${itemId}`
+        let result = await axios.get(`${url}/product/${itemId}`, {});
+        console.log('RRRRRRRRR',result.data)
+        return result.data;
     }));
+    console.log('PPPPPPPPPP',products)
     return products;
-
 }
 
 
@@ -80,9 +81,9 @@ export const searchBy = async ({ input, filteredBy }) => {
             // console.log('00000000000',result.data)
             return result.data;
         }
-        // else {
-        //     return [];
-        //  }
+        else {
+            return [];
+         }
     } else {
         return [];
     }
@@ -199,7 +200,22 @@ export const addToCart = async (itemId, token) => {
         });
     }
     
-    
+     export const removeAllCart = async(token) => {
+        // console.log("eeeeeeeee",id," ",token)
+        
+            return fetch(`${url}/cart`, {
+                method: 'DELETE',
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(response => {
+                // console.log('gggggggg',response)
+                return response.json();
+            }).catch(err => {
+                // console.log("hhhhhhhhh",err);
+            })
+    };
     
 /*-----------------------------------------------SHOPPING-------------------------------------------- */
 
@@ -266,7 +282,7 @@ export const removeOneFromCart = async(id, token) => {
     // return result
 
 
-export const createOrder = async (order, token) => { 
+export const submitOrder = async (order, token) => { 
     console.log('OOOOOOOOOOo',order, token);
     const result = await axios.post(`${url}/submitorder`, order, {
         headers: {
@@ -275,27 +291,36 @@ export const createOrder = async (order, token) => {
         },
         body: JSON.stringify(order)
     });
-    console.log('uuuuuuuu', result)
-    return result
+    console.log('uuuuuuuu', result.data)
+    return result.data;
 }
 
+export const confirmOrder = async ( token) => { 
+    console.log(token);
+    const result = await axios.put(`${url}/confirmorder`, {status : "confirmed"}, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        // body: JSON.stringify(order)
+    });
+    console.log('uuuuuuuu', result.data)
+    return result.data;
+}
 
-    export const removeAllCart = async(token) => {
-        // console.log("eeeeeeeee",id," ",token)
-        
-            return fetch(`${url}/cart`, {
-                method: 'DELETE',
-                headers: {
-                    Accept: 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            }).then(response => {
-                // console.log('gggggggg',response)
-                return response.json();
-            }).catch(err => {
-                // console.log("hhhhhhhhh",err);
-            })
-        };
+/*-----------------------------------------------ORDERS-------------------------------------------- */
+export const getAllOrdersForUser = async (token) => {
+    // console.log('QWWWQQQQQ', token);
+
+    const result = await axios.get(`${url}/order`, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    });
+    // console.log('QWWWQQQQQ', result.data);
+    return result.data;
+}
 
         export const removeOneMyProduct = async(id, token) => {
 
