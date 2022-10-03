@@ -159,7 +159,7 @@ function NavBar({ setSearchData }) {
 
                                 />
 
-                                
+                                    <i data-count="3" className="fa fa-shopping-cart fa-5x fa-border icon-grey badge"></i>
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
