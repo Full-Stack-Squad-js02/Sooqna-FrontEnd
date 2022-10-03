@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {
     Form,
@@ -24,6 +24,7 @@ function NavBar() {
     const { user } = isAuthenticated();
     const [search,
         seSearch] = useState({input: '', filteredBy: ''});
+        const [searchResults, setSearchResults] = useState([]);
     const [filter,
         setFilter] = useState('Filtered By')
 

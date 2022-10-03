@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-let url = 'http://localhost:3000'
-// let url = 'https://sooqna.herokuapp.com'
+// let url = 'http://localhost:3000'
+let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -76,7 +76,7 @@ export const searchBy = async ({ input, filteredBy }) => {
     console.log(input, filteredBy)
     
     const result = await axios.get(`${url}/search${filteredBy}?${filteredBy}=${input}`, {});
-    // console.log('00000000000',result.data)
+    console.log('00000000000',result.data)
     return result.data;
 }
 
