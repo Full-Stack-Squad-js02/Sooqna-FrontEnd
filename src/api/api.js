@@ -335,3 +335,30 @@ export const getAllOrdersForUser = async (token) => {
                 }).catch(err => {
                 })
             };
+/*-----------------------------------------------Admin-------------------------------------------- */
+export const getAllOrdersToSumbit = async (token) => {
+
+    const result = await axios.get(`${url}/admin/confirmedorder`, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return result.data;
+}
+
+export const approveOrders = async (token) => {
+
+    console.log(token);
+    const result = await axios.put(`${url}/admin/confirmorders`, {status : "In Delivery"}, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        // body: JSON.stringify(order)
+    });
+    console.log('uuuuuuuu', result.data)
+    return result.data;
+}
+
+
