@@ -65,7 +65,7 @@ export default function SlideShow() {
   ];
   
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{marginTop:'5rem'}}>
       <Slide easing="ease">
         {slideImages.map((slide, index) => {
           return (

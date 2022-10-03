@@ -71,7 +71,8 @@ function SignIn() {
       <MDBCard
         style={{
           width: "30rem",
-          marginLeft: "19rem",
+          marginTop: '5rem',
+          marginLeft: "28rem",
         }}
       >
         <MDBCardBody className="d-flex flex-column">

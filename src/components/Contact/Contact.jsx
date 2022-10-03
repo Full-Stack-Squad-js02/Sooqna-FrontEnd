@@ -5,7 +5,9 @@ import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-re
 
 export default function Contact() {
   return (
-    <MDBFooter id='contact' style={{ backgroundColor: '#003566' }} className='text-center text-lg-start text-white'>
+    <MDBFooter id='contact' style={{ backgroundColor: '#003566' ,
+    bottom: '0',
+    width: '100%'}} className='text-center text-lg-start text-white'>
       <MDBContainer className='p-4 pb-0'>
         <section style={{margin: '-65px 92px'}}>
         <MDBContainer className='text-center text-md-start mt-5'>
