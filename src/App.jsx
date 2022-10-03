@@ -20,14 +20,17 @@ import MyOrders from './components/Orders/MyOrders';
 import OrderForm from './components/Orders/OrderForm';
 import ProductDetails from './components/Product/ProductDetails';
 import UpdateProduct from './components/Product/UpdateProduct'
+import { useState } from 'react';
 
 function App() {
+    const [searchData, setSearchData] = useState([])
+    // console.log('AAAAAAAA',searchData)
     return (
         <div className="App">
             <BrowserRouter>
-                <NavBar/> 
+                <NavBar setSearchData={setSearchData} /> 
                 <Routes>
-                    <Route path='/' element={< Home />}/>
+                    <Route path='/' element={< Home searchData={searchData} />}/>
                     {/* <Route path='/star' element={< Header />}/> */}
                     <Route path='/about' element={< AboutPage />}/>
                     <Route path='/signup' element={< Signup />}/>

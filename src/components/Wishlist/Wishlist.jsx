@@ -25,10 +25,10 @@ export default function Wishlist(product) {
 
     const wislistItems = async () => {
         let itemsInWishlist = await getAllWishlist(token);
-        // console.log('11111', itemsInWishlist)
+        console.log('11111', itemsInWishlist)
         setItems(itemsInWishlist);
         // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist.length)
-         if(itemsInWishlist.length != 0){
+         if(itemsInWishlist.length !== 0){
             let Ids = itemsInWishlist.map((e) => {
                     return e.product_id;
             });
