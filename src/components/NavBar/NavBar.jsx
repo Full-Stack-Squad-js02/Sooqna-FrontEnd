@@ -11,7 +11,11 @@ import {
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
+import { GoHome } from "react-icons/go";
+import { BsFillEmojiSunglassesFill } from "react-icons/bs";
+import { IoMdContacts } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
+import { AiFillRobot,AiFillHome } from "react-icons/ai";
 import { IoNotificationsSharp } from "react-icons/io5";
 // import { CgShoppingCart} from "react-icons/cg";
 import { isAuthenticated} from '../../auth';
@@ -42,7 +46,8 @@ function NavBar() {
     // console.log('uuuu', isAuthenticated())
 
     return (
-        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566'}}>
+        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
+        zIndex: '1', width: '100%', top: '0'}}>
             <Container fluid>
                 <img
                     src={Logo}
@@ -56,9 +61,27 @@ function NavBar() {
                     marginRight: '4rem'
                     }} />
                 {/* Tabs */}
-                <Navbar.Brand href="/">Home</Navbar.Brand>
-                <Navbar.Brand href="/about">About</Navbar.Brand>
-                <Navbar.Brand href="#contact" style={{ scrollBehavior: 'smooth' }}>Contact Us</Navbar.Brand>
+                
+
+
+                <Navbar.Brand href="/"><AiFillHome style={{
+                                height: '1.8rem',
+                                width: '2.5rem',
+                                margin: '0 -10px 8px',
+                                }}/> Home</Navbar.Brand>
+                <Navbar.Brand href="/about">
+                    <AiFillRobot style={{
+                                height: '1.5rem',
+                                width: '2rem',
+                                margin: '0 0px 7px',
+                                }}/>
+                                About</Navbar.Brand>
+                <Navbar.Brand href="#contact" style={{ scrollBehavior: 'smooth' }}>
+                <IoMdContacts style={{
+                                height: '2rem',
+                                width: '2rem',
+                                margin: '0 0px 3px',
+                                }}/>Contact Us</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -160,7 +183,6 @@ function NavBar() {
                                     width: '4rem',
                                     margin: '0 5px',
                                 }} 
-
                                 />
 
                                 

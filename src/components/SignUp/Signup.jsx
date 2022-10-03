@@ -102,7 +102,7 @@ function Signup() {
     // <MDBContainer fluid className='my-5'>
 
     <MDBContainer fluid>
-      <div className="p-5 bg-image" style={{ backgroundColor: "rgb(233 233 233)", height: "300px" }}></div>
+      <div className="p-5 bg-image" style={{ backgroundColor: "rgb(233 233 233)", height: "300px", marginTop:'5rem' }}></div>
 
       <MDBCard className="ml-22 mb-5 p-5 shadow-5" style={{ width: "40rem", margin: "-16rem 0 0 27.5rem ", background: "hsla(0, 0%, 100%, 0.8)", backdropFilter: "blur(30px)" }}>
         <MDBCardBody className="p-5 text-center">

@@ -15,8 +15,8 @@ export default function UserPage() {
         <>
             <Container fluid='sm' style={{ margin: ' 0 7rem' }} >
                 <Row xs="2" >
-                    <Col><img src={MyProductLogo} onClick={() => { navigate('/myproducts'); }} /></Col>
-                    <Col><img src={MyOrderLogo} onClick={() => { navigate('/myorders'); }} /></Col>
+                    <Col><img src={MyProductLogo} style={{cursor: 'pointer'}} onClick={() => { navigate('/myproducts'); }} /></Col>
+                    <Col><img src={MyOrderLogo} style={{cursor: 'pointer'}} onClick={() => { navigate('/myorders'); }} /></Col>
                 </Row>
                 <Row xs="2" >
                     <Col><Button variant="danger" style={{
