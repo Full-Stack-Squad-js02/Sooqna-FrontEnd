@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-let url = 'http://localhost:3000'
-// let url = 'https://sooqna.herokuapp.com'
+// let url = 'http://localhost:3000'
+let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -296,3 +296,17 @@ export const createOrder = async (order, token) => {
                 // console.log("hhhhhhhhh",err);
             })
         };
+
+        export const removeOneMyProduct = async(id, token) => {
+
+                return fetch(`${url}/product/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        Accept: 'application/json',
+                        Authorization: `Bearer ${token}`
+                    }
+                }).then(response => {
+                    return response.json();
+                }).catch(err => {
+                })
+            };
