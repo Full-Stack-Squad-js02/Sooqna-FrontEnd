@@ -8,7 +8,7 @@ import {BsCartPlus} from "react-icons/bs";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import {getOneProducts} from '../../api/api'
 // import { MDBRipple } from 'mdb-react-ui-kit';
-import { addToFavourite ,removeFromFavourite, addToCart , removeFromCart} from '../../api/api';
+import { addToFavourite ,addToCart } from '../../api/api';
 import './Home.css';
 
 export default function HomeCard({ product }) {

@@ -108,7 +108,8 @@ export default function Cart() {
                                                 {/* <MDBTypography className="mb-0 text-muted">
                                                     3 items
                                                 </MDBTypography> */}
-                                                <i onClick={() => { removeAllCart(token) }} class="fas fa-trash" ></i>
+                                                <i onClick={() => { removeAllCart(token) }} class="fas fa-trash"
+                                                    style={{ cursor: 'pointer' }} ></i>
                                             </div>
 
                                             <hr style={{ margin: '0 29rem' }} />
