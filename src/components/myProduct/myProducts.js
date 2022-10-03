@@ -34,7 +34,7 @@ function MyProducts() {
                 <Row xs="4">
                     {items
                         ? items.map((item, idx) => {
-                            return (<MyProductCard item={item}/>)
+                            return (<MyProductCard item={item} key={idx}/>)
                         })
                         : null}
                 </Row>

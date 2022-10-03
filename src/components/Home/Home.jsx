@@ -7,7 +7,8 @@ import Col from "react-bootstrap/Col";
 import "./Home.css";
 import { getAllProducts } from "../../api/api";
 
-function Home() {
+function Home({ searchData }) {
+    
   const [products, setProducts] = useState("");
   const [error, setError] = useState("");
 
@@ -26,21 +27,34 @@ function Home() {
     loadItems();
   }, []);
 
-  return (
-    <>
-      <SlideShow />
-      <h1 style={{ fontFamily: "cursive", marginTop: "3rem", marginBottom: "2rem" }}>Most selling</h1>
-      <Container fluid="sm" style={{ margin: "13px 3rem 13px 5rem" }}>
-        <Row xs="4">
-          {products
-            ? products.map((product, idx) => {
-                return <HomeCard product={product} />;
-              })
-            : null}
-        </Row>
-      </Container>
-    </>
-  );
+
+    return (
+        <>
+            <SlideShow />
+            <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
+                <Row>
+            {searchData.length ? searchData.map((product, idx) => {
+                        return (
+                            <HomeCard product={product} key={idx} />
+                        )
+                    })
+              :null
+              // < h2 > No Matching Items</h2>
+              }
+                </Row>
+                <hr/>
+                <Row xs="4">
+                    
+                {products ? products.map((product,idx) => {
+                    return (
+                      <HomeCard product={product} key={idx} />
+                        )
+                    }):null}
+             </Row>
+
+            </Container>
+        </>
+    );
 }
 
 export default Home;

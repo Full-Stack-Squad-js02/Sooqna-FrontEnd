@@ -20,15 +20,16 @@ export default function Wishlist(product) {
     const { token } = isAuthenticated();
 
     const [items, setItems] = useState([]);
+    
 
     const [products, setProducts] = useState([]);
 
     const wislistItems = async () => {
         let itemsInWishlist = await getAllWishlist(token);
-        // console.log('11111', itemsInWishlist)
+        console.log('11111', itemsInWishlist)
         setItems(itemsInWishlist);
         // console.log('IIIIIIIITTTEEEEEEE', itemsInWishlist.length)
-         if(itemsInWishlist.length != 0){
+         if(itemsInWishlist.length !== 0){
             let Ids = itemsInWishlist.map((e) => {
                     return e.product_id;
             });
@@ -41,7 +42,7 @@ export default function Wishlist(product) {
     // console.log('444444444', products)
     useEffect(() => {
         wislistItems();
-    }, []);
+    }, [products]);
 
 
     const {id,title,price,color,image}=product;
@@ -71,7 +72,7 @@ export default function Wishlist(product) {
                         {products ? 
                             products.map((item,idx) => {
                                 return (
-                            <MDBCard className="rounded-3 mb-4">
+                                    <MDBCard className="rounded-3 mb-4" key={idx}>
                                 <MDBCardBody className="p-4">
                                     <MDBRow className="justify-content-between align-items-center">
                                         <MDBCol md="2" lg="2" xl="2">

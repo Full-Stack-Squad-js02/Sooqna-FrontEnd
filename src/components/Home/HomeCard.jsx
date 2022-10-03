@@ -8,7 +8,7 @@ import {BsCartPlus} from "react-icons/bs";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import {getOneProducts} from '../../api/api'
 // import { MDBRipple } from 'mdb-react-ui-kit';
-import { addToFavourite ,removeFromFavourite, addToCart , removeFromCart} from '../../api/api';
+import { addToFavourite ,addToCart } from '../../api/api';
 import './Home.css';
 
 export default function HomeCard({ product }) {
@@ -28,7 +28,7 @@ export default function HomeCard({ product }) {
                     <Card.Text>{product.description}</Card.Text>
             </Card.Body>
                 <Card.Footer>
-                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/>
+                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
                     <Card.Title>Price : {product.price}$</Card.Title>
                 {isAuthenticated()?
                     <>

@@ -61,12 +61,13 @@ export const getProductsById = async (productsIds) => {
 
     // let url = `https://sooqna.herokuapp.com/product`
     const products = await Promise.all(productsIds.map(async (itemId) => {
-	//  url = `${url}/product/${itemId}`
-            let result = await axios.get( `${url}/product/${itemId}`, {});
-                return result.data;
+        //  url = `${url}/product/${itemId}`
+        let result = await axios.get(`${url}/product/${itemId}`, {});
+        console.log('RRRRRRRRR',result.data)
+        return result.data;
     }));
+    console.log('PPPPPPPPPP',products)
     return products;
-
 }
 
 
@@ -74,10 +75,18 @@ export const getProductsById = async (productsIds) => {
 
 export const searchBy = async ({ input, filteredBy }) => {
     console.log(input, filteredBy)
-    
-    const result = await axios.get(`${url}/search${filteredBy}?${filteredBy}=${input}`, {});
-    // console.log('00000000000',result.data)
-    return result.data;
+    if (input && filteredBy) {
+        const result = await axios.get(`${url}/search${filteredBy}?${filteredBy}=${input}`, {});
+        if (result.data) {
+            // console.log('00000000000',result.data)
+            return result.data;
+        }
+        else {
+            return [];
+         }
+    } else {
+        return [];
+    }
 }
 
 
@@ -85,6 +94,7 @@ export const searchBy = async ({ input, filteredBy }) => {
 
 export const getAllWishlist= async (token) => {
 
+    console.log('RRRRRRRRRR',token);
     // let url = `https://sooqna.herokuapp.com/wishlist`
 
     const result = await axios.get(`${url}/wishlist`, {
@@ -116,7 +126,7 @@ export const getAllWishlist= async (token) => {
 
 export const addToFavourite = (itemId, token) => {
 //    console.log("222222")
-    // console.log('GGGGGGGGG',itemId, token);
+    console.log('GGGGGGGGG',itemId, token);
     return fetch(`${url}/addtowishlist/${itemId}`, {
 
         method: 'POST',
@@ -190,12 +200,28 @@ export const addToCart = async (itemId, token) => {
         });
     }
     
-    
+     export const removeAllCart = async(token) => {
+        // console.log("eeeeeeeee",id," ",token)
+        
+            return fetch(`${url}/cart`, {
+                method: 'DELETE',
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${token}`
+                }
+            }).then(response => {
+                // console.log('gggggggg',response)
+                return response.json();
+            }).catch(err => {
+                // console.log("hhhhhhhhh",err);
+            })
+    };
     
 /*-----------------------------------------------SHOPPING-------------------------------------------- */
 
 export const moveFromWishlistToCart = async (itemId, token) => {
 
+    console.log("eeeeeeee", itemId, token)
 
     return fetch(`${url}/productfromwishlisttocart/${itemId}`, {
         method: 'POST',
@@ -213,7 +239,6 @@ export const moveFromWishlistToCart = async (itemId, token) => {
         });
     }
 
-    // console.log("eeeeeeee", itemId, token)
     // return fetch(`https://sooqna.herokuapp.com/productfromwishlisttocart/${itemId}`, {
     //     method: 'POST',
     //     headers: {
@@ -257,7 +282,7 @@ export const removeOneFromCart = async(id, token) => {
     // return result
 
 
-export const createOrder = async (order, token) => { 
+export const submitOrder = async (order, token) => { 
     console.log('OOOOOOOOOOo',order, token);
     const result = await axios.post(`${url}/submitorder`, order, {
         headers: {
@@ -266,24 +291,74 @@ export const createOrder = async (order, token) => {
         },
         body: JSON.stringify(order)
     });
-    console.log('uuuuuuuu', result)
-    // return result
+    console.log('uuuuuuuu', result.data)
+    return result.data;
+}
+
+export const confirmOrder = async ( token) => { 
+    console.log(token);
+    const result = await axios.put(`${url}/confirmorder`, {status : "confirmed"}, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        // body: JSON.stringify(order)
+    });
+    console.log('uuuuuuuu', result.data)
+    return result.data;
+}
+
+/*-----------------------------------------------ORDERS-------------------------------------------- */
+export const getAllOrdersForUser = async (token) => {
+    // console.log('QWWWQQQQQ', token);
+
+    const result = await axios.get(`${url}/order`, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    });
+    // console.log('QWWWQQQQQ', result.data);
+    return result.data;
+}
+
+        export const removeOneMyProduct = async(id, token) => {
+
+                return fetch(`${url}/product/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        Accept: 'application/json',
+                        Authorization: `Bearer ${token}`
+                    }
+                }).then(response => {
+                    return response.json();
+                }).catch(err => {
+                })
+            };
+/*-----------------------------------------------Admin-------------------------------------------- */
+export const getAllOrdersToSumbit = async (token) => {
+
+    const result = await axios.get(`${url}/admin/confirmedorder`, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    });
+    return result.data;
+}
+
+export const approveOrders = async (token) => {
+
+    console.log(token);
+    const result = await axios.put(`${url}/admin/confirmorders`, {status : "In Delivery"}, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        // body: JSON.stringify(order)
+    });
+    console.log('uuuuuuuu', result.data)
+    return result.data;
 }
 
 
-    export const removeAllCart = async(token) => {
-        // console.log("eeeeeeeee",id," ",token)
-        
-            return fetch(`${url}/cart`, {
-                method: 'DELETE',
-                headers: {
-                    Accept: 'application/json',
-                    Authorization: `Bearer ${token}`
-                }
-            }).then(response => {
-                // console.log('gggggggg',response)
-                return response.json();
-            }).catch(err => {
-                // console.log("hhhhhhhhh",err);
-            })
-        };

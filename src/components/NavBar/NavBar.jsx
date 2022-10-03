@@ -24,26 +24,22 @@ import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 
-function NavBar() {
-    // console.log('iiiiiii', x);
+function NavBar({ setSearchData }) {
+
     const { user } = isAuthenticated();
     const [search,
-        seSearch] = useState({input: '', filteredBy: ''});
+        seSearch] = useState({input: '', filteredBy: 'name'});
     const [filter,
         setFilter] = useState('Filtered By')
 
     const navigate = useNavigate();
 
-    // const x =async  () => {
-    //     await searchBy();
-    // }
 
-    // function handleLogOut() {
-    //     logOut();
-    //     navigate('/')
-    // }
-    // console.log('jjj', search)
-    // console.log('uuuu', isAuthenticated())
+    const searchItems =async  () => {
+        let items = await searchBy(search);
+        console.log('pppppp',items)
+        setSearchData(items)
+    }
 
     return (
         <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
@@ -159,7 +155,7 @@ function NavBar() {
                             marginRight: '7rem',
                         }}
                             onClick={() => {
-                            searchBy(search)
+                                searchItems();
                             }}  />
                         {!isAuthenticated()?
                         <React.Fragment>
@@ -199,7 +195,7 @@ function NavBar() {
                                 </React.Fragment> :
                                 <React.Fragment >
                                     <UserDropdownList style={{ margin: '0 0rem 0 15rem'}} />
-                                    <IoNotificationsSharp onClick={() => { navigate('/') }} style={{
+                                    <IoNotificationsSharp onClick={() => { navigate('/approveorders') }} style={{
                                         height: 'auto',
                                         width: '4rem',
                                         margin: '0 5px',
