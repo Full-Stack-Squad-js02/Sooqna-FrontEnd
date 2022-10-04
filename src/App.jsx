@@ -27,16 +27,18 @@ import SubmitOrder from './components/Admin/SumbitOrder';
 function App() {
 
     const [searchData, setSearchData] = useState([]);
-    // const [o, setO] = useState([]);
-    // console.log('AAAAAAAA',searchData)
-    // const [socket, setSocket] = useState(null);
-    // useEffect(() => {
-    //     setSocket(io("http://localhost"));
-    //     //     console.log(socket)
 
-    //     // console.log(socket.on("confirm-order", (msg) => {
-    //     //     console.log(msg)
-    //     // }))
+    // console.log('AAAAAAAA',searchData)
+
+    const [socket, setSocket] = useState(null);
+
+    // useEffect(() => {
+    //     setSocket(io("http://localhost/5000"));
+    //         console.log(socket)
+
+    // //     // console.log(socket.on("confirm-order", (msg) => {
+    // //     //     console.log(msg)
+    // //     // }))
     // }, []);
 
     return (
