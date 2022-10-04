@@ -213,7 +213,7 @@ export const addToCart = async (itemId, token) => {
                 // console.log('gggggggg',response)
                 return response.json();
             }).catch(err => {
-                // console.log("hhhhhhhhh",err);
+                console.log("hhhhhhhhh",err);
             })
     };
     
@@ -258,8 +258,6 @@ export const moveFromWishlistToCart = async (itemId, token) => {
 
 
 export const removeOneFromCart = async(id, token) => {
-// console.log("eeeeeeeee",id," ",token)
-
     return fetch(`${url}/cart/${id}`, {
         method: 'DELETE',
         headers: {
@@ -267,10 +265,10 @@ export const removeOneFromCart = async(id, token) => {
             Authorization: `Bearer ${token}`
         }
     }).then(response => {
-        // console.log('gggggggg',response)
+
         return response.json();
     }).catch(err => {
-        // console.log("hhhhhhhhh",err);
+        console.log("hhhhhhhhh",err);
     })
 };
 // const result = await axios.delete(`https://sooqna.herokuapp.com/cart/${id}`, {

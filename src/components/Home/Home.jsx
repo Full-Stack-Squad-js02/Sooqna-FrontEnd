@@ -30,7 +30,10 @@ function Home({ searchData }) {
 
     return (
         <>
-            <SlideShow />
+        <SlideShow />
+        <div>
+        <h1>Last Posted</h1>
+        </div>
             <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
                 <Row>
             {searchData.length ? searchData.map((product, idx) => {

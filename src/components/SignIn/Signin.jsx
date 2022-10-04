@@ -4,6 +4,7 @@ import { signIn, authenticate } from "../../auth/index";
 import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBInput } from "mdb-react-ui-kit";
 import LoginLogo from "../../Assests/LOG_IN-LOGO3.png";
 import { useEffect } from "react";
+import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
 // import Swal from 'sweetalert2';
 
@@ -123,9 +124,10 @@ function SignIn() {
           <br />
           <MDBInput wrapperClass="mb-4" placeholder="User Name" type="text" size="lg" value={username} onChange={handleChange("username")} />
           <MDBInput wrapperClass="mb-4" placeholder="Password" type="password" size="lg" value={password} onChange={handleChange("password")} />
-          <MDBBtn className="mb-4 px-5" style={{ backgroundColor: "#003566" }} size="lg" variant="primary" type="submit" onClick={handleSubmit}>
+          <Button className="mb-4 px-5" style={{ backgroundColor: "#003566" }} size="lg" variant="primary" type="submit" onClick={handleSubmit}>
             Login
-          </MDBBtn>
+          </Button>
+          {/* <Button variant="primary">Primary</Button> */}
           {/* <a className="small text-muted" href="#!">
                 Forgot password?
               </a> */}

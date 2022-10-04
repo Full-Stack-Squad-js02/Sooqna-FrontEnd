@@ -43,7 +43,7 @@ export default function OneOrder() {
             <div >
               <div className='fw-bold'>Order #{o.id}</div>
               <div className='text-muted'> {o.createdAt}</div>
-              <div className='text-muted'>To {o.adress}</div>
+              <div className='text-muted' style={{inlineSize: '193px'}}>To {o.adress}</div>
             </div>
             <MDBBadge pill light color={status(o.status)}>
               {o.status}

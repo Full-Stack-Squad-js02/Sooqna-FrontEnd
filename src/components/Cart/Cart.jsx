@@ -93,11 +93,10 @@ export default function Cart() {
         cartItems();
     }, [products]);
 
-    
-    
+
 
     return (
-        <section  style={{ backgroundColor: "#eee", margin: '-1.5rem 0 1.5rem 0 ' }}>
+        <section style={{ backgroundColor: "#eee", margin: '-1.5rem 0 1.5rem 0 ', padding: '7rem 26rem 11rem 1rem'}}>
             <MDBContainer className="py-5 h-100">
                 <MDBRow className="justify-content-center align-items-center h-100"
                     style={{ margin: '0px -16rem 0rem 0' }}
@@ -115,7 +114,9 @@ export default function Cart() {
                                                 {/* <MDBTypography className="mb-0 text-muted">
                                                     3 items
                                                 </MDBTypography> */}
-                                                <i onClick={() => { removeAllCart(token) }} className="fas fa-trash" style={{cursor: 'pointer'}} ></i>
+                                                <i onClick={() => {
+                                                    removeAllCart(token)
+                                                }} className="fas fa-trash" style={{ cursor: 'pointer' }} ></i>
                                             </div>
 
                                             <hr style={{ margin: '0 29rem' }} />

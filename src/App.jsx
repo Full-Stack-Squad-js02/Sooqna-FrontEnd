@@ -12,6 +12,7 @@ import ProductCard from './components/Product/SingleProductPage';
 import { PrivateRoute } from './auth/privteRoutes';
 import Contact from './components/Contact/Contact';
 import AboutPage from './components/About/About';
+import AboutFinal from './components/About/AboutFinal';
 import NavBar from './components/NavBar/NavBar';
 import UserInfo from './components/UserProfile/UserInfo';
 import Setting from './components/UserProfile/Setting';
@@ -47,7 +48,7 @@ function App() {
                 <NavBar setSearchData={setSearchData} /> 
                 <Routes>
                     <Route path='/' element={< Home searchData={searchData} />}/>
-                    {/* <Route path='/star' element={< Header />}/> */}
+                    <Route path='/star' element={<AboutFinal />}/>
                     <Route path='/about' element={< AboutPage />}/>
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
