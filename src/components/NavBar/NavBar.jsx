@@ -81,8 +81,8 @@ function NavBar({ setSearchData }) {
                     className="d-inline-block align-top"
                     alt="Sooqna logo"
                     style={{
-                    width: '5rem',
-                    height: 'auto',
+                    width: '5.5rem',
+                    height: '10rem',
                     marginRight: '4rem'
                     }} />
                 {/* Tabs */}
@@ -185,6 +185,7 @@ function NavBar({ setSearchData }) {
                         }}
                             onClick={() => {
                                 searchItems();
+                                navigate('/searchbar')
                             }}  />
                         {!isAuthenticated()?
                         <React.Fragment>
