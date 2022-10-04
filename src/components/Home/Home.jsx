@@ -35,7 +35,7 @@ function Home({ searchData }) {
         <h1>Last Posted</h1>
         </div>
             <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
-                <Row>
+                {/* <Row>
             {searchData.length ? searchData.map((product, idx) => {
                         return (
                             <HomeCard product={product} key={idx} />
@@ -44,7 +44,7 @@ function Home({ searchData }) {
               :null
               // < h2 > No Matching Items</h2>
               }
-                </Row>
+                </Row> */}
                 <hr/>
                 <Row xs="4">
                     

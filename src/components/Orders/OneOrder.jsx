@@ -40,7 +40,7 @@ export default function OneOrder() {
       {orders ? orders.map((o,idx) => {
         return(
           <MDBListGroupItem style={{ backgroundColor: '#f7f9f9', borderRadius: '15px' }}  className='d-flex justify-content-between align-items-center w-50 mx-5 my-3' key={idx}>
-            <div >
+            <div>
               <div className='fw-bold'>Order #{o.id}</div>
               <div className='text-muted'> {o.createdAt}</div>
               <div className='text-muted' style={{inlineSize: '193px'}}>To {o.adress}</div>
@@ -48,28 +48,71 @@ export default function OneOrder() {
             <MDBBadge pill light color={status(o.status)}>
               {o.status}
             </MDBBadge>
+            <div style={{ display:'flex'}}>
             {o.status === 'submitted'?
-            <MDBBtn size='sm' className='m-1' style={{
+            
+            <button size='sm' className='m-1' style={{
               backgroundColor: 'rgb(59, 89, 152)',
-              fontWeight: '700', borderRadius: '24px', marginRight: '-11rem'
+              fontWeight: '700', borderRadius: '15px', marginRight: '-11rem'
               }} href='#' onClick={() => { deleteOneOrder(o.id,token) }}>
               cancel
-            </MDBBtn>
-              : 
-              <MDBBtn size='sm' className='m-1' style={{
-                backgroundColor: 'rgb(59, 89, 152)',
-                fontWeight: '700', borderRadius: '24px', marginRight: '-11rem'
+            </button>
+              : o.status === 'confirmed' ||o.status === 'recived'?
+              <button type="button" class="btn btn-primary" size='sm' className='m-1' style={{
+                backgroundColor: 'rgb(59, 89, 152)', color:'white',
+                fontWeight: '600', borderRadius: '15px', marginRight: '-11rem',
+                opacity: "0.6",
+                cursor: "not-allowed"
+            
               }} href='#' onClick={() => { reciveOrder(token) }}>
                 Recived
-              </MDBBtn>
+              </button>
+              :o.status === 'indelivery'?
+              <button type="button" class="btn btn-primary" size='sm' style={{
+                backgroundColor: 'rgb(59, 89, 152)', color:'white',
+                fontWeight: '600', borderRadius: '15px', marginRight: '-11rem',
+             
+            
+              }} href='#' onClick={() => { reciveOrder(token) }}>
+                Recived
+              </button>
+              :null
             }
-            <MDBBtn size='sm' className='m-1' style={{ backgroundColor: 'rgb(59, 89, 152)',
-              fontWeight: '700', borderRadius: '24px'
+             {o.status === 'submitted'?
+             <button type="button" class="btn btn-primary"style={{ backgroundColor: 'rgb(59, 89, 152)',
+              fontWeight: '600', borderRadius: '15px'
             }} href='#' onClick={() => { confirmOrder (token)}}>
               Confirm
-            </MDBBtn>
-          </MDBListGroupItem>
+            </button>
+          : o.status === 'confirmed' ||o.status === 'recived'  ||o.status === 'indelivery'?
+             <button type="button" class="btn btn-primary"style={{ backgroundColor: 'rgb(59, 89, 152)',
+              fontWeight: '600', borderRadius: '15px', opacity: "0.6",
+              cursor: "not-allowed"
+            }} href='#' onClick={() => { confirmOrder (token)}}>
+              Confirm
+            </button>:null
+        }
+        </div>
+             {/* {o.status === 'recived'?
+             <button type="button" class="btn btn-primary"style={{ backgroundColor: 'rgb(59, 89, 152)',
+              fontWeight: '600', borderRadius: '20px', opacity: "0.6",
+              cursor: "not-allowed"
+            }} href='#' onClick={() => { confirmOrder (token)}}>
+              Confirm
+            </button>
+          :
+          <button type="button" class="btn btn-primary" size='sm' className='m-1' style={{
+            backgroundColor: 'rgb(59, 89, 152)', color:'white',
+            fontWeight: '600', borderRadius: '20px', marginRight: '-11rem',
+            opacity: "0.6",
+            cursor: "not-allowed"
+        
+          }} href='#' onClick={() => { reciveOrder(token) }}>
+            Recived
+          </button>
+        } */}
 
+        </MDBListGroupItem>
         )
       }):null}
 
