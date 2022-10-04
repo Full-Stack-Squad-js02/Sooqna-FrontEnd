@@ -22,18 +22,20 @@ function Search({ searchData }) {
     //   });
     // };
   
-    useEffect(() => {
-      console.log("iiiiiiii", searchData);
-      // loadItems();
-    }, []);
+    // useEffect(() => {
+    //   console.log("iiiiiiii", searchData);
+    //   // loadItems();
+    // }, []);
   
-  
+    console.log("ggggg",searchData)
+
       return (
           <>
           
               <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
                   <Row>
-              {searchData.length ? searchData.map((product, idx) => {
+              {searchData ? searchData.map((product, idx) => {
+                console.log("ddd",searchData)
                           return (
                               <HomeCard product={product} key={idx} />
                           )
@@ -41,6 +43,7 @@ function Search({ searchData }) {
                 :
                 < h2 > No Matching Items</h2>
                 }
+                
                   {/* </Row>
                   <hr/>
                   <Row xs="4">

@@ -71,7 +71,7 @@ function NavBar({ setSearchData }) {
     }, [products]);
 
     return (
-        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
+        <Navbar expand="sm" style={{ height: '88px', backgroundColor:'#003566', position: 'fixed',
         zIndex: '1', width: '100%', top: '0'}}>
             <Container fluid>
                 <img
@@ -182,6 +182,8 @@ function NavBar({ setSearchData }) {
                             width: '7rem',
                             height: '2rem',
                             marginRight: '7rem',
+                            marginTop: '5px'
+
                         }}
                             onClick={() => {
                                 searchItems();

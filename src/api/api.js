@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// let url = 'http://localhost:3000'
-let url = 'https://sooqna.herokuapp.com'
+let url = 'http://localhost:3000'
+// let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -361,6 +361,7 @@ export const getAllOrdersToSumbit = async (token) => {
             Authorization: `Bearer ${token}`
         }
     });
+    console.log("hhhhhhhhhhhhh",result.data)
     return result.data;
 }
 
