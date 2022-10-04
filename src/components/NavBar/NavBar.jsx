@@ -71,7 +71,7 @@ function NavBar({ setSearchData }) {
     }, [products]);
 
     return (
-        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
+        <Navbar expand="sm" style={{ height: '88px', backgroundColor:'#003566', position: 'fixed',
         zIndex: '1', width: '100%', top: '0'}}>
             <Container fluid>
                 <img
@@ -81,8 +81,8 @@ function NavBar({ setSearchData }) {
                     className="d-inline-block align-top"
                     alt="Sooqna logo"
                     style={{
-                    width: '5rem',
-                    height: 'auto',
+                    width: '5.5rem',
+                    height: '10rem',
                     marginRight: '4rem'
                     }} />
                 {/* Tabs */}
@@ -182,9 +182,12 @@ function NavBar({ setSearchData }) {
                             width: '7rem',
                             height: '2rem',
                             marginRight: '7rem',
+                            marginTop: '5px'
+
                         }}
                             onClick={() => {
                                 searchItems();
+                                navigate('/searchbar')
                             }}  />
                         {!isAuthenticated()?
                         <React.Fragment>

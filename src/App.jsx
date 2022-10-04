@@ -22,6 +22,7 @@ import ProductDetails from './components/Product/ProductDetails';
 import UpdateProduct from './components/Product/UpdateProduct'
 import { useState, useEffect } from 'react';
 import SubmitOrder from './components/Admin/SumbitOrder';
+import Search from './components/Search/Search';
 // import { io } from "socket.io-client";
 
 function App() {
@@ -46,9 +47,9 @@ function App() {
             <BrowserRouter>
                 <NavBar setSearchData={setSearchData} /> 
                 <Routes>
-                    <Route path='/' element={< Home searchData={searchData} />}/>
-                    {/* <Route path='/star' element={< Header />}/> */}
+                    <Route path='/' element={< Home />}/>
                     <Route path='/about' element={< AboutPage />}/>
+                    <Route path='/searchbar' element={< Search searchData={searchData} />}/>
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>
