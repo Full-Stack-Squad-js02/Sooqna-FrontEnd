@@ -23,7 +23,7 @@ function Home({ searchData }) {
   };
 
   useEffect(() => {
-    console.log("iiiiiiii", products);
+    // console.log("iiiiiiii", products);
     loadItems();
   }, []);
 

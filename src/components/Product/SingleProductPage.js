@@ -17,7 +17,7 @@ export default function ProductCard() {
     
     const showDetails=async()=>{
         let details= await getOneProducts(12);
-        console.log(details);
+        // console.log(details);
         setProduct(details);
     
     }

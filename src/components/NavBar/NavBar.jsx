@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {
     Form,
@@ -7,38 +7,72 @@ import {
     Nav,
     Navbar,
     NavDropdown , 
-    Popover
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
+import { IoMdContacts } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
+import { AiFillRobot,AiFillHome } from "react-icons/ai";
 import { IoNotificationsSharp } from "react-icons/io5";
-// import { CgShoppingCart} from "react-icons/cg";
 import { isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
+import { getAllCart, getProductsById, getAllOrdersToSumbit, approveOrders } from "../../api/api";
 import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 
 function NavBar({ setSearchData }) {
 
-    const { user } = isAuthenticated();
-    const [search,
-        seSearch] = useState({input: '', filteredBy: 'name'});
-    const [filter,
-        setFilter] = useState('Filtered By')
+    const { user, token } = isAuthenticated();
+    
+    const [search, seSearch] = useState({input: '', filteredBy: 'name'});
+    const [filter, setFilter] = useState('Filtered By')
+    
+    const [items, setItems] = useState([]);
+    const [products, setProducts] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const navigate = useNavigate();
 
 
     const searchItems =async  () => {
         let items = await searchBy(search);
-        console.log('pppppp',items)
+        // console.log('pppppp',items)
         setSearchData(items)
     }
 
+    const cartItems = async () => {
+        let itemsInCart = await getAllCart(token);
+        setItems(itemsInCart);
+        if (itemsInCart.length !== 0) {
+            let Ids = itemsInCart.map((e,idx) => {
+                if (e.product_id) {
+                    return e.product_id;
+                }
+            });
+            let productsInCart = await getProductsById(Ids);
+            setProducts(productsInCart);
+        }
+    };
+
+    const orderDetails = async () => {
+        let x = await getAllOrdersToSumbit(token);
+        setOrders(x)
+    }
+
+    console.log('LLLLLLLLLLLLL', orders)
+
+    useEffect(() => {
+        orderDetails()
+    }, [orders])
+    
+    useEffect(() => {
+        cartItems();
+    }, [products]);
+
     return (
-        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566'}}>
+        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
+        zIndex: '1', width: '100%', top: '0'}}>
             <Container fluid>
                 <img
                     src={Logo}
@@ -52,9 +86,27 @@ function NavBar({ setSearchData }) {
                     marginRight: '4rem'
                     }} />
                 {/* Tabs */}
-                <Navbar.Brand href="/">Home</Navbar.Brand>
-                <Navbar.Brand href="/about">About</Navbar.Brand>
-                <Navbar.Brand href="#contact" style={{ scrollBehavior: 'smooth' }}>Contact Us</Navbar.Brand>
+                
+
+
+                <Navbar.Brand href="/"><AiFillHome style={{
+                                height: '1.8rem',
+                                width: '2.5rem',
+                                margin: '0 -10px 8px',
+                                }}/> Home</Navbar.Brand>
+                <Navbar.Brand href="/about">
+                    <AiFillRobot style={{
+                                height: '1.5rem',
+                                width: '2rem',
+                                margin: '0 0px 7px',
+                                }}/>
+                                About</Navbar.Brand>
+                <Navbar.Brand href="#contact" style={{ scrollBehavior: 'smooth' }}>
+                <IoMdContacts style={{
+                                height: '2rem',
+                                width: '2rem',
+                                margin: '0 0px 3px',
+                                }}/>Contact Us</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll"/>
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -155,10 +207,13 @@ function NavBar({ setSearchData }) {
                                 height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
-                                }} 
-                                />
-
-                                    <i data-count="3" className="fa fa-shopping-cart fa-5x fa-border icon-grey badge"></i>
+                                }}/>
+                                    {products.length ?
+                                    <i style={{
+                                    marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
+                                    backgroundColor: 'red', width: '9%',height: '10%',borderRadius: '100%'
+                                    }}>{products.length}</i>
+                                    : null}
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
@@ -177,6 +232,11 @@ function NavBar({ setSearchData }) {
                                         width: '4rem',
                                         margin: '0 5px',
                                     }} /> 
+                                    {orders.length ?
+                                        <i style={{
+                                        marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
+                                        backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
+                                    }}>{orders.length}</i>:null}
                                 </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>
