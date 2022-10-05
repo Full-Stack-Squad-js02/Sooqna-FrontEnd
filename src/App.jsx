@@ -24,6 +24,7 @@ import UpdateProduct from './components/Product/UpdateProduct'
 import { useState, useEffect } from 'react';
 import SubmitOrder from './components/Admin/SumbitOrder';
 import Search from './components/Search/Search';
+import Test  from './context/context';
 // import { io } from "socket.io-client";
 
 function App() {
@@ -46,10 +47,11 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
+                <Test>
                 <NavBar setSearchData={setSearchData} /> 
                 <Routes>
                     <Route path='/' element={< Home />}/>
-                    <Route path='/star' element={<AboutFinal />}/>
+                    <Route path='/star' element={<Header />}/>
                     <Route path='/about' element={< AboutPage />}/>
                     <Route path='/searchbar' element={< Search searchData={searchData} />}/>
                     <Route path='/signup' element={< Signup />}/>
@@ -67,10 +69,9 @@ function App() {
                     {/* <Route path='/product/:id' element={<ProductDetails/>}/> */}
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
                     <Route path='/approveorders' element={<SubmitOrder/>}/>
-
-                    
                 </Routes>
-                <Contact/>
+                <Contact />
+                </Test>
             </BrowserRouter>
             {/* <Header/> */}
         </div>

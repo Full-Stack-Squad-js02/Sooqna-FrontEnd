@@ -1,31 +1,32 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import HomeCard from "./HomeCard";
 import SlideShow from "./SlideShow";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import {Container,Row} from "react-bootstrap";
 import "./Home.css";
 import { getAllProducts } from "../../api/api";
+import { TestContext } from '../../context/context'
 
-function Home({ searchData }) {
-    
-  const [products, setProducts] = useState("");
-  const [error, setError] = useState("");
+function Home() {
 
-  const loadItems = async () => {
-    await getAllProducts().then((data) => {
-      if (data.error) {
-        setError(data.error);
-      } else {
-        setProducts(data);
-      }
-    });
-  };
+  const products = useContext(TestContext);
 
-  useEffect(() => {
+  // const [products, setProducts] = useState("");
+  // const [error, setError] = useState("");
+
+  // const loadItems = async () => {
+  //   await getAllProducts().then((data) => {
+  //     if (data.error) {
+  //       setError(data.error);
+  //     } else {
+  //       setProducts(data);
+  //     }
+  //   });
+  // };
+
     // console.log("iiiiiiii", products);
-    loadItems();
-  }, []);
+  // useEffect(() => {
+  //   loadItems();
+  // }, []);
 
 
     return (
