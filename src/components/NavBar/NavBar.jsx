@@ -11,8 +11,8 @@ import {
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
-import { GoHome } from "react-icons/go";
-import { BsFillEmojiSunglassesFill } from "react-icons/bs";
+// import { GoHome } from "react-icons/go";
+// import { BsFillEmojiSunglassesFill } from "react-icons/bs";
 import { IoMdContacts } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
 import { AiFillRobot,AiFillHome } from "react-icons/ai";
@@ -200,7 +200,7 @@ function NavBar({ setSearchData }) {
                                     margin: '0 5px',
                                 }}/>
                                 {/* <div>{products.length}</div> */}
-                                <i style={{marginLeft: '-4px',color: 'red',fontWeight: 'bolder'}}>{products.length}</i>
+                                {products.length?<i style={{marginLeft: '-4px',color: 'red',fontWeight: 'bolder'}}>{products.length}</i>:null}
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
