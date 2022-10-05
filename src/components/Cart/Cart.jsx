@@ -111,7 +111,7 @@ export default function Cart() {
                                     <MDBCol lg="8">
                                         <div className="p-5">
                                             <div className="d-flex justify-content-between align-items-center mb-5">
-                                                <MDBTypography tag="h1" className="fw-bold mb-0 text-black">
+                                                <MDBTypography tag="h1" className="fw-bold mb-0 text-black" style={{ fontstyle:'italic', fontvariantcaps: 'petite-caps'}}>
                                                     Shopping Cart
                                                 </MDBTypography>
                                                 {/* <MDBTypography className="mb-0 text-muted">
