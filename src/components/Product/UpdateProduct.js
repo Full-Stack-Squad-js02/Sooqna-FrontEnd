@@ -93,76 +93,138 @@ export default function UpdateProduct() {
 
   const  BasicExample=()=> {
     return (
-        <div style={{ display: 'flex' }}>
+//         <div style={{ display: 'flex' }}>
             
-            <div>
-            <img style={{margin: '10rem 4.5rem', height: '26rem'}}
+//             <div>
+//             <img style={{margin: '10rem 4.5rem', height: '26rem'}}
 
-className="d-block w-100 h-1"
-src="https://userguiding.com/wp-content/uploads/2021/04/what-is-product-update-1160x387.jpg"
-alt="First slide"
-/>
-            </div>
+// className="d-block w-100 h-1"
+// src="https://userguiding.com/wp-content/uploads/2021/04/what-is-product-update-1160x387.jpg"
+// alt="First slide"
+// />
+//             </div>
   
-      <Form style={{width: "30rem" , margin: "7rem"}}>
-        <Form.Group className="mb-3" controlId="title">
-          <Form.Label>Product </Form.Label>
-          <Form.Control type="text"
-          value={title}onChange={handleChange("title")} />
-        </Form.Group>
+//       <Form style={{width: "30rem" , margin: "7rem"}}>
+//         <Form.Group className="mb-3" controlId="title">
+//           <Form.Label>Product </Form.Label>
+//           <Form.Control type="text"
+//           value={title}onChange={handleChange("title")} />
+//         </Form.Group>
   
-        <Form.Group className="mb-3" controlId="description" style={{height:'5rem'}}>
-          <Form.Label>Description</Form.Label>
-          <Form.Control type="text"
-          value={description}onChange={handleChange("description")} />
-        </Form.Group>
+//         <Form.Group className="mb-3" controlId="description" style={{height:'5rem'}}>
+//           <Form.Label>Description</Form.Label>
+//           <Form.Control type="text"
+//           value={description}onChange={handleChange("description")} />
+//         </Form.Group>
   
        
-        <Form.Group className="mb-3" controlId="color">
-          <Form.Label>Color</Form.Label>
-          <Form.Control type="text" 
-          value={color}onChange={handleChange("color")}/>
-        </Form.Group>
+//         <Form.Group className="mb-3" controlId="color">
+//           <Form.Label>Color</Form.Label>
+//           <Form.Control type="text" 
+//           value={color}onChange={handleChange("color")}/>
+//         </Form.Group>
   
   
-         <br/>
+//          <br/>
   
-        <Form.Select aria-label="Default select example" style={{width: '30rem', height: '2.5rem'}}>
-         <option style={{ color: "#4051a5" }}>Select category</option>
-         {categories && categories.map((c, i) => (
-                               <option key={i} value={c}>
-                                   {c}
-                               </option>
-                           ))}
-       </Form.Select>
+//         <Form.Select aria-label="Default select example" style={{width: '30rem', height: '2.5rem'}}>
+//          <option style={{ color: "#4051a5" }}>Select category</option>
+//          {categories && categories.map((c, i) => (
+//                                <option key={i} value={c}>
+//                                    {c}
+//                                </option>
+//                            ))}
+//        </Form.Select>
   
-       <br/>
-       <br/>
+//        <br/>
+//        <br/>
   
-        <Form.Group className="mb-3" controlId="price">
-          <Form.Label>Price</Form.Label>
-          <Form.Control type="number" 
-          value={price}onChange={handleChange("price")}/>
-        </Form.Group>
+//         <Form.Group className="mb-3" controlId="price">
+//           <Form.Label>Price</Form.Label>
+//           <Form.Control type="number" 
+//           value={price}onChange={handleChange("price")}/>
+//         </Form.Group>
   
-        <Form.Group className="mb-3" controlId="quantity">
-          <Form.Label>Quantity</Form.Label>
-          <Form.Control type="number"
-          value={quantity}onChange={handleChange("quantity")} />
-        </Form.Group>
+//         <Form.Group className="mb-3" controlId="quantity">
+//           <Form.Label>Quantity</Form.Label>
+//           <Form.Control type="number"
+//           value={quantity}onChange={handleChange("quantity")} />
+//         </Form.Group>
   
-        <Form.Group className="mb-3" controlId="image">
-          <Form.Label>Image</Form.Label>
-          <Form.Control type="text" 
-          value={image}onChange={handleChange("image")}/>
-        </Form.Group>
-           <br/>
-           <br/>
-        <Button variant="success" type="submit" onClick={clickSubmit}>Create Product</Button> {' '}
-          <Button variant="danger" type="submit" onClick={() => { navigate('/user') }}> Cancel</Button>
-      </Form>
-      </div>
-  
+//         <Form.Group className="mb-3" controlId="image">
+//           <Form.Label>Image</Form.Label>
+//           <Form.Control type="text" 
+//           value={image}onChange={handleChange("image")}/>
+//         </Form.Group>
+//            <br/>
+//            <br/>
+//         <Button variant="success" type="submit" onClick={clickSubmit}>Create Product</Button> {' '}
+//           <Button variant="danger" type="submit" onClick={() => { navigate('/user') }}> Cancel</Button>
+//       </Form>
+//       </div>
+
+
+<div style={{ display: "flex", margin: "auto" }}>
+<Form style={{ width: "40rem", margin: "7rem", border: "outset", padding: "2rem" }}>
+  <h1 style={{ marginBottom: "4rem", fontFamily: "cursive" }}>Update Product</h1>
+  <Form.Group className="mb-3" controlId="title">
+    {/* <Form.Label>Product </Form.Label> */}
+    <Form.Control type="text" value={title} placeholder="Product Name" onChange={handleChange("title")} />
+  </Form.Group>
+  <br />
+  <Form.Group className="mb-3" controlId="description" style={{ height: "5rem" }}>
+    {/* <Form.Label>Description</Form.Label> */}
+    <Form.Control type="textarea" value={description} placeholder="Product Description" onChange={handleChange("description")} />
+  </Form.Group>
+  <Form.Group className="mb-3" controlId="color">
+    {/* <Form.Label>Color</Form.Label> */}
+    <Form.Control type="text" value={color} placeholder="Color" onChange={handleChange("color")} />
+  </Form.Group>
+  <br />
+  <Form.Select aria-label="Default select example" style={{ width: "100%", height: "2.5rem" }}>
+    <option style={{ color: "#4051a5" }}>Select category</option>
+    {categories &&
+      categories.map((c, i) => (
+        <option key={i} value={c}>
+          {c}
+        </option>
+      ))}
+  </Form.Select>
+  <br />
+  <br />
+  <br />
+  <Form.Group className="mb-3" controlId="price">
+    {/* <Form.Label>Price</Form.Label> */}
+    <Form.Control type="number" value={price} placeholder="Price" onChange={handleChange("price")} />
+  </Form.Group>
+  <br />
+  <Form.Group className="mb-3" controlId="quantity">
+    {/* <Form.Label>Quantity</Form.Label> */}
+    <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange("quantity")} />
+  </Form.Group>
+  <br />
+  <Form.Group className="mb-3" controlId="image">
+    {/* <Form.Label>Image</Form.Label> */}
+    <Form.Control type="text" placeholder="URL Image" value={image} onChange={handleChange("image")} />
+  </Form.Group>
+  <br />
+  <br />
+  <Button variant="success" type="submit" style={{ backgroundColor: "#FFC300", color: "black", fontWeight: "700", border: "2px " }} onClick={clickSubmit}>
+    Update Product
+  </Button>{" "}
+  <Button
+    type="submit"
+    onClick={() => {
+      navigate("/user");
+    }}
+    style={{ backgroundColor: "#003566", color: "white", fontWeight: "700", border: "2px " }}
+  >
+    {" "}
+    Cancel
+  </Button>
+</Form>
+</div>
+
     );
   }
   const showSuccess = () => (

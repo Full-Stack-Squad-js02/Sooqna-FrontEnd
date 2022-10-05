@@ -7,32 +7,30 @@ import {
     Nav,
     Navbar,
     NavDropdown , 
-    Popover
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
-// import { GoHome } from "react-icons/go";
-// import { BsFillEmojiSunglassesFill } from "react-icons/bs";
 import { IoMdContacts } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
 import { AiFillRobot,AiFillHome } from "react-icons/ai";
 import { IoNotificationsSharp } from "react-icons/io5";
-// import { CgShoppingCart} from "react-icons/cg";
 import { isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
-import { getAllCart, getProductsById} from "../../api/api";
+import { getAllCart, getProductsById, getAllOrdersToSumbit, approveOrders } from "../../api/api";
 import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 
 function NavBar({ setSearchData }) {
 
-    const { user,token } = isAuthenticated();
+    const { user, token } = isAuthenticated();
+    
     const [search, seSearch] = useState({input: '', filteredBy: 'name'});
     const [filter, setFilter] = useState('Filtered By')
-
+    
     const [items, setItems] = useState([]);
     const [products, setProducts] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const navigate = useNavigate();
 
@@ -56,13 +54,24 @@ function NavBar({ setSearchData }) {
             setProducts(productsInCart);
         }
     };
+
+    const orderDetails = async () => {
+        let x = await getAllOrdersToSumbit(token);
+        setOrders(x)
+    }
+
+    console.log('LLLLLLLLLLLLL', orders)
+
+    useEffect(() => {
+        orderDetails()
+    }, [orders])
     
     useEffect(() => {
         cartItems();
     }, [products]);
 
     return (
-        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
+        <Navbar expand="sm" style={{ height: '88px', backgroundColor:'#003566', position: 'fixed',
         zIndex: '1', width: '100%', top: '0'}}>
             <Container fluid>
                 <img
@@ -72,8 +81,8 @@ function NavBar({ setSearchData }) {
                     className="d-inline-block align-top"
                     alt="Sooqna logo"
                     style={{
-                    width: '5rem',
-                    height: 'auto',
+                    width: '5.5rem',
+                    height: '10rem',
                     marginRight: '4rem'
                     }} />
                 {/* Tabs */}
@@ -173,9 +182,12 @@ function NavBar({ setSearchData }) {
                             width: '7rem',
                             height: '2rem',
                             marginRight: '7rem',
+                            marginTop: '5px'
+
                         }}
                             onClick={() => {
                                 searchItems();
+                                navigate('/searchbar')
                             }}  />
                         {!isAuthenticated()?
                         <React.Fragment>
@@ -199,8 +211,12 @@ function NavBar({ setSearchData }) {
                                     width: '4rem',
                                     margin: '0 5px',
                                 }}/>
-                                {/* <div>{products.length}</div> */}
-                                {products.length?<i style={{marginLeft: '-4px',color: 'red',fontWeight: 'bolder'}}>{products.length}</i>:null}
+                                    {products.length ?
+                                    <i style={{
+                                    marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
+                                    backgroundColor: 'red', width: '9%',height: '10%',borderRadius: '100%'
+                                    }}>{products.length}</i>
+                                    : null}
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
@@ -219,6 +235,11 @@ function NavBar({ setSearchData }) {
                                         width: '4rem',
                                         margin: '0 5px',
                                     }} /> 
+                                    {orders.length ?
+                                        <i style={{
+                                        marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
+                                        backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
+                                    }}>{orders.length}</i>:null}
                                 </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>

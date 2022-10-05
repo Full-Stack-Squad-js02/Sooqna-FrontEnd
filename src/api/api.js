@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// let url = 'http://localhost:3000'
-let url = 'https://sooqna.herokuapp.com'
+let url = 'http://localhost:3000'
+// let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -273,9 +273,9 @@ export const removeOneFromCart = async(id, token) => {
         // console.log("hhhhhhhhh",err);
     })
 };
-    // const result = await axios.delete(`https://sooqna.herokuapp.com/cart/${id}`, {
+// const result = await axios.delete(`https://sooqna.herokuapp.com/cart/${id}`, {
     //     headers: {
-    //         Accept: 'application/json',
+        //         Accept: 'application/json',
     //         Authorization: `Bearer ${token}`
     //     }
     // });
@@ -311,7 +311,7 @@ export const confirmOrder = async ( token) => {
 /*-----------------------------------------------ORDERS-------------------------------------------- */
 export const getAllOrdersForUser = async (token) => {
     // console.log('QWWWQQQQQ', token);
-
+    
     const result = await axios.get(`${url}/order`, {
         headers: {
             Accept: 'application/json',
@@ -321,6 +321,23 @@ export const getAllOrdersForUser = async (token) => {
     // console.log('QWWWQQQQQ', result.data);
     return result.data;
 }
+
+export const deleteOneOrder = async(id,token) => {
+// console.log("eeeeeeeee",id," ",token)
+
+    return fetch(`${url}/order/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    }).then(response => {
+        // console.log('gggggggg',response)
+        return response.json();
+    }).catch(err => {
+        // console.log("hhhhhhhhh",err);
+    })
+};
 
         export const removeOneMyProduct = async(id, token) => {
 
@@ -344,13 +361,29 @@ export const getAllOrdersToSumbit = async (token) => {
             Authorization: `Bearer ${token}`
         }
     });
+    console.log("hhhhhhhhhhhhh",result.data)
     return result.data;
 }
 
 export const approveOrders = async (token) => {
-
     // console.log(token);
     const result = await axios.put(`${url}/admin/confirmorders`, {status : "In Delivery"}, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        // body: JSON.stringify(order)
+    });
+    // console.log('uuuuuuuu', result.data)
+    return result.data;
+}
+
+
+export const reciveOrder = async (token) => {
+    // console.log(token);
+    const result = await axios.put(`${url}/reciveorder`, {
+    status : "recived"
+}, {
         headers: {
             Accept: 'application/json',
             Authorization: `Bearer ${token}`

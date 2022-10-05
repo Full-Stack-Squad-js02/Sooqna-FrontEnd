@@ -22,13 +22,15 @@ import { getAllCart, getProductsById, removeOneFromCart, submitOrder , removeAll
 export default function Cart() {
 
     const navigate = useNavigate();
-
+ 
     const { user ,token } = isAuthenticated();
 
     const [items, setItems] = useState([]);
 
     const [products, setProducts] = useState([]);
     
+    const [show,
+        setShow] = useState(true)
 
     const [order, setOrder] = useState({
         payment_method: "cash on delivery",
@@ -109,19 +111,23 @@ export default function Cart() {
                                     <MDBCol lg="8">
                                         <div className="p-5">
                                             <div className="d-flex justify-content-between align-items-center mb-5">
-                                                <MDBTypography tag="h1" className="fw-bold mb-0 text-black">
+                                                <MDBTypography tag="h1" className="fw-bold mb-0 text-black" style={{ fontstyle:'italic', fontvariantcaps: 'petite-caps'}}>
                                                     Shopping Cart
                                                 </MDBTypography>
                                                 {/* <MDBTypography className="mb-0 text-muted">
                                                     3 items
                                                 </MDBTypography> */}
-                                                <i onClick={() => { removeAllCart(token) }} className="fas fa-trash" style={{cursor: 'pointer'}} ></i>
+                                                <i onClick={() => { 
+                                                    removeAllCart(token)
+                                                    setShow(false)
+                                                }} className="fas fa-trash" style={{cursor: 'pointer'}} ></i>
                                             </div>
 
                                             <hr style={{ margin: '0 29rem' }} />
-
+                                              
                                             {products ? products.map((item,idx) => {
                                                 return (
+                                                    show ?
                                                     <MDBRow className="mb-4 d-flex justify-content-between align-items-center" key={idx}>
                                                         <MDBCol md="2" lg="2" xl="2">
                                                             <MDBCardImage
@@ -157,16 +163,18 @@ export default function Cart() {
                                                             <a href="#!" className="text-muted">
                                                                 <MDBIcon  onClick={() => {
                                                                     removeOneFromCart(items[idx].id,token)
+                                                                    
                                                                     // console.log("id",items[idx].id) 
-                                                                     navigate('/mycart')
+                                                                 
                                                                  }} fas icon="times"/>
                                                             </a>
                                                         </MDBCol>
-                                                    </MDBRow>
+                                                    </MDBRow>      :null
                                                 )
                                             })
 
                                                 : <div ></div>
+                                           
                                             }
 
                                         

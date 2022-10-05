@@ -120,9 +120,9 @@ function Signup() {
             <MDBCheckbox name="flexCheck" value="" id="flexCheckDefault" label="Subscribe to our newsletter" />
           </div> */}
 
-          <MDBBtn style={{ backgroundColor: "#003566" }} className="w-100 mb-4" size="md" type="submit" onClick={handleSubmit}>
+<button type="button" class="btn btn-primary" style={{ backgroundColor: "#003566" , color: 'white' }} className="w-100 mb-4" size="md" onClick={handleSubmit}>
             sign up
-          </MDBBtn>
+          </button>
 
           {/* <div className="text-center">
 
