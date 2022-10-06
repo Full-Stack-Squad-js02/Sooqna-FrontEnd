@@ -1,5 +1,5 @@
 import './App.css';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 import Signup from './components/SignUp/Signup';
 import Signin from './components/SignIn/Signin';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -23,7 +23,7 @@ import UpdateProduct from './components/Product/UpdateProduct'
 import { useState, useEffect } from 'react';
 import SubmitOrder from './components/Admin/SumbitOrder';
 import Search from './components/Search/Search';
-import { io } from "socket.io-client";
+import AdminDashboard from './components/Admin/AdminDashboard'
 
 function App() {
 
@@ -48,6 +48,7 @@ function App() {
                 <NavBar setSearchData={setSearchData} /> 
                 <Routes>
                     <Route path='/' element={< Home />}/>
+                 
                     <Route path='/about' element={< AboutPage />}/>
                     <Route path='/searchbar' element={< Search searchData={searchData} />}/>
                     <Route path='/signup' element={< Signup />}/>
@@ -65,6 +66,8 @@ function App() {
                     {/* <Route path='/product/:id' element={<ProductDetails/>}/> */}
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
                     <Route path='/approveorders' element={<SubmitOrder/>}/>
+                    <Route path='/admin' element={<AdminDashboard/>}/>
+                    <Route path='/hed' element={<Header/>}/>
                     {/* <Route path='/hed' element={<Header/>}/> */}
 
                     

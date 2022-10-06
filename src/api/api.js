@@ -352,6 +352,15 @@ export const deleteOneOrder = async(id,token) => {
                 }).catch(err => {
                 })
             };
+
+            // export const getOrderById = async (orderIds) => {
+
+            //     const products = await Promise.all(orderIds.map(async (itemId) => {
+            //         let result = await axios.get(`${url}/submitorder/${itemId}`, {});
+            //         return result.data;
+            //     }));
+            //     return products;
+            // }
 /*-----------------------------------------------Admin-------------------------------------------- */
 export const getAllOrdersToSumbit = async (token) => {
 
@@ -361,7 +370,7 @@ export const getAllOrdersToSumbit = async (token) => {
             Authorization: `Bearer ${token}`
         }
     });
-    console.log("hhhhhhhhhhhhh",result.data)
+    // console.log("hhhhhhhhhhhhh",result.data)
     return result.data;
 }
 
@@ -395,3 +404,32 @@ export const reciveOrder = async (token) => {
 }
 
 
+export const getAllUser= async (token) => {
+  
+
+    const result = await axios.get(`${url}/admin/users`, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    })
+
+    return result.data;
+};
+
+export const removeUserById = async(id, token) => {
+   
+    console.log(id,token)
+        return fetch(`${url}/admin/deleteuser/${id}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            
+            return response.json();
+        }).catch(err => {
+         
+        })
+    };

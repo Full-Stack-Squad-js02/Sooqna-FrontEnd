@@ -53,6 +53,8 @@ function Home({ searchData }) {
              </Row>
 
             </Container>
+
+            
         </>
     );
 }
