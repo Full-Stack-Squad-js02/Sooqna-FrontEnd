@@ -162,7 +162,7 @@ export default function UpdateProduct() {
 //           <Button variant="danger" type="submit" onClick={() => { navigate('/user') }}> Cancel</Button>
 //       </Form>
 //       </div>
-
+//------------------------------------------------------------------------------------------------------
 
 <div style={{ display: "flex", margin: "auto" }}>
 <Form style={{ width: "40rem", margin: "7rem", border: "outset", padding: "2rem" }}>

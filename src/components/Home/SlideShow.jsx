@@ -55,13 +55,17 @@ import "react-slideshow-image/dist/styles.css";
 import styles from "./Slider.module.css";
 
 export default function SlideShow() {
-  const slideImages = ['https://pixabay.com/get/g8410e7464e827bb4ae9295734832f8453832b3f4c7f66db4275dd3209f12bd38f96ac0e36b343282dd987b06ec1722dcc2fa6ebfbd431cf068e7a52f3e903f7fb4d38510feb52ca105683730ec0eba35_1920.jpg',
-   'https://source.unsplash.com/random?slideshow',
-    'https://pixabay.com/get/g5bb3caaca3de214645cfbdd9e8412b1f27c856dd8c4b7a60a9e74fea62b877f120be5c36961ac7efe757b7c172c722238635bc9cbd7c58df61224fb16eb562cadca332474e79bf54f6e1a049de9dae65_1920.jpg',
+  const slideImages = [
     'https://matjarii.com/pub/media/codazon/slideshow/cache/880x380/b/a/banner-06.jpg',
-    'https://matjarii.com/pub/media/codazon/slideshow/cache/880x380/b/a/banner-11.jpg',
-    'https://pixabay.com/get/gc89b4393181aded234a04bce2ed51aa5c0490f592d9405d72734806867fb90511c7eacd5184b16b56f1a8aa17c6e55b38264db0df53b1e9f9e44a99ae09eac7bad047c7625f24e23d47b63e814ccd6ed_1920.jpg',
-    'https://pixabay.com/get/g032f6417065b4736fa87b14d372ac75e77f77c5f043a5bc5dece3cdfb07067ce9e2b8cc76ee09d1f2c499bca2bbbfb12731a6c250f398bf6b79fba333ad74f124afedfb21f184835b11332abfecd7431_1920.jpg'
+    // 'https://matjarii.com/pub/media/codazon/slideshow/cache/880x380/b/a/banner-11.jpg',
+    // 'https://riverfresh.com.au/application/files/7714/6965/6036/HeaderSlideshow1-Welcome2x.jpg',
+    // 'https://riverfresh.com.au/application/files/5614/6965/6033/HeaderSlideshow2-ShopOnline12x.jpg',
+    // 'https://riverfresh.com.au/application/files/9914/6965/6035/HeaderSlideshow3-FreshLocal2x.jpg',
+    // 'https://www.livid-sports.at/images/slideshow/shop/slider-shop-2.jpg',
+    // 'https://gs1ca.org/gs1ca-components/images/graphics/intro-image-eComm.png',
+    'https://gs1ca.org/gs1ca-components/images/graphics/intro-image-eComm.png',
+    'https://thumbs.dreamstime.com/b/online-shopping-young-person-buying-product-application-smartphone-ecommerce-market-transportation-logistic-business-182456255.jpg',
+    'http://images.ctfassets.net/sxag7u4cz1re/15G5nc0t9fMg1tjZQMuhJD/a6b4f1e25a3acf4b496f2f8fe8b9336b/young-woman-working-on-laptop-from-home.jpg',
   ];
   
   return (
