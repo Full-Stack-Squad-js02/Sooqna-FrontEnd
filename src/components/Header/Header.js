@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import React, { useContext } from "react";
 // import {TestContext} from '../../context/context'
 
@@ -11,5 +10,3 @@
 // }
 
 // export default Basic;
-=======
->>>>>>> staging

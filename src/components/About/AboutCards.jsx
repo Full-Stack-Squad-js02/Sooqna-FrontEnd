@@ -6,6 +6,7 @@ import './AboutCards.css'
 function AboutCards() {
     const members = [{
         name: 'Esraa Banat',
+        nickName:'Full Stack Developer',
         breif: 'She have Biomedical Engineering Background , Self-motivator , Meticulous , Junior JS Developer Former CAD Designer @EONDental and she have good knowledg in those language ~Java Scribt , HTML , CSS~.',
         image: require('./AboutAssets/Esraa.png'),
         github: 'https://github.com/EsraaBanat',
@@ -13,6 +14,7 @@ function AboutCards() {
     },
     {
         name: 'Shams Alsaraireh',
+        nickName: 'Full Stack Developer', 
         breif: 'Likable and dedicated Full-stack web-developer using JavaScript, html, CSS, and NodeJS. Eager to offer superb coding and computer skills to help the organization I am working for to grow its client base and increase customer satisfaction in the IT industry.',
         image: require('./AboutAssets/shams.jpg'),
         github: 'https://github.com/shamssar',
@@ -20,6 +22,7 @@ function AboutCards() {
     },
     {
         name: 'Sohaib Al-Momani',
+        nickName: 'Full Stack Developer',
         breif: 'I studied Computer Science at The Hashemite University (HU) and am looking forward to developing my programming skills. and he have good knowledge in those language ~Java Scribe , HTML , CSS~.',
         image: require('./AboutAssets/suhaib.png'),
         github: 'https://github.com/SohaibAlmomani',
@@ -27,6 +30,7 @@ function AboutCards() {
     },
     {
         name: 'Ahmad Amaireh',
+        nickName: 'Full Stack Developer',
         breif: 'Senior Quality Assurance, and he have good knowledg in those language ~Java Scribt , HTML , CSS~.',
         image: require('./AboutAssets/Ahmad.png'),
         github: 'https://github.com/AhmadAmaireh?tab=repositories',
@@ -34,6 +38,7 @@ function AboutCards() {
     },
     {
         name: 'Bnan Zhran',
+        nickName: 'Full Stack & RPA Developer',
         breif: 'Graduated from Zarqa University ,he have 23 Years old ,he have Strong Knowledg in Problem solving and Robotics aoutomation and he have Some experiancein Android Development.',
         image: require('./AboutAssets/bnan.png'),
         github: 'https://github.com/ebnanzhran',
@@ -52,7 +57,7 @@ function AboutCards() {
                             <h3 id='name'>
                                 {member.name}
                             </h3>
-                            <h5 class="title">FullStack Developer</h5>
+                                <h5 class="title">{member.nickName}</h5>
                             <br/>
                             <p id='breif'>{member.breif}</p>
                             <br/>
