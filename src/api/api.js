@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-// let url = 'http://localhost:3000'
-let url = 'https://sooqna.herokuapp.com'
+let url = 'http://localhost:3000'
+// let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
 
@@ -352,6 +352,15 @@ export const deleteOneOrder = async(id,token) => {
                 }).catch(err => {
                 })
             };
+
+            // export const getOrderById = async (orderIds) => {
+
+            //     const products = await Promise.all(orderIds.map(async (itemId) => {
+            //         let result = await axios.get(`${url}/submitorder/${itemId}`, {});
+            //         return result.data;
+            //     }));
+            //     return products;
+            // }
 /*-----------------------------------------------Admin-------------------------------------------- */
 export const getAllOrdersToSumbit = async (token) => {
 
