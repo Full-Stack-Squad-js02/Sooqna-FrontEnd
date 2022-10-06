@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useContext } from 'react';
 import { MDBListGroup, MDBListGroupItem, MDBBadge, MDBBtn, MDBIcon } from 'mdb-react-ui-kit';
-import { getAllOrdersForUser, confirmOrder, deleteOneOrder, reciveOrder } from '../../api/api'
-import { isAuthenticated } from '../../auth';
+import { confirmOrder, deleteOneOrder, reciveOrder } from '../../api/api'
+import { Context } from '../../context/context';
 
 export default function OneOrder() {
 
-  const [orders, setOrders] = useState([]);
-
-  const { token } = isAuthenticated();
+  const states = useContext(Context);
+  const { token, orders } = states
 
   const status = (state) => {
     if (state === 'submitted') return 'info';
@@ -15,18 +14,6 @@ export default function OneOrder() {
     if (state === 'indelivery') return 'danger';
     if (state === 'recived') return 'success';
   }
-
-  const orderDetails = async () => {
-    let x = await getAllOrdersForUser(token);
-    // console.log('RRRRRRRR', x)
-    setOrders(x)
-  }
-  
-  // console.log('LLLLLLLLLLLLL', orders)
-  useEffect(() => {
-    orderDetails()
-  }, [orders])
-
 
   return (
     <MDBListGroup style={{ minWidth: '22rem', margin: '7rem 0', alignItems: 'center', paddingBottom: '28rem' }} light>
@@ -93,39 +80,10 @@ export default function OneOrder() {
             </button>:null
         }
         </div>
-             {/* {o.status === 'recived'?
-             <button type="button" class="btn btn-primary"style={{ backgroundColor: 'rgb(59, 89, 152)',
-              fontWeight: '600', borderRadius: '20px', opacity: "0.6",
-              cursor: "not-allowed"
-            }} href='#' onClick={() => { confirmOrder (token)}}>
-              Confirm
-            </button>
-          :
-          <button type="button" class="btn btn-primary" size='sm' className='m-1' style={{
-            backgroundColor: 'rgb(59, 89, 152)', color:'white',
-            fontWeight: '600', borderRadius: '20px', marginRight: '-11rem',
-            opacity: "0.6",
-            cursor: "not-allowed"
-        
-          }} href='#' onClick={() => { reciveOrder(token) }}>
-            Recived
-          </button>
-        } */}
 
         </MDBListGroupItem>
         )
       }):null}
-
-
-      {/* <MDBListGroupItem className='d-flex justify-content-between align-items-center w-50 mx-5 my-3'>
-        <div>
-          <div className='fw-bold'>Kate Hunington</div>
-          <div className='text-muted'>kate.hunington@gmail.com</div>
-        </div>
-        <MDBBadge pill light color='warning'>
-          Awaiting
-        </MDBBadge>
-      </MDBListGroupItem> */}
     </MDBListGroup>
   );
 }

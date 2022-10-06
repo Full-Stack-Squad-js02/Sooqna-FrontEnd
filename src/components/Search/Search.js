@@ -3,37 +3,15 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import HomeCard from "../Home/HomeCard";
 
-import { getAllProducts } from "../../api/api";
-
-
-
 function Search({ searchData }) {
-    
-    // const [products, setProducts] = useState("");
-    // const [error, setError] = useState("");
-  
-    // const loadItems = async () => {
-    //   await getAllProducts().then((data) => {
-    //     if (data.error) {
-    //       setError(data.error);
-    //     } else {
-    //       setProducts(data);
-    //     }
-    //   });
-    // };
-  
-    useEffect(() => {
-      console.log("iiiiiiii", searchData);
-      // loadItems();
-    }, []);
-  
-  
+
       return (
           <>
           
               <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
                   <Row>
-              {searchData.length ? searchData.map((product, idx) => {
+              {searchData ? searchData.map((product, idx) => {
+                console.log("ddd",searchData)
                           return (
                               <HomeCard product={product} key={idx} />
                           )
@@ -41,6 +19,7 @@ function Search({ searchData }) {
                 :
                 < h2 > No Matching Items</h2>
                 }
+                
                   {/* </Row>
                   <hr/>
                   <Row xs="4">

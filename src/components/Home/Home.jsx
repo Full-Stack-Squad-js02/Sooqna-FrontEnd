@@ -1,33 +1,16 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, {useContext } from "react";
 import HomeCard from "./HomeCard";
 import SlideShow from "./SlideShow";
 import {Container,Row} from "react-bootstrap";
 import "./Home.css";
-import { getAllProducts } from "../../api/api";
-import { TestContext } from '../../context/context'
+import { Context } from '../../context/context';
+// import { getAllProducts } from "../../api/api";
 
 function Home() {
 
-  const products = useContext(TestContext);
-
-  // const [products, setProducts] = useState("");
-  // const [error, setError] = useState("");
-
-  // const loadItems = async () => {
-  //   await getAllProducts().then((data) => {
-  //     if (data.error) {
-  //       setError(data.error);
-  //     } else {
-  //       setProducts(data);
-  //     }
-  //   });
-  // };
-
-    // console.log("iiiiiiii", products);
-  // useEffect(() => {
-  //   loadItems();
-  // }, []);
-
+  const states = useContext(Context);
+  // console.log(states)
+  const products = states.products;
 
     return (
         <>

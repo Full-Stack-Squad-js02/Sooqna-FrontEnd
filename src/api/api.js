@@ -351,7 +351,7 @@ export const deleteOneOrder = async(id,token) => {
                 })
             };
 /*-----------------------------------------------Admin-------------------------------------------- */
-export const getAllOrdersToSumbit = async (token) => {
+export const getAllOrdersToApprove = async (token) => {
 
     const result = await axios.get(`${url}/admin/confirmedorder`, {
         headers: {
@@ -359,6 +359,7 @@ export const getAllOrdersToSumbit = async (token) => {
             Authorization: `Bearer ${token}`
         }
     });
+    console.log("hhhhhhhhhhhhh",result.data)
     return result.data;
 }
 

@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from 'react';
+import React, { useState, useContext } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {
     Form,
@@ -16,62 +16,29 @@ import { AiFillRobot,AiFillHome } from "react-icons/ai";
 import { IoNotificationsSharp } from "react-icons/io5";
 import { isAuthenticated} from '../../auth';
 import {searchBy} from '../../api/api'
-import { getAllCart, getProductsById, getAllOrdersToSumbit, approveOrders } from "../../api/api";
 import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
+import { Context } from '../../context/context';
 
 function NavBar({ setSearchData }) {
 
-    const { user, token } = isAuthenticated();
+    const states = useContext(Context);
+    const { user, ordersToApprove } = states
+    const products = states.cartProducts;
+    const navigate = useNavigate();
     
     const [search, seSearch] = useState({input: '', filteredBy: 'name'});
     const [filter, setFilter] = useState('Filtered By')
-    
-    const [items, setItems] = useState([]);
-    const [products, setProducts] = useState([]);
-    const [orders, setOrders] = useState([]);
-
-    const navigate = useNavigate();
-
 
     const searchItems =async  () => {
         let items = await searchBy(search);
-        // console.log('pppppp',items)
         setSearchData(items)
     }
 
-    const cartItems = async () => {
-        let itemsInCart = await getAllCart(token);
-        setItems(itemsInCart);
-        if (itemsInCart.length !== 0) {
-            let Ids = itemsInCart.map((e,idx) => {
-                if (e.product_id) {
-                    return e.product_id;
-                }
-            });
-            let productsInCart = await getProductsById(Ids);
-            setProducts(productsInCart);
-        }
-    };
-
-    const orderDetails = async () => {
-        let x = await getAllOrdersToSumbit(token);
-        setOrders(x)
-    }
-
-    console.log('LLLLLLLLLLLLL', orders)
-
-    useEffect(() => {
-        orderDetails()
-    }, [orders])
-    
-    useEffect(() => {
-        cartItems();
-    }, [products]);
 
     return (
-        <Navbar expand="sm" style={{ height: '81px', backgroundColor:'#003566', position: 'fixed',
+        <Navbar expand="sm" style={{ height: '88px', backgroundColor:'#003566', position: 'fixed',
         zIndex: '1', width: '100%', top: '0'}}>
             <Container fluid>
                 <img
@@ -182,6 +149,8 @@ function NavBar({ setSearchData }) {
                             width: '7rem',
                             height: '2rem',
                             marginRight: '7rem',
+                            marginTop: '5px'
+
                         }}
                             onClick={() => {
                                 searchItems();
@@ -204,7 +173,7 @@ function NavBar({ setSearchData }) {
                                 <React.Fragment>
                             {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
                             {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
-                            <BsFillCartFill onClick={() => { navigate('/myCart')}} style={{
+                            <BsFillCartFill onClick={() => { navigate('/mycart')}} style={{
                                 height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
@@ -233,11 +202,11 @@ function NavBar({ setSearchData }) {
                                         width: '4rem',
                                         margin: '0 5px',
                                     }} /> 
-                                    {orders.length ?
+                                    {ordersToApprove.length ?
                                         <i style={{
                                         marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
                                         backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
-                                    }}>{orders.length}</i>:null}
+                                    }}>{ordersToApprove.length}</i>:null}
                                 </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>
