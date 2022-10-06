@@ -25,8 +25,6 @@ import SubmitOrder from './components/Admin/SumbitOrder';
 import Search from './components/Search/Search';
 import AdminDashboard from './components/Admin/AdminDashboard'
 
-// import { io } from "socket.io-client";
-
 function App() {
 
     const [searchData, setSearchData] = useState([]);
@@ -70,6 +68,7 @@ function App() {
                     <Route path='/approveorders' element={<SubmitOrder/>}/>
                     <Route path='/admin' element={<AdminDashboard/>}/>
                     <Route path='/hed' element={<Header/>}/>
+                    {/* <Route path='/hed' element={<Header/>}/> */}
 
                     
                 </Routes>
