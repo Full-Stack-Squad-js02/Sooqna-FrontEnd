@@ -60,7 +60,7 @@ function NavBar({ setSearchData }) {
         setOrders(x)
     }
 
-    console.log('LLLLLLLLLLLLL', orders)
+    // console.log('LLLLLLLLLL', orders)
 
     useEffect(() => {
         orderDetails()
@@ -210,12 +210,15 @@ function NavBar({ setSearchData }) {
                                 height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
-                                }}/>
+                                }}
+                                
+                                />
                                     {products.length ?
                                     <i style={{
                                     marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
                                     backgroundColor: 'red', width: '9%',height: '10%',borderRadius: '100%'
                                     }}>{products.length}</i>
+                                    
                                     : null}
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',

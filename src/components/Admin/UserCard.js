@@ -1,21 +1,27 @@
 import React from 'react'
-// import './head.css'
-export default function Header() {
+import { removeUserById } from '../../api/api'
+import './UserCard.css'
+import { isAuthenticated } from '../../auth';
+
+
+export default function UserCard({user}) {
+    const { token } = isAuthenticated();
+
   return (
     <>
       <div class="center">
 
-<div class="user">
+<div class="usercard"> 
   <div class="additional">
     <div class="user-card">
-      <div class="level center">
+      {/* <div class="level center">
         Level 13
       </div>
       <div class="points center">
         5,312 Points
-      </div>
+      </div> */}
       <svg width="110" height="110" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" class="center">
-        <title id="title">Teacher</title>
+        <title id="title">User</title>
         <desc id="desc">Cartoon of a Caucasian woman smiling, and wearing black glasses and a purple shirt with white collar drawn by Alvaro Montoro.</desc>
         <style>
           .skin  fill: '#eab38f' 
@@ -31,7 +37,7 @@ export default function Header() {
             <path d="M 106,132 C 113,127 125,128 125,132 125,128 137,127 144,132 141,142  134,146  125,146  116,146 109,142 106,132 Z" />
           </clipPath>
         </defs>
-        <circle cx="125" cy="125" r="120" fill="rgba(0,0,0,0.15)" />
+        {/* <circle cx="125" cy="125" r="120" fill="rgba(0,0,0,0.15)" /> */}
         <g stroke="none" stroke-width="0" clip-path="url(#scene)">
           <rect x="0" y="0" width="250" height="250" fill="#b0d2e5" />
           <g id="head">
@@ -69,19 +75,24 @@ export default function Header() {
             <path stroke="#daa37f" stroke-width="1" class="skin hand" id="hand-right" d="M 199,270 C 204,263 190,243 187,246 185,247 184,248 189,255 178,243 174,238 171,240 168,243 178,254 181,257 178,254 168,241 164,244 161,247 175,261 177,263 173,258 166,251 164,253 161,256 180,287 191,278"/> 
           </g>
         </g>
+        
+       
+
+
       </svg>
-    </div>
+      
+       </div>
     <div class="more-info">
-      <h1>Jane Doe</h1>
-      <div class="coords">
+      <h1>{user.username}</h1>
+      {/* <div class="coords">
         <span>Group Name</span>
         <span>Joined January 2019</span>
-      </div>
-      <div class="coords">
+      </div> */}
+      {/* <div class="coords">
         <span>Position/Role</span>
         <span>City, Country</span>
-      </div>
-      <div class="stats">
+      </div> */}
+      {/* <div class="stats">
         <div>
           <div class="title">Awards</div>
           <i class="fa fa-trophy"></i>
@@ -102,17 +113,25 @@ export default function Header() {
           <i class="fa fa-coffee"></i>
           <div class="value infinity">∞</div>
         </div>
-      </div>
+      </div> */}
     </div>
   </div>
   <div class="general">
-    <h1>Jane Doe</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce a volutpat mauris, at molestie lacus. Nam vestibulum sodales odio ut pulvinar.</p>
-    <span class="more">Mouse over the card for more info</span>
+    <h1>{user.username}</h1>
+    <ul>
+     <li><b>Email :</b> {user.email}</li> 
+     <li><b>Phone Number :</b> : {user.phonenumber}</li> 
+     <li><b>Address : </b>{user.adress}</li> 
+     <li><b>Role : </b>{user.role}</li> 
+     <li><b>Joined Time :</b> {user.createdAt}</li> 
+    <span class="more"></span>
+    </ul>
+ 
   </div>
-</div>
 
-<div class="card green">
+</div>
+  <button type="button" class="btn btn-primary" style={{ backgroundColor: "#003566" }} size="lg" variant="primary" onClick={() => {removeUserById(user.id,token)}}>Delete</button>
+{/* <div class="card green">
   <div class="additional">
     <div class="user-card">
       <div class="level center">
@@ -218,7 +237,7 @@ export default function Header() {
     <span class="more">Mouse over the card for more info</span>
   </div>
 </div>
-
+ */}
 
 
     </div>
