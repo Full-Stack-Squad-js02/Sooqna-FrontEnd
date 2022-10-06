@@ -1,25 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {  useContext } from 'react';
 import { MDBListGroup, MDBListGroupItem, MDBBadge , MDBBtn} from 'mdb-react-ui-kit';
-import { getAllOrdersToSumbit , approveOrders,deleteOneOrder } from '../../api/api'
-import { isAuthenticated } from '../../auth';
+import {  approveOrders,deleteOneOrder } from '../../api/api'
+import { Context } from '../../context/context';
 
 export default function SubmitOrder() {
 
-  const [orders, setOrders] = useState([]);
-
-  const { token } = isAuthenticated();
-
-  const orderDetails = async () => {
-    let x = await getAllOrdersToSumbit(token);
-    setOrders(x)
-  }
-  
-  // console.log('LLLLLLLLLLLLL', orders)
-  useEffect(() => {
-    orderDetails()
-  }, [orders])
-
-
+    const states = useContext(Context);
+    const { token,ordersToApprove } = states
+ 
   return (
     <MDBListGroup style={{ minWidth: '22rem', alignItems: 'center' ,marginTop: '7rem',
       paddingBottom: '28rem'
@@ -30,13 +18,13 @@ export default function SubmitOrder() {
         <h5 >Status</h5>
         <h5 style={{ marginRight: '9rem' }}>Actions</h5>
       </MDBListGroupItem>
-      {orders ? orders.map((o,idx) => {
+      {ordersToApprove ? ordersToApprove.map((o,idx) => {
         return(
           <MDBListGroupItem style={{ backgroundColor: '#f7f9f9', borderRadius: '15px' }} className='d-flex justify-content-between align-items-center w-50 mx-5 my-3' key={idx}>
             <div>
               <div className='fw-bold'>Order #{o.id}</div>
               <div className='text-muted'> {o.createdAt}</div>
-              <div className='text-muted'>To {o.adress}</div>
+              <div className='text-muted' style={{inlineSize: '193px'}}>To {o.adress}</div>
             </div>
             <MDBBadge pill light color='primary'>
               {o.status}

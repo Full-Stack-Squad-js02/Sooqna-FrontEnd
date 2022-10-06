@@ -17,8 +17,6 @@ export default function HomeCard({ product }) {
     const [isFav,setIsFav]=useState(false)
     const { user, token } = isAuthenticated();
     
-    // console.log(product);
-
     return (
         <>
         <Card id='Card' style={{background:'whitesmoke'}}>
