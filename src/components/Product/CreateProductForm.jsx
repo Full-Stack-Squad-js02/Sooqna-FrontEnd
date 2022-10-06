@@ -3,7 +3,10 @@ import { isAuthenticated } from "../../auth/index";
 import { createItem } from "../../api/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+// import Input from "react-bootstrap/Input";
+import { Input } from "postcss";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-bootstrap/Modal";
 
 export default function CreateItem() {
   const navigate = useNavigate();
@@ -131,6 +134,10 @@ export default function CreateItem() {
           </Button>
         </Form>
       </div>
+
+      //-------------------------------------------------------------------------------------------------
+
+      
     );
   };
 
