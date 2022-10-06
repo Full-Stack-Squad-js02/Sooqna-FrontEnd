@@ -24,6 +24,7 @@ import { useState } from 'react';
 import ApproveOrders from './components/Admin/ApproveOrders';
 import Search from './components/Search/Search';
 import ContextWrapper  from './context/context';
+import AdminDashboard from './components/Admin/AdminDashboard'
 
 function App() {
 
@@ -36,7 +37,6 @@ function App() {
                 <NavBar setSearchData={setSearchData} /> 
                 <Routes>
                     <Route path='/' element={< Home />}/>
-                    <Route path='/star' element={<Header />}/>
                     <Route path='/about' element={< AboutPage />}/>
                     <Route path='/searchbar' element={< Search searchData={searchData} />}/>
                     <Route path='/signup' element={< Signup />}/>
@@ -54,6 +54,11 @@ function App() {
                     {/* <Route path='/product/:id' element={<ProductDetails/>}/> */}
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
                     <Route path='/approveorders' element={<ApproveOrders />}/>
+                    <Route path='/admin' element={<AdminDashboard/>}/>
+                    <Route path='/hed' element={<Header/>}/>
+                    {/* <Route path='/hed' element={<Header/>}/> */}
+
+                    
                 </Routes>
                 <Contact />
                 </ContextWrapper>

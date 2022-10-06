@@ -36,6 +36,37 @@ function NavBar({ setSearchData }) {
         setSearchData(items)
     }
 
+<<<<<<< HEAD
+=======
+    const cartItems = async () => {
+        let itemsInCart = await getAllCart(token);
+        setItems(itemsInCart);
+        if (itemsInCart.length !== 0) {
+            let Ids = itemsInCart.map((e,idx) => {
+                if (e.product_id) {
+                    return e.product_id;
+                }
+            });
+            let productsInCart = await getProductsById(Ids);
+            setProducts(productsInCart);
+        }
+    };
+
+    const orderDetails = async () => {
+        let x = await getAllOrdersToSumbit(token);
+        setOrders(x)
+    }
+
+    // console.log('LLLLLLLLLL', orders)
+
+    useEffect(() => {
+        orderDetails()
+    }, [orders])
+    
+    useEffect(() => {
+        cartItems();
+    }, [products]);
+>>>>>>> staging
 
     return (
         <Navbar expand="sm" style={{ height: '88px', backgroundColor:'#003566', position: 'fixed',
@@ -177,12 +208,15 @@ function NavBar({ setSearchData }) {
                                 height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
-                                }}/>
+                                }}
+                                
+                                />
                                     {products.length ?
                                     <i style={{
                                     marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
                                     backgroundColor: 'red', width: '9%',height: '10%',borderRadius: '100%'
                                     }}>{products.length}</i>
+                                    
                                     : null}
                                 <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',

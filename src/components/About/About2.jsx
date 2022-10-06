@@ -8,6 +8,7 @@ import {
   MDBRow
 } from 'mdb-react-ui-kit';
 import { height, width } from '@mui/system';
+import AboutCards from './AboutCards';
 
 export default function App() {
   return (
@@ -51,7 +52,7 @@ export default function App() {
 </MDBRow>
 
 
-    <div class="team-boxed" >
+    {/* <div class="team-boxed" >
       
          <div className="col d-flex justify-content-center">
             <div class="intro">
@@ -84,7 +85,7 @@ export default function App() {
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 item">
-                    <div class="box" style={{width:"400px" , height:"600px"}}><img class="rounded-circle" src={require('./AboutAssets/shams.png')}></img>
+                    <div class="box" style={{width:"400px" , height:"600px"}}><img class="rounded-circle" src={require('./AboutAssets/shams.jpg')}></img>
                         <h3 class="name">Shams Alsaraireh</h3>
                         <p class="title">FullStack Developer</p>
                         <p class="description">Likable and dedicated Full-stack web-developer using JavaScript, html, CSS, and NodeJS. Eager to offer superb coding and computer skills to help the organization I am working for to grow its client base and increase customer satisfaction in the IT industry.</p>
@@ -129,7 +130,11 @@ export default function App() {
         
     
 
-</div>
+</div> */}
+
+<AboutCards/>
+
+
 
 <br/>
 <br/>
