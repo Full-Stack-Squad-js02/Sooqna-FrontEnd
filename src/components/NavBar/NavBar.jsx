@@ -89,7 +89,7 @@ function NavBar({ setSearchData }) {
                 
 
 
-                <Navbar.Brand href="/"><AiFillHome style={{
+                <Navbar.Brand href="/"><AiFillHome id='nav-icon' style={{
                                 height: '1.8rem',
                                 width: '2.5rem',
                                 margin: '0 -10px 8px',
@@ -177,7 +177,7 @@ function NavBar({ setSearchData }) {
                                 input: e.target.value
                             })
                         }}/>
-                        <BsSearch
+                        <BsSearch id='nav-icon'
                         style={{
                             width: '7rem',
                             height: '2rem',
@@ -206,7 +206,7 @@ function NavBar({ setSearchData }) {
                                 <React.Fragment>
                             {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
                             {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
-                            <BsFillCartFill onClick={() => { navigate('/myCart')}} style={{
+                            <BsFillCartFill id='nav-icon' onClick={() => { navigate('/myCart')}} style={{
                                 height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px',
@@ -217,11 +217,11 @@ function NavBar({ setSearchData }) {
                                     backgroundColor: 'red', width: '9%',height: '10%',borderRadius: '100%'
                                     }}>{products.length}</i>
                                     : null}
-                                <MdOutlineFavorite onClick={() => navigate('/Wishlist')} style={{
+                                <MdOutlineFavorite id='nav-icon' onClick={() => navigate('/Wishlist')} style={{
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px'}} />
-                                <FaUserAlt onClick={() => { navigate('/user') }} style={{
+                                <FaUserAlt id='nav-icon' onClick={() => { navigate('/user') }} style={{
                                     height: 'auto',
                                     width: '4rem',
                                     margin: '0 5px'

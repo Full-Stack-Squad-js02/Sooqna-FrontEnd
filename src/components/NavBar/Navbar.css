@@ -31,10 +31,10 @@ navbar {
     color: #ffc300;
 }
 
-svg{
+#nav-icon{
     color:white;
 }
-svg:hover{
+#nav-icon:hover{
     color:#ffc300;
     cursor: pointer;
 }

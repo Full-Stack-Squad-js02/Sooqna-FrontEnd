@@ -1,5 +1,5 @@
 import './App.css';
-// import Header from './components/Header/Header';
+import Header from './components/Header/Header';
 import Signup from './components/SignUp/Signup';
 import Signin from './components/SignIn/Signin';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
@@ -65,7 +65,7 @@ function App() {
                     {/* <Route path='/product/:id' element={<ProductDetails/>}/> */}
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
                     <Route path='/approveorders' element={<SubmitOrder/>}/>
-                    {/* <Route path='/hed' element={<Header/>}/> */}
+                    <Route path='/hed' element={<Header/>}/>
 
                     
                 </Routes>
