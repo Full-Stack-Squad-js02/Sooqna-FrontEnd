@@ -39,7 +39,7 @@ function NavBar({ setSearchData }) {
 
     return (
         <Navbar expand="sm" style={{ height: '88px', backgroundColor:'#003566', position: 'fixed',
-        zIndex: '1', width: '100%', top: '0'}}>
+        zIndex: '2', width: '100%', top: '0'}}>
             <Container fluid>
                 <img
                     src={Logo}

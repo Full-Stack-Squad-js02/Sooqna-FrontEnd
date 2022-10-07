@@ -2,6 +2,7 @@ import React from 'react'
 import { removeUserById } from '../../api/api'
 import './UserCard.css'
 import { isAuthenticated } from '../../auth';
+import { Row } from 'react-bootstrap';
 
 
 export default function UserCard({user}) {
@@ -9,8 +10,8 @@ export default function UserCard({user}) {
 
   return (
     <>
-      <div class="center">
-
+    
+      <div class="center" style={{ margin: '13px 7rem 13px 5rem', display:'grid', gridTemplateColumns:'26rem 26rem', gridGap:'10rem' }}>
 <div class="usercard"> 
   <div class="additional">
     <div class="user-card">
@@ -22,14 +23,12 @@ export default function UserCard({user}) {
       </div> */}
       <svg width="110" height="110" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" class="center">
         <title id="title">User</title>
-        <desc id="desc">Cartoon of a Caucasian woman smiling, and wearing black glasses and a purple shirt with white collar drawn by Alvaro Montoro.</desc>
-        <style>
-          .skin  fill: '#eab38f' 
-          .eyes  fill: '#1f1f1f' 
-          .hair  fill: '#2f1b0d' 
-          .line  fill: 'none' stroke: '#2f1b0d', stroke-width:'2px' 
-        </style>
+        <desc id="desc">Cartoon of a Caucasian woman smiling, and wearing black glasses and a purple shirt with white collar drawn by Alvaro Montoro.
+        </desc>
+
         <defs>
+       
+
           <clipPath id="scene">
             <circle cx="125" cy="125" r="115"/>
           </clipPath>
@@ -75,12 +74,8 @@ export default function UserCard({user}) {
             <path stroke="#daa37f" stroke-width="1" class="skin hand" id="hand-right" d="M 199,270 C 204,263 190,243 187,246 185,247 184,248 189,255 178,243 174,238 171,240 168,243 178,254 181,257 178,254 168,241 164,244 161,247 175,261 177,263 173,258 166,251 164,253 161,256 180,287 191,278"/> 
           </g>
         </g>
-        
-       
-
-
       </svg>
-      
+    
        </div>
     <div class="more-info">
       <h1>{user.username}</h1>
@@ -116,21 +111,23 @@ export default function UserCard({user}) {
       </div> */}
     </div>
   </div>
+
   <div class="general">
     <h1>{user.username}</h1>
     <ul>
      <li><b>Email :</b> {user.email}</li> 
-     <li><b>Phone Number :</b> : {user.phonenumber}</li> 
+     <li><b>Phone Number :</b> {user.phonenumber}</li> 
      <li><b>Address : </b>{user.adress}</li> 
      <li><b>Role : </b>{user.role}</li> 
      <li><b>Joined Time :</b> {user.createdAt}</li> 
     <span class="more"></span>
+    <button type="button" class="btn btn-primary" style={{ backgroundColor: "#003566" }} size="lg" variant="primary" onClick={() => {removeUserById(user.id,token)}}>Delete</button>
+
     </ul>
- 
+    
   </div>
 
 </div>
-  <button type="button" class="btn btn-primary" style={{ backgroundColor: "#003566" }} size="lg" variant="primary" onClick={() => {removeUserById(user.id,token)}}>Delete</button>
 {/* <div class="card green">
   <div class="additional">
     <div class="user-card">
