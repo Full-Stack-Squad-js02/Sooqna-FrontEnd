@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signIn, authenticate } from "../../auth/index";
-import { MDBBtn, MDBContainer, MDBCard, MDBCardBody, MDBInput } from "mdb-react-ui-kit";
+import { MDBContainer, MDBCard, MDBCardBody, MDBInput } from "mdb-react-ui-kit";
 import LoginLogo from "../../Assests/LOG_IN-LOGO3.png";
-import { useEffect } from "react";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
-// import Swal from 'sweetalert2';
 
 function SignIn() {
   const [data, setData] = useState({

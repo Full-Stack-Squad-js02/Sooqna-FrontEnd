@@ -20,7 +20,6 @@ import MyOrders from './components/Orders/MyOrders';
 // import OrderForm from './components/Orders/OrderForm';
 import ProductDetails from './components/Product/ProductDetails';
 import UpdateProduct from './components/Product/UpdateProduct'
-import { useState } from 'react';
 import ApproveOrders from './components/Admin/ApproveOrders';
 import Search from './components/Search/Search';
 import ContextWrapper  from './context/context';
@@ -28,17 +27,15 @@ import AdminDashboard from './components/Admin/AdminDashboard'
 
 function App() {
 
-    const [searchData, setSearchData] = useState([]);
-
     return (
         <div className="App">
             <BrowserRouter>
                 <ContextWrapper>
-                <NavBar setSearchData={setSearchData} /> 
+                <NavBar/> 
                 <Routes>
                     <Route path='/' element={< Home />}/>
                     <Route path='/about' element={< AboutPage />}/>
-                    <Route path='/searchbar' element={< Search searchData={searchData} />}/>
+                    <Route path='/searchbar' element={< Search/>}/>
                     <Route path='/signup' element={< Signup />}/>
                     <Route path='/signin' element={<Signin/>}/>
                     <Route path='/product' element={<PrivateRoute><Product/></PrivateRoute>}/>

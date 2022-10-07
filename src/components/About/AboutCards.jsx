@@ -62,8 +62,8 @@ function AboutCards() {
                             <p id='breif'>{member.breif}</p>
                             <br/>
                             <ul class="social-icons">
-                                <a href={member.linkekIn} ><i class="fa fa-linkedin"></i></a>
-                                <a href={member.github}><i class="fa fa-github"></i></a>
+                                    <a href={member.linkekIn} ><i class="fa fa-linkedin" id='linkedin'></i></a>
+                                    <a href={member.github}><i class="fa fa-github" id='github'></i></a>
                             </ul>
                         </figcaption>
                     </figure>

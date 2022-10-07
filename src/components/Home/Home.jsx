@@ -4,13 +4,13 @@ import SlideShow from "./SlideShow";
 import {Container,Row} from "react-bootstrap";
 import "./Home.css";
 import { Context } from '../../context/context';
-// import { getAllProducts } from "../../api/api";
+
 
 function Home() {
 
   const states = useContext(Context);
-  // console.log(states)
-  const products = states.products;
+    const { products} = states;
+    // console.log('LOLOLOL', orders)
 
     return (
         <>
