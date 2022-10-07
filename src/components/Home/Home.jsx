@@ -1,36 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, {useContext } from "react";
 import HomeCard from "./HomeCard";
 import SlideShow from "./SlideShow";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import {Container,Row} from "react-bootstrap";
 import "./Home.css";
-import { getAllProducts } from "../../api/api";
+import { Context } from '../../context/context';
+// import { getAllProducts } from "../../api/api";
 
-function Home({ searchData }) {
-    
-  const [products, setProducts] = useState("");
-  const [error, setError] = useState("");
+function Home() {
 
-  const loadItems = async () => {
-    await getAllProducts().then((data) => {
-      if (data.error) {
-        setError(data.error);
-      } else {
-        setProducts(data);
-      }
-    });
-  };
-
-  useEffect(() => {
-    // console.log("iiiiiiii", products);
-    loadItems();
-  }, []);
-
+  const states = useContext(Context);
+  // console.log(states)
+  const products = states.products;
 
     return (
         <>
-            <SlideShow />
+        <SlideShow />
+        <div>
+        <h1>Last Posted</h1>
+        </div>
             <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
                 {/* <Row>
             {searchData.length ? searchData.map((product, idx) => {
@@ -53,6 +40,8 @@ function Home({ searchData }) {
              </Row>
 
             </Container>
+
+            
         </>
     );
 }
