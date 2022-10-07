@@ -71,7 +71,7 @@ function App() {
                 </Routes>
                 <Contact/>
             </BrowserRouter>
-            {/* <Header/> */}
+            <Header/>
         </div>
     );
 }
