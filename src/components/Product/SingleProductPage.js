@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Rating from '@mui/material/Rating';
 import {BsCartPlusFill} from "react-icons/bs";
 import {Button} from 'react-bootstrap'
 import {getOneProducts} from '../../api/api';
-import { useParams } from 'react-router-dom';
+import {Context} from '../../context/context';
 
+export default function SingleProductPage() {
 
+    const states = useContext(Context);
+    const { itemDetails } = states;
 
-export default function ProductCard() {
-
-    // console.log();
-
-    // const{itemId}=useParams();
+    console.log('ooooo')
+    console.log('ooooo',itemDetails)
 
     const [product , setProduct]=useState('');
     
@@ -19,7 +19,6 @@ export default function ProductCard() {
         let details= await getOneProducts(12);
         // console.log(details);
         setProduct(details);
-    
     }
     useEffect(()=> {
         showDetails();

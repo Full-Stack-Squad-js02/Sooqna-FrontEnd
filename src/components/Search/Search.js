@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import HomeCard from "../Home/HomeCard";
+import { Context } from '../../context/context';
 
-function Search({ searchData }) {
+function Search() {
+
+    const states = useContext(Context);
+    const {searchData } = states
 
       return (
           <>

@@ -42,7 +42,7 @@ export default function Contact() {
 
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4' style={{ textAlign: 'initial'}}>
 
-              {/* <section>
+              <section>
                 <div className='me-5 d-none d-lg-block'>
                   <span>Social Media :</span>
                 </div>
@@ -76,8 +76,8 @@ export default function Contact() {
                 >
                   <MDBIcon fab icon='instagram' />
                 </MDBBtn>
-              </section> */}
-                <div class="social-buttons">
+              </section>
+                {/* <div class="social-buttons">
                   <a href="#" class="social-buttons__button social-button social-button--facebook" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
                   </a>
@@ -93,7 +93,7 @@ export default function Contact() {
                   <a href="#" class="social-buttons__button social-button social-button--codepen" aria-label="CodePen">
                     <i class="fab fa-codepen"></i>
                   </a>
-                </div>
+                </div> */}
         </MDBCol>
 
           </MDBRow>
