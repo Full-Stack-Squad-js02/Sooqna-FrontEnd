@@ -1,56 +1,57 @@
-// import React from "react";
-// import Container from "react-bootstrap/Container";
-// import { isAuthenticated } from "../../auth";
-// import Rating from '@mui/material/Rating';
-// import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
-// import {BsCartPlus} from "react-icons/bs";
-
+// /* eslint-disable react/jsx-no-undef */
+// import React from 'react';
+// // import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
+// import { FaHome } from 'react-icons/fa';
+// import { MdEmail } from 'react-icons/md';
+// import { BsTelephoneFill } from 'react-icons/bs';
 
 // import './hed.css'
 
-
-// function AboutCards(item) {
-//     // const { token } = isAuthenticated();
-    
+// export default function Contact() {
 //     return (
-//         <>
-//             <ul>
-//                 <li class="booking-card" style={{backgroundImage: 'url(https://pixabay.com/get/g1b14458d5dae9e305def341a3a325b0ed47962af646f7fdf3268dd09fecadff95b5176068eb0196b904b3facdd43e16e15c3665ba61d6fcd521d6712db85ef24ac10169f88825493d95e9c7668f5cfc2_1920.jpg)', marginTop: '8rem'}}>
-//                     <div class="book-container">
-//                         <div class="content">
-//                             <button class="btn">View Details</button>
-//                         </div>
-//                     </div>
-//                     <div class="informations-container">
-//                         <h2 class="title">Audi a3 2009</h2>
-//                         <p class="sub-title"><Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly/></p>
-//                         <p class="price"><svg class="icon" style={{width:'24px',height:'24px'}} viewBox="0 0 24 24">
-//                             <path fill="currentColor" d="M3,6H21V18H3V6M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M7,8A2,2 0 0,1 5,10V14A2,2 0 0,1 7,16H17A2,2 0 0,1 19,14V10A2,2 0 0,1 17,8H7Z" />
-//                         </svg>12000 $</p>
-//                         <div class="more-information">
-//                             <div class="info-and-date-container">
-//                                 < MdOutlineFavorite className="icons" />
-//                                 <BsCartPlus className="icons" />
+//         <footer class="mainfooter" role="contentinfo">
+//             <div class="footer-middle">
+//                 <div class="container">
+//                     <div class="row">
+//                         <div class="col-md-3 col-sm-6" >
+//                             {/* <!--Column1--> */}
+//                             <div class="footer-pad">
+//                                 <h4>VISION OF SOOQNA</h4>
+//                                 <p style={{marginTop: '12px', padding: '0 3rem'}}>This site was created to facilitate the buying and selling process for people.</p>
 //                             </div>
-//                             <p class="disclaimer">Refreshed interior and exterior design All-wheel drive became available with base engine Leather seats, satellite radio and auxiliary input became standard</p>
+//                         </div>
+//                         <div class="col-md-3 col-sm-6" style={{marginLeft: '11rem'}}>
+//                             {/* <!--Column2--> */}
+//                             <div class="footer-pad">
+//                                 <h4>CONTACT US</h4>
+//                                 <ul class="list-unstyled" style={{alignItems: 'flex-start',marginLeft: '5.5rem'}}>
+//                                     <li><FaHome id='nav-icon' style={{marginTop: '-5px'}}/> Jordan - Amman </li>
+//                                     <li><MdEmail id='nav-icon'/> sooqna@gmail.com </li>
+//                                     <li><BsTelephoneFill id='nav-icon'/>  +96270000000 </li>
+//                                 </ul>
+//                             </div>
+//                         </div>
+//                         <div class="col-md-3" style={{marginLeft: '7rem'}}>
+//                             <h4>Follow Us</h4>
+//                             <ul class="social-network social-circle" >
+//                                 <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+//                                 <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+//                             </ul>
 //                         </div>
 //                     </div>
-//                 </li>
-//             </ul>
-//         </>
+//                     <div class="row">
+//                         <div class="col-md-12 copy">
+//                             <p class="text-center">&copy; Copyright 2022 - SOOQNA Company.  All rights reserved.</p>
+//                         </div>
+//                     </div>
+
+
+//                 </div>
+//             </div>
+//         </footer>
 //     );
 // }
 
-// export default AboutCards;
-// import React, { useContext } from "react";
-// import {TestContext} from '../../context/context'
 
-// function Basic(props) {
-//     const test = useContext(TestContext)
-//     console.log('test',test);
-//   return (
-//     <h1>Test</h1>
-//   )
-// }
 
-// export default Basic;
+

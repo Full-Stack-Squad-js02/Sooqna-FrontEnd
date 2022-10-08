@@ -20,7 +20,7 @@ function MyProducts() {
                 <Row xs="4">
                     {myItems
                         ? myItems.map((item, idx) => {
-                            return (<MyProductCard item={item} key={idx}/>)
+                            return (<MyProductCard product={item} key={idx}/>)
                         })
                         : null}
                 </Row>

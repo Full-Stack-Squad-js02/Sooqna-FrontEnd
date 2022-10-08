@@ -37,8 +37,8 @@ export default function UserInfo() {
     // console.log(user);
 
     return (
-        <section style={{ backgroundColor: '#eee' }}>
-            <MDBContainer className="py-5 " >
+        <section style={{ backgroundColor: '#eee',  marginTop: '5rem'}}>
+            <MDBContainer className="py-5" >
                 <MDBRow>
                     <MDBCol>
                         <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
@@ -151,7 +151,7 @@ export default function UserInfo() {
                 {/* <MDBRow> */}
                 <MDBCol md="6">
                     <MDBCard className="mb-4 mb-md-0" style={{
-                        width: '69.5rem',
+                        width: '80.5rem',
                         margin: '0 -1rem'
                     }}>
                         <MDBCardBody style={{
