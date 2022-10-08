@@ -55,9 +55,9 @@ export default function Setting() {
     return (
         <section style={{
             backgroundColor: '#eee',
-            margin:'-1rem 0'
+            margin:'4rem 0'
         }}>
-            <MDBContainer className="py-5">
+            <MDBContainer className="py-5" style={{width: '60%',marginLeft: '17.5rem'}}>
                 <MDBRow>
                     <MDBCol>
                         <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
