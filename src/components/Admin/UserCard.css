@@ -22,8 +22,14 @@
   overflow: hidden;
   position: relative;
   margin: 1.5rem;
-}
+  text-align: left;
+ 
+  
 
+}
+/* .row .usercard{
+  --bs-gutter-x: 13.5rem;
+} */
 .usercard h1 {
   text-align: center;
 }
@@ -176,4 +182,7 @@
   font-size: 0.9em;
 }
 
-
+.skin { fill: #eab38f; }
+.eyes { fill: #1f1f1f; }
+.hair { fill: #2f1b0d; }
+.line { fill: none; stroke: #2f1b0d; stroke-width:2px; }
