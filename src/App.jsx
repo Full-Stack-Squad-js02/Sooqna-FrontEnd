@@ -63,7 +63,7 @@ function App() {
                 <Contact />
                 </ContextWrapper>
             </BrowserRouter>
-            <Header/>
+            {/* <Header/> */}
         </div>
     );
 }
