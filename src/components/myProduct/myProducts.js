@@ -1,27 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext} from 'react';
 import MyProductCard from './myProductCard';
-import {Container, Row, Col} from 'react-bootstrap';
-import {getAllProductPostedByUser} from '../../api/api'
-import {isAuthenticated} from '../../auth'
+import {Container, Row} from 'react-bootstrap';
+import { Context } from '../../context/context';
 // import './product.css'
 
 function MyProducts() {
 
-    const {token, user} = isAuthenticated();
-
-    const [items,
-        setItems] = useState([])
-
-    const allPostedProducts = async() => {
-        let postedProducts = await getAllProductPostedByUser(user.id, token);
-        setItems(postedProducts);
-    }
-
-    // console.log('UUUUU', items);
-
-    useEffect(() => {
-        allPostedProducts();
-    }, [])
+    const states = useContext(Context);
+    const myItems = states.myItems;
 
     return (
         <>
@@ -32,8 +18,8 @@ function MyProducts() {
                 margin: '2rem'
             }}>
                 <Row xs="4">
-                    {items
-                        ? items.map((item, idx) => {
+                    {myItems
+                        ? myItems.map((item, idx) => {
                             return (<MyProductCard item={item} key={idx}/>)
                         })
                         : null}

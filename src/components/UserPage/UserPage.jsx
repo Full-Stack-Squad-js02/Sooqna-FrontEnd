@@ -39,25 +39,6 @@ export default function UserPage() {
                         >Shop Now</Button></Col>
                 </Row>
             </Container>
-            {/* <img src={MyProductLogo} onClick={() => { navigate('/myproducts'); }} /> */}
-            {/* <img src={MyOrderLogo} onClick={() => { navigate('/myorders'); }} />
-            <br/>
-            <Button variant="danger" style={{
-            borderRadius: '25px',
-            fontWeight: '800',
-            height: '3.5rem',
-            width: '10rem',
-            boxShadow: '7px 4px black',
-            marginBottom:'3rem'
-            }}>Sell Now </Button>
-            <Button variant="danger" style={{
-            borderRadius: '25px',
-            fontWeight: '800',
-            height: '3.5rem',
-            width: '10rem',
-            boxShadow: '7px 4px black',
-            marginBottom:'3rem'
-            }}>Shop Now</Button> */}
         </>
     )
 }

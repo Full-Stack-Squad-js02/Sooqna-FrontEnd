@@ -3,31 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import HomeCard from "../Home/HomeCard";
 
-import { getAllProducts } from "../../api/api";
-
-
-
 function Search({ searchData }) {
-    
-    // const [products, setProducts] = useState("");
-    // const [error, setError] = useState("");
-  
-    // const loadItems = async () => {
-    //   await getAllProducts().then((data) => {
-    //     if (data.error) {
-    //       setError(data.error);
-    //     } else {
-    //       setProducts(data);
-    //     }
-    //   });
-    // };
-  
-    // useEffect(() => {
-    //   console.log("iiiiiiii", searchData);
-    //   // loadItems();
-    // }, []);
-  
-    console.log("ggggg",searchData)
 
       return (
           <>
