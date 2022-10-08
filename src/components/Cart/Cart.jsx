@@ -23,21 +23,21 @@ import { Context } from '../../context/context';
 export default function Cart() {
 
     const states = useContext(Context);
-    const { user, token, items } = states
+    const { token, items, order, setOrder, handleSubmitedOrder, orderToSubmit } = states
     const products = states.cartProducts;
     const navigate = useNavigate();
     
     const [show,
         setShow] = useState(true)
 
-    const [order, setOrder] = useState({
-        payment_method: "cash on delivery",
-        adress: user.adress
-    })
+    // const [order, setOrder] = useState({
+    //     payment_method: "cash on delivery",
+    //     adress: user.adress
+    // })
 
-    const { payment_method, adress } = order;
+    // const { payment_method, adress } = order;
 
-    // console.log(order);
+    console.log('ORDER', orderToSubmit);
     // console.log({ payment_method, adress });
     
     const handleChange = (prop) => (event) => {
@@ -58,7 +58,8 @@ export default function Cart() {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 // console.log('MMMMMMMMMMMMMM',submitOrder(order, token))
-                submitOrder(order, token)
+                // submitOrder(order, token)
+                handleSubmitedOrder()
                 Swal.fire('Perfect', '', 'success')
             } else if (result.isDenied) {
                 Swal.fire('Order calnceled', '', 'info')

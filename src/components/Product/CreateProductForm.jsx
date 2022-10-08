@@ -17,7 +17,6 @@ export default function CreateItem() {
     quantity: "",
     color: "",
     categories: ["ELECTRONICS", "GAMES", "FASHION", "CARS", "Toys", "Home", "Books", "PETS", "FOOD", "OTHER"],
-
     title: "",
     image: "",
     description: "",
@@ -48,7 +47,7 @@ export default function CreateItem() {
       error: "",
       loading: true,
     });
-    createItem(user.id, token, item).then((data) => {
+    createItem(token, item).then((data) => {
       if (data.error) {
         setItem({
           ...item,

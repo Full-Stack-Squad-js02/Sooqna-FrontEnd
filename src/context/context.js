@@ -9,15 +9,25 @@ import {
     getAllProductPostedByUser,
     getAllOrdersToApprove,
     getAllOrdersForUser,
-    getAllWishlist
+    getAllWishlist,
+    searchBy,
+    submitOrder,
+    getOneProducts
 } from "../api/api";
 import {
     isAuthenticated
 } from '../auth';
+import {
+    v4 as uuid
+} from 'uuid';
 
 export const Context = React.createContext();
 
 export default function ContextWrapper(props) {
+
+
+    const unique_id = uuid();
+    const small_id = unique_id.slice(0, 8)
 
     const {
         user,
@@ -33,6 +43,30 @@ export default function ContextWrapper(props) {
     const [orders, setOrders] = useState([]);
     const [itemsInWishlist, setItemsInWishlist, ] = useState([]);
     const [productsInWishlist, setProductsInWishlist] = useState([]);
+    const [filter, setFilter] = useState('Filtered By')
+    const [search, setSearch] = useState({
+        input: '',
+        filteredBy: 'name'
+    });
+    const [searchData, setSearchData] = useState([]);
+    const [order, setOrder] = useState({
+        payment_method: "cash on delivery",
+        adress: isAuthenticated()? user.adress : ''
+    })
+    const [orderToSubmit, setOrderToSubmit] = useState([]);
+    const [orderCollection, setOrderCollection] = useState({
+        id: '',
+        date: '',
+        status: '',
+        isRecived: false,
+        paymentMethod: '',
+        adress: '',
+        userId: 9,
+        totalPrice: '',
+        numOfItems: '',
+        items: []
+    });
+    const [itemDetails, setItemDetails] = useState({});
 
 
     const confirmedOrders = async () => {
@@ -81,10 +115,42 @@ export default function ContextWrapper(props) {
             setProductsInWishlist(productsInWishlist);
         }
     };
+    const handleSubmitedOrder = async () => {
+        let itemsToOrder = await submitOrder(order, token);
+        setOrderToSubmit(itemsToOrder)
+    };
+    const getItemDetails = async (itemId) => {
+        let details = await getOneProducts(itemId);
+        setItemDetails(details)
+    };
 
     const orderDetails = async () => {
         let x = await getAllOrdersForUser(token);
         setOrders(x)
+        if (orderToSubmit.length > 0) {
+            let Ids = orderToSubmit.map((e) => {
+                return e.product_id;
+            });
+            let orderItems=await getProductsById(Ids)
+            setOrderCollection({
+                ...orderCollection,
+                id: '111111',
+                date: orderToSubmit[0].date,
+                status:orderToSubmit[0].status,
+                isRecived: orderToSubmit[0].isRecived,
+                paymentMethod: orderToSubmit[0].payment_method,
+                adress: orderToSubmit[0].adress,
+                userId: orderToSubmit[0].user_id,
+                totalPrice: orderToSubmit[0].total_price,
+                numOfItems: orderToSubmit.length,
+                items: [orderItems]
+            })
+        }
+    }
+
+    const searchItems = async () => {
+        let items = await searchBy(search);
+        setSearchData(items)
     }
 
     useEffect(() => {
@@ -96,7 +162,6 @@ export default function ContextWrapper(props) {
     }, [cartProducts]);
 
     useEffect(() => {
-        ;
         loadItems();
     }, []);
 
@@ -124,7 +189,20 @@ export default function ContextWrapper(props) {
         ordersToApprove,
         orders,
         productsInWishlist,
-        itemsInWishlist
+        itemsInWishlist,
+        filter,
+        setFilter,
+        search,
+        setSearch,
+        searchData,
+        searchItems,
+        orderCollection,
+        order,
+        setOrder,
+        handleSubmitedOrder,
+        orderToSubmit,
+        itemDetails,
+        getItemDetails
     }
     return (
         <Context.Provider value={allStates}>
