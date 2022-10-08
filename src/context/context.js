@@ -11,7 +11,8 @@ import {
     getAllOrdersForUser,
     getAllWishlist,
     searchBy,
-    submitOrder
+    submitOrder,
+    getOneProducts
 } from "../api/api";
 import {
     isAuthenticated
@@ -50,7 +51,7 @@ export default function ContextWrapper(props) {
     const [searchData, setSearchData] = useState([]);
     const [order, setOrder] = useState({
         payment_method: "cash on delivery",
-        adress: user.adress
+        adress: isAuthenticated()? user.adress : ''
     })
     const [orderToSubmit, setOrderToSubmit] = useState([]);
     const [orderCollection, setOrderCollection] = useState({
@@ -65,6 +66,7 @@ export default function ContextWrapper(props) {
         numOfItems: '',
         items: []
     });
+    const [itemDetails, setItemDetails] = useState({});
 
 
     const confirmedOrders = async () => {
@@ -117,6 +119,10 @@ export default function ContextWrapper(props) {
         let itemsToOrder = await submitOrder(order, token);
         setOrderToSubmit(itemsToOrder)
     };
+    const getItemDetails = async (itemId) => {
+        let details = await getOneProducts(itemId);
+        setItemDetails(details)
+    };
 
     const orderDetails = async () => {
         let x = await getAllOrdersForUser(token);
@@ -128,7 +134,7 @@ export default function ContextWrapper(props) {
             let orderItems=await getProductsById(Ids)
             setOrderCollection({
                 ...orderCollection,
-                id: '1111',
+                id: '111111',
                 date: orderToSubmit[0].date,
                 status:orderToSubmit[0].status,
                 isRecived: orderToSubmit[0].isRecived,
@@ -194,7 +200,9 @@ export default function ContextWrapper(props) {
         order,
         setOrder,
         handleSubmitedOrder,
-        orderToSubmit
+        orderToSubmit,
+        itemDetails,
+        getItemDetails
     }
     return (
         <Context.Provider value={allStates}>

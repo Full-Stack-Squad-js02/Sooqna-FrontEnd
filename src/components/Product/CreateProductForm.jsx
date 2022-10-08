@@ -17,7 +17,6 @@ export default function CreateItem() {
     quantity: "",
     color: "",
     categories: ["ELECTRONICS", "GAMES", "FASHION", "CARS", "Toys", "Home", "Books", "PETS", "FOOD", "OTHER"],
-
     title: "",
     image: "",
     description: "",

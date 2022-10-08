@@ -47,12 +47,11 @@ function NavBar() {
                 {/* Tabs */}
 
 
-
-                <Navbar.Brand href="/"><AiFillHome id='nav-icons' style={{
-                    height: '1.8rem',
-                    width: '2.5rem',
-                    margin: '0 -10px 8px',
-                }} /> Home</Navbar.Brand>
+                <Navbar.Brand href="/"><AiFillHome id='nav-icon' style={{
+                                height: '1.8rem',
+                                width: '2.5rem',
+                                margin: '0 -10px 8px',
+                                }}/> Home</Navbar.Brand>
                 <Navbar.Brand href="/about">
                     <AiFillRobot style={{
                         height: '1.5rem',
@@ -131,17 +130,17 @@ function NavBar() {
                             className="me-2"
                             aria-label="Search"
                             onChange={(e) => {
-                                setSearch({
-                                    ...search,
-                                    input: e.target.value
-                                })
-                            }} />
-                        <BsSearch id='nav-icons'
-                            style={{
-                                width: '7rem',
-                                height: '2rem',
-                                marginRight: '7rem',
-                                marginTop: '5px'
+                            setSearch({
+                                ...search,
+                                input: e.target.value
+                            })
+                        }}/>
+                        <BsSearch id='nav-icon'
+                        style={{
+                            width: '7rem',
+                            height: '2rem',
+                            marginRight: '7rem',
+                            marginTop: '5px'
 
                             }}
                             onClick={() => {
@@ -163,37 +162,36 @@ function NavBar() {
                             :
                             user.role !== 'admin' ?
                                 <React.Fragment>
-                                    {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
-                                    {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
-                                    <BsFillCartFill id='nav-icons' onClick={() => { navigate('/mycart') }} style={{
-                                        height: 'auto',
-                                        width: '4rem',
-                                        margin: '0 5px',
-                                    }}
-
-                                    />
+                            {/* <Button variant="outline-success" style={{ whiteSpace: 'nowrap' }} onClick={handleLogOut}>Log Out</Button> */}
+                            {/* <Button variant="outline-success" onClick={() => navigate('/product')}>AddProduct</Button> */}
+                            <BsFillCartFill id='nav-icon' onClick={() => { navigate('/mycart')}} style={{
+                                height: 'auto',
+                                    width: '4rem',
+                                    margin: '0 5px',
+                                }}
+                                
+                                />
                                     {products.length ?
-                                        <i style={{
-                                            marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
-                                            backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
-                                        }}>{products.length}</i>
-
-                                        : null}
-                                    <MdOutlineFavorite id='nav-icons' onClick={() => navigate('/Wishlist')} style={{
-                                        height: 'auto',
-                                        width: '4rem',
-                                        margin: '0 5px'
-                                    }} />
-                                    <FaUserAlt id='nav-icons'  onClick={() => { navigate('/user') }} style={{
-                                        height: 'auto',
-                                        width: '4rem',
-                                        margin: '0 5px'
-                                    }} />
-                                    <UserDropdownList />
+                                    <i style={{
+                                    marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
+                                    backgroundColor: 'red', width: '9%',height: '10%',borderRadius: '100%'
+                                    }}>{products.length}</i>
+                                    
+                                    : null}
+                                <MdOutlineFavorite id='nav-icon' onClick={() => navigate('/Wishlist')} style={{
+                                    height: 'auto',
+                                    width: '4rem',
+                                    margin: '0 5px'}} />
+                                <FaUserAlt id='nav-icon' onClick={() => { navigate('/user') }} style={{
+                                    height: 'auto',
+                                    width: '4rem',
+                                    margin: '0 5px'
+                                }} />
+                                <UserDropdownList />
                                 </React.Fragment> :
                                 <React.Fragment >
                                     <UserDropdownList style={{ margin: '0 0rem 0 15rem' }} />
-                                    <IoNotificationsSharp onClick={() => { navigate('/approveorders') }} style={{
+                                    <IoNotificationsSharp id='nav-icon'  onClick={() => { navigate('/approveorders') }} style={{
                                         height: 'auto',
                                         width: '4rem',
                                         margin: '0 5px',

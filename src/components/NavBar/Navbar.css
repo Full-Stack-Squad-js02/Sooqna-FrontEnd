@@ -31,10 +31,10 @@ navbar {
     color: #ffc300;
 }
 
-#nav-icons{
+#nav-icon{
     color:white;
 }
-#nav-icons:hover{
+#nav-icon:hover{
     color:#ffc300;
     cursor: pointer;
 }
