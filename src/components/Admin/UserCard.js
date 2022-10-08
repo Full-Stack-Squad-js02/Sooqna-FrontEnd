@@ -6,12 +6,12 @@ import { Row } from 'react-bootstrap';
 
 
 export default function UserCard({user}) {
-    const { token } = isAuthenticated();
+    const { token} = isAuthenticated();
 
   return (
     <>
-    
-      <div class="center" style={{ margin: '13px 7rem 13px 5rem', display:'grid', gridTemplateColumns:'26rem 26rem', gridGap:'10rem' }}>
+    {user.role==='user' ?
+     <div class="center" style={{ margin: '13px 7rem 13px 5rem', display:'grid', gridTemplateColumns:'26rem 26rem', gridGap:'10rem' }}>
 <div class="usercard"> 
   <div class="additional">
     <div class="user-card">
@@ -118,9 +118,10 @@ export default function UserCard({user}) {
      <li><b>Email :</b> {user.email}</li> 
      <li><b>Phone Number :</b> {user.phonenumber}</li> 
      <li><b>Address : </b>{user.adress}</li> 
-     <li><b>Role : </b>{user.role}</li> 
      <li><b>Joined Time :</b> {user.createdAt}</li> 
-    <span class="more"></span>
+   {/* <li><b>Role :</b>{user.role}</li>   */}
+   <span class="more"></span>
+   <br/> 
     <button type="button" class="btn btn-primary" style={{ backgroundColor: "#003566" }} size="lg" variant="primary" onClick={() => {removeUserById(user.id,token)}}>Delete</button>
 
     </ul>
@@ -238,6 +239,8 @@ export default function UserCard({user}) {
 
 
     </div>
+    :null}
+     
     </>
   )
   }
