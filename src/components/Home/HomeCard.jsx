@@ -55,7 +55,10 @@ export default function HomeCard({ product }) {
                 <li class="booking-card" style={{backgroundImage: `url(${product.image})`}}>
                     <div class="book-container">
                         <div class="content">
-                            <button class="btn" onClick={() => {getItemDetails(product.id)}}>View Details</button>
+                            <button class="btn" onClick={() => {
+                                getItemDetails(product.id)
+                                navigate('/viewdetails')
+                            }}>View Details</button>
                         </div>
                     </div>
                     <div class="informations-container">
