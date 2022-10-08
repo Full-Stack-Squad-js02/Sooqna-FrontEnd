@@ -51,7 +51,6 @@ function AboutCards() {
                 {members.map((member) => {
                     return(
                     <figure class="image-block">
-                        {/* <h1>The Beach</h1> */}
                         <img src={member.image} alt="" />
                         <figcaption>
                             <h3 id='name'>

@@ -25,7 +25,8 @@ export const getOneProducts = async (itemId) => {
     return result.data;
 }
 
-export const createItem = async ( token, data) => {
+export const createItem = async (token, data) => {
+    console.log(token, data)
     const result = await axios.post(`${url}/product`, data, {
         headers: {
             Accept: 'application/json',
