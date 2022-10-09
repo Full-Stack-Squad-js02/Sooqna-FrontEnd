@@ -12,6 +12,7 @@ import Logo from '../../Assests/SooqnaLogo.png'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 import { Context } from '../../context/context';
+import AdminMenu from "../Admin/AdminMenu";
 
 function NavBar() {
 
@@ -23,7 +24,7 @@ function NavBar() {
     return (
         <Navbar expand="sm" style={{
             height: '88px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',
-            zIndex: '1', width: '100%', top: '0'
+            zIndex: '2', width: '100%', top: '0'
         }}>
             <Container fluid>
                 <img
@@ -194,6 +195,7 @@ function NavBar() {
                                             marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
                                             backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
                                         }}>{ordersToApprove.length}</i> : null}
+                                        < AdminMenu/>
                                 </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>

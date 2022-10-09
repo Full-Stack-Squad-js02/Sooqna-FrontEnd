@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// let url = 'http://localhost:3000'
+// let url = 'http://localhost:3000'/
 let url = 'https://sooqna.herokuapp.com'
 
 /*-----------------------------------------------PRODUCT-------------------------------------------- */
@@ -306,5 +306,18 @@ export const removeUserById = async(id, token) => {
             return response.json();
         }).catch(err => {
          
+        })
+    };
+
+    export const removeProductByAdmin = async(id, token) => {
+        return fetch(`${url}/admin/deleteproduct/${id}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            return response.json();
+        }).catch(err => {
         })
     };

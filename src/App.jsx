@@ -25,6 +25,7 @@ import Search from './components/Search/Search';
 import ContextWrapper  from './context/context';
 import AdminDashboard from './components/Admin/AdminDashboard'
 import SingleProductPage from './components/Product/SingleProductPage';
+import AllProduct from './components/Admin/AllProduct';
 
 function App() {
 
@@ -52,9 +53,10 @@ function App() {
                     {/* <Route path='/product/:id' element={<ProductDetails/>}/> */}
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
                     <Route path='/approveorders' element={<ApproveOrders />}/>
-                    <Route path='/admin' element={<AdminDashboard/>}/>
+                    <Route path='/admindashboard/users' element={<AdminDashboard/>}/>
                     <Route path='/hed' element={<Header/>}/>
-                    {/* <Route path='/hed' element={<Header/>}/> */}
+                    <Route path='/admindashboard/products' element={<AllProduct/>}/>
+
 
                     
                 </Routes>
