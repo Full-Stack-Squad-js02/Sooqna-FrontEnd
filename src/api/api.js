@@ -25,7 +25,8 @@ export const getOneProducts = async (itemId) => {
     return result.data;
 }
 
-export const createItem = async ( token, data) => {
+export const createItem = async (token, data) => {
+    console.log(token, data)
     const result = await axios.post(`${url}/product`, data, {
         headers: {
             Accept: 'application/json',
@@ -305,5 +306,18 @@ export const removeUserById = async(id, token) => {
             return response.json();
         }).catch(err => {
          
+        })
+    };
+
+    export const removeProductByAdmin = async(id, token) => {
+        return fetch(`${url}/admin/deleteproduct/${id}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => {
+            return response.json();
+        }).catch(err => {
         })
     };

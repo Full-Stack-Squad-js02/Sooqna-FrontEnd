@@ -8,20 +8,24 @@ function Search() {
 
     const states = useContext(Context);
     const {searchData } = states
+    console.log("outside",searchData)
 
       return (
           <>
           
               <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
                   <Row>
-              {searchData ? searchData.map((product, idx) => {
+              {searchData.length ? searchData.map((product, idx) => {
                 console.log("ddd",searchData)
                           return (
                               <HomeCard product={product} key={idx} />
                           )
                       })
-                :
-                < h2 > No Matching Items</h2>
+                : 
+                <h2 style={{margin: '200px'}}> No Matching Items</h2>
+               
+
+
                 }
                 
                   {/* </Row>

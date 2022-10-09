@@ -47,7 +47,7 @@ export default function CreateItem() {
       error: "",
       loading: true,
     });
-    createItem(user.id, token, item).then((data) => {
+    createItem(token, item).then((data) => {
       if (data.error) {
         setItem({
           ...item,

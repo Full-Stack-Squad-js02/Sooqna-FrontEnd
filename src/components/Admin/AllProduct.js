@@ -1,26 +1,26 @@
 import React, {useContext} from 'react';
-import MyProductCard from './myProductCard';
+import ProductAdmin from './ProductAdmin';
 import {Container, Row} from 'react-bootstrap';
 import { Context } from '../../context/context';
 // import './product.css'
 
-function MyProducts() {
+function AllProduct() {
 
     const states = useContext(Context);
-    const myItems = states.myItems;
-
+    const products = states.products;
+console.log( states.products)
     return (
         <>
             <h1 style={{
-                marginTop: "3rem"
-            }}>My Product</h1>
+                marginTop: "9rem"
+            }}>Products</h1>
             <Container fluid='sm' style={{
                 margin: '2rem'
             }}>
                 <Row xs="4">
-                    {myItems
-                        ? myItems.map((item, idx) => {
-                            return (<MyProductCard product={item} key={idx}/>)
+                    {products
+                        ? products.map((item, idx) => {
+                            return (<ProductAdmin  product={item} key={idx}/>)
                         })
                         : null}
                 </Row>
@@ -29,4 +29,4 @@ function MyProducts() {
     )
 };
 
-export default MyProducts
+export default AllProduct

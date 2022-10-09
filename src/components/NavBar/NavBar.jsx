@@ -1,13 +1,6 @@
-import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-    Form,
-    Button,
-    Container,
-    Nav,
-    Navbar,
-    NavDropdown,
-} from 'react-bootstrap';
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { Form, Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
 import { IoMdContacts } from "react-icons/io";
@@ -15,10 +8,11 @@ import { FaUserAlt } from "react-icons/fa";
 import { AiFillRobot, AiFillHome } from "react-icons/ai";
 import { IoNotificationsSharp } from "react-icons/io5";
 import { isAuthenticated } from '../../auth';
-import Logo from '../../Assests/Sooqna.svg'
+import Logo from '../../Assests/SooqnaLogo.png'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 import { Context } from '../../context/context';
+import AdminMenu from "../Admin/AdminMenu";
 
 function NavBar() {
 
@@ -29,8 +23,8 @@ function NavBar() {
 
     return (
         <Navbar expand="sm" style={{
-            height: '88px', backgroundColor: '#003566', position: 'fixed',
-            zIndex: '1', width: '100%', top: '0'
+            height: '88px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',
+            zIndex: '2', width: '100%', top: '0'
         }}>
             <Container fluid>
                 <img
@@ -40,8 +34,8 @@ function NavBar() {
                     className="d-inline-block align-top"
                     alt="Sooqna logo"
                     style={{
-                        width: '5.5rem',
-                        height: '10rem',
+                        width: '7.5rem',
+                        height: '5rem',
                         marginRight: '4rem'
                     }} />
                 {/* Tabs */}
@@ -201,6 +195,7 @@ function NavBar() {
                                             marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
                                             backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
                                         }}>{ordersToApprove.length}</i> : null}
+                                        < AdminMenu/>
                                 </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>
