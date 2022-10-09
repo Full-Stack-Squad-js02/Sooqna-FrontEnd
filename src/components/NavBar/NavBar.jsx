@@ -24,9 +24,9 @@ function NavBar() {
     const navigate = useNavigate();
     useEffect(() => {
         let x = getAllCart(token);
-        console.log('x',x)
+        // console.log('x',x)
         setItems(x.length)
-        console.log('items', items);
+        // console.log('items', items);
         // const confirmedOrders = async () => {
         //     let x = await getAllCart(token);
         //     setOrdersToApprove(x)
@@ -34,7 +34,7 @@ function NavBar() {
     })
     return (
         <Navbar expand="sm" style={{
-            height: '88px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',
+            height: '60px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',
             zIndex: '2', width: '100%', top: '0'
         }}>
             <Container fluid>
@@ -45,8 +45,8 @@ function NavBar() {
                     className="d-inline-block align-top"
                     alt="Sooqna logo"
                     style={{
-                        width: '7.5rem',
-                        height: '5rem',
+                        width: '60px',
+                        height: '60px',
                         marginRight: '4rem'
                     }} />
                 {/* Tabs */}

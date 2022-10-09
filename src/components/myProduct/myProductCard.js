@@ -4,6 +4,7 @@ import Rating from '@mui/material/Rating';
 import { useNavigate } from 'react-router-dom';
 import { removeOneMyProduct } from '../../api/api';
 import { isAuthenticated } from '../../auth';
+import UpdateProduct from '../Product/UpdateProduct';
 import { BsCartPlus } from "react-icons/bs";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 
@@ -48,9 +49,7 @@ function MyProductCard({ product }) {
                     </svg>{product.price} $</p>
                     <div class="more-information">
                         <div style={{ justifyContent: 'space-around' }} class="info-and-date-container">
-                            {/* < MdOutlineFavorite className="icons" />
-                                <BsCartPlus className="icons" /> */}
-                            <Button variant="warning" onClick={() => { navigate('/updateproduct') }}>Update</Button> 
+                            <div><UpdateProduct product={product}/></div> 
                             <Button variant="danger" onClick={() => { removeOneMyProduct(product.id, token) }}>Delete</Button>
                         </div>
                         <p class="disclaimer">{product.description}</p>
