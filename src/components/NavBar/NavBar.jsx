@@ -208,10 +208,12 @@ function NavBar() {
                                             marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
                                             backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
                                         }}>{ordersToApprove.length}</i> : null}
-                                        < AdminMenu/>
+                                               <AdminMenu/>
                                 </React.Fragment>}
+                         
+
                     </Form>
-                </Navbar.Collapse>
+                </Navbar.Collapse> 
             </Container>
         </Navbar>
     );
