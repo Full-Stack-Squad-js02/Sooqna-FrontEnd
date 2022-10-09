@@ -1,18 +1,18 @@
-// /* eslint-disable react/jsx-no-undef */
-import React from 'react';
-// import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
-import { FaHome } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import { BsTelephoneFill } from 'react-icons/bs';
+// // /* eslint-disable react/jsx-no-undef */
+// import React from 'react';
+// // import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
+// import { FaHome } from 'react-icons/fa';
+// import { MdEmail } from 'react-icons/md';
+// import { BsTelephoneFill } from 'react-icons/bs';
 
-import AdminMenu from "../Admin/AdminMenu";
+// import AdminMenu from "../Admin/AdminMenu";
 
-// import './hed.css'
+// // import './hed.css'
 
-export default function Contact() {
-    return (
+// export default function Contact() {
+//     return (
 
-        <AdminMenu/>
+        // <AdminMenu/>
 //         <footer class="mainfooter" role="contentinfo">
 //             <div class="footer-middle">
 //                 <div class="container">
@@ -53,8 +53,8 @@ export default function Contact() {
 //                 </div>
 //             </div>
 //         </footer>
-    );
-}
+//     );
+// }
 
 
 

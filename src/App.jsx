@@ -54,7 +54,7 @@ function App() {
                     <Route path='/updateproduct' element={<UpdateProduct/>}/>
                     <Route path='/approveorders' element={<ApproveOrders />}/>
                     <Route path='/admindashboard/users' element={<AdminDashboard/>}/>
-                    <Route path='/hed' element={<Header/>}/>
+                    {/* <Route path='/hed' element={<Header/>}/> */}
                     <Route path='/admindashboard/products' element={<AllProduct/>}/>
 
 
