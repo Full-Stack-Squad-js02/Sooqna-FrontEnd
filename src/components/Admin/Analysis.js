@@ -1,11 +1,11 @@
 // /* eslint-disable react/jsx-no-undef */
 import React from "react";
 // import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
-import { FaHome } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import { BsTelephoneFill } from "react-icons/bs";
+// import { FaHome } from "react-icons/fa";
+// import { MdEmail } from "react-icons/md";
+// import { BsTelephoneFill } from "react-icons/bs";
 
-import AdminMenu from "../Admin/AdminMenu";
+// import AdminMenu from "../Admin/AdminMenu";
 
 import "./Analysis.css";
 

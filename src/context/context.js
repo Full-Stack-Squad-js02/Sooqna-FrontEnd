@@ -92,7 +92,7 @@ export default function ContextWrapper(props) {
     const cartItems = async () => {
         let itemsInCart = await getAllCart(token);
         setItems(itemsInCart);
-        if (itemsInCart.length !== 0) {
+        // if (itemsInCart.length !== 0) {
             let Ids = itemsInCart.map((e, idx) => {
                 if (e.product_id) {
                     return e.product_id;
@@ -100,7 +100,7 @@ export default function ContextWrapper(props) {
             });
             let productsInCart = await getProductsById(Ids);
             setCartProducts(productsInCart);
-        }
+        // }
     };
 
 
@@ -169,9 +169,9 @@ export default function ContextWrapper(props) {
         allPostedProducts();
     }, [])
 
-    useEffect(() => {
+    // useEffect(() => {
         confirmedOrders()
-    }, [ordersToApprove])
+    // }, [ordersToApprove])
 
 
 
@@ -202,7 +202,8 @@ export default function ContextWrapper(props) {
         handleSubmitedOrder,
         orderToSubmit,
         itemDetails,
-        getItemDetails
+        getItemDetails,
+        cartItems
     }
     return (
         <Context.Provider value={allStates}>

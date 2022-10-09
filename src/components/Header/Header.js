@@ -1,141 +1,91 @@
-// // /* eslint-disable react/jsx-no-undef */
-// import React, { useState } from "react";
-// import Modal from "react-bootstrap/Modal";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
-// import { useNavigate } from "react-router-dom";
-// import { isAuthenticated } from "../../auth/index";
-// import { createItem } from "../../api/api";
 
-// import "./hed.css";
+import React from 'react';
 
-// export default function Ssss() {
-//   const [show, setShow] = useState(false);
-//   const handleClose = () => setShow(false);
-//   const handleShow = () => setShow(true);
-//   const navigate = useNavigate();
-//   const [item, setItem] = useState({
-//     title: "",
-//     description: "",
-//     price: "",
-//     quantity: "",
-//     color: "",
-//     categories: ["ELECTRONICS", "GAMES", "FASHION", "CARS", "Toys", "Home", "Books", "PETS", "FOOD", "OTHER"],
-//     title: "",
-//     image: "",
-//     description: "",
-//     quantity: "",
-//     color: "",
-//     loading: false,
-//     error: "",
-//     createdProduct: "",
-//     redirectToProfile: false,
-//   });
-//   const { user, token } = isAuthenticated();
-//   const { title, description, price, categories, quantity, image, color, loading, error, createdProduct, redirectToProfile } = item;
 
-//   const handleChange = (name) => (event) => {
-//     const value = event.target.value;
-//     setItem({
-//       ...item,
-//       [name]: value,
-//       loading: false,
-//       createdProduct: "",
-//     });
-//   };
+import './hed.css'
 
-//   const clickSubmit = (event) => {
-//     event.preventDefault();
-//     setItem({
-//       ...item,
-//       error: "",
-//       loading: true,
-//     });
-//     createItem(token, item).then((data) => {
-//       if (data.error) {
-//         setItem({
-//           ...item,
-//           error: data.error,
-//         });
-//       } else {
-//         setItem({
-//           ...item,
-//           title: "",
-//           description: "",
-//           image: "",
-//           price: "",
-//           category: "",
-//           color: "",
-//           quantity: "",
-//           loading: false,
-//           createdProduct: data.data.name,
-//         });
-//       }
-//       window.location.reload();
-//     });
-//   };
-//   return (
-//     <>
-//       <button style={{ marginTop: '8rem' }} onClick={handleShow} type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-//         Sign Up
-//       </button>
-//       <Modal show={show} onHide={handleClose} className="add-service-pop-form">
-//         <form
-//           action=""
-//           onSubmit={() => {
-//             handleClose();
-//           }}
-//         >
-//           <div style={{ display: "flex", margin: "auto" }}>
-//             <Form style={{ width: "100%", padding: "2rem" }}>
-//               <h1 style={{ marginBottom: "4rem", fontFamily: "cursive", textAlign:'center' }}>Add Product</h1>
-//               <Form.Group className="mb-3" controlId="title">
-//                 <Form.Control type="text" value={title} placeholder="Product Name" onChange={handleChange("title")} />
-//               </Form.Group>
-//               <Form.Select aria-label="Default select example" style={{ width: "100%", height: "2.5rem" }}>
-//                 <option style={{ color: "#4051a5" }}>Select category</option>
-//                 {categories &&
-//                   categories.map((c, i) => (
-//                     <option key={i} value={c}>
-//                       {c}
-//                     </option>
-//                   ))}
-//               </Form.Select>
-//               <br />
-//               <Form.Group className="mb-3" controlId="color">
-//                 <Form.Control type="text" value={color} placeholder="Color" onChange={handleChange("color")} />
-//               </Form.Group>
+export default function Hed() {
+        return (
+            <>
+<h1 id='h'>Transparent CSS Only Bar Graph</h1>
+  <div class="chart-container">
+    <div class="base"></div>
 
-//               <Form.Group className="mb-3" controlId="price">
-//                 <Form.Control type="number" value={price} placeholder="Price" onChange={handleChange("price")} />
-//               </Form.Group>
-//               <Form.Group className="mb-3" controlId="quantity">
-//                 <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange("quantity")} />
-//               </Form.Group>
-//               <Form.Group className="mb-3" controlId="image">
-//                 <Form.Control type="text" placeholder="URL Image" value={image} onChange={handleChange("image")} />
-//               </Form.Group>
-//               <Form.Group className="mb-3" controlId="description" style={{ height: "5rem" }}>
-//                 <textarea type="textarea" style={{ width: '100%' }} value={description} placeholder="Product Description" onChange={handleChange("description")} />
-//               </Form.Group>
-//               <div style={{textAlign:'center'}}>
-//                 <Button variant="success" type="submit" style={{ backgroundColor: "#003566", color: "white", fontWeight: "700", border: "2px " }} onClick={clickSubmit}>
-//                   Create Product
-//                 </Button>{" "}
-//                 <Button
-//                   type="submit"
-//                   onClick={() => {
-//                     navigate("/user");
-//                   }}
-//                   style={{ backgroundColor: "#003566", color: "white", fontWeight: "700", border: "2px " }}
-//                 >
-//                   Cancel
-//                 </Button>
-//               </div>
-//             </Form>
-//           </div>
-//         </form>
-//       </Modal>
-//     </>
-//   );
-// }
+    <ul class="meter">
+      <li><div>$100,000</div></li>
+      <li><div>$80,000</div></li>
+      <li><div>$60,000</div></li>
+      <li><div>$40,000</div></li>
+      <li><div>Less Than $20,000</div></li>
+    </ul>
+
+    <table>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+ 
+    <div class="bar one"></div>   
+    <div class="bar two"></div>   
+    <div class="bar three"></div>
+    <div class="bar four"></div>   
+    <div class="bar five"></div>   
+    <div class="bar six"></div>
+    <div class="bar seven"></div>   
+    <div class="bar eight"></div> 
+                        </div>
+                                    </>
+    );
+}
+
+
+
+
