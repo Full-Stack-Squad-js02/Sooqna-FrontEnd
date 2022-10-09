@@ -22,7 +22,7 @@ function Search() {
                           )
                       })
                 : 
-                <h2 style={{margin: '200px'}}> No Matching Items</h2>
+                <h2 style={{margin: '170px'}}> No Matching Items</h2>
                
 
 
