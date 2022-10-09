@@ -1,5 +1,5 @@
 // /* eslint-disable react/jsx-no-undef */
-import React from "react";
+import React, { useEffect} from "react";
 // import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
 // import { FaHome } from "react-icons/fa";
 // import { MdEmail } from "react-icons/md";
@@ -10,6 +10,9 @@ import React from "react";
 import "./Analysis.css";
 
 export default function Analysis() {
+                  useEffect(() => {
+        window.scrollTo(0, 0)
+      }, []);
         return (
                 // <body >
                 <div class="main-container">

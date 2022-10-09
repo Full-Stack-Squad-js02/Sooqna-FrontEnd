@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import MyProductLogo from '../../Assests/my-products-removebg-preview (1).png';
 import MyOrderLogo from '../../Assests/my-orders-removebg-preview.png';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,9 @@ import '../myProduct/product.css'
 
 export default function UserPage() {
     const navigate = useNavigate();
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <Container fluid='sm' style={{ margin: ' 0 7rem' }} >

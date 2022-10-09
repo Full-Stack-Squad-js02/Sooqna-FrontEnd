@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext,useEffect} from 'react';
 import ProductAdmin from './ProductAdmin';
 import {Container, Row} from 'react-bootstrap';
 import { Context } from '../../context/context';
@@ -8,7 +8,10 @@ function AllProduct() {
 
     const states = useContext(Context);
     const products = states.products;
-console.log( states.products)
+    console.log(states.products)
+          useEffect(() => {
+        window.scrollTo(0, 0)
+      }, []);
     return (
         <>
             <h1 style={{
