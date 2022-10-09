@@ -202,7 +202,8 @@ export default function ContextWrapper(props) {
         handleSubmitedOrder,
         orderToSubmit,
         itemDetails,
-        getItemDetails
+        getItemDetails,
+        cartItems
     }
     return (
         <Context.Provider value={allStates}>

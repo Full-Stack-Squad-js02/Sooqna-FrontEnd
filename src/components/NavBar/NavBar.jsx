@@ -23,15 +23,18 @@ function NavBar() {
     const [items,setItems]=useState(0)
     const navigate = useNavigate();
     useEffect(() => {
-        let x = getAllCart(token);
-        console.log('x',x)
-        setItems(x.length)
-        console.log('items', items);
-        // const confirmedOrders = async () => {
-        //     let x = await getAllCart(token);
-        //     setOrdersToApprove(x)
-        // }
-    })
+        // let x = getAllCart(token);
+        // console.log('x',x)
+        // setItems(x.length)
+        // console.log('items', items);
+        const get = async () => {
+                let x = await getAllCart(token);
+            console.log('x',x)
+                setItems(x.length)
+            console.log('items', items);
+        }
+        get();
+    }, [products])
     return (
         <Navbar expand="sm" style={{
             height: '88px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',

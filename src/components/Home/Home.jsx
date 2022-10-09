@@ -30,16 +30,6 @@ function Home() {
                 margin: '13px 3rem 13px 5rem'
             }}
             >
-                {/* <Row>
-            {searchData.length ? searchData.map((product, idx) => {
-                        return (
-                            <HomeCard product={product} key={idx} />
-                        )
-                    })
-              :null
-              // < h2 > No Matching Items</h2>
-              }
-                </Row> */}
                 <Row xs="4">
 
                     {products
