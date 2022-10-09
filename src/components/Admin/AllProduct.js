@@ -14,9 +14,7 @@ console.log( states.products)
             <h1 style={{
                 marginTop: "9rem"
             }}>Products</h1>
-            <Container fluid='sm' style={{
-                margin: '2rem'
-            }}>
+            <Container fluid='sm'>
                 <Row xs="4">
                     {products
                         ? products.map((item, idx) => {

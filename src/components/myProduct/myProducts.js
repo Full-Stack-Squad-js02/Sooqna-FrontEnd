@@ -12,10 +12,10 @@ function MyProducts() {
     return (
         <>
             <h1 style={{
-                marginTop: "3rem"
+                marginTop: "10rem"
             }}>My Product</h1>
             <Container fluid='sm' style={{
-                margin: '2rem'
+                marginLeftt: '2rem'
             }}>
                 <Row xs="4">
                     {myItems

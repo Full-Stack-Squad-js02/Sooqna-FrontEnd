@@ -140,7 +140,6 @@ export const addToCart = async (itemId, token) => {
         headers: {
             Authorization: `Bearer ${token}`
         },
-
     })
         .then((response) => response.json())
         .then((result) => {

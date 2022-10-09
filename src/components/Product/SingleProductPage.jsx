@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Rating from '@mui/material/Rating';
 import {Button} from 'react-bootstrap'
 import {Context} from '../../context/context';
 import {useNavigate} from 'react-router-dom';
+import { BsCartPlus } from "react-icons/bs";
+import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
+import { addToFavourite, addToCart } from '../../api/api';
 
 export default function SingleProductPage() {
 
     const states = useContext(Context);
-    const { itemDetails } = states;
+    const { itemDetails, token } = states;
+    const [isFav, setIsFav] = useState(false)
 
     const navigate = useNavigate();
 
@@ -59,6 +63,22 @@ export default function SingleProductPage() {
                     <div style={{
                         margin: '1rem 0'
                     }}>
+
+                        {isFav ?
+                            < MdOutlineFavorite className="icons" onClick={() => {
+                                // console.log('FAVVVVVVVVVV');
+                                // addToFavourite(product.id, token)
+                                setIsFav(false)
+                            }} />
+                            :
+                            < MdOutlineFavoriteBorder className="icons" onClick={() => {
+                                addToFavourite(itemDetails.id, token)
+                                setIsFav(true)
+                            }} />
+                        }
+                        <BsCartPlus className="icons" onClick={() => addToCart(itemDetails.id, token)} />
+                        <br/>
+                        <br/>
                         <Button
                             variant="outline-dark"
                             style={{

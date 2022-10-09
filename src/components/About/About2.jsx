@@ -15,20 +15,13 @@ export default function App() {
 
       <>
           <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
-              <div style={{
+              {/* <div style={{
                   width: '100%',
                   display: 'flex',
                   justifyContent:'center'
-                //   height: '50rem',
-                //   margin: '5rem 0 0 -6rem',
-                  
               }}
               >
                           <p style={{
-                            //   fontSize: '26px',
-                        //   fontFamily: 'inherit',
-                        //   width: '50%',
-                        //   padding: '59px 50px 0 50px',
                               fontSize: '30px',
                       fontFamily: 'inherit',
                       fontWeight: '600',
@@ -44,39 +37,32 @@ export default function App() {
                          </p>
                   <img src='https://cdn.shopify.com/s/files/1/0090/9236/6436/articles/Best_Shopify_e-Commerce_About_Us_Page_Template.png?v=1631674846'
                       style={{
-                        //   width: '100%',
-                        //   height: 'auto',
-                        //   margin: '6rem 0rem 3rem 3rem',
-                          
                           width: '69%',
                           height: '30rem',
                           margin: '6rem -7rem 3rem -4rem'
                   }}
                   />
-                      {/* <br />
-
-                      <p>This Multi-Store website offers the chance for buyers to explore variety of products, and sellers to build their brands and connect with more customers. </p> */}
-              </div>
-<MDBRow>
+              </div> */}
+        <MDBRow style={{ marginBottom: '5rem'}}>
   
     <MDBCol xl={4} className='mb-4'>
   <img src={require('./AboutAssets/about.png')} 
   style={{
-    width:'500px',
-    height:'500px',
-    margin: '2rem 2rem' 
+    width: '596px',
+    height: 'auto',
+    margin: '6rem 0 0 0',
 }}
   /> 
   </MDBCol>
-  <MDBCol xl={5}>
+          <MDBCol xl={5} style={{ marginLeft: '16rem' }}>
   <br/>
   <br/>
   <div className="font-loader"></div>
-<div class="cl3">
-  <span ><p>Nowadays, if you’re selling or buying anything—whether that’s sneakers, salad dressing, or something in between—you need to hop on board the ecommerce website train.</p>
+            <div class="cl3" >
+              <span ><p style={{ margin: '0 - 10rem' }}>Nowadays, if you’re selling or buying anything—whether that’s sneakers, salad dressing, or something in between you need to hop on board the ecommerce website train.</p>
   <br/>
 
-    <p>This Multi-Store website offers the chance for buyers to explore variety of products, and sellers to build their brands and connect with more customers. </p>
+                <p style={{ margin: '0 - 10rem' }}>This Multi-Store website offers the chance for buyers to explore variety of products, and sellers to build their brands and connect with more customers. </p>
     </span>
   </div>
   </MDBCol>
