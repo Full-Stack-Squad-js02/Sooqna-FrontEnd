@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { Form, Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
@@ -22,19 +22,10 @@ function NavBar() {
     const products = states.cartProducts;
     const [items,setItems]=useState(0)
     const navigate = useNavigate();
+    
     useEffect(() => {
-        // let x = getAllCart(token);
-        // console.log('x',x)
-        // setItems(x.length)
-        // console.log('items', items);
-        const get = async () => {
-                let x = await getAllCart(token);
-            console.log('x',x)
-                setItems(x.length)
-            console.log('items', items);
-        }
-        get();
-    }, [products])
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <Navbar expand="sm" style={{
             height: '60px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',
@@ -53,8 +44,19 @@ function NavBar() {
                         marginRight: '4rem'
                     }} />
                 {/* Tabs */}
-
-
+{/* 
+                <Link to="/"><AiFillHome id='nav-icon' style={{
+                    height: '1.8rem',
+                    width: '2.5rem',
+                    margin: '0 -10px 8px',
+                }} /> Home</Link >
+                <Link to="/about">
+                    <AiFillRobot style={{
+                        height: '1.5rem',
+                        width: '2rem',
+                        margin: '0 0px 7px',
+                    }} />
+                    About</Link > */}
                 <Navbar.Brand href="/"><AiFillHome id='nav-icon' style={{
                                 height: '1.8rem',
                                 width: '2.5rem',

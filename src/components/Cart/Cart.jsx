@@ -12,7 +12,7 @@ import {
     MDBTypography,
 } from "mdb-react-ui-kit";
 import {Button} from "react-bootstrap"
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Counter from "./Counter";
 import Swal from 'sweetalert2';
@@ -66,6 +66,10 @@ export default function Cart() {
             }
         })
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <section style={{ backgroundColor: "#eee", margin: '-1.5rem 0 1.5rem 0 ', padding: '7rem 26rem 11rem 1rem'}}>
