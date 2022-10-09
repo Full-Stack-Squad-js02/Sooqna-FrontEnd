@@ -1,45 +1,37 @@
-import React, { useState, useContext } from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Form,
     Button,
     Container,
     Nav,
     Navbar,
-    NavDropdown , 
+    NavDropdown,
 } from 'react-bootstrap';
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
 import { MdOutlineFavorite } from "react-icons/md";
 import { IoMdContacts } from "react-icons/io";
 import { FaUserAlt } from "react-icons/fa";
-import { AiFillRobot,AiFillHome } from "react-icons/ai";
+import { AiFillRobot, AiFillHome } from "react-icons/ai";
 import { IoNotificationsSharp } from "react-icons/io5";
-import { isAuthenticated} from '../../auth';
-import {searchBy} from '../../api/api'
+import { isAuthenticated } from '../../auth';
 import Logo from '../../Assests/Sooqna.svg'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
 import { Context } from '../../context/context';
 
-function NavBar({ setSearchData }) {
+function NavBar() {
 
     const states = useContext(Context);
-    const { user, ordersToApprove } = states
+    const { user, ordersToApprove, filter, setFilter, search, setSearch, searchItems } = states
     const products = states.cartProducts;
     const navigate = useNavigate();
-    
-    const [search, seSearch] = useState({input: '', filteredBy: 'name'});
-    const [filter, setFilter] = useState('Filtered By')
-
-    const searchItems =async  () => {
-        let items = await searchBy(search);
-        setSearchData(items)
-    }
-
 
     return (
-        <Navbar expand="sm" style={{ height: '88px', backgroundColor:'#003566', position: 'fixed',
-        zIndex: '1', width: '100%', top: '0'}}>
+        <Navbar expand="sm" style={{
+            height: '88px', backgroundColor: '#003566', position: 'fixed',
+            zIndex: '1', width: '100%', top: '0'
+        }}>
             <Container fluid>
                 <img
                     src={Logo}
@@ -48,12 +40,11 @@ function NavBar({ setSearchData }) {
                     className="d-inline-block align-top"
                     alt="Sooqna logo"
                     style={{
-                    width: '5.5rem',
-                    height: '10rem',
-                    marginRight: '4rem'
+                        width: '5.5rem',
+                        height: '10rem',
+                        marginRight: '4rem'
                     }} />
                 {/* Tabs */}
-                
 
 
                 <Navbar.Brand href="/"><AiFillHome id='nav-icon' style={{
@@ -63,70 +54,70 @@ function NavBar({ setSearchData }) {
                                 }}/> Home</Navbar.Brand>
                 <Navbar.Brand href="/about">
                     <AiFillRobot style={{
-                                height: '1.5rem',
-                                width: '2rem',
-                                margin: '0 0px 7px',
-                                }}/>
-                                About</Navbar.Brand>
+                        height: '1.5rem',
+                        width: '2rem',
+                        margin: '0 0px 7px',
+                    }} />
+                    About</Navbar.Brand>
                 <Navbar.Brand href="#contact" style={{ scrollBehavior: 'smooth' }}>
-                <IoMdContacts style={{
-                                height: '2rem',
-                                width: '2rem',
-                                margin: '0 0px 3px',
-                                }}/>Contact Us</Navbar.Brand>
-                <Navbar.Toggle aria-controls="navbarScroll"/>
+                    <IoMdContacts style={{
+                        height: '2rem',
+                        width: '2rem',
+                        margin: '0 0px 3px',
+                    }} />Contact Us</Navbar.Brand>
+                <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
                         className="me-auto my-2 my-lg-0"
                         style={{
-                        maxHeight: '100px', 
-                    }}
+                            maxHeight: '100px',
+                        }}
                         navbarScroll>
                         <NavDropdown
                             title={filter}
                             id="navbarScrollingDropdown"
                             style={{
-                            marginLeft: '6rem',
+                                marginLeft: '6rem',
                             }}
                         >
                             <NavDropdown.Item
                                 onClick={() => {
-                                seSearch({
-                                    ...search,
-                                    filteredBy: 'name'
-                                })
+                                    setSearch({
+                                        ...search,
+                                        filteredBy: 'name'
+                                    })
                                     setFilter('Product')
-                            }}>Product</NavDropdown.Item>
+                                }}>Product</NavDropdown.Item>
 
                             <NavDropdown.Item
                                 onClick={() => {
-                                seSearch({
-                                    ...search,
-                                    filteredBy: 'color'
-                                })
+                                    setSearch({
+                                        ...search,
+                                        filteredBy: 'color'
+                                    })
                                     setFilter('Color')
-                            }}>
+                                }}>
                                 Color
                             </NavDropdown.Item>
                             <NavDropdown.Item
                                 onClick={() => {
-                                seSearch({
-                                    ...search,
-                                    filteredBy: 'category'
-                                })
+                                    setSearch({
+                                        ...search,
+                                        filteredBy: 'category'
+                                    })
                                     setFilter('Category')
-                            }}>
+                                }}>
                                 Category
                             </NavDropdown.Item>
 
                             <NavDropdown.Item
                                 onClick={() => {
-                                seSearch({
-                                    ...search,
-                                    filteredBy: 'price'
-                                })
+                                    setSearch({
+                                        ...search,
+                                        filteredBy: 'price'
+                                    })
                                     setFilter('Price')
-                            }}>
+                                }}>
                                 Price
                             </NavDropdown.Item>
                         </NavDropdown>
@@ -139,7 +130,7 @@ function NavBar({ setSearchData }) {
                             className="me-2"
                             aria-label="Search"
                             onChange={(e) => {
-                            seSearch({
+                            setSearch({
                                 ...search,
                                 input: e.target.value
                             })
@@ -151,23 +142,23 @@ function NavBar({ setSearchData }) {
                             marginRight: '7rem',
                             marginTop: '5px'
 
-                        }}
+                            }}
                             onClick={() => {
                                 searchItems();
                                 navigate('/searchbar')
-                            }}  />
-                        {!isAuthenticated()?
-                        <React.Fragment>
-                        <Button
-                            variant="outline-warning"
-                            style={{
-                            margin: '0 1rem 0 4rem',    
-                            whiteSpace: 'nowrap'
-                        }}
-                            onClick={() => navigate('/signin')}>Sign In</Button>
-                                <Button variant="outline-warning" style={{whiteSpace: 'nowrap'}}
+                            }} />
+                        {!isAuthenticated() ?
+                            <React.Fragment>
+                                <Button
+                                    variant="outline-warning"
+                                    style={{
+                                        margin: '0 1rem 0 4rem',
+                                        whiteSpace: 'nowrap'
+                                    }}
+                                    onClick={() => navigate('/signin')}>Sign In</Button>
+                                <Button variant="outline-warning" style={{ whiteSpace: 'nowrap' }}
                                     onClick={() => navigate('/signup')}>Sign Up</Button>
-                         </React.Fragment>
+                            </React.Fragment>
                             :
                             user.role !== 'admin' ?
                                 <React.Fragment>
@@ -199,17 +190,17 @@ function NavBar({ setSearchData }) {
                                 <UserDropdownList />
                                 </React.Fragment> :
                                 <React.Fragment >
-                                    <UserDropdownList style={{ margin: '0 0rem 0 15rem'}} />
-                                    <IoNotificationsSharp onClick={() => { navigate('/approveorders') }} style={{
+                                    <UserDropdownList style={{ margin: '0 0rem 0 15rem' }} />
+                                    <IoNotificationsSharp id='nav-icon'  onClick={() => { navigate('/approveorders') }} style={{
                                         height: 'auto',
                                         width: '4rem',
                                         margin: '0 5px',
-                                    }} /> 
+                                    }} />
                                     {ordersToApprove.length ?
                                         <i style={{
-                                        marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
-                                        backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
-                                    }}>{ordersToApprove.length}</i>:null}
+                                            marginLeft: '-4px', color: 'white', fontWeight: 'bolder',
+                                            backgroundColor: 'red', width: '9%', height: '10%', borderRadius: '100%'
+                                        }}>{ordersToApprove.length}</i> : null}
                                 </React.Fragment>}
                     </Form>
                 </Navbar.Collapse>

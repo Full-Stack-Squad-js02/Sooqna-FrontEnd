@@ -57,10 +57,10 @@ export default function Setting() {
             backgroundColor: '#eee',
             margin:'-1rem 0'
         }}>
-            <MDBContainer className="py-5">
+            <MDBContainer className="py-5" >
                 <MDBRow>
                     <MDBCol>
-                        <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4">
+                        <MDBBreadcrumb className="bg-light rounded-3 p-3 mb-4" >
                             <MDBBreadcrumbItem>
                                 <a href='#'>Home</a>
                             </MDBBreadcrumbItem>
@@ -71,10 +71,10 @@ export default function Setting() {
                         </MDBBreadcrumb>
                     </MDBCol>
                 </MDBRow>
-                <MDBCard className="mb-4">
+                <MDBCard className="mb-4" >
                     <MDBCardBody>
                         <MDBRow>
-                            <MDBCol sm="3">
+                            <MDBCol sm="3" >
                                 <MDBCardText>Full Name</MDBCardText>
                             </MDBCol>
                             <MDBCol sm="9">
