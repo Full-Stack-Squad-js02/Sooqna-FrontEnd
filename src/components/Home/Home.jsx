@@ -28,7 +28,8 @@ function Home() {
                 fluid='sm'
                 style={{
                 margin: '13px 3rem 13px 5rem'
-            }}>
+            }}
+            >
                 {/* <Row>
             {searchData.length ? searchData.map((product, idx) => {
                         return (

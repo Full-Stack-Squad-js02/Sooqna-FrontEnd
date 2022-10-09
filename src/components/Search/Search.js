@@ -13,19 +13,17 @@ function Search() {
       return (
           <>
           
-              <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem' }} >
-                  <Row>
+              <Container fluid='sm' style={{ margin: '8rem 3rem 13px 5rem' }} >
+                <h1>Results</h1>
+                  <Row xs='4'>
               {searchData.length ? searchData.map((product, idx) => {
                 console.log("ddd",searchData)
                           return (
                               <HomeCard product={product} key={idx} />
                           )
                       })
-                : 
-                <h2 style={{margin: '170px'}}> No Matching Items</h2>
-               
-
-
+                :
+                < h2 style={{margin: '5rem 0 10rem 31rem'}} > No Matching Items</h2>
                 }
                 
                   {/* </Row>
