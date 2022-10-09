@@ -53,7 +53,7 @@ const color= 'rgb(13 110 253 / 25%)'
       <Dropdown.Divider />
       <Dropdown.Item eventKey="2" onClick={() => {navigate('/admindashboard/products')}} >Products</Dropdown.Item>
       <Dropdown.Divider />
-      <Dropdown.Item eventKey="3">Analysis</Dropdown.Item>
+      <Dropdown.Item eventKey="3" onClick={() => {navigate('/admindashboard/analysis')}}>Analysis</Dropdown.Item>
   
       </div>
      

@@ -37,6 +37,17 @@ export const createItem = async (token, data) => {
     return result
 }
 
+export const updateProduct = async (id,data,token) => {
+    // console.log('id===>',id);
+    const result = await axios.put(`${url}/product/${id}`,data, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+    });
+    return result.data;
+}
+
 export const getProductsById = async (productsIds) => {
     const products = await Promise.all(productsIds.map(async (itemId) => {
         let result = await axios.get(`${url}/product/${itemId}`, {});
