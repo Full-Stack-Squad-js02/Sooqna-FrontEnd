@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import HomeCard from "../Home/HomeCard";
@@ -9,7 +9,9 @@ function Search() {
     const states = useContext(Context);
     const {searchData } = states
     console.log("outside",searchData)
-
+useEffect(() => {
+window.scrollTo(0, 0)
+}, [])
       return (
           <>
           

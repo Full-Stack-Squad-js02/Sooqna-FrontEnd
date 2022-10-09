@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Rating from '@mui/material/Rating';
 import {Button} from 'react-bootstrap'
 import {Context} from '../../context/context';
@@ -16,7 +16,9 @@ export default function SingleProductPage() {
     const navigate = useNavigate();
 
     console.log('ooooo',itemDetails)
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <div style={{
