@@ -9,7 +9,7 @@ import './Contact.css'
 
 export default function Contact() {
     return (
-        <footer class="mainfooter" role="contentinfo">
+        <footer class="mainfooter" role="contentinfo" id='contact'>
             <div class="footer-middle">
                 <div class="container">
                     <div class="row">

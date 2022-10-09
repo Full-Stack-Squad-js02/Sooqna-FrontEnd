@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Form, Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { BsSearch, BsFillCartFill } from "react-icons/bs";
@@ -8,6 +8,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { AiFillRobot, AiFillHome } from "react-icons/ai";
 import { IoNotificationsSharp } from "react-icons/io5";
 import { isAuthenticated } from '../../auth';
+import { getAllCart } from '../../api/api';
 import Logo from '../../Assests/SooqnaLogo.png'
 import './Navbar.css';
 import UserDropdownList from '../UserProfile/Dropdown';
@@ -17,10 +18,20 @@ import AdminMenu from "../Admin/AdminMenu";
 function NavBar() {
 
     const states = useContext(Context);
-    const { user, ordersToApprove, filter, setFilter, search, setSearch, searchItems } = states
+    const { user, ordersToApprove, filter, setFilter, search, setSearch, searchItems,token } = states
     const products = states.cartProducts;
+    const [items,setItems]=useState(0)
     const navigate = useNavigate();
-
+    useEffect(() => {
+        let x = getAllCart(token);
+        console.log('x',x)
+        setItems(x.length)
+        console.log('items', items);
+        // const confirmedOrders = async () => {
+        //     let x = await getAllCart(token);
+        //     setOrdersToApprove(x)
+        // }
+    })
     return (
         <Navbar expand="sm" style={{
             height: '88px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',
@@ -120,7 +131,7 @@ function NavBar() {
                     <Form className="d-flex">
                         <Form.Control
                             type="search"
-                            placeholder="Search"
+                            placeholder="Search For Product"
                             className="me-2"
                             aria-label="Search"
                             onChange={(e) => {
@@ -128,7 +139,9 @@ function NavBar() {
                                 ...search,
                                 input: e.target.value
                             })
-                        }}/>
+                        }} 
+                            style={{ marginTop: '3px' }}
+                        />
                         <BsSearch id='nav-icon'
                         style={{
                             width: '7rem',
