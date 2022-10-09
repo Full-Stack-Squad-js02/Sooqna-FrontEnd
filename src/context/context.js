@@ -163,7 +163,7 @@ export default function ContextWrapper(props) {
 
     useEffect(() => {
         loadItems();
-    }, []);
+    }, [products]);
 
     useEffect(() => {
         allPostedProducts();

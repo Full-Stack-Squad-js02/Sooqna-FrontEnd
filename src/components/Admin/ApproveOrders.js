@@ -29,17 +29,17 @@ export default function SubmitOrder() {
             <MDBBadge pill light color='primary'>
               {o.status}
             </MDBBadge>
-            <MDBBtn size='sm' className='m-1' style={{
-              backgroundColor: 'rgb(59, 89, 152)',
-              fontWeight: '700', borderRadius: '24px', marginRight: '-11rem'
+            <button size='sm' className='m-1' style={{
+              color:'white', backgroundColor: 'rgb(59, 89, 152)',
+                   fontWeight: '600', borderRadius: '15px', marginRight: '-11rem', borderColor: 'rgb(59, 89, 152)'
             }} href='#' onClick={() => {deleteOneOrder(o.id,token) }}>
               Reject
-            </MDBBtn>
-            <MDBBtn size='sm' className='m-1' style={{backgroundColor: 'rgb(59, 89, 152)',
-              fontWeight: '700', borderRadius: '24px'
+            </button>
+            <button size='sm' className='m-1' style={{color:'white', backgroundColor: 'rgb(59, 89, 152)',
+                   fontWeight: '600', borderRadius: '15px', marginRight: '-11rem', borderColor: 'rgb(59, 89, 152)'
             }} href='#' onClick={() => {approveOrders(token)}}>
               Checkout To Delivery
-            </MDBBtn>
+            </button>
           </MDBListGroupItem>
         )
       }):null}
