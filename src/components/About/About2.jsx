@@ -72,7 +72,7 @@ export default function App() {
 
               </MDBRow>
               <h2>Who We Are ?</h2>
-              <p> We are Full Stack Squad group of 5 passionate software Developers established at Aug 2022 to initiate build websites to serve different goals </p>
+              <p> We are Full Stack Squad group of 5 passionate software Developers started on Aug 2022 to build websites to serve different goals </p>
               <p>Get to know us more below and please feel free to get in touch any time.</p>
 
 <AboutCards/>

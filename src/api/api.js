@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import axios from 'axios';
 
 // let url = 'http://localhost:3000'/
@@ -58,6 +59,16 @@ export const getProductsById = async (productsIds) => {
                 })
             };
 
+            export const updateProduct = async (id,token) => {
+                const result = await axios.put(`${url}/product/${id}`,data, {
+                    headers: {
+                        Accept: 'application/json',
+                        Authorization: `Bearer ${token}`
+                    },
+                });
+                return result.data;
+            }
+            
 
 /*-----------------------------------------------SEARCH-------------------------------------------- */
 
