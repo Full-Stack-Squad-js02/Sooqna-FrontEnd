@@ -7,7 +7,7 @@ function AboutCards() {
     const members = [{
         name: 'Esraa Banat',
         nickName:'Full Stack Developer',
-        breif: 'She have Biomedical Engineering Background , Self-motivator , Meticulous , Junior JS Developer Former CAD Designer @EONDental and she have good knowledg in those language ~Java Scribt , HTML , CSS~.',
+        breif: 'My coding journey started unexpectedly when I left my job. I remember that I was so interested in learning how to build crazy websites, so I jumped at the chance and decided to enter the coding world to discover it, know its secrets and magic, and create things from scratch. It was amazing, and I found myself in.',
         image: require('./AboutAssets/Esraa.png'),
         github: 'https://github.com/EsraaBanat',
         linkekIn: 'https://www.linkedin.com/in/esraabanat/'
@@ -15,7 +15,7 @@ function AboutCards() {
     {
         name: 'Shams Alsaraireh',
         nickName: 'Full Stack Developer', 
-        breif: 'Likable and dedicated Full-stack web-developer using JavaScript, html, CSS, and NodeJS. Eager to offer superb coding and computer skills to help the organization I am working for to grow its client base and increase customer satisfaction in the IT industry.',
+        breif: 'An energetic, ambitious full stack developer who has developed a mature and responsible approach to any task that I undertake, or situation that I am presented with.',
         image: require('./AboutAssets/shams.jpg'),
         github: 'https://github.com/shamssar',
         linkekIn: 'https://www.linkedin.com/in/shams-alsaraireh/'
@@ -39,7 +39,7 @@ function AboutCards() {
     {
         name: 'Bnan Zhran',
         nickName: 'Full Stack & RPA Developer',
-        breif: 'Graduated from Zarqa University ,he have 23 Years old ,he have Strong Knowledg in Problem solving and Robotics aoutomation and he have Some experiancein Android Development.',
+        breif: 'I have a good experience in problem solving, technical solving , Stable solving Also solutions with permanent algorithms Programming language that I familiar with {Java, JavaScript (Strong),C#(Strong),VB,C++,Kotlin(Strong), Python',
         image: require('./AboutAssets/bnan.png'),
         github: 'https://github.com/ebnanzhran',
         linkekIn: 'https://www.linkedin.com/in/eng-bnan-zhran-8679b0202/'
