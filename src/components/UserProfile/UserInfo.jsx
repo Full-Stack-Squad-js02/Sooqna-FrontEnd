@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     MDBCol,
     MDBContainer,
@@ -17,7 +17,6 @@ import {
     // MDBListGroupItem
 } from 'mdb-react-ui-kit';
 import { userInfo, isAuthenticated } from '../../auth';
-import { useEffect } from 'react';
 
 export default function UserInfo() {
     
@@ -35,6 +34,9 @@ export default function UserInfo() {
         userData();
     }, [])
     // console.log(user);
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <section style={{ backgroundColor: '#eee',  marginTop: '5rem'}}>

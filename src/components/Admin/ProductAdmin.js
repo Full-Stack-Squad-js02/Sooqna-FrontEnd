@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect} from 'react';
 import { Button } from 'react-bootstrap';
 import Rating from '@mui/material/Rating';
 import { useNavigate } from 'react-router-dom';
@@ -13,6 +13,11 @@ function ProductAdminCard({ product }) {
     const { token } = isAuthenticated();
 
     const navigate = useNavigate();
+
+                    useEffect(() => {
+        window.scrollTo(0, 0)
+                    }, [])
+    
     return (
      
 

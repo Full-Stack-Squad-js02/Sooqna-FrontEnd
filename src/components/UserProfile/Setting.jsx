@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     MDBCol,
     MDBContainer,
@@ -51,7 +51,9 @@ export default function Setting() {
         // await updateUserInfo(updateInfo, user.token);
         // logOut();
     };
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <section style={{
             backgroundColor: '#eee',
