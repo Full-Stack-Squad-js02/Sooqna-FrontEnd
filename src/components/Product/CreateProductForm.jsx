@@ -3,12 +3,13 @@ import { isAuthenticated } from "../../auth/index";
 import { createItem } from "../../api/api";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-// import Input from "react-bootstrap/Input";
-import { Input } from "postcss";
 import { useNavigate } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 
 export default function CreateItem() {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const navigate = useNavigate();
   const [item, setItem] = useState({
     title: "",
@@ -73,70 +74,88 @@ export default function CreateItem() {
 
   const BasicExample = () => {
     return (
-      <div style={{ display: "flex", margin: "auto" }}>
-        <Form style={{ width: "40rem", margin: "7rem", border: "outset", padding: "2rem" }}>
-          <h1 style={{ marginBottom: "4rem", fontFamily: "cursive" }}>Add Product</h1>
-          <Form.Group className="mb-3" controlId="title">
-            {/* <Form.Label>Product </Form.Label> */}
-            <Form.Control type="text" value={title} placeholder="Product Name" onChange={handleChange("title")} />
-          </Form.Group>
-          <br />
-          <Form.Group className="mb-3" controlId="description" style={{ height: "5rem" }}>
-            {/* <Form.Label>Description</Form.Label> */}
-            <Form.Control type="textarea" value={description} placeholder="Product Description" onChange={handleChange("description")} />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="color">
-            {/* <Form.Label>Color</Form.Label> */}
-            <Form.Control type="text" value={color} placeholder="Color" onChange={handleChange("color")} />
-          </Form.Group>
-          <br />
-          <Form.Select aria-label="Default select example" style={{ width: "100%", height: "2.5rem" }}>
-            <option style={{ color: "#4051a5" }}>Select category</option>
-            {categories &&
-              categories.map((c, i) => (
-                <option key={i} value={c}>
-                  {c}
-                </option>
-              ))}
-          </Form.Select>
-          <br />
-          <br />
-          <br />
-          <Form.Group className="mb-3" controlId="price">
-            {/* <Form.Label>Price</Form.Label> */}
-            <Form.Control type="number" value={price} placeholder="Price" onChange={handleChange("price")} />
-          </Form.Group>
-          <br />
-          <Form.Group className="mb-3" controlId="quantity">
-            {/* <Form.Label>Quantity</Form.Label> */}
-            <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange("quantity")} />
-          </Form.Group>
-          <br />
-          <Form.Group className="mb-3" controlId="image">
-            {/* <Form.Label>Image</Form.Label> */}
-            <Form.Control type="text" placeholder="URL Image" value={image} onChange={handleChange("image")} />
-          </Form.Group>
-          <br />
-          <br />
-          <Button variant="success" type="submit" style={{ backgroundColor: "#FFC300", color: "black", fontWeight: "700", border: "2px " }} onClick={clickSubmit}>
-            Create Product
-          </Button>{" "}
-          <Button
-            type="submit"
-            onClick={() => {
-              navigate("/user");
+      <>
+        <div
+          style={{
+            backgroundColor: "#003566",
+            color: "white",
+            borderRadius: "25px",
+            fontWeight: "800",
+            height: "3.5rem",
+            width: "10rem",
+            boxShadow: "7px 4px black",
+            marginBottom: "3rem",
+            marginLeft: "15rem",
+            padding: "14px",
+          }}
+          onClick={handleShow}
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          Add Product
+        </div>
+        <Modal show={show} onHide={handleClose} className="add-service-pop-form">
+          <form
+            action=""
+            onSubmit={() => {
+              handleClose();
             }}
-            style={{ backgroundColor: "#003566", color: "white", fontWeight: "700", border: "2px " }}
           >
-            {" "}
-            Cancel
-          </Button>
-        </Form>
-      </div>
+            <div style={{ display: "flex", margin: "auto" }}>
+              <Form style={{ width: "100%", padding: "2rem" }}>
+                <h1 style={{ marginBottom: "4rem", fontFamily: "cursive", textAlign: "center" }}>Add Product</h1>
+                <Form.Group className="mb-3" controlId="title">
+                  <Form.Control type="text" value={title} placeholder="Product Name" onChange={handleChange("title")} />
+                </Form.Group>
+                <Form.Select aria-label="Default select example" style={{ width: "100%", height: "2.5rem" }}>
+                  <option style={{ color: "#4051a5" }}>Select category</option>
+                  {categories &&
+                    categories.map((c, i) => (
+                      <option key={i} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                </Form.Select>
+                <br />
+                <Form.Group className="mb-3" controlId="color">
+                  <Form.Control type="text" value={color} placeholder="Color" onChange={handleChange("color")} />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="price">
+                  <Form.Control type="number" value={price} placeholder="Price" onChange={handleChange("price")} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="quantity">
+                  <Form.Control type="number" placeholder="Quantity" value={quantity} onChange={handleChange("quantity")} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="image">
+                  <Form.Control type="text" placeholder="URL Image" value={image} onChange={handleChange("image")} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="description" style={{ height: "5rem" }}>
+                  <textarea type="textarea" style={{ width: "100%" }} value={description} placeholder="Product Description" onChange={handleChange("description")} />
+                </Form.Group>
+                <div style={{ textAlign: "center" }}>
+                  <Button variant="success" type="submit" style={{ backgroundColor: "#003566", color: "white", fontWeight: "700", border: "2px " }} onClick={clickSubmit}>
+                    Create Product
+                  </Button>{" "}
+                  <Button
+                    type="submit"
+                    onClick={() => {
+                      navigate("/user");
+                    }}
+                    style={{ backgroundColor: "#003566", color: "white", fontWeight: "700", border: "2px " }}
+                  >
+                    Cancel
+                  </Button>
+                </div>
+              </Form>
+            </div>
+          </form>
+        </Modal>
+      </>
 
       //-------------------------------------------------------------------------------------------------
-
-      
     );
   };
 

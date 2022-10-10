@@ -1,4 +1,4 @@
-import React, {  useContext } from 'react';
+import React, {  useContext,useEffect } from 'react';
 import { MDBListGroup, MDBListGroupItem, MDBBadge , MDBBtn} from 'mdb-react-ui-kit';
 import {  approveOrders,deleteOneOrder } from '../../api/api'
 import { Context } from '../../context/context';
@@ -8,6 +8,10 @@ export default function SubmitOrder() {
     const states = useContext(Context);
     const { token,ordersToApprove } = states
  
+                    useEffect(() => {
+        window.scrollTo(0, 0)
+                    }, []);
+  
   return (
     <MDBListGroup style={{ minWidth: '22rem', alignItems: 'center' ,marginTop: '7rem',
       paddingBottom: '28rem'

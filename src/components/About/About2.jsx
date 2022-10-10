@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Container from "react-bootstrap/Container";
 //  import Typical from 'react-typical'
 import styles from "./About.css"
@@ -11,6 +11,9 @@ import { height, width } from '@mui/system';
 import AboutCards from './AboutCards';
 
 export default function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
 
       <>

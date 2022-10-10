@@ -37,6 +37,17 @@ export const createItem = async (token, data) => {
     return result
 }
 
+export const updateProduct = async (id,data,token) => {
+    // console.log('id===>',id);
+    const result = await axios.put(`${url}/product/${id}`,data, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+    });
+    return result.data;
+}
+
 export const getProductsById = async (productsIds) => {
     const products = await Promise.all(productsIds.map(async (itemId) => {
         let result = await axios.get(`${url}/product/${itemId}`, {});
@@ -200,6 +211,7 @@ export const moveFromWishlistToCart = async (itemId, token) => {
 
 
 export const submitOrder = async (order, token) => { 
+    console.log('OOOOOOOOO',order)
     const result = await axios.post(`${url}/submitorder`, order, {
         headers: {
             Accept: 'application/json',
@@ -207,6 +219,7 @@ export const submitOrder = async (order, token) => {
         },
         body: JSON.stringify(order)
     });
+    console.log('result.data',result.data)
     return result.data;
 }
 
@@ -267,6 +280,16 @@ export const getAllOrdersToApprove = async (token) => {
             Authorization: `Bearer ${token}`
         }
     });
+    return result.data;
+}
+export const getAllRecivedOrders = async (token) => {
+    const result = await axios.get(`${url}/admin/recivedorders`, {
+        headers: {
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        }
+    });
+    console.log(result.data)
     return result.data;
 }
 

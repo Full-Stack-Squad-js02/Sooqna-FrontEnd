@@ -12,7 +12,7 @@ import {
     MDBTypography,
 } from "mdb-react-ui-kit";
 import {Button} from "react-bootstrap"
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Counter from "./Counter";
 import Swal from 'sweetalert2';
@@ -29,24 +29,21 @@ export default function Cart() {
     
     const [show,
         setShow] = useState(true)
-
-    // const [order, setOrder] = useState({
-    //     payment_method: "cash on delivery",
-    //     adress: user.adress
-    // })
-
-    // const { payment_method, adress } = order;
-
-    console.log('ORDER', orderToSubmit);
-    // console.log({ payment_method, adress });
     
-    const handleChange = (prop) => (event) => {
+    const totalPrice =products.reduce((acc, cv) => {
+            return acc + parseInt(cv.price)
+        }, 0)
+
+
+        
+        const handleChange = (prop) => (event) => {
         setOrder({
             ...order,
             [prop]: event.target.value,
         });
     };
 
+    // console.log('order', order);
     function handleSubmitOrder() {
         Swal.fire({
             title: 'Do you want to Submit your Order?',
@@ -66,6 +63,10 @@ export default function Cart() {
             }
         })
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <section style={{ backgroundColor: "#eee", margin: '-1.5rem 0 1.5rem 0 ', padding: '7rem 26rem 11rem 1rem'}}>
@@ -197,8 +198,7 @@ export default function Cart() {
                                                 <MDBTypography tag="h5" className="text-uppercase">
                                                     Total price
                                                 </MDBTypography>
-                                                <MDBTypography tag="h5">{products.reduce((acc, cv) => {
-                                                    return acc + parseInt(cv.price)}, 0)} $</MDBTypography>
+                                                <MDBTypography tag="h5">{totalPrice} $</MDBTypography>
                                             </div>
 
                                             <Button variant="dark" block size="lg" onClick={() => {

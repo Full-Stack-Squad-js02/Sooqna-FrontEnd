@@ -49,9 +49,11 @@ export default function ContextWrapper(props) {
         filteredBy: 'name'
     });
     const [searchData, setSearchData] = useState([]);
+
     const [order, setOrder] = useState({
         payment_method: "cash on delivery",
-        adress: isAuthenticated()? user.adress : ''
+        adress: isAuthenticated()? user.adress : '',
+        total_price:''
     })
     const [orderToSubmit, setOrderToSubmit] = useState([]);
     const [orderCollection, setOrderCollection] = useState({
@@ -67,7 +69,6 @@ export default function ContextWrapper(props) {
         items: []
     });
     const [itemDetails, setItemDetails] = useState({});
-
 
     const confirmedOrders = async () => {
         let x = await getAllOrdersToApprove(token);
@@ -92,15 +93,22 @@ export default function ContextWrapper(props) {
     const cartItems = async () => {
         let itemsInCart = await getAllCart(token);
         setItems(itemsInCart);
-        if (itemsInCart.length !== 0) {
+        // if (itemsInCart.length !== 0) {
             let Ids = itemsInCart.map((e, idx) => {
                 if (e.product_id) {
                     return e.product_id;
                 }
             });
             let productsInCart = await getProductsById(Ids);
-            setCartProducts(productsInCart);
-        }
+        setCartProducts(productsInCart);
+            let totalPrice =cartProducts.reduce((acc, cv) => {
+            return acc + parseInt(cv.price)
+        }, 0)
+            setOrder({
+            ...order,
+            total_price:totalPrice
+        });
+        // }
     };
 
 
@@ -171,7 +179,7 @@ export default function ContextWrapper(props) {
 
     useEffect(() => {
         confirmedOrders()
-    }, [ordersToApprove])
+    }, [])
 
 
 
@@ -202,7 +210,8 @@ export default function ContextWrapper(props) {
         handleSubmitedOrder,
         orderToSubmit,
         itemDetails,
-        getItemDetails
+        getItemDetails,
+        cartItems
     }
     return (
         <Context.Provider value={allStates}>
