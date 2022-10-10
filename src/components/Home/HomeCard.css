@@ -73,7 +73,7 @@ ul .booking-card .book-container .content .btn:hover {
 }
 ul .booking-card .informations-container {
     flex: 1 0 auto;
-    padding: 20px;
+    padding: 30px;
     background: #f0f0f0;
     transform: translateY(206px);
     transition: 0.3s;

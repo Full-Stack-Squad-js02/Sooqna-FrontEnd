@@ -1,4 +1,4 @@
-import React, {useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {
     MDBCard,
     MDBCardBody,
@@ -16,7 +16,9 @@ export default function Wishlist() {
 
     const states = useContext(Context);
     const { token, productsInWishlist, itemsInWishlist } = states
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <section className="h-100" style={{ backgroundColor: "#eee", margin: '100px 13rem' }}>
             <MDBContainer className="py-5 h-100">

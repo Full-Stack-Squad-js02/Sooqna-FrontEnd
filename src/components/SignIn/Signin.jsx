@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { signIn, authenticate } from "../../auth/index";
 import { MDBContainer, MDBCard, MDBCardBody, MDBInput } from "mdb-react-ui-kit";
@@ -90,10 +90,9 @@ function SignIn() {
     })
   };
 
-  
-
- 
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
 
   return (

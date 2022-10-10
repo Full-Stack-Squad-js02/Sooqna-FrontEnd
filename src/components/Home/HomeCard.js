@@ -1,10 +1,10 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Rating from '@mui/material/Rating';
 import {useNavigate} from 'react-router-dom';
 import {isAuthenticated} from '../../auth';
 import {BsCartPlus} from "react-icons/bs";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
-import { addToFavourite ,addToCart } from '../../api/api';
+import { addToFavourite, addToCart, getAllCart } from '../../api/api';
 import './HomeCard.css';
 import { Context } from '../../context/context';
 
@@ -12,45 +12,25 @@ export default function HomeCard({ product }) {
 
     const states = useContext(Context);
     const { getItemDetails } = states;
+    // const products = states.cartProducts;
+    // const [items, setItems] = useState(0)
 
     const navigate = useNavigate();
     const [isFav,setIsFav]=useState(false)
     const { user, token } = isAuthenticated();
     
+//   useEffect(() => {
+//       const addCart = async () => {
+//           addToCart(product.id, token)
+//           let x = await getAllCart(token);
+//             console.log('x',x)
+//                 setItems(x.length)
+//             console.log('items', items);
+//         }
+//     }, [products])
+
     return (
         <>
-        {/* <Card id='Card' style={{background:'whitesmoke'}}>
-                <Card.Img variant="top" src={product.image} style={{height:'11.5rem',width:'97%'}}/>
-            <Card.Body>
-                    <Card.Title>{product.title}</Card.Title>
-                    <Card.Text>{product.description}</Card.Text>
-            </Card.Body>
-                <Card.Footer>
-                    <Rating name="half-rating-read" defaultValue={2.5} precision={0.5} readOnly />
-                    <Card.Title>Price : {product.price}$</Card.Title>
-                {isAuthenticated()?
-                    <>
-                            {isFav?
-                                < MdOutlineFavorite className="icons" onClick={() => {
-                                    // console.log('FAVVVVVVVVVV');
-                                    // addToFavourite(product.id, token)
-                                    setIsFav(false)
-                                }} />
-                                :
-                                < MdOutlineFavoriteBorder className="icons" onClick={() => {
-                                    addToFavourite(product.id, token)
-                                    setIsFav(true)
-                                }} />
-                           }
-
-                        <BsCartPlus className="icons" onClick={()=>addToCart(product.id,token)}/>
-                    </>
-                    : <Button variant="primary" onClick={() => {
-                        getOneProducts(product.id);
-                        navigate('/viewdetails')
-                        }}>View Details</Button>}
-                        </Card.Footer>
-            </Card> */}
             <ul>
                 <li class="booking-card" style={{backgroundImage: `url(${product.image})`}}>
                     <div class="book-container">
@@ -73,8 +53,6 @@ export default function HomeCard({ product }) {
                                     <>
                                         {isFav ?
                                             < MdOutlineFavorite className="icons" onClick={() => {
-                                                // console.log('FAVVVVVVVVVV');
-                                                // addToFavourite(product.id, token)
                                                 setIsFav(false)
                                             }} />
                                             :

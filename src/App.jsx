@@ -26,6 +26,7 @@ import ContextWrapper  from './context/context';
 import AdminDashboard from './components/Admin/AdminDashboard'
 import SingleProductPage from './components/Product/SingleProductPage';
 import AllProduct from './components/Admin/AllProduct';
+import Analysis from './components/Admin/Analysis';
 
 function App() {
 
@@ -56,6 +57,7 @@ function App() {
                     <Route path='/admindashboard/users' element={<AdminDashboard/>}/>
                     <Route path='/hed' element={<Header/>}/>
                     <Route path='/admindashboard/products' element={<AllProduct/>}/>
+                    <Route path='/admindashboard/analysis' element={<Analysis/>}/>
 
 
                     

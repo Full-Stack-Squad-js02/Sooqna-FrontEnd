@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext, useEffect } from "react";
 import HomeCard from "./HomeCard";
 import SlideShow from "./SlideShow";
 import {Container, Row} from "react-bootstrap";
@@ -12,7 +12,9 @@ function Home() {
     // const { itemDetails } = states;
 
     // console.log('LOLOLOL', itemDetails)
-
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <SlideShow />
@@ -30,16 +32,6 @@ function Home() {
                 margin: '13px 3rem 13px 5rem'
             }}
             >
-                {/* <Row>
-            {searchData.length ? searchData.map((product, idx) => {
-                        return (
-                            <HomeCard product={product} key={idx} />
-                        )
-                    })
-              :null
-              // < h2 > No Matching Items</h2>
-              }
-                </Row> */}
                 <Row xs="4">
 
                     {products
