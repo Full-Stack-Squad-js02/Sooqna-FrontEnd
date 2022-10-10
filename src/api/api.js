@@ -1,3 +1,4 @@
+import { data } from 'autoprefixer';
 import axios from 'axios';
 
 // let url = 'http://localhost:3000'/
@@ -69,6 +70,7 @@ export const getProductsById = async (productsIds) => {
                 })
             };
 
+          
 
 /*-----------------------------------------------SEARCH-------------------------------------------- */
 

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Container from "react-bootstrap/Container";
 //  import Typical from 'react-typical'
-import styles from "./About.css"
+import  "./About.css"
 import {
   MDBTypography,
   MDBCol,
@@ -9,6 +9,7 @@ import {
 } from 'mdb-react-ui-kit';
 import { height, width } from '@mui/system';
 import AboutCards from './AboutCards';
+
 
 export default function App() {
   useEffect(() => {
@@ -57,26 +58,31 @@ export default function App() {
 }}
   /> 
   </MDBCol>
-          <MDBCol xl={5} style={{ marginLeft: '16rem' }}>
+          <MDBCol xl={5} style={{ marginLeft: '16rem',marginTop:'4rem' }}>
   <br/>
   <br/>
   <div className="font-loader"></div>
             <div class="cl3" >
-              <span ><p style={{ margin: '0 - 10rem' }}>Nowadays, if you’re selling or buying anything—whether that’s sneakers, salad dressing, or something in between you need to hop on board the ecommerce website train.</p>
-  <br/>
+              <span ><p style={{ margin: '0 - 10rem' }}><span class="firstcharacter">N</span>owadays, if you’re selling or buying anything—whether that’s sneakers, salad dressing, or something in between you need to hop on board the ecommerce website train.
+  <br/>this Multi-Store Website Offers The Chance for buyers to explore variety of products, and sellers to build their brands and connect with more customers.</p>
 
-                <p style={{ margin: '0 - 10rem' }}>This Multi-Store website offers the chance for buyers to explore variety of products, and sellers to build their brands and connect with more customers. </p>
+                
+                {/* <p style={{ margin: '0 - 10rem' }}> </p> */}
     </span>
   </div>
   </MDBCol>
   
   
   
-
+  
+         
               </MDBRow>
-              <h2>Who We Are ?</h2>
-              <p> We are Full Stack Squad group of 5 passionate software Developers established at Aug 2022 to initiate build websites to serve different goals </p>
+              <div style={{ margin:'7rem 0rem 0rem 0rem',fontFamily : 'Poppins',  fontSize: '30px' }}>
+                 <h2>Who We Are ?</h2>
+              <p>We are <b>Full Stack Squad</b> group of five passionate software Developers started on Aug 2022 to build websites to serve different goals </p>
               <p>Get to know us more below and please feel free to get in touch any time.</p>
+              </div>
+             
 
 <AboutCards/>
 
