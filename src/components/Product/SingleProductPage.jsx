@@ -6,6 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import { BsCartPlus } from "react-icons/bs";
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md";
 import { addToFavourite, addToCart } from '../../api/api';
+import {isAuthenticated} from '../../auth'
 
 export default function SingleProductPage() {
 
@@ -65,20 +66,18 @@ export default function SingleProductPage() {
                     <div style={{
                         margin: '1rem 0'
                     }}>
-
-                        {isFav ?
-                            < MdOutlineFavorite className="icons" onClick={() => {
-                                // console.log('FAVVVVVVVVVV');
-                                // addToFavourite(product.id, token)
-                                setIsFav(false)
-                            }} />
-                            :
-                            < MdOutlineFavoriteBorder className="icons" onClick={() => {
+                        < MdOutlineFavoriteBorder className="icons" onClick={() => {
+                            isAuthenticated()?
                                 addToFavourite(itemDetails.id, token)
-                                setIsFav(true)
+                                :
+                                navigate('/signin')
                             }} />
-                        }
-                        <BsCartPlus className="icons" onClick={() => addToCart(itemDetails.id, token)} />
+                        <BsCartPlus className="icons" onClick={() => {
+                            isAuthenticated()?
+                                addToCart(itemDetails.id, token)
+                                :
+                                navigate('/signin')
+                        }} />
                         <br/>
                         <br/>
                         <Button

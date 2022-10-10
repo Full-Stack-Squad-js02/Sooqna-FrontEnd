@@ -119,8 +119,8 @@ function SignIn() {
           </div>
           <br />
           <br />
-          <MDBInput wrapperClass="mb-4" placeholder="User Name" type="text" size="lg" value={username} onChange={handleChange("username")} />
-          <MDBInput wrapperClass="mb-4" placeholder="Password" type="password" size="lg" value={password} onChange={handleChange("password")} />
+          <MDBInput wrapperClass="mb-4" placeholder="User Name" type="text" size="lg" value={username} required onChange={handleChange("username")} />
+          <MDBInput wrapperClass="mb-4" placeholder="Password" type="password" size="lg" value={password} required onChange={handleChange("password")} />
           <button type="button" class="btn btn-primary" style={{ backgroundColor: "#003566" }} size="lg" variant="primary" onClick={handleSubmit}>
             Login</button>
       <br/>
