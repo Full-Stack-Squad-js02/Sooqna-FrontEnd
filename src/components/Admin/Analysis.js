@@ -1,22 +1,28 @@
-// /* eslint-disable react/jsx-no-undef */
-import React, { useEffect} from "react";
-// import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon, MDBBtn } from 'mdb-react-ui-kit';
-// import { FaHome } from "react-icons/fa";
-// import { MdEmail } from "react-icons/md";
-// import { BsTelephoneFill } from "react-icons/bs";
-
-// import AdminMenu from "../Admin/AdminMenu";
-
+import React, { useEffect, useState } from "react";
+import { getAllRecivedOrders } from '../../api/api'
+import { isAuthenticated } from "../../auth";
 import "./Analysis.css";
 
 export default function Analysis() {
-                  useEffect(() => {
-        window.scrollTo(0, 0)
+        const { token } = isAuthenticated();
+        const [total,setTotal]=useState(0)
+        const recivedOrders = async () => {
+                let recived = await getAllRecivedOrders(token);
+                if (recived.length) {
+        let totalRevenue= recived.reduce(function(sum, current) {
+          return sum + parseInt(current.total_price);
+        }, 0);
+        setTotal(totalRevenue)
+                }
+        }
+        useEffect(() => {
+                window.scrollTo(0, 0)
+                recivedOrders()
       }, []);
         return (
                 // <body >
                 <div class="main-container">
-                        <h1 style={{marginBottom:'5rem'}}>hhhhhhhhhh</h1>
+                        <h1 style={{marginBottom:'5rem'}}>Annual Sales</h1>
                         <div class="year-stats">
                                 <div class="month-group">
                                         <div class="bar h-100"></div>
@@ -71,7 +77,10 @@ export default function Analysis() {
                         <div class="stats-info">
                                 <div class="graph-container">
                                         <div class="percent">
-                                                <svg viewBox="0 0 36 36" class="circular-chart">
+                                                <svg viewBox="0 0 36 36" class="circular-chart" style={{
+                                                        width: '193%',
+                                                        height: '15rem',
+                                                margin: '-3rem 2rem'}}>
                                                         <path
                                                                 class="circle"
                                                                 stroke-dasharray="100, 100"
@@ -102,20 +111,20 @@ export default function Analysis() {
                                                         />
                                                 </svg>
                                         </div>
-                                        <p>Total: $2075</p>
+                                        <p>Total: {total}$</p>
                                 </div>
 
                                 <div class="info">
-                                        <p>
+                                        {/* <p>
                                                 Most expensive category <br />
                                                 <span>Restaurants & Dining</span>
                                         </p>
                                         <p>
                                                 Updated categories <span>2</span>
-                                        </p>
-                                        <p>
-                                                Bonus payments <span>$92</span>
-                                        </p>
+                                        </p> */}
+                                        <h3 style={{ marginLeft: '-35rem'}}>
+                                                Profitability Ratio : <span>10%</span>
+                                        </h3>
                                 </div>
                         </div>
                 </div>
