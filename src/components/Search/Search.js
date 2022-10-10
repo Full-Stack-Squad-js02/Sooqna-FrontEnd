@@ -8,7 +8,7 @@ function Search() {
 
     const states = useContext(Context);
     const {searchData } = states
-    console.log("outside",searchData)
+    // console.log("outside",searchData)
 
       return (
           <>

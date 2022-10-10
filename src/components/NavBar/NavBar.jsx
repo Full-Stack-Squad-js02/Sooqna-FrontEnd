@@ -24,9 +24,9 @@ function NavBar() {
     const navigate = useNavigate();
     useEffect(() => {
         let x = getAllCart(token);
-        console.log('x',x)
+        // console.log('x',x)
         setItems(x.length)
-        console.log('items', items);
+        // console.log('items', items);
         // const confirmedOrders = async () => {
         //     let x = await getAllCart(token);
         //     setOrdersToApprove(x)

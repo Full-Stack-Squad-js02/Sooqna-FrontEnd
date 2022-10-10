@@ -1,282 +1,177 @@
-/* FOOTER
+.joinChatContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
 
-footer {
-    background: #16222A;
-    background: -webkit-linear-gradient(59deg, #3A6073, #16222A);
-    background: linear-gradient(59deg, #3A6073, #16222A);
-    color: white;
-    margin-top:100px;
-  }
-  
-  footer a {
-    color: #fff;
-    font-size: 14px;
-    transition-duration: 0.2s;
-  }
-  
-  footer a:hover {
-    color: #FA944B;
-    text-decoration: none;
-  }
-  
-  .copy {
-    font-size: 12px;
-    padding: 10px;
-    border-top: 1px solid #FFFFFF;
-  }
-  
-  .footer-middle {
-    padding-top: 2em;
-    color: white;
-  }
-  
+.joinChatContainer h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.joinChatContainer input {
+  width: 210px;
+  height: 40px;
+  margin: 7px;
+  border: 2px solid #43a047;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+}
 
-  
-  ul.social-network {
-    list-style: none;
-    display: inline;
-    margin-left: 0 !important;
-    padding: 0;
-  }
-  
-  ul.social-network li {
-    display: inline;
-    margin: 0 5px;
-  }
-  
-  
+.joinChatContainer button {
+  width: 225px;
+  height: 50px;
+  margin: 7px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  background: #43a047;
+  color: #fff;
+  cursor: pointer;
+}
 
-  .social-network a.icoFacebook:hover {
-    background-color: #3B5998;
-  }
-  
-  .social-network a.icoLinkedin:hover {
-    background-color: #007bb7;
-  }
-  
-  .social-network a.icoFacebook:hover i,
-  .social-network a.icoLinkedin:hover i {
-    color: #fff;
-  }
-  
-  .social-network a.socialIcon:hover,
-  .socialHoverClass {
-    color: #44BCDD;
-  }
-  
-  .social-circle li a {
-    display: inline-block;
-    position: relative;
-    margin: 0 auto 0 auto;
-    -moz-border-radius: 50%;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    font-size: 15px;
-  }
-  
-  .social-circle li i {
-    margin: 0;
-    line-height: 30px;
-    text-align: center;
-  }
-  
-  .social-circle li a:hover i,
-  .triggeredHover {
-    -moz-transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -ms--transform: rotate(360deg);
-    transform: rotate(360deg);
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -o-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    transition: all 0.2s;
-  }
-  
-  .social-circle i {
-    color: #595959;
-    -webkit-transition: all 0.8s;
-    -moz-transition: all 0.8s;
-    -o-transition: all 0.8s;
-    -ms-transition: all 0.8s;
-    transition: all 0.8s;
-  }
-  
-  .social-network a {
-    background-color: #F9F9F9;
-  }
+.joinChatContainer button:hover {
+  background: #2e7d32;
+}
 
-  .list-unstyled{
+.chat-window {
+  width: 500px;
+  height: 500px;
+  padding-left: 30px;
+}
 
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    padding: 0;
-    flex-direction: column;
-    margin: 20px;
-    margin-bottom: 30px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-position: center center;
-    background-size: cover;
-    text-align: center;
-    color: #0a4870;
-    transition: 0.3s;
+.chat-window p {
+  margin: 0;
 }
-ul .booking-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(10, 72, 112, 0);
-    transition: 0.3s;
+.chat-window .chat-header {
+  height: 45px;
+  border-radius: 6px;
+  background: #263238;
+  position: relative;
+  cursor: pointer;
 }
-ul .booking-card .book-container {
-    height: 200px;
+.chat-window .chat-header p {
+  display: block;
+  padding: 0 1em 0 2em;
+  color: #fff;
+  font-weight: 700;
+  line-height: 45px;
 }
-ul .booking-card .book-container .content {
-    position: relative;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    transform: translateY(-200px);
-    transition: 0.3s;
+
+.chat-window .chat-body {
+  height: calc(450px - (45px + 70px));
+  border: 1px solid #263238;
+  background: #fff;
+
+  position: relative;
 }
-ul .booking-card .book-container .content .btn {
-    border: 3px solid white;
-    padding: 10px 15px;
-    background: none;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 1.3em;
-    color: white;
-    cursor: pointer;
-    transition: 0.3s;
+.chat-window .chat-body .message-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
-ul .booking-card .book-container .content .btn:hover {
-    background: white;
-    border: 0px solid white;
-    color: #0a4870;
+
+.chat-window .chat-body .message-container::-webkit-scrollbar {
+  display: none;
 }
-ul .booking-card .informations-container {
-    flex: 1 0 auto;
-    padding: 20px;
-    background: #f0f0f0;
-    transform: translateY(206px);
-    transition: 0.3s;
+.chat-window .chat-body .message {
+  height: auto;
+  padding: 10px;
+  display: flex;
 }
-ul .booking-card .informations-container .title {
-    position: relative;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 1.4em;
-    color: darkblue;
+
+.chat-window .chat-body .message .message-content {
+  width: auto;
+  height: auto;
+  min-height: 40px;
+  max-width: 120px;
+  background-color: #43a047;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
-ul .booking-card .informations-container .title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    width: 50px;
-    margin: auto;
-    background: #0a4870;
+
+#you {
+  justify-content: flex-start;
 }
-ul .booking-card .informations-container .price {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+
+#you .message-content {
+  justify-content: flex-start;
 }
-ul .booking-card .informations-container .price .icon {
-    margin-right: 10px;
+
+#you .message-meta {
+  justify-content: flex-start;
+  margin-left: 5px;
 }
-ul .booking-card .informations-container .more-information {
-    opacity: 0;
-    transition: 0.3s;
+
+#other {
+  justify-content: flex-end;
 }
-ul .booking-card .informations-container .more-information .info-and-date-container {
-    display: flex;
-    justify-content: center;
+
+#other .message-content {
+  justify-content: flex-end;
+  background-color: cornflowerblue;
 }
-ul .booking-card .informations-container .more-information .info-and-date-container .box {
-    flex: 1 0;
-    padding: 15px;
-    margin-top: 20px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    background: white;
-    font-weight: bold;
-    font-size: 0.9em;
+
+#other .message-meta {
+  justify-content: flex-end;
+  margin-right: 5px;
 }
-ul .booking-card .informations-container .more-information .info-and-date-container .box .icon {
-    margin-bottom: 5px;
+
+.message-meta #author {
+  margin-left: 10px;
+  font-weight: bold;
 }
-ul .booking-card .informations-container .more-information .info-and-date-container .box.info {
-    color: #ec992c;
-    margin-right: 10px;
+
+.chat-window .chat-body .message .message-meta {
+  display: flex;
+  font-size: 12px;
 }
-ul .booking-card .informations-container .more-information .disclaimer {
-    margin-top: 20px;
-    font-size: 0.8em;
-    color: #7d7d7d;
+
+.chat-window .chat-footer {
+  height: 40px;
+  border: 1px solid #263238;
+  border-top: none;
+  display: flex;
 }
-ul .booking-card:hover::before {
-    background: rgba(10, 72, 112, 0.6);
+
+.chat-window .chat-footer input {
+  height: 100%;
+  flex: 85%;
+  border: 0;
+  padding: 0 0.7em;
+  font-size: 1em;
+  border-right: 1px dotted #607d8b;
+
+  outline: none;
+  font-family: "Open Sans", sans-serif;
 }
-ul .booking-card:hover .book-container .content {
-    opacity: 1;
-    transform: translateY(0px);
+
+.chat-window .chat-footer button {
+  border: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: 15%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  font-size: 25px;
+  color: lightgray;
 }
-ul .booking-card:hover .informations-container {
-    transform: translateY(0px);
+
+.chat-window .chat-footer button:hover {
+  color: #43a047;
 }
-ul .booking-card:hover .informations-container .more-information {
-    opacity: 1;
+.hide {
+  opacity: 0 !important;
 }
-@media (max-width: 768px) {
-    ul .booking-card::before {
-        background: rgba(10, 72, 112, 0.6);
-   }
-    ul .booking-card .book-container .content {
-        opacity: 1;
-        transform: translateY(0px);
-   }
-    ul .booking-card .informations-container {
-        transform: translateY(0px);
-   }
-    ul .booking-card .informations-container .more-information {
-        opacity: 1;
-   }
-}
-.credits {
-    display: table;
-    background: #0a4870;
-    color: white;
-    line-height: 25px;
-    margin: 10px auto;
-    padding: 20px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    text-align: center;
-}
-.credits a {
-    color: #e3ebf1;
-}
-h1 {
-    margin: 10px 20px;
-} */
