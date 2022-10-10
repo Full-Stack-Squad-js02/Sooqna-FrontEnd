@@ -49,9 +49,11 @@ export default function ContextWrapper(props) {
         filteredBy: 'name'
     });
     const [searchData, setSearchData] = useState([]);
+
     const [order, setOrder] = useState({
         payment_method: "cash on delivery",
-        adress: isAuthenticated()? user.adress : ''
+        adress: isAuthenticated()? user.adress : '',
+        total_price:''
     })
     const [orderToSubmit, setOrderToSubmit] = useState([]);
     const [orderCollection, setOrderCollection] = useState({
@@ -67,7 +69,6 @@ export default function ContextWrapper(props) {
         items: []
     });
     const [itemDetails, setItemDetails] = useState({});
-
 
     const confirmedOrders = async () => {
         let x = await getAllOrdersToApprove(token);
@@ -99,7 +100,14 @@ export default function ContextWrapper(props) {
                 }
             });
             let productsInCart = await getProductsById(Ids);
-            setCartProducts(productsInCart);
+        setCartProducts(productsInCart);
+            let totalPrice =cartProducts.reduce((acc, cv) => {
+            return acc + parseInt(cv.price)
+        }, 0)
+            setOrder({
+            ...order,
+            total_price:totalPrice
+        });
         // }
     };
 
@@ -169,9 +177,9 @@ export default function ContextWrapper(props) {
         allPostedProducts();
     }, [])
 
-    // useEffect(() => {
+    useEffect(() => {
         confirmedOrders()
-    // }, [ordersToApprove])
+    }, [])
 
 
 

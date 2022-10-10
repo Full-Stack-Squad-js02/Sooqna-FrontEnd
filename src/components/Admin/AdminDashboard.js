@@ -25,10 +25,9 @@ export default function AdminDashboard () {
       };
       useEffect(() => {
         loadUsers();
-
+        window.scrollTo(0, 0)
       }, []);
     
-
     return(
 <>
 <Container fluid='sm' style={{ margin: '137px 13px' }} >
