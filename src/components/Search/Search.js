@@ -8,10 +8,8 @@ function Search() {
 
     const states = useContext(Context);
     const {searchData } = states
-    console.log("outside",searchData)
-useEffect(() => {
-window.scrollTo(0, 0)
-}, [])
+    // console.log("outside",searchData)
+
       return (
           <>
           

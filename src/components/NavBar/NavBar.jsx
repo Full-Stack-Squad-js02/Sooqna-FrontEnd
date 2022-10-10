@@ -24,8 +24,15 @@ function NavBar() {
     const navigate = useNavigate();
     
     useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
+        let x = getAllCart(token);
+        // console.log('x',x)
+        setItems(x.length)
+        // console.log('items', items);
+        // const confirmedOrders = async () => {
+        //     let x = await getAllCart(token);
+        //     setOrdersToApprove(x)
+        // }
+    })
     return (
         <Navbar expand="sm" style={{
             height: '60px',  background: "linear-gradient(59deg, #3A6073, #16222A)", position: 'fixed',

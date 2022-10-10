@@ -1,178 +1,177 @@
-/* 
-
-.add-service-pop-form {
-  padding: 15px 32px;
-  border-radius: 5px;
+/* .joinChatContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-.btn-submit {
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
+.joinChatContainer h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.joinChatContainer input {
+  width: 210px;
+  height: 40px;
+  margin: 7px;
+  border: 2px solid #43a047;
+  border-radius: 5px;
+  padding: 5px;
   font-size: 16px;
-  background-color: #fecd1c;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-
-  column-count: 2;
-  column-gap: 30px;
+.joinChatContainer button {
+  width: 225px;
+  height: 50px;
+  margin: 7px;
+  border: none;
   border-radius: 5px;
-}
-
-.wrapper {
-  max-width: 500px;
-  width: 100%;
-  background: #fff;
-  margin: 20px auto;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
-  padding: 30px;
-}
-
-.wrapper .title {
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 25px;
-  color: #fecd1c;
-  text-transform: uppercase;
-  text-align: center;
-}
-
-.wrapper .form {
-  width: 100%;
-}
-
-.wrapper .form .inputfield {
-  margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-}
-
-.wrapper .form .inputfield label {
-  width: 200px;
-  color: #757575;
-  margin-right: 10px;
-  font-size: 14px;
-}
-
-.wrapper .form .inputfield .input,
-.wrapper .form .inputfield .textarea {
-  width: 100%;
-  outline: none;
-  border: 1px solid #d5dbd9;
-  font-size: 15px;
-  padding: 8px 10px;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-.wrapper .form .inputfield .textarea {
-  width: 100%;
-  height: 125px;
-  resize: none;
-}
-
-.wrapper .form .inputfield .custom_select {
-  position: relative;
-  width: 100%;
-  height: 37px;
-}
-
-.wrapper .form .inputfield .custom_select:before {
-  content: "";
-  position: absolute;
-  top: 12px;
-  right: 10px;
-  border: 8px solid;
-  border-color: #d5dbd9 transparent transparent transparent;
-  pointer-events: none;
-}
-
-.wrapper .form .inputfield .custom_select select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  width: 100%;
-  height: 100%;
-  border: 0px;
-  padding: 8px 10px;
-  font-size: 15px;
-  border: 1px solid #d5dbd9;
-  border-radius: 3px;
-}
-
-.wrapper .form .inputfield .input:focus,
-.wrapper .form .inputfield .textarea:focus,
-.wrapper .form .inputfield .custom_select select:focus {
-  border: 1px solid #fecd1c;
-}
-
-.wrapper .form .inputfield p {
-  font-size: 14px;
-  color: #757575;
-}
-.wrapper .form .inputfield .check {
-  width: 15px;
-  height: 15px;
-  position: relative;
-  display: block;
-  cursor: pointer;
-}
-.wrapper .form .inputfield .check input[type="checkbox"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-.wrapper .form .inputfield .check .checkmark {
-  width: 15px;
-  height: 15px;
-  border: 1px solid #fecd1c;
-  display: block;
-  position: relative;
-}
-.wrapper .form .inputfield .check .checkmark:before {
-  content: "";
-  position: absolute;
-  top: 1px;
-  left: 2px;
-  width: 5px;
-  height: 2px;
-  border: 2px solid;
-  border-color: transparent transparent #fff #fff;
-  transform: rotate(-45deg);
-  display: none;
-}
-.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark {
-  background: #fecd1c;
-}
-
-.wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before {
-  display: block;
-}
-
-.wrapper .form .inputfield .btn {
-  width: 100%;
-  padding: 8px 10px;
-  font-size: 15px;
-  border: 0px;
-  background: #fecd1c;
+  padding: 5px;
+  font-size: 16px;
+  background: #43a047;
   color: #fff;
   cursor: pointer;
-  border-radius: 3px;
+}
+
+.joinChatContainer button:hover {
+  background: #2e7d32;
+}
+
+.chat-window {
+  width: 500px;
+  height: 500px;
+  padding-left: 30px;
+}
+
+.chat-window p {
+  margin: 0;
+}
+.chat-window .chat-header {
+  height: 45px;
+  border-radius: 6px;
+  background: #263238;
+  position: relative;
+  cursor: pointer;
+}
+.chat-window .chat-header p {
+  display: block;
+  padding: 0 1em 0 2em;
+  color: #fff;
+  font-weight: 700;
+  line-height: 45px;
+}
+
+.chat-window .chat-body {
+  height: calc(450px - (45px + 70px));
+  border: 1px solid #263238;
+  background: #fff;
+
+  position: relative;
+}
+.chat-window .chat-body .message-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.chat-window .chat-body .message-container::-webkit-scrollbar {
+  display: none;
+}
+.chat-window .chat-body .message {
+  height: auto;
+  padding: 10px;
+  display: flex;
+}
+
+.chat-window .chat-body .message .message-content {
+  width: auto;
+  height: auto;
+  min-height: 40px;
+  max-width: 120px;
+  background-color: #43a047;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  margin-left: 5px;
+  padding-right: 5px;
+  padding-left: 5px;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+#you {
+  justify-content: flex-start;
+}
+
+#you .message-content {
+  justify-content: flex-start;
+}
+
+#you .message-meta {
+  justify-content: flex-start;
+  margin-left: 5px;
+}
+
+#other {
+  justify-content: flex-end;
+}
+
+#other .message-content {
+  justify-content: flex-end;
+  background-color: cornflowerblue;
+}
+
+#other .message-meta {
+  justify-content: flex-end;
+  margin-right: 5px;
+}
+
+.message-meta #author {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.chat-window .chat-body .message .message-meta {
+  display: flex;
+  font-size: 12px;
+}
+
+.chat-window .chat-footer {
+  height: 40px;
+  border: 1px solid #263238;
+  border-top: none;
+  display: flex;
+}
+
+.chat-window .chat-footer input {
+  height: 100%;
+  flex: 85%;
+  border: 0;
+  padding: 0 0.7em;
+  font-size: 1em;
+  border-right: 1px dotted #607d8b;
+
   outline: none;
+  font-family: "Open Sans", sans-serif;
 }
 
-.wrapper .form .inputfield .btn:hover {
-  background: #fecd1c;
+.chat-window .chat-footer button {
+  border: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  flex: 15%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  font-size: 25px;
+  color: lightgray;
 }
 
-.wrapper .form .inputfield:last-child {
-  margin-bottom: 0;
+.chat-window .chat-footer button:hover {
+  color: #43a047;
+}
+.hide {
+  opacity: 0 !important;
 } */

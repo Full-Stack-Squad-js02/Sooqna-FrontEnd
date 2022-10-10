@@ -57,35 +57,39 @@ function SignIn() {
     event.preventDefault();
     signIn(data)
     .then((data) => {
-      if (data.error) {
-
-      } else {
-        setData({
-          ...data,
-          // success: true
-        });
-        // Toast.fire({
-        //   icon: 'success',
-        //   title: 'Signed in successfully'
-        // })
-        navigate("/");
-        authenticate(data);
-        // console.log(data);
-        event.target.reset();
-      }
-    }).catch((error)=>{
-      // console.log('zzzzzz');
-      // Toast.fire({
-      //   icon: "error",
-      //   title: "Username or Password is invailed",
-      // });
-
-
-      console.log("ERROR");
       setData({
         ...data,
-        error: error,
-        // success: false
+        // success: true
+      });
+      Toast.fire({
+        icon: 'success',
+        title: 'Signed in successfully'
+      })
+      navigate("/");
+      authenticate(data);
+      // console.log(data);
+      event.target.reset();
+
+      // if (data.error) {
+       
+
+      // } else {
+        
+      // }
+    }).catch((error)=>{
+      // console.log('zzzzzz');
+    
+
+      console.log("ERROR");
+      // setData({
+      //   ...data,
+      //   error: error,
+        
+      //   // success: false
+      // });
+      Toast.fire({
+        icon: "error",
+        title: "Username or Password is invailed",
       });
     })
   };

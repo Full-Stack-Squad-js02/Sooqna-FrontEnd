@@ -32,7 +32,7 @@ function AboutCards() {
         name: 'Ahmad Amaireh',
         nickName: 'Full Stack Developer',
         breif: 'Senior Quality Assurance, and he have good knowledg in those language ~Java Scribt , HTML , CSS~.',
-        image: require('./AboutAssets/Ahmad.png'),
+        image: require('./AboutAssets/Ahmad.jpg'),
         github: 'https://github.com/AhmadAmaireh?tab=repositories',
         linkekIn: 'https://www.linkedin.com/in/ahmad-al-amaireh-95466b74/'
     },
