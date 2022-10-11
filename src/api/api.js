@@ -75,6 +75,7 @@ export const getProductsById = async (productsIds) => {
 /*-----------------------------------------------SEARCH-------------------------------------------- */
 
 export const searchBy = async ({ input, filteredBy }) => {
+    console.log(input, filteredBy)
     if (input && filteredBy) {
         const result = await axios.get(`${url}/search${filteredBy}?${filteredBy}=${input}`, {});
         if (result.data) {

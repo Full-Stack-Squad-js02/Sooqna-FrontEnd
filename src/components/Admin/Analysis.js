@@ -16,56 +16,57 @@ export default function Analysis() {
         setTotal(totalRevenue)
                 }
         }
-        const profit = ((total * 0.1) / total) * 1000
+        const profit = 100
         console.log(profit);
+        const shownProfit = Math.floor(total * 0.1)
         const months = [
                 {
                         name:'Jan',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Feb',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Mar',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Apr',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'May',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Jun',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Jul',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Aug',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Sep',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Oct',
-                        profit:profit
+                        profit: profit,
                 },
                 {
                         name:'Nov',
-                        profit:10000
+                        profit: 10000,
                 },
                 {
                         name:'Dec',
-                        profit:0
+                        profit: 0,
                 },
         ]
 
@@ -186,6 +187,9 @@ export default function Analysis() {
                                         </p> */}
                                         <h3 style={{ marginLeft: '-35rem'}}>
                                                 Profitability Ratio : <span>10%</span>
+                                        </h3>
+                                        <h3 style={{ marginLeft: '-35rem'}}>
+                                                Total Profit : <span>{shownProfit} $</span>
                                         </h3>
                                 </div>
                         </div>
