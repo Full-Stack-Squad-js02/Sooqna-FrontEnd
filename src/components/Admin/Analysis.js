@@ -16,56 +16,57 @@ export default function Analysis() {
         setTotal(totalRevenue)
                 }
         }
-        const profit = ((total * 0.1) / total) * 1000
+        const profit = 100
         console.log(profit);
+        const shownProfit = Math.floor(total * 0.1)
         const months = [
                 {
                         name:'Jan',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Feb',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Mar',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Apr',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'May',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Jun',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Jul',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Aug',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Sep',
-                        profit:5
+                        profit: 5,
                 },
                 {
                         name:'Oct',
-                        profit:profit
+                        profit: profit,
                 },
                 {
                         name:'Nov',
-                        profit:10000
+                        profit: 10000,
                 },
                 {
                         name:'Dec',
-                        profit:0
+                        profit: 0,
                 },
         ]
 
@@ -75,14 +76,14 @@ export default function Analysis() {
       }, []);
         return (
                 // <body >
-                <div class="main-container">
+                <div className="main-container">
                         <h1 style={{marginBottom:'5rem'}}>Annual Sales</h1>
-                        <div class="year-stats">
+                        <div className="year-stats">
                                 {months.map((m) => {
                                         return (
-                                <div class="month-group">
-                                        <div class={`bar h-${m.profit}`}></div>
-                                        <p class="month">{m.name}</p>
+                                <div className="month-group">
+                                        <div className={`bar h-${m.profit}`}></div>
+                                        <p className="month">{m.name}</p>
                                 </div>
                                         )
                                 })}
@@ -136,36 +137,36 @@ export default function Analysis() {
                                 </div> */}
                         </div>
 
-                        <div class="stats-info">
-                                <div class="graph-container">
-                                        <div class="percent">
-                                                <svg viewBox="0 0 36 36" class="circular-chart" style={{
+                        <div className="stats-info">
+                                <div className="graph-container">
+                                        <div className="percent">
+                                                <svg viewBox="0 0 36 36" className="circular-chart" style={{
                                                         width: '193%',
                                                         height: '15rem',
                                                 margin: '-3rem 2rem'}}>
                                                         <path
-                                                                class="circle"
+                                                                className="circle"
                                                                 stroke-dasharray="100, 100"
                                                                 d="M18 2.0845
       a 15.9155 15.9155 0 0 1 0 31.831
       a 15.9155 15.9155 0 0 1 0 -31.831"
                                                         />
                                                         <path
-                                                                class="circle"
+                                                                className="circle"
                                                                 stroke-dasharray="85, 100"
                                                                 d="M18 2.0845
       a 15.9155 15.9155 0 0 1 0 31.831
       a 15.9155 15.9155 0 0 1 0 -31.831"
                                                         />
                                                         <path
-                                                                class="circle"
+                                                                className="circle"
                                                                 stroke-dasharray="60, 100"
                                                                 d="M18 2.0845
       a 15.9155 15.9155 0 0 1 0 31.831
       a 15.9155 15.9155 0 0 1 0 -31.831"
                                                         />
                                                         <path
-                                                                class="circle"
+                                                                className="circle"
                                                                 stroke-dasharray="30, 100"
                                                                 d="M18 2.0845
       a 15.9155 15.9155 0 0 1 0 31.831
@@ -176,7 +177,7 @@ export default function Analysis() {
                                         <p>Total: {total}$</p>
                                 </div>
 
-                                <div class="info">
+                                <div className="info">
                                         {/* <p>
                                                 Most expensive category <br />
                                                 <span>Restaurants & Dining</span>
@@ -186,6 +187,9 @@ export default function Analysis() {
                                         </p> */}
                                         <h3 style={{ marginLeft: '-35rem'}}>
                                                 Profitability Ratio : <span>10%</span>
+                                        </h3>
+                                        <h3 style={{ marginLeft: '-35rem'}}>
+                                                Total Profit : <span>{shownProfit} $</span>
                                         </h3>
                                 </div>
                         </div>

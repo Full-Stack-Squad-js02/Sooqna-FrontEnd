@@ -20,7 +20,7 @@ export default function Wishlist() {
         window.scrollTo(0, 0)
     }, [])
     return (
-        <section className="h-100" style={{ backgroundColor: "#eee", margin: '100px 13rem' }}>
+        <section className="h-100" style={{ backgroundColor: "#eee", margin: '100px 13rem', paddingBottom: '18rem' }}>
             <MDBContainer className="py-5 h-100">
                 <MDBRow className="justify-content-center align-items-center h-100">
                     <MDBCol md="10" style={{ marginRight:'9rem'}}>

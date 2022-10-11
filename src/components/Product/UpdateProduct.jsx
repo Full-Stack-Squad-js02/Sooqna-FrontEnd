@@ -78,7 +78,7 @@ export default function UpdateProduct({product}) {
         <div style={{backgroundColor:'darkgoldenrod'}}
           onClick={handleShow}
           type="button"
-          class="btn btn-primary"
+          className="btn btn-primary"
           data-toggle="modal"
           data-target="#exampleModal"
         >

@@ -14,17 +14,20 @@ window.scrollTo(0, 0)
     return (
         <>
             <h1 style={{
-                marginTop: "10rem"
+                marginTop: "5rem",
+                paddingBottom: '20rem'
             }}>My Product</h1>
             <Container fluid='sm' style={{
                 marginLeftt: '2rem'
             }}>
                 <Row xs="4">
-                    {myItems
+                    {myItems.legth
                         ? myItems.map((item, idx) => {
                             return (<MyProductCard product={item} key={idx}/>)
                         })
-                        : null}
+                        : 
+                        < h2 style={{margin: '-10rem 0 0 31rem'}} > No Items Yet</h2>
+                        }
                 </Row>
             </Container>
         </>
