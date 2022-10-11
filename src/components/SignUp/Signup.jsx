@@ -91,7 +91,7 @@ function Signup() {
             <MDBCheckbox name="flexCheck" value="" id="flexCheckDefault" label="Subscribe to our newsletter" />
           </div> */}
 
-<button type="button" class="btn btn-primary" style={{ backgroundColor: "#003566" , color: 'white' }} className="w-100 mb-4" size="md" onClick={handleSubmit}>
+          <button type="button" className="btn btn-primary" style={{ backgroundColor: "#003566" , color: 'white' }} className="w-100 mb-4" size="md" onClick={handleSubmit}>
             sign up
           </button>
         </MDBCardBody>

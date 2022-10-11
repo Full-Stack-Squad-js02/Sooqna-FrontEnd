@@ -17,17 +17,17 @@ import {
 import {
     isAuthenticated
 } from '../auth';
-import {
-    v4 as uuid
-} from 'uuid';
+// import {
+//     v4 as uuid
+// } from 'uuid';
 
 export const Context = React.createContext();
 
 export default function ContextWrapper(props) {
 
 
-    const unique_id = uuid();
-    const small_id = unique_id.slice(0, 8)
+    // const unique_id = uuid();
+    // const small_id = unique_id.slice(0, 8)
 
     const {
         user,
@@ -76,8 +76,10 @@ export default function ContextWrapper(props) {
     }
 
     const allPostedProducts = async () => {
-        let postedProducts = await getAllProductPostedByUser(user.id, token);
-        setMyItems(postedProducts);
+        if (isAuthenticated()) {
+            let postedProducts = await getAllProductPostedByUser(user.id, token);
+            setMyItems(postedProducts);
+        }
     }
 
     const loadItems = async () => {

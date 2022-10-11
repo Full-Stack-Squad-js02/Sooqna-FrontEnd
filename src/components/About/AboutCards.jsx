@@ -50,19 +50,19 @@ function AboutCards() {
         <Container fluid='sm' style={{ margin: '13px 3rem 13px 5rem', display:'grid', gridTemplateColumns:'26rem 26rem 26rem' }} >
                 {members.map((member) => {
                     return(
-                    <figure class="image-block">
+                    <figure className="image-block">
                         <img src={member.image} alt="" />
                         <figcaption>
                             <h3 id='name'>
                                 {member.name}
                             </h3>
-                                <h5 class="title">{member.nickName}</h5>
+                                <h5 className="title">{member.nickName}</h5>
                             <br/>
                             <p id='breif'>{member.breif}</p>
                             <br/>
-                            <ul class="social-icons">
-                                    <a href={member.linkekIn} target="_blank"><i class="fa fa-linkedin" id='linkedin' ></i></a>
-                                    <a href={member.github} target="_blank"><i class="fa fa-github" id='github' ></i></a>
+                            <ul className="social-icons">
+                                    <a href={member.linkekIn} target="_blank"><i className="fa fa-linkedin" id='linkedin' ></i></a>
+                                    <a href={member.github} target="_blank"><i className="fa fa-github" id='github' ></i></a>
                             </ul>
                         </figcaption>
                     </figure>

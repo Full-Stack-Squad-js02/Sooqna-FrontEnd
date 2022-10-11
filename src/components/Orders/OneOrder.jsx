@@ -46,7 +46,7 @@ export default function OneOrder() {
                    }} href='#' onClick={() => { deleteOneOrder(o.id, token) }}>
                      cancel
                    </button>
-                   <button type="button" class="btn btn-primary" style={{
+                 <button type="button" className="btn btn-primary" style={{
                      backgroundColor: 'rgb(59, 89, 152)',
                      fontWeight: '600', borderRadius: '15px'
                    }} href='#' onClick={() => { confirmOrder(token) }}>

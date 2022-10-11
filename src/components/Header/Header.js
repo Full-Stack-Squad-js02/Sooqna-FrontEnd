@@ -8,10 +8,10 @@ export default function Hed() {
         return (
             <>
 <h1 id='h'>Transparent CSS Only Bar Graph</h1>
-  <div class="chart-container">
-    <div class="base"></div>
+  <div className="chart-container">
+    <div className="base"></div>
 
-    <ul class="meter">
+    <ul className="meter">
       <li><div>$100,000</div></li>
       <li><div>$80,000</div></li>
       <li><div>$60,000</div></li>
@@ -73,14 +73,14 @@ export default function Hed() {
     </table>
 
  
-    <div class="bar one"></div>   
-    <div class="bar two"></div>   
-    <div class="bar three"></div>
-    <div class="bar four"></div>   
-    <div class="bar five"></div>   
-    <div class="bar six"></div>
-    <div class="bar seven"></div>   
-    <div class="bar eight"></div> 
+    <div className="bar one"></div>   
+    <div className="bar two"></div>   
+    <div className="bar three"></div>
+    <div className="bar four"></div>   
+    <div className="bar five"></div>   
+    <div className="bar six"></div>
+    <div className="bar seven"></div>   
+    <div className="bar eight"></div> 
                         </div>
                                     </>
     );
